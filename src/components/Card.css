@@ -1,0 +1,13 @@
+@media screen and (max-width: 600px) {
+
+.aboutus{
+flex-direction: column;
+display: flex;
+flex-wrap: wrap;
+}
+.aboutus .card{
+    width:100%; 
+
+}
+}
+
