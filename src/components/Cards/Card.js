@@ -4,12 +4,15 @@ import { Link, Router } from 'react-router-dom'
 // import {Route} from 'react-router-dom'
 import { BrowserRouter, Route } from "react-router-dom";
 // import Data from '../dummydata';
-import './Card.css'
+import '../Cards/Card.css'
 
 function Cards() {
 
     return (
-            <div style={{ display: "flex", justifyContent: "space-around", marginTop: "10%" }} className="aboutus">
+                // <div style={{ }} className="aboutus">
+
+            <div className="aboutus">
+                
                 <Card className="card">
                     <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} />
                     <Card.Body>
@@ -22,7 +25,7 @@ function Cards() {
                                 <li>Donation of usable items</li>
                             </ol>
                         </Card.Text>
-                        <Link to='/Data1' className="Infocards" >
+                        <Link to='/Services' className="Infocards" >
                             <Button variant="primary">Read More</Button>
                                 
                         </Link>
@@ -36,7 +39,7 @@ function Cards() {
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
                         </Card.Text>
-                        <Link to='/Data2' className="Infocards">
+                        <Link to='/Goals' className="Infocards">
                             <Button variant="primary">Read More</Button>
                         </Link>
                     </Card.Body>
@@ -49,7 +52,7 @@ function Cards() {
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
                         </Card.Text>
-                        <Link to='/Data3' className="Infocards">
+                        <Link to='Achievements' className="Infocards">
                             <Button variant="primary">Read More</Button>
                         </Link>
                     </Card.Body>
@@ -62,7 +65,7 @@ function Cards() {
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
                         </Card.Text>
-                        <Link to='/Data4' className="Infocards">
+                        <Link to='/OurTeam' className="Infocards">
                             <Button variant="primary">Read More</Button>
                         </Link>
                     </Card.Body>

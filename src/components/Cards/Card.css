@@ -1,16 +1,23 @@
-.card{
-    width: 18rem;
-    }
-/* .aboutus .card:active{
-    display: none;
-} */
+
+.aboutus{
+    display:flex;
+     margin-top :5%;
+     margin-right:5%;
+     justify-content: space-around;
+}
+
+.aboutus .card{
+    width:1000px;
+}
 @media screen and (max-width: 650px) {
 
 .aboutus{
 flex-direction: column;
 align-items: center;
+justify-content: space-around;
+
 }
-.card{
+.aboutus .card{
     width:100%;
     height: 100vh; 
 

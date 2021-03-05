@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
+import {Dropdown,DropdownButton} from 'react-bootstrap'
 import './Navbar.css';
 import '../Button/Button.css'
 
@@ -30,12 +31,12 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            <img src={`${process.env.PUBLIC_URL}/assets/images/wm-logo.png`} style={{height:"60px"}}></img>
+            <img src={`${process.env.PUBLIC_URL}/assets/images/wm-logo.png`} style={{ height: "60px" }}></img>
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'} style={{marginRight:"450px"}}>
+          <ul className={click ? 'nav-menu active' : 'nav-menu'} style={{ marginRight: "450px" }}>
             <li className='nav-item'>
               <Link to='/Gallery' className='nav-links' onClick={closeMobileMenu}>
                 Gallery
@@ -59,7 +60,6 @@ function Navbar() {
                 Contact Us
               </Link>
             </li>
-
             <li>
               <Link
                 to='/SignUp'
@@ -79,9 +79,14 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          <div style={{marginRight:"10px"}}>{button && <Button buttonStyle='btn--outline'>
-            <Link to='/SignUP'>SIGN UP</Link></Button>}</div>
-          <div>{button && <Button buttonStyle='btn--outline'><Link to='/LogIn'>LOG IN</Link></Button>}</div>
+          <div style={{ marginRight: "10px" }}>{button && <DropdownButton buttonStyle='btn--outline' id="dropdown-basic-button" title="SIGN UP">
+              <Dropdown.Item ><Link to='/UserSignUp'>User SignUp </Link></Dropdown.Item>
+              <Dropdown.Item ><Link to='/RepresentativeSignUp'>Pepresentative Sign up</Link></Dropdown.Item>
+            </DropdownButton>}</div>
+            <div>{ button && <DropdownButton  buttonStyle='btn--outline' id="dropdown-basic-button" title="LOG IN">
+              <Dropdown.Item ><Link to='/UserLogIn'>User Login</Link></Dropdown.Item>
+              <Dropdown.Item ><Link to='/RepresentativeLogIn'>Representative Login</Link></Dropdown.Item>
+            </DropdownButton>}</div>
         </div>
       </nav>
     </>
