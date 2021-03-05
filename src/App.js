@@ -1,13 +1,15 @@
+import React from 'react';
+
 import UserRegister from "./Components/Registration/UserRegister"
 import RepresenativeRegister from "./Components/Registration/RepresenativeRegister"
 
-const App =  () => {
+const App = () => {
   return (
     <>
-      <UserRegister/>
-      <RepresenativeRegister/>
+      <UserRegister />
+      <RepresenativeRegister />
     </>
-    );
+  );
 }
 
 export default App;

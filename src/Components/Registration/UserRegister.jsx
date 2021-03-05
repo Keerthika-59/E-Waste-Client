@@ -109,8 +109,7 @@ const UserRegister = () => {
                             required={true}
                         />
                     </div>
-
-
+                    
                     <div className="form-group">
                         <FormLabel>Confirm Password <em style={{ color: 'red' }}> * </em> </FormLabel>
                         <input onChange={(e) => { setCPassword(e.target.value) }}
