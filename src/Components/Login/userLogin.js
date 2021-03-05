@@ -3,9 +3,21 @@ import React, { useState } from 'react'
 import { Form, Button, FormLabel } from 'react-bootstrap';
 
 export const UserForm = () => {
-    const setPassword = useState('')
+
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+
+    const loginSubmitHandler = (e) => {
+        e.preventDefault();
+
+        console.log({email : email, password :  password});
+
+    }
+
+
     return (
-        <Form className="w-50 mx-auto">
+
+        <Form className="w-50 text-center mx-auto">
             <h3 className="text-center">User login</h3>
 
             <div className="form-group">
@@ -13,6 +25,7 @@ export const UserForm = () => {
 
                 <input type="email"
                     className="form-control"
+                    onChange = { (e) => setEmail(e.target.value) }
                     placeholder="Enter email"
                     required={true}
                 />
@@ -23,14 +36,14 @@ export const UserForm = () => {
                 <FormLabel>Password <em style={{ color: 'red' }}> * </em> </FormLabel>
                 <input
                     type="password"
-                    onChange={(e) => { setPassword(e.target.value) }}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="form-control"
                     placeholder="Enter password"
                     required={true}
                 />
             </div>
 
-            <Button disabled={false} type="submit"
+             <Button onClick = {e => loginSubmitHandler(e)} type="submit"
                 className=" my-4 btn-primary btn-lg btn-block"
             > Submit
             </Button>
