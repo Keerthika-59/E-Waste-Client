@@ -80,12 +80,12 @@ function Navbar() {
             </li>
           </ul>
           <div style={{ marginRight: "10px" }}>{button && <DropdownButton buttonStyle='btn--outline' id="dropdown-basic-button" title="SIGN UP">
-              <Dropdown.Item ><Link to='/UserSignUp'>User SignUp </Link></Dropdown.Item>
-              <Dropdown.Item ><Link to='/RepresentativeSignUp'>Pepresentative Sign up</Link></Dropdown.Item>
+              <Dropdown.Item ><Link to='/UserSignUp'>User</Link></Dropdown.Item>
+              <Dropdown.Item ><Link to='/RepresentativeSignUp'>Pepresentative</Link></Dropdown.Item>
             </DropdownButton>}</div>
             <div>{ button && <DropdownButton  buttonStyle='btn--outline' id="dropdown-basic-button" title="LOG IN">
-              <Dropdown.Item ><Link to='/UserLogIn'>User Login</Link></Dropdown.Item>
-              <Dropdown.Item ><Link to='/RepresentativeLogIn'>Representative Login</Link></Dropdown.Item>
+              <Dropdown.Item ><Link to='/UserLogIn'>User</Link></Dropdown.Item>
+              <Dropdown.Item ><Link to='/RepresentativeLogIn'>Representative</Link></Dropdown.Item>
             </DropdownButton>}</div>
         </div>
       </nav>

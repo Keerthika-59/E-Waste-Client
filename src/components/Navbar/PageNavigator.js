@@ -1,6 +1,6 @@
 import React from 'react'
 import Data from '../dummydata'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {Route, Switch } from "react-router-dom";
 import AboutUs from '../Pages/AboutUs/AboutUs'
 import { InputForm } from '../Contact/InputForm'
 import RepresenativeRegister from '../Registration/RepresenativeRegister'
@@ -12,8 +12,8 @@ import SignUpOptions from '../Pages/SignUpPages'
 import Achievements from '../Pages/AboutUs/AchievementPage'
 import Goals from '../Pages/AboutUs/Goals'
 import Services from '../Pages/AboutUs/Services'
-import Gallery from '../Pages/Gallery/Gallery'
 import '../Pages/Gallery/Gallery.css'
+import Gallery from '../Pages/Gallery/Gallery'
 
 function Navigator() {
     return (
