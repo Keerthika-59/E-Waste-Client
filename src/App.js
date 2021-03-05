@@ -7,23 +7,18 @@ import Footer from './components/Footer'
 import { BrowserRouter, Route } from "react-router-dom";
 import Switch from 'react-bootstrap/esm/Switch';
 import Navbar from './components/Navbar';
+import Data from './components/dummydata'
+import Navigator from './components/PageNavigator'
 
 function App() {
   return (
-      <BrowserRouter>
-        <div className="App">
-          <Navbar/>
-          <Switch>
-          {/* <Route path='/Gallery' component={Gallery} /> */}
-          <Route path='/AboutUs' component={AboutUs} />
-          {/* <Route path='/ContactUs' component={ContactUs} /> */}
-          {/* <Route path='/SignUp' component={SignUp} /> */}
-          </Switch>
-        </div>
-        <div style={{marginTop:"15%"}}>
-        <Footer/>
-        </div>
-      </BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <Navigator/>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

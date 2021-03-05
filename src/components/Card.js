@@ -9,9 +9,8 @@ import './Card.css'
 function Cards() {
 
     return (
-        <BrowserRouter>
             <div style={{ display: "flex", justifyContent: "space-around", marginTop: "10%" }} className="aboutus">
-                <Card style={{ width: '18rem' }} className="card">
+                <Card className="card">
                     <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} />
                     <Card.Body>
                         <Card.Title>Services</Card.Title>
@@ -23,14 +22,13 @@ function Cards() {
                                 <li>Donation of usable items</li>
                             </ol>
                         </Card.Text>
-                        <Link to='/Data1' >
-                            <Button variant="primary">
-                                <Route exact path='/Data1' component={Data}/>Read More</Button>
+                        <Link to='/Data1' className="Infocards" >
+                            <Button variant="primary">Read More</Button>
                                 
                         </Link>
                     </Card.Body>
                 </Card>
-                <Card style={{ width: '18rem' }} className="card">
+                <Card className="card">
                     <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/goals2.jpg`} />
                     <Card.Body>
                         <Card.Title>Goals</Card.Title>
@@ -38,12 +36,12 @@ function Cards() {
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
                         </Card.Text>
-                        <Link to='/Data2'>
+                        <Link to='/Data2' className="Infocards">
                             <Button variant="primary">Read More</Button>
                         </Link>
                     </Card.Body>
                 </Card>
-                <Card style={{ width: '18rem' }} className="card">
+                <Card className="card">
                     <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/achievements2.png`} />
                     <Card.Body>
                         <Card.Title>Achievements</Card.Title>
@@ -51,12 +49,12 @@ function Cards() {
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
                         </Card.Text>
-                        <Link to='/Data3'>
+                        <Link to='/Data3' className="Infocards">
                             <Button variant="primary">Read More</Button>
                         </Link>
                     </Card.Body>
                 </Card>
-                <Card style={{ width: '18rem' }} className="card">
+                <Card className="card">
                     <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/team2.png`} />
                     <Card.Body>
                         <Card.Title>Our Team</Card.Title>
@@ -64,13 +62,12 @@ function Cards() {
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.
                         </Card.Text>
-                        <Link to='/Data4'>
+                        <Link to='/Data4' className="Infocards">
                             <Button variant="primary">Read More</Button>
                         </Link>
                     </Card.Body>
                 </Card>
             </div>
-        </BrowserRouter>
     )
 }
 

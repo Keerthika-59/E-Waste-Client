@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// import { Button } from './Button';
+import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import './Button.css'
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -29,14 +30,14 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            E-WASTE MANAGEMENT
+            <img src={`${process.env.PUBLIC_URL}/assets/images/wm-logo.png`} style={{height:"60px"}}></img>
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <ul className={click ? 'nav-menu active' : 'nav-menu'} style={{marginRight:"450px"}}>
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+              <Link to='/Gallery' className='nav-links' onClick={closeMobileMenu}>
                 Gallery
               </Link>
             </li>
@@ -61,15 +62,26 @@ function Navbar() {
 
             <li>
               <Link
-                to='/SingnUp'
-                className='nav-links'
+                to='/SignUp'
+                className='nav-links-mobile'
                 onClick={closeMobileMenu}
               >
                 Sign Up
               </Link>
             </li>
+            <li>
+              <Link
+                to='/LogIn'
+                className='nav-links-mobile'
+                onClick={closeMobileMenu}
+              >
+                Log In
+              </Link>
+            </li>
           </ul>
-          {/* {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} */}
+          <div style={{marginRight:"10px"}}>{button && <Button buttonStyle='btn--outline'>
+            <Link to='/SignUP'>SIGN UP</Link></Button>}</div>
+          <div>{button && <Button buttonStyle='btn--outline'><Link to='/LogIn'>LOG IN</Link></Button>}</div>
         </div>
       </nav>
     </>
