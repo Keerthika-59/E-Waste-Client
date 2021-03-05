@@ -1,7 +1,7 @@
 import React from 'react'
-import Data from './dummydata'
+import Data from '../dummydata'
 import { BrowserRouter, Route,Switch } from "react-router-dom";
-import AboutUs from './Pages/AboutUs'
+import AboutUs from '../Pages/AboutUs'
 
 
 function Navigator(){

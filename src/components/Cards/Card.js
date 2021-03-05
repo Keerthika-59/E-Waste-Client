@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import { Link, Router } from 'react-router-dom'
 // import {Route} from 'react-router-dom'
 import { BrowserRouter, Route } from "react-router-dom";
-import Data from './dummydata';
+// import Data from '../dummydata';
 import './Card.css'
 
 function Cards() {

@@ -1,24 +1,22 @@
 // import logo from './logo.svg';
 import './App.css';
-import './components/Navbar.css'
-import AboutUs from './components/Pages/AboutUs'
+import './components/Navbar/Navbar.css'
+// import AboutUs from './components/Pages/AboutUs'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './components/Footer'
+import Footer from './components/Footer/Footer'
 import { BrowserRouter, Route } from "react-router-dom";
-import Switch from 'react-bootstrap/esm/Switch';
-import Navbar from './components/Navbar';
-import Data from './components/dummydata'
-import Navigator from './components/PageNavigator'
+import Navbar from './components/Navbar/Navbar';
+import Navigator from './components/Navbar/PageNavigator'
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
+    <div className="App">
+       <BrowserRouter>
         <Navbar />
         <Navigator/>
         <Footer />
-      </div>
-    </BrowserRouter>
+       </BrowserRouter>
+       </div>
   );
 }
 
