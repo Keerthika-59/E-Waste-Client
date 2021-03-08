@@ -88,7 +88,7 @@ function Navbar() {
           </ul>
           <div style={{ marginRight: "10px" }}>{button && <DropdownButton id="dropdown-basic-button" title="SIGN UP">
               <Dropdown.Item><Link to='/UserSignUp'>User</Link></Dropdown.Item>
-              <Dropdown.Item><Link to='/RepresentativeSignUp'>Pepresentative</Link></Dropdown.Item>
+              <Dropdown.Item><Link to='/RepresentativeSignUp'> Representative</Link></Dropdown.Item>
             </DropdownButton>}</div>
             <div>{ button && <DropdownButton id="dropdown-basic-button" title="LOG IN">
               <Dropdown.Item ><Link to='/UserLogIn'>User</Link></Dropdown.Item>

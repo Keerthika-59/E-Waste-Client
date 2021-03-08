@@ -13,12 +13,12 @@ import Home from './Components/Pages/Home'
 const App = () => {
   return (
     <div className="App">
-       <BrowserRouter>
-        <Navbar />
-        <Route path='/' exact component={Home} />
-        <Navigator/>
-        <Footer />
-       </BrowserRouter>
+        <BrowserRouter>
+          <Navbar />
+          <Route path='/' exact component={Home} />
+          <Navigator/>
+          <Footer />
+        </BrowserRouter>
        </div>
   );
 }
