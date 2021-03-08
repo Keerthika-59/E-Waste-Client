@@ -34,12 +34,6 @@ export const RepForm = () => {
                     </div>
                 </div>
             </div>
-
-            <Button disabled={false} type="submit"
-                className=" my-4 btn-primary btn-lg btn-block"
-            > Submit
-            </Button>
-
         </div>
 
     </div>

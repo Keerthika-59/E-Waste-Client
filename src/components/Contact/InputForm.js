@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { Form, Button, FormLabel } from 'react-bootstrap';
-import './conactStyle.css';
+import './contactStyle.css';
 
 export const InputForm = () => {
 
