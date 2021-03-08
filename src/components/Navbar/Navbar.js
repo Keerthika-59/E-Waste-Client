@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
 import {Dropdown,DropdownButton} from 'react-bootstrap'
 import './Navbar.css';
@@ -31,14 +30,18 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            <img src={`${process.env.PUBLIC_URL}/assets/images/wm-logo.png`} style={{ height: "60px" }}></img>
+            <img src={`${process.env.PUBLIC_URL}/assets/images/wm-logo.png`} alt="" style={{ height: "60px" }}></img>
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'} style={{ marginRight: "450px" }}>
             <li className='nav-item'>
-              <Link to='/Gallery' className='nav-links' onClick={closeMobileMenu}>
+              <Link 
+              to='/Gallery' 
+              style={{color:"white",textDecoration:"none"}} 
+              className='nav-links' 
+              onClick={closeMobileMenu} >
                 Gallery
               </Link>
             </li>
@@ -47,6 +50,7 @@ function Navbar() {
                 to='/AboutUs'
                 className='nav-links'
                 onClick={closeMobileMenu}
+                style={{color:"white",textDecoration:"none"}}
               >
                 About Us
               </Link>
@@ -56,6 +60,7 @@ function Navbar() {
                 to='/ContactUs'
                 className='nav-links'
                 onClick={closeMobileMenu}
+                style={{color:"white",textDecoration:"none"}}
               >
                 Contact Us
               </Link>
@@ -65,6 +70,7 @@ function Navbar() {
                 to='/SignUp'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
+                style={{color:"white",textDecoration:"none"}}
               >
                 Sign Up
               </Link>
@@ -74,18 +80,19 @@ function Navbar() {
                 to='/LogIn'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
+                style={{color:"white"}}
               >
                 Log In
               </Link>
             </li>
           </ul>
           <div style={{ marginRight: "10px" }}>{button && <DropdownButton buttonStyle='btn--outline' id="dropdown-basic-button" title="SIGN UP">
-              <Dropdown.Item ><Link to='/UserSignUp'>User</Link></Dropdown.Item>
-              <Dropdown.Item ><Link to='/RepresentativeSignUp'>Pepresentative</Link></Dropdown.Item>
+              <Dropdown.Item buttonStyle='btn--outline'><Link to='/UserSignUp'>User</Link></Dropdown.Item>
+              <Dropdown.Item buttonStyle='btn--outline' ><Link to='/RepresentativeSignUp'>Pepresentative</Link></Dropdown.Item>
             </DropdownButton>}</div>
             <div>{ button && <DropdownButton  buttonStyle='btn--outline' id="dropdown-basic-button" title="LOG IN">
-              <Dropdown.Item ><Link to='/UserLogIn'>User</Link></Dropdown.Item>
-              <Dropdown.Item ><Link to='/RepresentativeLogIn'>Representative</Link></Dropdown.Item>
+              <Dropdown.Item buttonStyle='btn--outline'><Link to='/UserLogIn'>User</Link></Dropdown.Item>
+              <Dropdown.Item buttonStyle='btn--outline'><Link to='/RepresentativeLogIn'>Representative</Link></Dropdown.Item>
             </DropdownButton>}</div>
         </div>
       </nav>

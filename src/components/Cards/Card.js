@@ -1,16 +1,12 @@
 import React from 'react'
 import { Card, Button } from "react-bootstrap";
-import { Link, Router } from 'react-router-dom'
-// import {Route} from 'react-router-dom'
-import { BrowserRouter, Route } from "react-router-dom";
-// import Data from '../dummydata';
+import { Link} from 'react-router-dom'
+// import Testimonials from '../testimonials'
 import '../Cards/Card.css'
 
 function Cards() {
 
     return (
-                // <div style={{ }} className="aboutus">
-
             <div className="aboutus">
                 
                 <Card className="card">

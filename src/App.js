@@ -8,6 +8,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
 import Navigator from './components/Navbar/PageNavigator'
 import Home from './components/Pages/Home'
+// import './components/OurTeam/Team.css'
 
 function App() {
   return (

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className='footer-container' style={{ marginTop: "15%" }}>
+    <div className='footer-container' style={{ marginTop: "15%"}}>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
           Join us for a better environment
@@ -17,17 +17,17 @@ function Footer() {
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
             <h2>About Us</h2>
-            <Link to='/sign-up'>How it works</Link>
-            <Link to='/'>Testimonials</Link>
-            <Link to='/'>Careers</Link>
-            <Link to='/'>Terms of Service</Link>
+            <Link className="footerlinks" to='/sign-up'>How it works</Link>
+            <Link className="footerlinks" to='/'>Testimonials</Link>
+            <Link className="footerlinks" to='/'>Careers</Link>
+            <Link className="footerlinks" to='/'>Terms of Service</Link>
           </div>
           <div class='footer-link-items'>
             <h2>Contact Us</h2>
-            <Link to='/ContactUs'>Contact</Link>
-            <Link to='/'>Support</Link>
-            <Link to='/'>Destinations</Link>
-            <Link to='/'>Sponsorships</Link>
+            <Link className="footerlinks"  to='/ContactUs'>Contact</Link>
+            <Link className="footerlinks"  to='/'>Support</Link>
+            <Link className="footerlinks"  to='/'>Destinations</Link>
+            <Link className="footerlinks"  to='/'>Sponsorships</Link>
           </div>
         </div>
         <div className='footer-link-wrapper'>
@@ -42,11 +42,11 @@ function Footer() {
           <div class='social-icons'>
             <Link
               class='social-icon-link facebook'
-              to='/'
+              to=''
               target='_blank'
               aria-label='Facebook'
             >
-                <a href="" style={{color:"white"}}>
+                <a className="socials" href="https://www.facebook.com/">
               <i class='fab fa-facebook-f' /></a>
             </Link>
             <Link
@@ -55,7 +55,8 @@ function Footer() {
               target='_blank'
               aria-label='Instagram'
             >
-              <i class='fab fa-instagram' />
+                <a className="socials" href="https://www.facebook.com/">              
+              <i class='fab fa-instagram' /></a>
             </Link>
             <Link
               class='social-icon-link youtube'
@@ -63,7 +64,8 @@ function Footer() {
               target='_blank'
               aria-label='Youtube'
             >
-              <i class='fab fa-youtube' />
+                <a className="socials" href="https://www.facebook.com/">
+              <i class='fab fa-youtube' /></a>
             </Link>
             <Link
               class='social-icon-link twitter'
@@ -71,7 +73,8 @@ function Footer() {
               target='_blank'
               aria-label='Twitter'
             >
-              <i class='fab fa-twitter' />
+                <a className="socials" href="https://www.facebook.com/">
+              <i class='fab fa-twitter' /></a>
             </Link>
             <Link
               class='social-icon-link twitter'
@@ -79,7 +82,8 @@ function Footer() {
               target='_blank'
               aria-label='LinkedIn'
             >
-              <i class='fab fa-linkedin' />
+                <a className="socials" href="https://www.facebook.com/">
+              <i class='fab fa-linkedin' /></a>
             </Link>
           </div>
         </div>

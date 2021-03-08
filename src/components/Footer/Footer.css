@@ -103,7 +103,16 @@
     max-width: 250px;
     width: 100%;
   }
-  
+  .footerlinks:hover{
+    background-color: rgb(173, 152, 119);
+    color: tomato;
+  }
+  .socials{
+    color: white;
+  }
+  .socials:hover{
+    color: tomato;
+  }
   .social-media-wrap {
     display: flex;
     justify-content: space-between;

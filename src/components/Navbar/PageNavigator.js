@@ -1,8 +1,8 @@
 import React from 'react'
-import Data from '../dummydata'
 import {Route, Switch } from "react-router-dom";
 import AboutUs from '../Pages/AboutUs/AboutUs'
 import { InputForm } from '../Contact/InputForm'
+import '../Contact/contactStyle.css'
 import RepresenativeRegister from '../Registration/RepresenativeRegister'
 import UserRegister from '../Registration/UserRegister'
 import { RepForm } from '../Login/representativeLogin'
@@ -14,7 +14,8 @@ import Goals from '../Pages/AboutUs/Goals'
 import Services from '../Pages/AboutUs/Services'
 import '../Pages/Gallery/Gallery.css'
 import Gallery from '../Pages/Gallery/Gallery'
-
+import Team from '../OurTeam/Team'
+// import '../OurTeam/Team.css'
 function Navigator() {
     return (
         <>
@@ -31,7 +32,7 @@ function Navigator() {
                 <Route path='/Services' component={Services} />
                 <Route path='/Goals' component={Goals} />
                 <Route path='/Achievements' component={Achievements} />
-                <Route path='/OurTeam' component={Data} />
+                <Route path='/OurTeam' component={Team} />
             </Switch>
         </>
     )
