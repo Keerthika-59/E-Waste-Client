@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 import { Form, Button, FormLabel } from 'react-bootstrap';
-import './contacs'
+import './conactStyle.css';
+
 export const InputForm = () => {
 
   const [name, setName] = useState()
