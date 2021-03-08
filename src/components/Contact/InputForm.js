@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { Form, Button, FormLabel } from 'react-bootstrap';
-
+import './contacs'
 export const InputForm = () => {
 
   const [name, setName] = useState()
@@ -70,10 +70,6 @@ const handleContactSubmit = e => {
         </div>
       </div>
 
-      <Button disabled={false} type="submit" onClick={handleFinalSubmit}
-        className=" my-4 btn-primary btn-lg btn-block"
-      > Submit
-        </Button>
         </div>
         </div>
 
