@@ -5,12 +5,13 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  position: fixed;
   position: sticky;
   top: 0;
   z-index: 999;
 }
-
+#dropdown-basic-button{
+  margin-left: 400px;
+}
 .navbar-container {
   display: flex;
   justify-content: center;
@@ -152,7 +153,9 @@
     border: 1px solid rgb(19, 18, 18);
     transition: all 0.3s ease-out;
   }
-
+  #dropdown-basic-button{
+    display: none;
+  }
   .nav-links-mobile:hover {
     background: #fff;
     color: #242424;

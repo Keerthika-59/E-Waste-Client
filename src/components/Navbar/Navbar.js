@@ -35,7 +35,7 @@ function Navbar() {
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'} style={{ marginRight: "450px" }}>
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link 
               to='/Gallery' 
@@ -90,7 +90,7 @@ function Navbar() {
               <Dropdown.Item><Link to='/UserSignUp'>User</Link></Dropdown.Item>
               <Dropdown.Item><Link to='/RepresentativeSignUp'>Representative</Link></Dropdown.Item>
             </DropdownButton>}</div>
-            <div>{ button && <DropdownButton id="dropdown-basic-button" title="LOG IN">
+            <div>{ button && <DropdownButton title="LOG IN">
               <Dropdown.Item ><Link to='/UserLogIn'>User</Link></Dropdown.Item>
               <Dropdown.Item ><Link to='/RepresentativeLogIn'>Representative</Link></Dropdown.Item>
             </DropdownButton>}</div>
