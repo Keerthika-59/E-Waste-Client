@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './Components/Navbar/Navbar.css'
-import Footer from './Components/Footer/Footer'
+import './components/Navbar/Navbar.css'
+import Footer from './components/Footer/Footer'
 import { BrowserRouter, Route } from "react-router-dom";
-import Navbar from './Components/Navbar/Navbar';
-import Navigator from './Components/Navbar/PageNavigator'
-import Home from './Components/Pages/Home'
+import Navbar from './components/Navbar/Navbar';
+import Navigator from './components/Navbar/PageNavigator'
+import Home from './components/Pages/Home'
 
 const App = () => {
   return (
