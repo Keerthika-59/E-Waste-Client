@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card} from 'react-bootstrap'
-import '../AboutUs/AboutUs.css'
+// import '../AboutUs/AboutUs.css'
 export default function Achievements() {
     return (
         <>

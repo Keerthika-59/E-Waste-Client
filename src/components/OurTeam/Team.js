@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-// import "./Team.css"
+import "./Team.css"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

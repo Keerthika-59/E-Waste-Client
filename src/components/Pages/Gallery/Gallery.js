@@ -1,55 +1,57 @@
 import React from "react";
-
+import './Gallery.css'
 function Gallery() {
   return (
     <>
-      <p className="gal">Gallery</p>
-      <img
-        className="gal-img"
-        src="http://c1.staticflickr.com/9/8450/8026519634_f33f3724ea_b.jpg"
-        alt=""
-      />
-      <img
-        className="gal-img"
-        src="http://c2.staticflickr.com/8/7218/7209301894_c99d3a33c2_h.jpg"
-        alt=""
-      />
-      <img
-        className="gal-img"
-        src="http://c2.staticflickr.com/8/7231/6947093326_df216540ff_b.jpg"
-        alt=""
-      />
-      <img
-        className="gal-img"
-        src="http://c1.staticflickr.com/9/8788/17367410309_78abb9e5b6_b.jpg"
-        alt=""
-      />
-      <img
-        className="gal-img"
-        src="http://c2.staticflickr.com/6/5814/20700286354_762c19bd3b_b.jpg"
-        alt=""
-      />
-      <img
-        className="gal-img"
-        src="http://c2.staticflickr.com/6/5647/21137202535_404bf25729_b.jpg"
-        alt=""
-      />
+      <p className="gal-h">Gallery</p>
+      <div className="img-container">
+        <img
+          className="gal-img"
+          src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+          alt=""
+        />
+        <img
+          className="gal-img"
+          src="https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1401&q=80"
+          alt=""
+        />
+        <img
+          className="gal-img"
+          src="https://images.unsplash.com/photo-1605027538836-ff90581109f0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+          alt=""
+        />
+        <img
+          className="gal-img"
+          src="https://images.unsplash.com/photo-1600352705936-cac2d5646bfe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+          alt=""
+        />
+        <img
+          className="gal-img"
+          src="https://images.unsplash.com/photo-1600795848739-5c58472a9552?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1216&q=80"
+          alt=""
+        />
+        <img
+          className="gal-img"
+          src="https://images.unsplash.com/photo-1593113630400-ea4288922497?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+          alt=""
+        />
 
-      <img
-        className="gal-img"
-        src="http://c2.staticflickr.com/6/5588/14991687545_5c8e1a2e86_b.jpg"
-        alt=""
-      />
-      <img
-        className="gal-img"
-        src="http://c2.staticflickr.com/4/3888/14878097108_5997041006_b.jpg"
-        alt=""
-      />
-      <img
-        className="gal-img"
-        src="http://c2.staticflickr.com/8/7579/15482110477_0b0e9e5421_b.jpg"
-        alt=""
-      />
+        <img
+          className="gal-img"
+          src="https://images.unsplash.com/photo-1612145342813-849b0c3e7f71?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+          alt=""
+        />
+        <img
+          className="gal-img"
+          src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"
+          alt=""
+        />
+        <img
+          className="gal-img"
+          src="https://images.unsplash.com/photo-1591193686104-fddba4d0e4d8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"
+          alt=""
+        />
+      </div>
     </>
   );
 }

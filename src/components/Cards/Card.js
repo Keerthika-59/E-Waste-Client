@@ -7,7 +7,7 @@ import '../Cards/Card.css'
 function Cards() {
 
     return (
-            <div className="aboutus">
+            <div className="aboutus" style={{justifyContent:"space-around",display:"flex"}}>
                 
                 <Card className="card">
                     <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} />

@@ -39,7 +39,7 @@ function Footer() {
            <hr></hr>
           </div>
           {/* <small class='website-rights'>TRVL © 2020</small> */}
-          <div class='social-icons'>
+          <div className='socialicons'>
             <Link
               class='social-icon-link facebook'
               to=''
