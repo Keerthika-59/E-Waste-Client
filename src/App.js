@@ -2,7 +2,6 @@ import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 import './Components/Navbar/Navbar.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Components/Footer/Footer'
 import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from './Components/Navbar/Navbar';
