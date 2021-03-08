@@ -1,0 +1,41 @@
+.text-large {
+    font-size: larger;
+    word-spacing: 3%;
+    line-height: 2;
+}
+
+.heading {
+    font-size: 40px;
+    font-weight: 550;
+}
+
+.img {
+    width: 230px;
+    height: 230px;
+}
+
+.Info {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 800px) {
+    .Info {
+        flex-direction: column;
+    }
+    .heading {
+        font-size: x-large;
+        font-weight: 600;
+    }
+    .text-large {
+        font-size: medium;
+        word-spacing: 2%;
+        line-height: 1.6;
+    }
+    .img {
+        width: 130px;
+        height: 130px;
+        margin-left: 90px;
+        margin-right: 50px;
+    }
+}
