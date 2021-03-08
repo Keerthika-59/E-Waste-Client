@@ -4,11 +4,12 @@ import { Form, Button, FormLabel } from 'react-bootstrap';
 
 export const InputForm = () => {
 
-  const initialInputState = { name: "", email: "", message: "" };
-  const [eachEntry, setEachEntry] = useState(initialInputState);
+  const [name, setName] = useState()
+  const [email, setEmail] = useState()
+  const [message, setMessage] = useState()  
 
-  const handleInputChange = e => {
-    setEachEntry({ ...eachEntry, [e.target.name]: e.target.value });
+const handleContactSubmit = e => {
+  
   };
   const handleFinalSubmit = e => {
     e.preventDefault();
@@ -72,11 +73,13 @@ export const InputForm = () => {
       <Button disabled={false} type="submit" onClick={handleFinalSubmit}
         className=" my-4 btn-primary btn-lg btn-block"
       > Submit
-            </Button>
-    </Form>
+        </Button>
+        </div>
+        </div>
+
+        </div>
   )
 }
-
 
 
 
