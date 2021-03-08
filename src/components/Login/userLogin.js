@@ -1,10 +1,11 @@
 import React from 'react'
 import './userStyle.css';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 export const UserForm = () => {
     
     return (
-    
+        
     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
     <div className="card card0 border-0">
         <div className="row d-flex">
@@ -31,7 +32,7 @@ export const UserForm = () => {
                         <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input"/> <label for="chk1" className="custom-control-label text-sm">Remember me</label> </div> <a href="#" className="ml-auto mb-0 text-sm">Forgot Password?</a>
                     </div>
                     <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Login</button> </div>
-                    <div className="row mb-4 px-3"> <small className="font-weight-bold">Don't have an account? <a className="text-danger ">Register</a></small> </div>
+                            <div className="row mb-4 px-3"> <small className="font-weight-bold">Don't have an account? <a className="text-danger "><Link to="/UserSignUp"> Register </Link></a></small> </div>
                 </div>
             </div>
         </div>

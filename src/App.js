@@ -13,6 +13,7 @@ import Home from './components/Pages/Home';
 const App = () => {
   return (
     <div className="App">
+
        <BrowserRouter>
         <Navbar />
         <Route path='/' exact component={Home} />

@@ -1,8 +1,27 @@
-/* eslint-disable */
-import React from 'react'
+import React, { useState } from 'react'
+
+import { Form, Button, FormLabel } from 'react-bootstrap';
 import './contactStyle.css';
+
 export const InputForm = () => {
 
+  const [name, setName] = useState()
+  const [email, setEmail] = useState()
+  const [message, setMessage] = useState()  
+
+const handleContactSubmit = e => {
+  
+  };
+  const handleFinalSubmit = e => {
+    e.preventDefault();
+    
+    if(name && email && message) {
+
+      console.log(name, email, message);
+
+    }
+  }
+  
   return(
   <div className="contact2" style={{backgroundImage: `url("https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/map.jpg")` }}>
   <div className="container">
@@ -13,21 +32,21 @@ export const InputForm = () => {
             <div className="col-lg-8">
               <div className="contact-box p-4">
                 <h4 className="title">Contact Us</h4>
-                <form>
+                    <form onSubmit={handleContactSubmit} >
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="form-group mt-3">
-                        <input className="form-control" type="text" required={true} placeholder="Name"/>
+                            <input className="form-control" onChange={ (e) => setName(e.target.value)}  type="text" required={true} placeholder="Name"/>
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group mt-3">
-                        <input className="form-control" type="email" required={true} placeholder="Email"/>
+                            <input className="form-control" onChange={(e) => setEmail(e.target.value)} type="email" required={true} placeholder="Email"/>
                       </div>
                     </div>                 
                     <div className="col-lg-12">
                       <div className="form-group mt-3">
-                        <input className="form-control" type="text" required={true} placeholder="Message"/>
+                            <input className="form-control" onChange={(e) => setMessage(e.target.value)} type="text" required={true} placeholder="Message"/>
                       </div>
                     </div>
                     <div className="col-lg-12">
@@ -51,9 +70,13 @@ export const InputForm = () => {
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-)
+
+        </div>
+        </div>
+
+        </div>
+  )
 }
+
+
 

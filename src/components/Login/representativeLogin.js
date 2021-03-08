@@ -1,6 +1,7 @@
-import React from 'react'
-import './userStyle.css';
+import React, { useState } from 'react'
 
+import { Form, Button, FormLabel } from 'react-bootstrap';
+import {BrowserRouter, Link} from 'react-router-dom';
 export const RepForm = () => {
     
     return (
@@ -17,9 +18,7 @@ export const RepForm = () => {
                     <div className="card2 card border-0 px-4 py-5">
                         <div className="row mb-4 px-3">
                             <h3 className="text-center">Representative Sign In</h3>
-                         
                         </div>
-                    
                         
                         <div className="row px-3"> <label className="mb-1">
                                 <h6 className="mb-0 text-sm">Email Address</h6>
@@ -31,12 +30,12 @@ export const RepForm = () => {
                             <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input"/> <label  className="custom-control-label text-sm">Remember me</label> </div> <a href="#" className="ml-auto mb-0 text-sm">Forgot Password?</a>
                         </div>
                         <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Login</button> </div>
-                        <div className="row mb-4 px-3"> <small className="font-weight-bold">Don't have an account? <a className="text-danger ">Register</a></small> </div>
+                            <div className="row mb-4 px-3"> <small className="font-weight-bold">Don't have an account? <a className="text-danger "> <Link to="/RepresentativeSignUp"> Register </Link> </a></small> </div>
                     </div>
                 </div>
             </div>
-           
         </div>
+
     </div>
-    )
+)
 }
