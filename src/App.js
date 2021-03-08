@@ -12,7 +12,6 @@ const App = () => {
     <div className="App">
        <BrowserRouter>
         <Navbar />
-        Hi
         <Route path='/' exact component={Home} />
         <Navigator/>
         <Footer />
