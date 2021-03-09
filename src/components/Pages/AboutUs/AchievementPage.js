@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card} from 'react-bootstrap'
-// import '../AboutUs/AboutUs.css'
+import '../AboutUs/AboutUs.css'
 export default function Achievements() {
     return (
         <>
-            <Card className="card">
+            <Card className="cards">
                 <Card.Img className="cardimg" variant="top" src={`${process.env.PUBLIC_URL}/assets/images/achievements.png`}/>
                 <Card.Body>
                     <Card.Title>Our Achievements</Card.Title>

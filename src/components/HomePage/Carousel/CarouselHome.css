@@ -2,6 +2,9 @@
 {
     width: 100%;
 }
+.carousel .slick-next {
+    right: 0px;
+}
 
 .learn-btn {
     border-radius: 5px 5px;

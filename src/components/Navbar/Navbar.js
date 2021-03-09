@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {Dropdown,DropdownButton} from 'react-bootstrap'
 import './Navbar.css';
 import '../Button/Button.css'
+import {Button} from '../Button/Button'
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -39,7 +40,7 @@ function Navbar() {
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'} style={{ marginRight: "460px" }}>
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link 
               to='/Gallery' 
@@ -91,7 +92,6 @@ function Navbar() {
             </li>
 
           </ul>
-
         </div>
           <div className="login-navbar mr-auto">
             {

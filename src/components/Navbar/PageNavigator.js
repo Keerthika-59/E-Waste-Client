@@ -12,7 +12,7 @@ import Achievements from '../Pages/AboutUs/AchievementPage'
 import Goals from '../Pages/AboutUs/Goals'
 import Services from '../Pages/AboutUs/Services'
 import Gallery from '../Pages/Gallery/Gallery'
-// import Team from '../OurTeam/Team'
+import Team from '../OurTeam/Team'
 // import '../OurTeam/Team.css'
 // import '../Contact/contactStyle.css'
 function Navigator() {
@@ -31,7 +31,7 @@ function Navigator() {
                 <Route path='/Services' component={Services} /> 
                 <Route path='/Goals' component={Goals} /> 
                  <Route path='/Achievements' component={Achievements} /> 
-                {/* <Route path='/OurTeam' component={Team} /> */}
+                <Route path='/OurTeam' component={Team} />
             </Switch>
         </>
     )
