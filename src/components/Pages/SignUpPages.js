@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 export default function SignUpOptions() {
   return (
     <>
-    <h3 style={{marginTop:"10%",marginBottom:"10%"}}>Please choose a Sign Up option</h3>
-    <Link to='/UserSignUp'><Button style={{marginTop:"10%",width:"300px"}}>User Sing Up</Button></Link>
-    <Link to='/RepresentativeSignUp'><Button style={{marginTop:"10%",width:"300px"}}>Representative Sign Up</Button></Link>
+    <h3 style={{marginTop:"10%",marginBottom:"10%",marginLeft:"6%"}}>Please choose a Sign up option</h3>
+    <Link to='/UserLogIn'><Button style={{marginTop:"10%",marginLeft:"8%",width:"300px"}}>User Sign up</Button></Link><br></br>
+    <Link to='/RepresentativeLogIn'><Button style={{marginTop:"10%",marginLeft:"8%",width:"300px"}}>Representative Sign up</Button></Link>
     </>
   );
 }

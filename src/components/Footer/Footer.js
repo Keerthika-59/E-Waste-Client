@@ -17,17 +17,17 @@ function Footer() {
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
             <h2>About Us</h2>
-            <Link className="footerlinks" to='/sign-up'>How it works</Link>
-            <Link className="footerlinks" to='/'>Testimonials</Link>
-            <Link className="footerlinks" to='/'>Careers</Link>
-            <Link className="footerlinks" to='/'>Terms of Service</Link>
+            <Link className="footerlinks" to='/UserSignUp'>How it works</Link>
+            <Link className="footerlinks" to='/Testimonials'>Testimonials</Link>
+            <Link className="footerlinks" to='/Goals'>Goals</Link>
+            <Link className="footerlinks" to='/OurTeam'>Our Team</Link>
           </div>
           <div className='footer-link-items'>
             <h2>Contact Us</h2>
             <Link className="footerlinks"  to='/ContactUs'>Contact</Link>
-            <Link className="footerlinks"  to='/'>Support</Link>
-            <Link className="footerlinks"  to='/'>Destinations</Link>
-            <Link className="footerlinks"  to='/'>Sponsorships</Link>
+            <Link className="footerlinks"  to='/Services'>Services</Link>
+            <Link className="footerlinks"  to='/Achievements'>Achievements</Link>
+            <Link className="footerlinks"  to='/RepresentativeSignUp'>Join us</Link>
           </div>
         </div>
         <div className='footer-link-wrapper'>
@@ -38,7 +38,6 @@ function Footer() {
           <div className='footer-logo'>
            <hr></hr>
           </div>
-          {/* <small class='website-rights'>TRVL © 2020</small> */}
           <div className='socialicons'>
             <Link
               className='social-icon-link facebook'
@@ -46,7 +45,7 @@ function Footer() {
               target='_blank'
               aria-label='Facebook'
             >
-              <i className='fab fa-facebook-f' href="https://www.facebook.com/"/>
+             <a href="https://www.facebook.com/"><i className='fab fa-facebook-f' href="https://www.facebook.com/"/></a>
             </Link>
             <Link
               className='social-icon-link instagram'
@@ -54,7 +53,7 @@ function Footer() {
               target='_blank'
               aria-label='Instagram'
             >
-              <i className='fab fa-instagram' href="https://www.facebook.com/" />
+             <a href="https://www.instagram.com/"><i className='fab fa-instagram' href="https://www.facebook.com/" /></a>
             </Link>
             <Link
               className='social-icon-link youtube'
@@ -62,7 +61,7 @@ function Footer() {
               target='_blank'
               aria-label='Youtube'
             >
-              <i className='fab fa-youtube' href="https://www.facebook.com/" />
+             <a href="https://www.youtube.com/?gl=IN"> <i className='fab fa-youtube' href="https://www.facebook.com/" /></a>
             </Link>
             <Link
               className='social-icon-link twitter'
@@ -70,7 +69,7 @@ function Footer() {
               target='_blank'
               aria-label='Twitter'
             >
-              <i className='fab fa-twitter' href="https://www.facebook.com/" />
+             <a href="https://twitter.com/?lang=en-in"> <i className='fab fa-twitter' href="https://www.facebook.com/" /></a>
             </Link>
             <Link
               className='social-icon-link twitter'
@@ -78,7 +77,7 @@ function Footer() {
               target='_blank'
               aria-label='LinkedIn'
             >
-              <i className='fab fa-linkedin' href="https://www.facebook.com/" />
+              <a href="https://www.linkedin.com/login/"><i className='fab fa-linkedin' href="https://www.facebook.com/" /></a>
             </Link>
           </div>
         </div>

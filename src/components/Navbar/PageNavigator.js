@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import AboutUs from '../Pages/AboutUs/AboutUs'
 import { InputForm } from '../Contact/InputForm'
 import RepresenativeRegister from '../Registration/RepresentativeRegister'
@@ -13,8 +13,7 @@ import Goals from '../Pages/AboutUs/Goals'
 import Services from '../Pages/AboutUs/Services'
 import Gallery from '../Pages/Gallery/Gallery'
 import Team from '../OurTeam/Team'
-// import '../OurTeam/Team.css'
-// import '../Contact/contactStyle.css'
+import Testimonials from '../Testimonials/Testimonials'
 function Navigator() {
     return (
         <>
@@ -26,12 +25,13 @@ function Navigator() {
                 <Route path='/RepresentativeSignUp' component={RepresenativeRegister} />
                 <Route path='/UserLogIn' component={UserForm} />
                 <Route path='/RepresentativeLogIn' component={RepForm} />
-                <Route path='/SignUp' component={SignUpOptions} />
-                <Route path='/LogIn' component={LoginOptions} />
-                <Route path='/Services' component={Services} /> 
-                <Route path='/Goals' component={Goals} /> 
-                 <Route path='/Achievements' component={Achievements} /> 
+                <Route path='/SignUpoptions' component={SignUpOptions} />
+                <Route path='/LogInoptions' component={LoginOptions} />
+                <Route path='/Services' component={Services} />
+                <Route path='/Goals' component={Goals} />
+                <Route path='/Achievements' component={Achievements} />
                 <Route path='/OurTeam' component={Team} />
+                <Route path='/Testimonials' component={Testimonials} />
             </Switch>
         </>
     )

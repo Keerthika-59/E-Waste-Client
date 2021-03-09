@@ -1,71 +1,63 @@
 import React from 'react'
 import { Card, Button } from "react-bootstrap";
-import { Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import Testimonials from '../testimonials'
 import './Card.css'
 
 function Cards() {
 
     return (
-            <div className="aboutus">                
-                <Card className="Aboutcard">
-                    <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} />
-                    <Card.Body>
-                        <Card.Title>Services</Card.Title>
-                        <Card.Text>
-                            <p>Our services include</p>
-                            <ol>
-                                <li>Disposal of bio-digradable waste</li>
-                                <li>Disposal of non bio-digradable waste</li>
-                                <li>Donation of usable items</li>
-                            </ol>
+        <div className="aboutus">
+            <Card className="Aboutcard">
+                <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} />
+                <Card.Body className="abouttext">
+                    <Card.Title>Services</Card.Title>
+                    <Card.Text>
+                        Lorem ipsum dolor sit amet, consect adipiscing elit. Nam tempor molestie elementum.
                         </Card.Text>
-                        <Link to='/Services' className="Infocards" >
-                            <Button variant="primary">Read More</Button>
-                                
-                        </Link>
-                    </Card.Body>
-                </Card>
-                <Card className="Aboutcard">
-                    <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/goals2.jpg`} />
-                    <Card.Body>
-                        <Card.Title>Goals</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                    <Link to='/Services' className="Infocards" >
+                        <Button variant="primary">Read More</Button>
+
+                    </Link>
+                </Card.Body>
+            </Card>
+            <Card className="Aboutcard">
+                <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/goals2.jpg`} />
+                <Card.Body className="abouttext">
+                    <Card.Title>Goals</Card.Title>
+                    <Card.Text>
+                    Lorem ipsum dolor sit amet, consect adipiscing elit. Nam tempor molestie elementum.
                         </Card.Text>
-                        <Link to='/Goals' className="Infocards">
-                            <Button variant="primary">Read More</Button>
-                        </Link>
-                    </Card.Body>
-                </Card>
-                <Card className="Aboutcard">
-                    <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/achievements2.png`} />
-                    <Card.Body>
-                        <Card.Title>Achievements</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                    <Link to='/Goals' className="Infocards">
+                        <Button variant="primary">Read More</Button>
+                    </Link>
+                </Card.Body>
+            </Card>
+            <Card className="Aboutcard">
+                <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/achievements2.png`} />
+                <Card.Body className="abouttext">
+                    <Card.Title>Achievements</Card.Title>
+                    <Card.Text>
+                    Lorem ipsum dolor sit amet, consect adipiscing elit. Nam tempor molestie elementum.
                         </Card.Text>
-                        <Link to='Achievements' className="Infocards">
-                            <Button variant="primary">Read More</Button>
-                        </Link>
-                    </Card.Body>
-                </Card>
-                <Card className="Aboutcard">
-                    <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/team2.png`} />
-                    <Card.Body>
-                        <Card.Title>Our Team</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                    <Link to='Achievements' className="Infocards">
+                        <Button variant="primary">Read More</Button>
+                    </Link>
+                </Card.Body>
+            </Card>
+            <Card className="Aboutcard">
+                <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/team2.png`} />
+                <Card.Body className="abouttext">
+                    <Card.Title>Our Team</Card.Title>
+                    <Card.Text>
+                    Lorem ipsum dolor sit amet, consect adipiscing elit. Nam tempor molestie elementum.
                         </Card.Text>
-                        <Link to='/OurTeam' className="Infocards">
-                            <Button variant="primary">Read More</Button>
-                        </Link>
-                    </Card.Body>
-                </Card>
-            </div>
+                    <Link to='/OurTeam' className="Infocards">
+                        <Button variant="primary">Read More</Button>
+                    </Link>
+                </Card.Body>
+            </Card>
+        </div>
     )
 }
 
