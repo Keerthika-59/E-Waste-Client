@@ -1,29 +1,18 @@
-<<<<<<< HEAD
-/* eslint-disable */
-import React, {useState} from 'react'
-=======
 import React, { useState } from 'react'
 
 import { Form, Button, FormLabel } from 'react-bootstrap';
->>>>>>> c8be5be548d5b3813ea7273f7f5f12f1d0cc72d3
 import './contactStyle.css';
 
 export const InputForm = () => {
 
   const [name, setName] = useState()
   const [email, setEmail] = useState()
-<<<<<<< HEAD
-  const [message, setMessage] = useState()
-
-  const handleContactSubmit = (e) => {
-=======
   const [message, setMessage] = useState()  
 
 const handleContactSubmit = e => {
   
   };
   const handleFinalSubmit = e => {
->>>>>>> c8be5be548d5b3813ea7273f7f5f12f1d0cc72d3
     e.preventDefault();
     
     if(name && email && message) {
@@ -32,11 +21,7 @@ const handleContactSubmit = e => {
 
     }
   }
-<<<<<<< HEAD
-
-=======
   
->>>>>>> c8be5be548d5b3813ea7273f7f5f12f1d0cc72d3
   return(
   <div className="contact2" style={{backgroundImage: `url("https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/map.jpg")` }}>
   <div className="container">

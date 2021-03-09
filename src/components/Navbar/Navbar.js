@@ -92,17 +92,6 @@ function Navbar() {
             </li>
 
           </ul>
-<<<<<<< HEAD
-          <div style={{ marginRight: "10px" }}>{button && <DropdownButton id="dropdown-basic-button" title="SIGN UP">
-              <Dropdown.Item><Link to='/UserSignUp'>User</Link></Dropdown.Item>
-              <Dropdown.Item><Link to='/RepresentativeSignUp'> Representative</Link></Dropdown.Item>
-            </DropdownButton>}</div>
-            <div>{ button && <DropdownButton id="dropdown-basic-button" title="LOG IN">
-              <Dropdown.Item ><Link to='/UserLogIn'>User</Link></Dropdown.Item>
-              <Dropdown.Item ><Link to='/RepresentativeLogIn'>Representative</Link></Dropdown.Item>
-            </DropdownButton>}</div>
-=======
->>>>>>> c8be5be548d5b3813ea7273f7f5f12f1d0cc72d3
         </div>
           <div className="login-navbar mr-auto">
             {

@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-import React from 'react'
-import './userStyle.css';
-import {BrowserRouter, Link} from 'react-router-dom';
-=======
 import React, { useState } from 'react'
->>>>>>> c8be5be548d5b3813ea7273f7f5f12f1d0cc72d3
 
 import { Form, Button, FormLabel } from 'react-bootstrap';
 import {BrowserRouter, Link} from 'react-router-dom';
@@ -25,11 +19,7 @@ export const RepForm = () => {
                         <div className="row mb-4 px-3">
                             <h3 className="text-center">Representative Sign In</h3>
                         </div>
-<<<<<<< HEAD
-                         
-=======
                         
->>>>>>> c8be5be548d5b3813ea7273f7f5f12f1d0cc72d3
                         <div className="row px-3"> <label className="mb-1">
                                 <h6 className="mb-0 text-sm">Email Address</h6>
                             </label> <input className="mb-4" type="text" name="email" placeholder="Enter a valid email address"/> </div>
