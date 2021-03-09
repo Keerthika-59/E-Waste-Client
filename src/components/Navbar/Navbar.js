@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {Dropdown,DropdownButton} from 'react-bootstrap'
 import './Navbar.css';
 import '../Button/Button.css'
+import {Button} from '../Button/Button'
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -87,12 +88,12 @@ function Navbar() {
             </li>
           </ul>
           <div style={{ marginRight: "10px" }}>{button && <DropdownButton id="dropdown-basic-button" title="SIGN UP">
-              <Dropdown.Item><Link to='/UserSignUp'>User</Link></Dropdown.Item>
-              <Dropdown.Item><Link to='/RepresentativeSignUp'>Representative</Link></Dropdown.Item>
+              <Dropdown.Item><Button buttonStyle='btn--outline'><Link to='/UserSignUp'>User</Link></Button></Dropdown.Item>
+              <Dropdown.Item><Button buttonStyle='btn--outline'><Link to='/RepresentativeSignUp'>Representative</Link></Button></Dropdown.Item>
             </DropdownButton>}</div>
             <div>{ button && <DropdownButton title="LOG IN">
-              <Dropdown.Item ><Link to='/UserLogIn'>User</Link></Dropdown.Item>
-              <Dropdown.Item ><Link to='/RepresentativeLogIn'>Representative</Link></Dropdown.Item>
+              <Dropdown.Item ><Button buttonStyle='btn--outline'><Link to='/UserLogIn'>User</Link></Button></Dropdown.Item>
+              <Dropdown.Item ><Button buttonStyle='btn--outline'><Link to='/RepresentativeLogIn'>Representative</Link></Button></Dropdown.Item>
             </DropdownButton>}</div>
         </div>
       </nav>

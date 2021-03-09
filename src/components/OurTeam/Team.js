@@ -44,10 +44,10 @@ function Team() {
       <p className="slider_title font-italic">Our Team</p>
   
         <Slider {...settings} className="wid">
-            <div className="card-wrapper">
-                <div className="card">
-                    <div className="card-image">
-                        <img src="/assets/images/img1.jpeg"  alt="image"/>
+            <div className="teamcard-wrapper">
+                <div className="teamcard">
+                    <div className="teamcard-image">
+                        <img src="assets/images/img1.jpeg"  alt="image"/>
                     </div>
                     <ul className="social-icons">
                         <li><a href="www.facebook.com"><i className="fa fa-facebook"></i></a></li>
@@ -60,10 +60,10 @@ function Team() {
                     </div>
                 </div>
             </div>
-            <div className="card-wrapper">
-                <div className="card">
-                    <div className="card-image">
-                        <img src="/assets/images/img2.jpg" />
+            <div className="teamcard-wrapper">
+                <div className="teamcard">
+                    <div className="teamcard-image">
+                        <img src="assets/images/img2.jpg" />
                     </div>
                     <ul className="social-icons">
                         <li><a href="#"><i className="fa fa-facebook"></i></a></li>
@@ -76,10 +76,10 @@ function Team() {
                     </div>
                 </div>
             </div>
-            <div className="card-wrapper">
-                <div className="card">
-                    <div className="card-image">
-                        <img src="/assets/images/img3.jpg" />
+            <div className="teamcard-wrapper">
+                <div className="teamcard">
+                    <div className="teamcard-image">
+                        <img src="assets/images/img3.jpg" />
                     </div>
                     <ul className="social-icons">
                         <li><a href="#"><i className="fa fa-facebook"></i></a></li>
@@ -92,10 +92,10 @@ function Team() {
                     </div>
                 </div>
             </div>
-            <div className="card-wrapper">
-                <div className="card">
-                    <div className="card-image">
-                        <img src="/assets/images/img4.jpg" />
+            <div className="teamcard-wrapper">
+                <div className="teamcard">
+                    <div className="teamcard-image">
+                        <img src="assets/images/img4.jpg" />
                     </div>
                     <ul className="social-icons">
                         <li><a href="www.facebook.com"><i className="fa fa-facebook"></i></a></li>
@@ -108,10 +108,10 @@ function Team() {
                     </div>
                 </div>
             </div>
-            <div className="card-wrapper">
-                <div className="card">
-                    <div className="card-image">
-                        <img src="/assets/images/img3.jpg" />
+            <div className="teamcard-wrapper">
+                <div className="teamcard">
+                    <div className="teamcard-image">
+                        <img src="assets/images/img3.jpg" />
                     </div>
                     <ul className="social-icons">
                         <li><a href="#"><i className="fa fa-facebook"></i></a></li>
