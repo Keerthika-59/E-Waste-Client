@@ -2,7 +2,7 @@ import React from 'react'
 import {Route, Switch } from "react-router-dom";
 import AboutUs from '../Pages/AboutUs/AboutUs'
 import { InputForm } from '../Contact/InputForm'
-import RepresenativeRegister from '../Registration/RepresenativeRegister'
+import RepresentativeRegister from '../Registration/RepresentativeRegister'
 import UserRegister from '../Registration/UserRegister'
 import { RepForm } from '../Login/representativeLogin'
 import { UserForm } from '../Login/userLogin'
@@ -23,7 +23,7 @@ function Navigator() {
                 <Route path='/AboutUs' component={AboutUs} />
                 <Route path='/ContactUs' component={InputForm} />
                 <Route path='/UserSignUp' component={UserRegister} />
-                <Route path='/RepresentativeSignUp' component={RepresenativeRegister} />
+                <Route path='/RepresentativeSignUp' component={RepresentativeRegister} />
                 <Route path='/UserLogIn' component={UserForm} />
                 <Route path='/RepresentativeLogIn' component={RepForm} />
                 <Route path='/SignUp' component={SignUpOptions} />
