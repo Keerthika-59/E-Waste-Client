@@ -3,7 +3,6 @@ import './Gallery.css'
 function Gallery() {
   return (
     <>
-      <p className="gal-h">Gallery</p>
       <div className="img-container">
         <img
           className="gal-img"

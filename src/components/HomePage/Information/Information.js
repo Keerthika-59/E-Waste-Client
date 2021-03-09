@@ -10,7 +10,7 @@ const Information = () => {
       <Jumbotron>
       <p className="text-center font-italic heading"> {data[0].title} </p>   
   <Media as="li" className="mt-5 Info text-justify">
-       
+    
     <Image
       className="mr-3 img" roundedCircle
       src={`${process.env.PUBLIC_URL}/assets/images/mediaWaste.jpg`}
