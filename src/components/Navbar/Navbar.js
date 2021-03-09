@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {Dropdown,DropdownButton} from 'react-bootstrap'
 import './Navbar.css';
 import '../Button/Button.css'
+import {Button} from '../Button/Button'
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -28,18 +29,22 @@ function Navbar() {
   return (
     <>
       <nav className='navbar'>
-        <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            <img src={`${process.env.PUBLIC_URL}/assets/images/wm-logo.png`} alt="" style={{ height: "60px" }}></img>
+        <div className='navbar-container mr-auto'>
+          <Link to='/' className='navbar-logo ml-auto' onClick={closeMobileMenu}>
+            <img  
+            src={`${process.env.PUBLIC_URL}/assets/images/wm-logo.png`} 
+            alt="" style={{ height: "70px"}}
+            />
+
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'} style={{ marginRight: "450px" }}>
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link 
               to='/Gallery' 
-              style={{color:"white",textDecoration:"none"}} 
+              style={{textDecoration:"none"}} 
               className='nav-links' 
               onClick={closeMobileMenu} >
                 Gallery
@@ -50,9 +55,9 @@ function Navbar() {
                 to='/AboutUs'
                 className='nav-links'
                 onClick={closeMobileMenu}
-                style={{color:"white",textDecoration:"none"}}
+                style={{ textDecoration: "none" }}
               >
-                About Us
+                About
               </Link>
             </li>
             <li className='nav-item'>
@@ -60,9 +65,9 @@ function Navbar() {
                 to='/ContactUs'
                 className='nav-links'
                 onClick={closeMobileMenu}
-                style={{color:"white",textDecoration:"none"}}
+                style={{ textDecoration: "none" }}
               >
-                Contact Us
+                Contact
               </Link>
             </li>
             <li>
@@ -70,9 +75,9 @@ function Navbar() {
                 to='/SignUp'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
-                style={{color:"white",textDecoration:"none"}}
+                style={{ textDecoration: "none" }}
               >
-                Sign Up
+                Signup
               </Link>
             </li>
             <li>
@@ -80,12 +85,14 @@ function Navbar() {
                 to='/LogIn'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
-                style={{color:"white"}}
+                style={{ textDecoration: "none" }}
               >
                 Log In
               </Link>
             </li>
+
           </ul>
+<<<<<<< HEAD
           <div style={{ marginRight: "10px" }}>{button && <DropdownButton id="dropdown-basic-button" title="SIGN UP">
               <Dropdown.Item><Link to='/UserSignUp'>User</Link></Dropdown.Item>
               <Dropdown.Item><Link to='/RepresentativeSignUp'> Representative</Link></Dropdown.Item>
@@ -94,8 +101,20 @@ function Navbar() {
               <Dropdown.Item ><Link to='/UserLogIn'>User</Link></Dropdown.Item>
               <Dropdown.Item ><Link to='/RepresentativeLogIn'>Representative</Link></Dropdown.Item>
             </DropdownButton>}</div>
+=======
+>>>>>>> c8be5be548d5b3813ea7273f7f5f12f1d0cc72d3
         </div>
-      </nav>
+          <div className="login-navbar mr-auto">
+            {
+              button && <DropdownButton className="mr-auto" id="dropdown-basic-button" title="LOG IN">
+                <Dropdown.Item ><Link to='/UserLogIn'  >    <p className="navbar-text"> User </p> </Link></Dropdown.Item>
+                <Dropdown.Item ><Link to='/RepresentativeLogIn'>  <p className="navbar-text"> Representative </p> </Link></Dropdown.Item>
+              </DropdownButton>
+            }
+
+          </div>      
+          
+        </nav>
     </>
   );
 }

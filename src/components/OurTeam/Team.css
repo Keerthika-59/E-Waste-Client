@@ -7,7 +7,7 @@ body {
     /* display: block; */
     width: 100%;
     height: 100vh;
-    /* overflow: scroll; */
+    overflow: scroll;
     font-family: "Raleway", sans-serif;
     /* position: relative; */
     /*rgb(218, 178, 105) */
@@ -32,14 +32,14 @@ body {
     flex-direction: column;
 }
 
-.card-wrapper:active,
-.card-wrapper:hover,
-.card-wrapper:focus {
+.teamcard-wrapper:active,
+.teamcard-wrapper:hover,
+.teamcard-wrapper:focus {
     outline: none;
     border: none;
 }
 
-.card {
+.teamcard {
     width: 100%;
     height: 450px;
     border-radius: 16px;
@@ -48,7 +48,7 @@ body {
     position: relative;
 }
 
-.card .card-image {
+.teamcard .teamcard-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -60,20 +60,20 @@ body {
     transition: .5s;
 }
 
-.card .card-image img {
+.teamcard .teamcard-image img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
 }
 
-.card:hover img {
+.teamcard:hover img {
     opacity: .4;
     -webkit-transition: .5s;
     transition: .5s;
 }
 
-.card:hover .card-image {
+.teamcard:hover .teamcard-image {
     -webkit-transform: translateY(-100px);
     transform: translateY(-100px);
     -webkit-transition: all .9s;
@@ -115,7 +115,7 @@ body {
     opacity: 0;
 }
 
-.card:hover .social-icons li a {
+.teamcard:hover .social-icons li a {
     -webkit-transform: translateY(0px);
     transform: translateY(0px);
     opacity: 1;
@@ -143,22 +143,22 @@ body {
     color: #fff;
 }
 
-.card:hover li:nth-child(1) a {
+.teamcard:hover li:nth-child(1) a {
     -webkit-transition-delay: .1s;
     transition-delay: .1s;
 }
 
-.card:hover li:nth-child(2) a {
+.teamcard:hover li:nth-child(2) a {
     -webkit-transition-delay: .2s;
     transition-delay: .2s;
 }
 
-.card:hover li:nth-child(3) a {
+.teamcard:hover li:nth-child(3) a {
     -webkit-transition-delay: .3s;
     transition-delay: .3s;
 }
 
-.card:hover li:nth-child(4) a {
+.teamcard:hover li:nth-child(4) a {
     -webkit-transition-delay: .4s;
     transition-delay: .4s;
 }
@@ -190,7 +190,7 @@ body {
     display: block;
 }
 
-.card:hover .details {
+.teamcard:hover .details {
     bottom: 0;
 }
 
