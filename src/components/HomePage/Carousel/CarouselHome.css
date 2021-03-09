@@ -11,6 +11,7 @@
 .learn-btn :hover{
     border-radius: 5px 5px;
     width: fit-content;
+    color : white;
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {

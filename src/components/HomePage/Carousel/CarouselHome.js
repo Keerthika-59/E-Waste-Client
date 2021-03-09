@@ -1,5 +1,6 @@
 import React from "react";
 import {Button, Carousel, Container} from 'react-bootstrap';
+import { Link } from "react-router-dom";
 import './CarouselHome.css';
 const CarouselHome = () => {
 
@@ -19,7 +20,12 @@ const CarouselHome = () => {
           className = "learn-btn"
           variant = "info"
           >
-            Learn More...
+            <Link 
+            to = "/Services" 
+            style = {{textDecoration : 'none'}}
+            >
+                Learn More...
+            </Link>
           </Button>
         </p>
       </Carousel.Caption>
