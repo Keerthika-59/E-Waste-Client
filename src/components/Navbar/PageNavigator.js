@@ -2,7 +2,7 @@ import React from 'react'
 import {Route, Switch } from "react-router-dom";
 import AboutUs from '../Pages/AboutUs/AboutUs'
 import { InputForm } from '../Contact/InputForm'
-import RepresenativeRegister from '../Registration/RepresenativeRegister'
+import RepresenativeRegister from '../Registration/RepresentativeRegister'
 import UserRegister from '../Registration/UserRegister'
 import { RepForm } from '../Login/representativeLogin'
 import { UserForm } from '../Login/userLogin'
