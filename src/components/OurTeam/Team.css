@@ -22,7 +22,7 @@ body {
     margin-bottom: 2vw;
 }
 
-.card-wrapper {
+.teamcard-wrapper {
     position: relative;
     width: 100%;
     padding: 0 10px;
@@ -128,16 +128,16 @@ body {
     transition: .2s;
 }
 
-.social-icons li a:hover .fa {
+.social-icons li a:hover .fab {
     color: #fff;
 }
 
-.social-icons li a .fa {
+.social-icons li a .fab {
     -webkit-transition: .8s;
     transition: .8s;
 }
 
-.social-icons li a .fa:hover {
+.social-icons li a .fab:hover {
     -webkit-transform: rotateY(360deg);
     transform: rotateY(360deg);
     color: #fff;

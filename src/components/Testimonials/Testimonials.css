@@ -14,7 +14,9 @@
     background-color: rgb(233, 150, 150);
     font-family: 'Open Sans'
 }
-
+.testimonial.carousel-control-next-icon, .carousel-control-prev-icon {
+    background-color: blueviolet;
+}
 #demo {
     background: linear-gradient(112deg, #ffffff 50%, antiquewhite 50%);
     max-width: 900px;
