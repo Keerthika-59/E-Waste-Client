@@ -43,6 +43,7 @@ function Navbar() {
           <ul className={click ? 'nav-menu active my-4 px-4' : 'nav-menu my-4 px-4'}>
             <li className='nav-item'>
               <Link 
+              
               to='/Gallery' 
               style={{textDecoration:"none"}} 
               className='nav-links' 
