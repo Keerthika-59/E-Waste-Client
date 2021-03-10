@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 import { Form, Button, FormLabel } from 'react-bootstrap';
 import './contactStyle.css';
@@ -20,7 +20,11 @@ const handleContactSubmit = e => {
       console.log(name, email, message);
 
     }
+    
   }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   
   return(
   <div className="contact2" style={{backgroundImage: `url("https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/map.jpg")` }}>

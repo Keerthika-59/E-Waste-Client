@@ -1,9 +1,11 @@
-import React from "react";
+import {React,useEffect} from "react";
 import './Gallery.css'
 function Gallery() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <>
-      <p className="gal-h">Gallery</p>
       <div className="img-container">
         <img
           className="gal-img"

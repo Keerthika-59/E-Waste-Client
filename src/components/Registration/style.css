@@ -2,6 +2,7 @@ body {
   color: #000;
   overflow-x: hidden;
   height: 100%;
+  background-color: #B0BEC5;
   background-repeat: no-repeat
 }
 
@@ -10,6 +11,9 @@ body {
   border-radius: 0px
 }
 
+.text-sm{
+    padding-right: 30px;
+}
 .heading{
   text-align: center;
 }
@@ -24,9 +28,9 @@ body {
   margin-left: 35px
 }
 
-.images {
-  width: 400px;
-  height: 350px
+.image {
+  width: 500px;
+  height: 950px
 }
 
 .border-line {
@@ -65,8 +69,13 @@ body {
   font-weight: 300
 }
 
+.custom-control {
+padding-left: 20px;
+padding-right: 20px;
+}
+
 input,
-textarea {
+textarea,select {
   padding: 10px 12px 10px 12px;
   border: 1px solid lightgrey;
   border-radius: 2px;
@@ -122,9 +131,9 @@ a {
       margin-left: 0px
   }
 
-  .images {
-      width: 300px;
-      height: 220px
+  .image {
+      width: 400px;
+      height: 620px
   }
 
   .border-line {
@@ -136,14 +145,14 @@ a {
       margin: 0px 15px
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 380px) {
   .logo {
       margin-left: 0px
   }
 
-  .images {
-      width: 250px;
-      height: 120px
+  .image {
+      width: 230px;
+      height: 520px
   }
 
   .border-line {

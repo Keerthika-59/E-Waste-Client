@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 import { Form, Button, FormLabel } from 'react-bootstrap';
 import {BrowserRouter, Link} from 'react-router-dom';
 export const RepForm = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     
     return (
         <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
@@ -11,7 +15,7 @@ export const RepForm = () => {
                 <div className="col-lg-6">
                     <div className="card1 pb-5">
                         
-                        <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" alt="image" className="image"/> </div>
+                        <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" alt="" className="images"/> </div>
                     </div>
                 </div>
                 <div className="col-lg-6">
@@ -27,7 +31,7 @@ export const RepForm = () => {
                                 <h6 className="mb-0 text-sm">Password</h6>
                             </label> <input type="password" name="password" placeholder="Enter password"/> </div>
                         <div className="row px-3 mb-4">
-                            <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input"/> <label  className="custom-control-label text-sm">Remember me</label> </div> <a href="#" className="ml-auto mb-0 text-sm">Forgot Password?</a>
+                            <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input"/> <label for="chk1"  className="custom-control-label text-sm">Remember me</label> </div> <a href="/" className="ml-auto mb-0 text-sm">Forgot Password?</a>
                         </div>
                         <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Login</button> </div>
                             <div className="row mb-4 px-3"> <small className="font-weight-bold">Don't have an account? <a className="text-danger "> <Link to="/RepresentativeSignUp"> Register </Link> </a></small> </div>

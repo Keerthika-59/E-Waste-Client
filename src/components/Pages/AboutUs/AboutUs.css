@@ -1,21 +1,25 @@
-.card{
+.cards{
         width: 70rem;
         margin-top: 2%;
         margin-left: 8%;
         justify-content:center;
         align-items: center;
     }
+.achieves{
+    margin-left: 43%;
+}
+.goals{
+    margin-left: 46%;
+}
+.services{
+    margin-left: 46%;
+}
 .cardimg{
     width: 20rem
 }
 @media screen and (max-width: 650px) {
 
-/* .card{
-    width:100%;
-    height: 100vh; 
-
-} */
-.card{
+.cards{
     width: 100%;
     margin-left: 0%;
     justify-content:center;
@@ -23,6 +27,15 @@
 }
 .cardimg{
 width: 18rem
+}
+.achieves{
+    margin-left: 35%;
+}
+.goals{
+    margin-left: 35%;
+}
+.services{
+    margin-left: 35%;
 }
 }
 
