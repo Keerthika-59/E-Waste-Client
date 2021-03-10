@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
 import Navigator from './components/Navbar/PageNavigator'
 import Home from './components/Pages/Home';
+import RepresenativeRegister from './components/Registration/RepresenativeRegister';
 
 const App = () => {
   return (
