@@ -5,7 +5,8 @@ import { InputForm } from '../Contact/InputForm'
 import RepresenativeRegister from '../Registration-1/RepresenativeRegister'
 import UserRegister from '../Registration-1/UserRegister'
 import { RepForm } from '../Login/representativeLogin'
-import { UserForm } from '../Login/userLogin'
+import UserForm from '../Login/userLogin'
+
 import LoginOptions from '../Pages/LoginPages'
 import SignUpOptions from '../Pages/SignUpPages'
 import Achievements from '../Pages/AboutUs/AchievementPage'
@@ -15,6 +16,7 @@ import Gallery from '../Pages/Gallery/Gallery'
 import Team from '../OurTeam/Team'
 // import '../OurTeam/Team.css'
 // import '../Contact/contactStyle.css'
+
 function Navigator() {
     return (
         <>

@@ -10,18 +10,9 @@ export const InputForm = () => {
   const [message, setMessage] = useState()  
 
 const handleContactSubmit = e => {
-  
+
   };
-  const handleFinalSubmit = e => {
-    e.preventDefault();
-    
-    if(name && email && message) {
 
-      console.log(name, email, message);
-
-    }
-  }
-  
   return(
   <div className="contact2" style={{backgroundImage: `url("https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/map.jpg")` }}>
   <div className="container">
@@ -36,21 +27,21 @@ const handleContactSubmit = e => {
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="form-group mt-3">
-                            <input className="form-control" onChange={ (e) => setName(e.target.value)}  type="text" required={true} placeholder="Name"/>
+                            <input className="form-control" onChange={ (e) => setName(e.target.value)}  type="text" required={true} placeholder="Enter your Name"/>
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group mt-3">
-                            <input className="form-control" onChange={(e) => setEmail(e.target.value)} type="email" required={true} placeholder="Email"/>
+                            <input className="form-control" onChange={(e) => setEmail(e.target.value)} type="email" required={true} placeholder="Enter your Email"/>
                       </div>
                     </div>                 
                     <div className="col-lg-12">
                       <div className="form-group mt-3">
-                            <input className="form-control" onChange={(e) => setMessage(e.target.value)} type="text" required={true} placeholder="Message"/>
+                            <input className="form-control" onChange={(e) => setMessage(e.target.value)} type="text" required={true} placeholder="Enter your Message"/>
                       </div>
                     </div>
                     <div className="col-lg-12">
-                      <button type="submit" className="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3"><span> SUBMIT NOW <i className="ti-arrow-right"></i></span></button>
+                      <button type="submit"  className="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3"><span> SUBMIT NOW <i className="ti-arrow-right"></i></span></button>
                     </div>
                   </div>
                 </form>
