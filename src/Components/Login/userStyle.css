@@ -2,7 +2,6 @@ body {
   color: #000;
   overflow-x: hidden;
   height: 100%;
-  background-color: #B0BEC5;
   background-repeat: no-repeat
 }
 
@@ -25,7 +24,7 @@ body {
   margin-left: 35px
 }
 
-.image {
+.image1 {
   width: 400px;
   height: 350px
 }

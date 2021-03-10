@@ -2,9 +2,9 @@ import React from 'react';
 
 // import { UserForm } from './Components/Login/userLogin';
 // import { RepForm } from './Components/Login/representativeLogin';
-// import { InputForm } from "./Components/Contact/InputForm";
+ import  InputForm from "./components/Contact/InputForm";
 
-import UserRegister from "./Components/Registration/UserRegister"
+// import UserRegister from "./Components/Registration/UserRegister"
 // import RepresenativeRegister from "./Components/Registration/RepresentativeRegister"
 
 
@@ -12,12 +12,12 @@ import UserRegister from "./Components/Registration/UserRegister"
 const App = () => {
   return (
     <div className="container mt-4">
-      <UserRegister />   
+      {/* <UserRegister />    */}
       {/* <RepresenativeRegister /> */}
 
-       {/* <UserForm />
+     <InputForm />
 
-
+{/* 
 import { UserForm } from './Components/Login/userLogin';
 import { RepForm } from './Components/Login/representativeLogin';
 import { InputForm } from "./Components/Contact/InputForm";
@@ -45,7 +45,7 @@ const App = () => {
         <Route path='/' exact component={Home} />
         <Navigator/>
         <Footer />
-       </BrowserRouter>
+       </BrowserRouter> */}
        
       {/* <UserRegister />   
       <RepresenativeRegister /> 
