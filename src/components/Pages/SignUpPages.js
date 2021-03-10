@@ -1,7 +1,10 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import {Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 export default function SignUpOptions() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <>
     <h3 style={{marginTop:"10%",marginBottom:"10%",marginLeft:"6%"}}>Please choose a Sign up option</h3>

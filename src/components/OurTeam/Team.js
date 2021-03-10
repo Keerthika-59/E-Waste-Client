@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from 'react';
+import React,{useEffect} from 'react';
 import "./Team.css"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -39,6 +39,9 @@ function Team() {
 
         ]
     }
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
         <div className="container mt-5 carousel">
             <p className="slider_title font-italic">Our Team</p>

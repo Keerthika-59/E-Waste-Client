@@ -1,7 +1,10 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Carousel, Container, Card } from 'react-bootstrap';
 import './Testimonials.css';
 const Testimonials = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     return (
         <Container fluid={true}>

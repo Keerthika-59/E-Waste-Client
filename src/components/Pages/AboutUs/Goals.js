@@ -1,8 +1,11 @@
-import React from 'react';
+import {React,useEffect} from 'react';
 import { Card } from 'react-bootstrap'
 import '../AboutUs/AboutUs.css'
 
 export default function Goals() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
         <>
             <Card className="cards">
