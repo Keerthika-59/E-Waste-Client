@@ -20,7 +20,7 @@ const UserRegister = () => {
     const [cpassword, setCPassword] = useState('')
     const [error, setError] = useState('');
     const [iserror, setIserror] = useState(false);
-
+    
     return (
 
         <Formik
@@ -34,12 +34,13 @@ const UserRegister = () => {
                 address : '',
                 gender : ''
             }}
-            
+
             onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
                     alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
                 }, 1000);
+                console.log(values.password);
             }}
 
             validationSchema={Yup.object({
@@ -118,6 +119,7 @@ const UserRegister = () => {
                                             <label className="mb-1">
                                                 <h6 className="mb-0 text-sm">Phone number</h6>
                                             </label>
+                                            
                                             <Field name="mobileNumber" placeholder="Enter your Mobile Number" className={(formik.touched.mobileNumber && formik.errors.mobileNumber) ? 'form-control is-invalid' : 'form-control'} type="text" />
                                             {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
                                                 <div className="invalid-feedback">{formik.errors.mobileNumber}</div>
