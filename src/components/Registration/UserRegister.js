@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 // import { Form, Button, FormLabel } from 'react-bootstrap';
 import '../Registration/style.css';
 // const Download=require('./Registration/download.jpg');
@@ -73,7 +74,7 @@ const UserRegister = () => {
                                 <h6 className="mb-0 text-sm">Address</h6>
                             </label> <textarea className="mb-4" type="textarea" name="address" placeholder="Enter a valid address"/> </div>
                             <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
-                        <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account? <a className="text-danger ">Login</a></small> </div>
+                        <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account? <a className="text-danger "><Link to='/UserLogIn'>Login</Link></a></small> </div>
                  
                         </div>
                         </div>

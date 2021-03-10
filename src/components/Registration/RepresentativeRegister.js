@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import {Link} from 'react-router-dom'
 import '../Registration/style.css';
 
 const RepresenativeRegister = () => {
@@ -76,7 +76,7 @@ const RepresenativeRegister = () => {
                             <label className="mb-1"><h6 className="mb-0 text-sm">Upload file</h6></label>
                             <input type="file" className="mb-4" /> </div> <br/>
                             <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
-                        <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account? <a className="text-danger ">Login</a></small> </div>
+                        <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account? <a className="text-danger "><Link to='/RepresentativeLogIn'>Login</Link></a></small> </div>
                  
                         </div>
                         </div>
