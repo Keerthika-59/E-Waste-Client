@@ -34,7 +34,7 @@ const UserRegister = () => {
                 address : '',
                 gender : ''
             }}
-
+            
             onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
                     alert(JSON.stringify(values, null, 2));
