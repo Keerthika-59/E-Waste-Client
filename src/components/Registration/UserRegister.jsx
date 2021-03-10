@@ -1,137 +1,226 @@
 import React, { useState } from 'react'
-import { Form, Button, FormLabel } from 'react-bootstrap';
+import { Alert, Modal } from 'react-bootstrap';
+
+import '../Registration/style.css';
+import { BrowserRouter, Link } from 'react-router-dom';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
 
 const UserRegister = () => {
 
+    const [name, setName] = useState('');
+    const [number, setNumber] = useState();
+    const [email, setEmail]  = useState('');
+    const [gender, setGender] = useState('');
+    const [show, setShow] = useState(false)
+    const [city, setCity] = useState('');
+    const [address, setAddress] = useState('');
     const [password, setPassword] = useState('')
     const [cpassword, setCPassword] = useState('')
+    const [error, setError] = useState('');
+    const [iserror, setIserror] = useState(false);
 
     return (
-        <Form className="w-75 mx-auto">
-            <h3 className="py-2 px-2"> User Registeration</h3>
 
-            <div className="row">
-                <div className="col-md-6 col-sm-6 col-xs-12">
-                    <div className="form-group">
-                        <FormLabel>Name <em style={{ color: 'red' }}> * </em>  </FormLabel>
-                        <input type="text"
-                            className="form-control"
-                            placeholder="Enter Name"
-                            required={true}
-                        />
-                    </div>
+        <Formik
+            initialValues={{ 
+                name: '', 
+                email: '', 
+                mobileNumber: '',
+                password: '',
+                confirmPassword : '',
+                city : '',
+                address : '',
+                gender : ''
+            }}
 
-                    <div className="form-group">
-                        <FormLabel>Phone Number <em style={{ color: 'red' }}> * </em>  </FormLabel>
-                        <input type="text"
-                            className="form-control"
-                            placeholder="Enter Mobile Number"
-                            required={true}
-                            maxLength={10}
-                        />
-                    </div>
+            onSubmit={(values, { setSubmitting }) => {
+                setTimeout(() => {
+                    alert(JSON.stringify(values, null, 2));
+                    setSubmitting(false);
+                }, 1000);
+            }}
 
+            validationSchema={Yup.object({
+                name: Yup.string()
+                    .required('Name is required'),
+                email: Yup.string()
+                    .email('Invalid email address')
+                    .required('Email is required'),
 
-                    <div className="form-group">
-                        <FormLabel>Email <em style={{ color: 'red' }}> * </em>  </FormLabel>
+                password: Yup.string()
+                    .required('Password is Required')
+                    .min(8, 'Password is too short - should be 8 chars minimum.')
+                    .max(16, 'Password is too long - should be 16 chars maximum.')
+                    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
 
-                        <input type="email"
-                            className="form-control"
-                            placeholder="Enter email"
-                            required={true}
-                        />
+                confirmPassword : Yup.string()
+                    .required('Confirm Password is Required')
+                    .min(8, 'Password is too short - should be 8 chars minimum.')
+                    .max(16, 'Password is too long - should be 16 chars maximum.')
+                    .oneOf([Yup.ref('password'), 'Password not matching...']),
 
-                    </div>
+                mobileNumber: Yup.string()
+                .matches(phoneRegExp, 'Mobile Number is not Valid' )
+                .min(10, "Too short")
+                .max(10, "Too long"),
 
-                    <div className="form-group px">
-                        <FormLabel> Gender <em style={{ color: 'red' }}> * </em>  </FormLabel>
-                        <Form.Control as="select">
-                            <option value='Male'> Male </option>
-                            <option value='Female' > Female </option>
-                            <option value='others'> Others </option>
-                        </Form.Control>
-                    </div>
-                    
-                </div>
+                gender : Yup.string()
+                    .required('Gender is required'),
 
-                <div className="col-md-6 col-sm-6 col-xs-12">
+                city : Yup.string()
+                    .required('City Name is required'),
 
-                    <div className="form-group">
-                        <FormLabel>City <em style={{ color: 'red' }}> * </em>  </FormLabel>
-                        <input type="text"
-                            className="form-control"
-                            placeholder="Enter City"
-                            required={true}
-                        />
-                    </div>
+                address : Yup.string()
+                    .required('Address is Required')
+                
+            })}
+            
+            >
 
-                    <div className="form-group">
-                        <FormLabel> Address <em style={{ color: 'red' }}> * </em>  </FormLabel>
-                        <input type="text"
-                            className="form-control"
-                            placeholder="Enter Building/Apartment"
-                            required={true}
-                        />
-                    </div>
+            { (formik, values,  isSubmitting) => (
 
-                    <div className="row">
-                        <div className="col">
-                            <div className="form-group">
-                                <FormLabel> LandMark </FormLabel>
-                                <input type="text"
-                                    className="form-control"
-                                    placeholder="Enter Landmark"
-                                />
+                <Form>
+                    <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+                        <div className="card card0 border-0">
+                            <div className="row d-flex">
+                                <div className="col-lg-6">
+                                    <div className="card1 pb-5">
+
+                                        <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src={`${process.env.PUBLIC_URL}/images/picture.jpg`} alt="image" className="image" /> </div>
+                                    </div>
+                                </div>
+
+                                {name}
+
+                                <div className="col-lg-6">
+
+                                    <div className="card2 card border-0 px-4 py-5">
+
+                                        <div className="row mb-4 px-3">
+                                            <h3 className="heading">User Sign Up</h3>
+                                        </div>
+
+                                        <h3 className="text-center" style={{ color: 'red' }}>  {error}  </h3>
+
+                                        <div className="row px-3"> <label className="mb-1">
+                                            <h6 className="mb-0 text-sm">Name</h6>
+                                        </label>
+
+                                            <Field name="name" placeholder = "Enter your Name" className={(formik.touched.name && formik.errors.name) ? 'form-control is-invalid' : 'form-control'} type="name" />
+                                            {formik.touched.name && formik.errors.name ? (
+                                                <div className="invalid-feedback">{formik.errors.name}</div>
+                                            ) : null}
+
+                                        </div>
+                                        <div className="row px-3">
+                                            <label className="mb-1">
+                                                <h6 className="mb-0 text-sm">Phone number</h6>
+                                            </label>
+                                            <Field name="mobileNumber" placeholder="Enter your Mobile Number" className={(formik.touched.mobileNumber && formik.errors.mobileNumber) ? 'form-control is-invalid' : 'form-control'} type="text" />
+                                            {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
+                                                <div className="invalid-feedback">{formik.errors.mobileNumber}</div>
+                                            ) : null}
+
+                                        </div>
+
+                                        <div className="row px-3">
+
+                                            <label className="mb-1">
+                                                <h6 className="mb-0 text-sm">Email Address</h6>
+                                            </label>
+
+                                            <Field name="email" placeholder="Enter your Email" className={(formik.touched.email && formik.errors.email) ? 'form-control is-invalid' : 'form-control'} type="email" />
+                                            {formik.touched.email && formik.errors.email ? (
+                                                <div className="invalid-feedback">{formik.errors.email}</div>
+                                            ) : null}
+
+                                        </div>
+
+                                        <div className="row px-3"> 
+                                                <label className="mb-1">
+                                                    <h6 className="mb-0 text-sm"> Password</h6>
+
+                                                </label> 
+                                            <Field name="password" placeholder="Enter your Password" className={(formik.touched.password && formik.errors.password) ? 'form-control is-invalid' : 'form-control'} type="password" />
+                                            {formik.touched.password && formik.errors.password ? (
+                                                <div className="invalid-feedback">{formik.errors.password}</div>
+                                            ) : null}
+                                                
+                                            </div>
+
+                                        <br />
+                                        <div className="row px-3"> 
+                                        
+                                            <label className="mb-1">
+                                                <h6 className="mb-0 text-sm">Confirm Password</h6>
+                                            </label> 
+
+                                            <Field name="confirmPassword" placeholder="Enter your Confirm Password" className={(formik.touched.password && formik.errors.password) ? 'form-control is-invalid' : 'form-control'} type="password" />
+                                            {formik.touched.password && formik.errors.confirmPassword ? (
+                                                <div className="invalid-feedback">{formik.errors.confirmPassword}</div>
+                                            ) : null}
+                                        </div>
+                                        <br />
+                                        <p>
+                                        <div className="row px-3"> 
+                                            <label className="mb-1">
+                                                <h6 className="mb-0 text-sm">Gender</h6>
+                                            </label>
+                                                <div role="group" aria-labelledby="my-radio-group">
+                                                    <label className = "px-3">
+                                                        <Field type="radio" name="gender" value="Male" /> Male
+                                                        </label>
+                                                    <label className="px-3">
+                                                        <Field type="radio" name="gender" value="Female" /> Female
+                                                    </label>
+
+                                                    <label className="px-3">
+                                                        <Field type="radio" name="gender" value="Others"/> Others
+                                                    </label>
+                                                </div>
+
+                                        </div>
+
+                                        <div className="row px-3">
+                                            <label className="mb-1">
+                                                <h6 className="mb-0 text-sm">City</h6>
+                                            </label>
+
+                                                <Field name="city" placeholder="Enter your City" className={(formik.touched.city && formik.errors.city) ? 'form-control is-invalid' : 'form-control'} type="text" />
+                                                {formik.touched.city && formik.errors.city ? (
+                                                    <div className="invalid-feedback">{formik.errors.city}</div>
+                                                ) : null}
+
+                                        </div>
+
+                                        <div className="row px-3">
+                                            <label className="mb-1">
+                                                <h6 className="mb-0 text-sm">Address</h6>
+                                            </label>
+
+                                                <Field name="address" placeholder="Enter your Address" className={(formik.touched.address && formik.errors.address) ? 'form-control is-invalid' : 'form-control'} type="text" />
+                                                {formik.touched.address && formik.errors.address ? (
+                                                    <div className="invalid-feedback">{formik.errors.address}</div>
+                                                ) : null}
+                                        </div>
+                                        <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
+                                        <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/UserLogIn"> Login </Link>   </small> </div>
+
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <div className="col">
-                            <div className="form-group">
-                                <FormLabel> Pin Code <em style={{ color: 'red' }}> * </em>  </FormLabel>
-                                <input type="text"
-                                    className="form-control"
-                                    placeholder="Enter Pin Code"
-                                    required={true}
-                                />
-                            </div>
-                        </div>
                     </div>
 
+                </Form>
 
+            )}
 
-                    <div className="form-group">
-                        <FormLabel>Password <em style={{ color: 'red' }}> * </em> </FormLabel>
-                        <input
-                            type="password"
-                            onChange={(e) => { setPassword(e.target.value) }}
-                            className="form-control"
-                            placeholder="Enter password"
-                            required={true}
-                        />
-                    </div>
-                    
-                    <div className="form-group">
-                        <FormLabel>Confirm Password <em style={{ color: 'red' }}> * </em> </FormLabel>
-                        <input onChange={(e) => { setCPassword(e.target.value) }}
-                            type="password"
-                            className="form-control"
-                            placeholder="Enter confirm password"
-                            required={true}
-                        />
-                        <p>
-                            {password.length > 0 && cpassword.length > 0 ? (password === cpassword ? 'Password Matched☑️' : 'Password Not Matched yet') : ''}
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-
-            <Button disabled={false} type="submit"
-                className=" my-4 btn-primary btn-lg btn-block"
-            > Register
-            </Button>
-        </Form>
+        </Formik>
     )
 }
 
-export default UserRegister
+export default UserRegister;
