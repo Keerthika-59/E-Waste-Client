@@ -5,10 +5,14 @@ import '../Registration/style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+
 const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
 
 const UserRegister = () => {
+<<<<<<< HEAD
     
+=======
+>>>>>>> 380a7b99dbfa5111ff4ef8fb0e163e89d67c3d24
     const [name, setName] = useState('');
     const [number, setNumber] = useState();
     const [email, setEmail]  = useState('');
@@ -47,7 +51,7 @@ const UserRegister = () => {
                 email: Yup.string()
                     .email('Invalid email address')
                     .required('Email is required'),
-
+                    
                 password: Yup.string()
                     .required('Password is Required')
                     .min(8, 'Password is too short - should be 8 chars minimum.')
@@ -180,7 +184,6 @@ const UserRegister = () => {
                                                         <Field type="radio" name="gender" value="Others"/> Others
                                                     </label>
                                                 </div>
-
                                         </div>
 
                                         <div className="row px-3">
