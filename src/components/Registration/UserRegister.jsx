@@ -41,8 +41,6 @@ const UserRegister = () => {
                 }, 1000);
             }}
             
-            }}
-
             validationSchema={Yup.object({
                 name: Yup.string()
                     .required('Name is required'),
