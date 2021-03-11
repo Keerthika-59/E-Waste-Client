@@ -81,8 +81,6 @@ const UserRegister = () => {
                                     </div>
                                 </div>
 
-                                {name}
-
                                 <div className="col-lg-6">
 
                                     <div className="card2 card border-0 px-4 py-5">
@@ -90,9 +88,7 @@ const UserRegister = () => {
                                         <div className="row mb-4 px-3">
                                             <h3 className="heading">User Sign Up</h3>
                                         </div>
-
-                                        <h3 className="text-center" style={{ color: 'red' }}>  {error}  </h3>
-
+                                        
                                         <div className="row px-3"> <label className="mb-1">
                                             <h6 className="mb-0 text-sm">Name</h6>
                                         </label>
