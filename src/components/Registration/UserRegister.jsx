@@ -29,9 +29,8 @@ const UserRegister = () => {
                     alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
                 }, 1000);
-                console.log(values.password);
             }}
-
+            
             validationSchema={Yup.object({
                 name: Yup.string()
                     .required('Name is required'),
@@ -104,7 +103,7 @@ const UserRegister = () => {
                                             <label className="mb-1">
                                                 <h6 className="mb-0 text-sm">Phone number</h6>
                                             </label>
-                                            
+
                                             <Field name="mobileNumber" placeholder="Enter your Mobile Number" className={(formik.touched.mobileNumber && formik.errors.mobileNumber) ? 'form-control is-invalid' : 'form-control'} type="text" />
                                             {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
                                                 <div className="invalid-feedback">{formik.errors.mobileNumber}</div>
