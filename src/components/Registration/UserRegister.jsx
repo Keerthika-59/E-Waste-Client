@@ -9,18 +9,7 @@ import * as Yup from 'yup';
 const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
 
 const UserRegister = () => {
-    const [name, setName] = useState('');
-    const [number, setNumber] = useState();
-    const [email, setEmail]  = useState('');
-    const [gender, setGender] = useState('');
-    const [show, setShow] = useState(false)
-    const [city, setCity] = useState('');
-    const [address, setAddress] = useState('');
-    const [password, setPassword] = useState('')
-    const [cpassword, setCPassword] = useState('')
-    const [error, setError] = useState('');
-    const [iserror, setIserror] = useState(false);
-    
+        
     return (
 
         <Formik
