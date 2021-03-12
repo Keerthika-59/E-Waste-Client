@@ -73,7 +73,7 @@ function Navbar() {
             </li>
             <li>
               <Link
-                to='/SignUp'
+                to='/SignUpoptions'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
                 style={{ textDecoration: "none" }}
@@ -83,7 +83,7 @@ function Navbar() {
             </li>
             <li>
               <Link
-                to='/LogIn'
+                to='/LogInoptions'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
                 style={{ textDecoration: "none" }}

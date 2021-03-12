@@ -5,7 +5,15 @@
         justify-content:center;
         align-items: center;
     }
-
+.achieves{
+    margin-left: 43%;
+}
+.goals{
+    margin-left: 46%;
+}
+.services{
+    margin-left: 46%;
+}
 .cardimg{
     width: 20rem
 }
@@ -19,6 +27,15 @@
 }
 .cardimg{
 width: 18rem
+}
+.achieves{
+    margin-left: 35%;
+}
+.goals{
+    margin-left: 35%;
+}
+.services{
+    margin-left: 35%;
 }
 }
 

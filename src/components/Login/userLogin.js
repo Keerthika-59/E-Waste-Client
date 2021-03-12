@@ -1,22 +1,73 @@
-import React from 'react'
-import './userStyle.css';
+// import {React,useEffect} from 'react'
+// import './userStyle.css';
 
-import { BrowserRouter, Link } from 'react-router-dom';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+// import { BrowserRouter, Link } from 'react-router-dom';
+// import { Formik, Field, Form, ErrorMessage } from 'formik';
+// import * as Yup from 'yup';
 
 
-const UserForm = () => {
 
-    return (
-        <Formik
-            initialValues={{ name: '', email: '', subject: '', content: '' }}
-            onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                }, 1000);
-            }}
+
+// export const UserForm = () => {
+//     useEffect(() => {
+//         window.scrollTo(0, 0)
+//       }, [])
+    
+//     return (
+//         <Formik
+//             initialValues={{ name: '', email: '', subject: '', content: '' }}
+//             onSubmit={(values, { setSubmitting }) => {
+//                 setTimeout(() => {
+//                     alert(JSON.stringify(values, null, 2));
+//                     setSubmitting(false);
+//                 }, 1000);
+//             }}
+import React, { useContext, useEffect } from "react";
+import "./userStyle.css";
+import Cookies from "js-cookie";
+import { BrowserRouter, Link } from "react-router-dom";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import APIHelper from "../Registration/apihelper";
+import AuthApi from "../../authAPI";
+export const UserForm = (props) => {
+  const Auth = useContext(AuthApi);
+  const readCookies = () => {
+    const user = Cookies.get("user");
+    if (user) {
+      console.log(`user true`);
+      Auth.setAuth(true);
+      props.history.push("/UserDash");
+    }
+  };
+  useEffect(() => {
+    readCookies();
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  return (
+    <Formik
+      initialValues={{ name: "", email: "", subject: "", content: "" }}
+      onSubmit={async (values, { setSubmitting }) => {
+        const login = await APIHelper.loginUser({
+          email: values.email,
+          password: values.password,
+        });
+        console.log(login);
+        if (login) {
+          Auth.setAuth(true);
+          console.log(`logged in`);
+          Cookies.set("user", login);
+          props.history.push("/UserDash");
+        } else console.log(`error logging in`);
+
+        setTimeout(() => {
+          // alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
+        }, 1000);
+      }}
             validationSchema={Yup.object({
                 email: Yup.string()
                     .email('Invalid email address')
@@ -63,6 +114,7 @@ const UserForm = () => {
 
 
                                         </div>
+                                        <br/>
 
                                         <div className="row px-3">
                                             <label className="mb-1">
@@ -81,7 +133,7 @@ const UserForm = () => {
                                         </div>
 
                                         <div className="row mb-3 px-3">
-                                            <button type="submit" className="btn btn-blue text-center">Login</button>
+                                            <button type="submit" className="btn btn-blue text-center"><Link to='/UserDash'>Login</Link></button>
                                         </div>
 
                                         <div className="row mb-4 px-3">

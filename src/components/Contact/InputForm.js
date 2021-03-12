@@ -1,17 +1,33 @@
-import React, { useState } from 'react'
-
+import React, { useState,useEffect } from 'react'
+import axios from 'axios';
 import { Form, Button, FormLabel } from 'react-bootstrap';
 import './contactStyle.css';
 
 export const InputForm = () => {
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const [name, setName] = useState()
   const [email, setEmail] = useState()
   const [message, setMessage] = useState()  
 
 const handleContactSubmit = e => {
+ 
+    e.preventDefault();
 
-  };
+    const newContact = {
+      name,
+      email,
+      message
+    };
+
+    axios
+      .post("http://localhost:5000/contacts", newContact)
+      .then(res => console.log(res.data));
+    };
 
   return(
   <div className="contact2" style={{backgroundImage: `url("https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/map.jpg")` }}>

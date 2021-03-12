@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { Alert, Modal } from 'react-bootstrap';
-
+import APIHelper from './apihelper';
 import '../Registration/style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
+// const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
+const phoneRegExp = /^[0-9]{10}$/g;
+const nameRegExp = /^[a-zA-Z ]{2,30}$/;
 
 const UserRegister = () => {
         
@@ -24,16 +26,37 @@ const UserRegister = () => {
                 gender : ''
             }}
 
-            onSubmit={(values, { setSubmitting }) => {
+            onSubmit={async (values, { setSubmitting }) => {
+                const data = {
+                  name: values.name,
+                  phoneNumber: values.mobileNumber,
+                  email: values.email,
+                  gender: values.gender,
+                  city: values.city,
+                  address: values.address,
+                  password: values.password,
+                  confirmPassword: values.confirmPassword,
+                };
+                const response = await APIHelper.registerUsers(data);
+                console.log(response);
+        
                 setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
+                //   alert(JSON.stringify(values, null, 2));
+                  console.log(values.name);
+                  setSubmitting(false);
                 }, 1000);
-            }}
+              }}
+            // onSubmit={(values, { setSubmitting }) => {
+            //     setTimeout(() => {
+            //         alert(JSON.stringify(values, null, 2));
+            //         setSubmitting(false);
+            //     }, 1000);
+            // }}
             
             validationSchema={Yup.object({
                 name: Yup.string()
-                    .required('Name is required'),
+                    .required('Name is required')
+                    .matches(nameRegExp, 'Name is not Valid' ),
                 email: Yup.string()
                     .email('Invalid email address')
                     .required('Email is required'),
@@ -99,6 +122,7 @@ const UserRegister = () => {
                                             ) : null}
 
                                         </div>
+                                        <br/>
                                         <div className="row px-3">
                                             <label className="mb-1">
                                                 <h6 className="mb-0 text-sm">Phone number</h6>
@@ -110,7 +134,7 @@ const UserRegister = () => {
                                             ) : null}
 
                                         </div>
-
+                                        <br/>
                                         <div className="row px-3">
 
                                             <label className="mb-1">
@@ -123,6 +147,7 @@ const UserRegister = () => {
                                             ) : null}
 
                                         </div>
+                                        <br/>
 
                                         <div className="row px-3"> 
                                                 <label className="mb-1">
@@ -167,6 +192,7 @@ const UserRegister = () => {
                                                     </label>
                                                 </div>
                                         </div>
+                                        <br/>
 
                                         <div className="row px-3">
                                             <label className="mb-1">
@@ -179,6 +205,8 @@ const UserRegister = () => {
                                                 ) : null}
 
                                         </div>
+                                        <br/>
+
 
                                         <div className="row px-3">
                                             <label className="mb-1">
@@ -190,6 +218,8 @@ const UserRegister = () => {
                                                     <div className="invalid-feedback">{formik.errors.address}</div>
                                                 ) : null}
                                         </div>
+                                        <br/>
+
                                         <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
                                         <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/UserLogIn"> Login </Link>   </small> </div>
 
