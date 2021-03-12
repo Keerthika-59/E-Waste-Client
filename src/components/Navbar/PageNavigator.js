@@ -2,10 +2,11 @@ import React from 'react'
 import { Route, Switch } from "react-router-dom";
 import AboutUs from '../Pages/AboutUs/AboutUs'
 import { InputForm } from '../Contact/InputForm'
-import RepresenativeRegister from '../Registration/RepresentativeRegister'
-import UserRegister from '../Registration/UserRegister'
+import RepresenativeRegister from '../Registration/RepresenativeRegister.jsx'
+import UserRegister from '../Registration/UserRegister.jsx'
 import { RepForm } from '../Login/representativeLogin'
-import { UserForm } from '../Login/userLogin'
+import UserForm from '../Login/userLogin'
+
 import LoginOptions from '../Pages/LoginPages'
 import SignUpOptions from '../Pages/SignUpPages'
 import Achievements from '../Pages/AboutUs/AchievementPage'
@@ -14,6 +15,8 @@ import Services from '../Pages/AboutUs/Services'
 import Gallery from '../Pages/Gallery/Gallery'
 import Team from '../OurTeam/Team'
 import Testimonials from '../Testimonials/Testimonials'
+import UserDashboard from '../Dashboard/UserDash/UserDashboardpage'
+import RepDashboard from '../Dashboard/RepDash/RepDashboardpage'
 function Navigator() {
     return (
         <>
@@ -32,6 +35,8 @@ function Navigator() {
                 <Route path='/Achievements' component={Achievements} />
                 <Route path='/OurTeam' component={Team} />
                 <Route path='/Testimonials' component={Testimonials} />
+                {/* <Route path='/UserDash' component={UserDashboard } /> */}
+                <Route path='/RepDash' component={RepDashboard } />
             </Switch>
         </>
     )
