@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "http://localhost:5000/auth1/"
+const API_URL = "http://localhost:5000/reps/"
 
 async function getAllUsers() {
     const { data: users } = await axios.get(API_URL)
@@ -8,7 +8,7 @@ async function getAllUsers() {
   }
   
 async function registerUsers(userData) {
-    const { data: users } = await axios.post(API_URL,userData)
+    const { data: users } = await axios.post(`${API_URL}add`,userData)
     return users
   }
   async function loginUser(loginData){

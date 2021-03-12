@@ -57,7 +57,8 @@ export default (props) => {
     Auth.setAuth(false)
     Cookies.remove('user')
     console.log("logged out");
-    props.history.push('/')
+    <Redirect to='/RepresentativeLogIn' />
+    
   }
 
   return (
@@ -125,7 +126,7 @@ export default (props) => {
                   <Dropdown.Divider />
 
                   <Dropdown.Item className="fw-bold">
-                    <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
+                    <FontAwesomeIcon icon={faSignOutAlt} onClick={e => handleLogout(e)} className="text-danger me-2" /> Logout
                 </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>

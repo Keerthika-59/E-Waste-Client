@@ -122,6 +122,7 @@ const UserRegister = () => {
                                             ) : null}
 
                                         </div>
+                                        <br/>
                                         <div className="row px-3">
                                             <label className="mb-1">
                                                 <h6 className="mb-0 text-sm">Phone number</h6>
@@ -133,7 +134,7 @@ const UserRegister = () => {
                                             ) : null}
 
                                         </div>
-
+                                        <br/>
                                         <div className="row px-3">
 
                                             <label className="mb-1">
@@ -146,6 +147,7 @@ const UserRegister = () => {
                                             ) : null}
 
                                         </div>
+                                        <br/>
 
                                         <div className="row px-3"> 
                                                 <label className="mb-1">
@@ -190,6 +192,7 @@ const UserRegister = () => {
                                                     </label>
                                                 </div>
                                         </div>
+                                        <br/>
 
                                         <div className="row px-3">
                                             <label className="mb-1">
@@ -202,6 +205,8 @@ const UserRegister = () => {
                                                 ) : null}
 
                                         </div>
+                                        <br/>
+
 
                                         <div className="row px-3">
                                             <label className="mb-1">
@@ -213,6 +218,8 @@ const UserRegister = () => {
                                                     <div className="invalid-feedback">{formik.errors.address}</div>
                                                 ) : null}
                                         </div>
+                                        <br/>
+
                                         <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
                                         <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/UserLogIn"> Login </Link>   </small> </div>
 

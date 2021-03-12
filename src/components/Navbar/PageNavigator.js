@@ -35,7 +35,7 @@ function Navigator() {
                 <Route path='/Achievements' component={Achievements} />
                 <Route path='/OurTeam' component={Team} />
                 <Route path='/Testimonials' component={Testimonials} />
-                {/* <Route path='/UserDash' component={UserDashboard } /> */}
+                <Route path='/UserDash' component={UserDashboard } />
                 <Route path='/RepDash' component={RepDashboard } />
             </Switch>
         </>

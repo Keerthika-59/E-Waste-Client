@@ -16,7 +16,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Route path='/' exact component={Home} />
-        <Route path='/UserDash' exact component={UserDashboard } />
+        {/* <Route path='/UserDash' exact component={UserDashboard } /> */}
         <Navigator/>
         <Footer />
        </BrowserRouter>

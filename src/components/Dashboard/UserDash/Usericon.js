@@ -59,7 +59,8 @@ const handleLogout=async (e)=>{
     Auth.setAuth(false)
     Cookies.remove('user')
     console.log("logged out");
-    props.history.push('/')
+    // props.history.push('/UserLogin')
+    <Redirect to='/UserLogIn' />
 }
 
   return (

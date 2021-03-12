@@ -25,7 +25,7 @@ const handleContactSubmit = e => {
     };
 
     axios
-      .post("http://localhost:3000/contacts", newContact)
+      .post("http://localhost:5000/contacts", newContact)
       .then(res => console.log(res.data));
     };
 

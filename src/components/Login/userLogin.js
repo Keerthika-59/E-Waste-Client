@@ -37,12 +37,16 @@ export const UserForm = (props) => {
     if (user) {
       console.log(`user true`);
       Auth.setAuth(true);
-      props.history.push("/welcome");
+      props.history.push("/UserDash");
     }
   };
   useEffect(() => {
     readCookies();
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <Formik
       initialValues={{ name: "", email: "", subject: "", content: "" }}
@@ -56,7 +60,7 @@ export const UserForm = (props) => {
           Auth.setAuth(true);
           console.log(`logged in`);
           Cookies.set("user", login);
-          props.history.push("/welcome");
+          props.history.push("/UserDash");
         } else console.log(`error logging in`);
 
         setTimeout(() => {
@@ -110,6 +114,7 @@ export const UserForm = (props) => {
 
 
                                         </div>
+                                        <br/>
 
                                         <div className="row px-3">
                                             <label className="mb-1">
