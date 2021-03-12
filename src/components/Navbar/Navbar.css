@@ -88,13 +88,13 @@
 }
 
 #dropdown-basic-button {
-  background-color: pink;
+  background-color: #ffcb0c;
   margin-right: 0px;
   border-radius: 5px 5px;
 }
 
 #dropdown-basic-button:hover {
-  background-color: rgb(240, 108, 189);
+  background-color: rgb(218, 228, 80);
   margin-right: 0px;
   border-radius: 5px 5px;
 }

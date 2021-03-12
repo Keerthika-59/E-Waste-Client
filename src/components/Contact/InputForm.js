@@ -1,31 +1,34 @@
 import React, { useState,useEffect } from 'react'
-
+import axios from 'axios';
 import { Form, Button, FormLabel } from 'react-bootstrap';
 import './contactStyle.css';
 
 export const InputForm = () => {
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const [name, setName] = useState()
   const [email, setEmail] = useState()
   const [message, setMessage] = useState()  
 
 const handleContactSubmit = e => {
-  
-  };
-  const handleFinalSubmit = e => {
+ 
     e.preventDefault();
-    
-    if(name && email && message) {
 
-      console.log(name, email, message);
+    const newContact = {
+      name,
+      email,
+      message
+    };
 
-    }
-    
-  }
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-  
+    axios
+      .post("http://localhost:3000/contacts", newContact)
+      .then(res => console.log(res.data));
+    };
+
   return(
   <div className="contact2" style={{backgroundImage: `url("https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/map.jpg")` }}>
   <div className="container">
@@ -40,21 +43,21 @@ const handleContactSubmit = e => {
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="form-group mt-3">
-                            <input className="form-control" onChange={ (e) => setName(e.target.value)}  type="text" required={true} placeholder="Name"/>
+                            <input className="form-control" onChange={ (e) => setName(e.target.value)}  type="text" required={true} placeholder="Enter your Name"/>
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group mt-3">
-                            <input className="form-control" onChange={(e) => setEmail(e.target.value)} type="email" required={true} placeholder="Email"/>
+                            <input className="form-control" onChange={(e) => setEmail(e.target.value)} type="email" required={true} placeholder="Enter your Email"/>
                       </div>
                     </div>                 
                     <div className="col-lg-12">
                       <div className="form-group mt-3">
-                            <input className="form-control" onChange={(e) => setMessage(e.target.value)} type="text" required={true} placeholder="Message"/>
+                            <input className="form-control" onChange={(e) => setMessage(e.target.value)} type="text" required={true} placeholder="Enter your Message"/>
                       </div>
                     </div>
                     <div className="col-lg-12">
-                      <button type="submit" className="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3"><span> SUBMIT NOW <i className="ti-arrow-right"></i></span></button>
+                      <button type="submit"  className="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3"><span> SUBMIT NOW <i className="ti-arrow-right"></i></span></button>
                     </div>
                   </div>
                 </form>
