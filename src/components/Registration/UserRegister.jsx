@@ -6,6 +6,7 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import ApiHelper from './apihelper';
 
 // const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
 const phoneRegExp = /^[0-9]{10}$/g;
@@ -25,80 +26,70 @@ const UserRegister = () => {
                 gender : ''
             }}
 
-            onSubmit={async ({values, resetForm, setStatus, setSubmitting}) => {
+            onSubmit={async (values, {resetForm, setSubmitting }) => {
 
                 const data = {
                   name: values.name,
-                  phoneNumber: values.phoneNumber,
+                 phoneNumber: values.mobileNumber,
                   email: values.email,
                   gender: values.gender,
                   city: values.city,
                   address: values.address,
                   password: values.password,
                 };
-                
-                await axios.post('http://127.0.0.1:5000/auth1/register', data)
-                .then( (res) => {
 
-                    setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
-                        setSubmitting(false);
-                    }, 1000);
-                })
-                .catch(err => {
-                    setStatus({
-                        sent: false,
-                        msg: `Error! ${err}. Please try again later.`
-                    })
-                })
+                console.log(values);
+
+                const response = await APIHelper.registerUsers(data);
+                console.log(response);
+
+                resetForm({});
+
+                setTimeout(() => {
+                    // alert(JSON.stringify(values, null, 2));
+                    alert('Form Submitted')
+                    setSubmitting(false);
+                }, 1000);
 
               }}
-              
+
             validationSchema={Yup.object({
                 name: Yup.string()
                     .required('Name is required')
-                    .matches(nameRegExp, 'Name is not Valid' ),
+                    .matches(nameRegExp, 'Name is not Valid'),
                 email: Yup.string()
                     .email('Invalid email address')
                     .required('Email is required'),
-
-                phoneNumber: Yup.string()
-                    .required('Phone Number is Required')
-                    .matches(phoneRegExp, 'Mobile Number is not Valid')
-                    .min(10, "Too short")
-                    .max(10, "Too long"),
 
                 password: Yup.string()
                     .required('Password is Required')
                     .min(8, 'Password is too short - should be 8 chars minimum.')
                     .max(16, 'Password is too long - should be 16 chars maximum.')
-                    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
+                    .matches(/(?=.*[0-9])/, "Password must contain a number."),
 
-                confirmPassword : Yup.string()
+                confirmPassword: Yup.string()
                     .required('Confirm Password is Required')
                     .min(8, 'Password is too short - should be 8 chars minimum.')
                     .max(16, 'Password is too long - should be 16 chars maximum.')
                     .oneOf([Yup.ref('password'), 'Password not matching...']),
 
-                gender : Yup.string()
+                mobileNumber: Yup.string()
+                    .matches(phoneRegExp, 'Mobile Number is not Valid')
+                    .min(10, "Too short")
+                    .max(10, "Too long"),
+
+                gender: Yup.string()
                     .required('Gender is required'),
 
-                city : Yup.string()
+                city: Yup.string()
                     .required('City Name is required'),
 
-                address : Yup.string()
+                address: Yup.string()
                     .required('Address is Required')
-            })}
-            >
+            })} >
 
-            { (formik, touched, values, isSubmitting, resetForm, status) => (
+            { (formik, values, isSubmitting, resetForm, status) => (
                 <Form>
-
-                    {status && status.msg && (
-                        <p className={`alert ${status.sent ? "alert-success" : "alert-error"}`}>
-                            {status.msg}
-                        </p>
-                    )}
 
                     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                         <div className="card card0 border-0">
@@ -134,9 +125,9 @@ const UserRegister = () => {
                                                 <h6 className="mb-0 text-sm">Phone number</h6>
                                             </label>
 
-                                            <Field name="mobileNumber" placeholder="Enter your Mobile Number" className={(formik.touched.phoneNumber && formik.errors.phoneNumber) ? 'form-control is-invalid' : 'form-control'} type="text" />
-                                            {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-                                                <div className="invalid-feedback">{formik.errors.phoneNumber}</div>
+                                            <Field name="mobileNumber" placeholder="Enter your Mobile Number" className={(formik.touched.mobileNumber && formik.errors.mobileNumber) ? 'form-control is-invalid' : 'form-control'} type="text" />
+                                            {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
+                                                <div className="invalid-feedback">{formik.errors.mobileNumber}</div>
                                             ) : null}
 
                                         </div>

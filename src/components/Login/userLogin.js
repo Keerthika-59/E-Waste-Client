@@ -32,7 +32,7 @@ export const UserForm = (props) => {
     return (
         <Formik
             initialValues={{ email: "", password: "" }}
-            onSubmit={async (values, { setSubmitting }) => {
+            onSubmit={async (values, { resetForm, setSubmitting }) => {
                 const login = await APIHelper.loginUser({
                     email: values.email,
                     password: values.password,
@@ -43,11 +43,18 @@ export const UserForm = (props) => {
                     console.log(`logged in`);
                     Cookies.set("user", login);
                     props.history.push("/UserDash");
-                } else console.log(`error logging in`);
+
+                } else { 
+                    resetForm({});
+                    setTimeout(() => {
+                        alert('Invalid Username or Password')
+                    }, 1000);
+                    console.log(`error logging in`);
+                }
                 
-                setTimeout(() => {
-                    setSubmitting(false);
-                }, 1000);
+                // setTimeout(() => {
+                //     setSubmitting(false);
+                // }, 1000);
             }}
             validationSchema={Yup.object({
                 email: Yup.string()
@@ -57,7 +64,7 @@ export const UserForm = (props) => {
                     .required('Password is Required'),
             })}>
 
-            { (formik, isSubmitting) => (
+            { (formik, isSubmitting, resetForm) => (
                 <Form>
                     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                         <div className="card card0 border-0">
