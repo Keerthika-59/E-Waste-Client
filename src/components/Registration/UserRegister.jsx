@@ -5,15 +5,14 @@ import '../Registration/style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 
 // const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
 const phoneRegExp = /^[0-9]{10}$/g;
 const nameRegExp = /^[a-zA-Z ]{2,30}$/;
 
 const UserRegister = () => {
-        
     return (
-
         <Formik
             initialValues={{ 
                 name: '', 
@@ -26,33 +25,35 @@ const UserRegister = () => {
                 gender : ''
             }}
 
-            onSubmit={async (values, { setSubmitting }) => {
+            onSubmit={async ({values, resetForm, setStatus, setSubmitting}) => {
+
                 const data = {
                   name: values.name,
-                  phoneNumber: values.mobileNumber,
+                  phoneNumber: values.phoneNumber,
                   email: values.email,
                   gender: values.gender,
                   city: values.city,
                   address: values.address,
                   password: values.password,
-                  confirmPassword: values.confirmPassword,
                 };
-                const response = await APIHelper.registerUsers(data);
-                console.log(response);
-        
-                setTimeout(() => {
-                //   alert(JSON.stringify(values, null, 2));
-                  console.log(values.name);
-                  setSubmitting(false);
-                }, 1000);
+                
+                await axios.post('http://127.0.0.1:5000/auth1/register', data)
+                .then( (res) => {
+
+                    setTimeout(() => {
+                        alert(JSON.stringify(values, null, 2));
+                        setSubmitting(false);
+                    }, 1000);
+                })
+                .catch(err => {
+                    setStatus({
+                        sent: false,
+                        msg: `Error! ${err}. Please try again later.`
+                    })
+                })
+
               }}
-            // onSubmit={(values, { setSubmitting }) => {
-            //     setTimeout(() => {
-            //         alert(JSON.stringify(values, null, 2));
-            //         setSubmitting(false);
-            //     }, 1000);
-            // }}
-            
+              
             validationSchema={Yup.object({
                 name: Yup.string()
                     .required('Name is required')
@@ -60,7 +61,13 @@ const UserRegister = () => {
                 email: Yup.string()
                     .email('Invalid email address')
                     .required('Email is required'),
-                    
+
+                phoneNumber: Yup.string()
+                    .required('Phone Number is Required')
+                    .matches(phoneRegExp, 'Mobile Number is not Valid')
+                    .min(10, "Too short")
+                    .max(10, "Too long"),
+
                 password: Yup.string()
                     .required('Password is Required')
                     .min(8, 'Password is too short - should be 8 chars minimum.')
@@ -73,11 +80,6 @@ const UserRegister = () => {
                     .max(16, 'Password is too long - should be 16 chars maximum.')
                     .oneOf([Yup.ref('password'), 'Password not matching...']),
 
-                mobileNumber: Yup.string()
-                .matches(phoneRegExp, 'Mobile Number is not Valid' )
-                .min(10, "Too short")
-                .max(10, "Too long"),
-
                 gender : Yup.string()
                     .required('Gender is required'),
 
@@ -86,14 +88,18 @@ const UserRegister = () => {
 
                 address : Yup.string()
                     .required('Address is Required')
-                
             })}
-            
             >
 
-            { (formik, values,  isSubmitting) => (
-
+            { (formik, touched, values, isSubmitting, resetForm, status) => (
                 <Form>
+
+                    {status && status.msg && (
+                        <p className={`alert ${status.sent ? "alert-success" : "alert-error"}`}>
+                            {status.msg}
+                        </p>
+                    )}
+
                     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                         <div className="card card0 border-0">
                             <div className="row d-flex">
@@ -128,9 +134,9 @@ const UserRegister = () => {
                                                 <h6 className="mb-0 text-sm">Phone number</h6>
                                             </label>
 
-                                            <Field name="mobileNumber" placeholder="Enter your Mobile Number" className={(formik.touched.mobileNumber && formik.errors.mobileNumber) ? 'form-control is-invalid' : 'form-control'} type="text" />
-                                            {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
-                                                <div className="invalid-feedback">{formik.errors.mobileNumber}</div>
+                                            <Field name="mobileNumber" placeholder="Enter your Mobile Number" className={(formik.touched.phoneNumber && formik.errors.phoneNumber) ? 'form-control is-invalid' : 'form-control'} type="text" />
+                                            {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+                                                <div className="invalid-feedback">{formik.errors.phoneNumber}</div>
                                             ) : null}
 
                                         </div>
@@ -173,6 +179,7 @@ const UserRegister = () => {
                                                 <div className="invalid-feedback">{formik.errors.confirmPassword}</div>
                                             ) : null}
                                         </div>
+
                                         <br />
                                         <p>
                                         <div className="row px-3"> 
@@ -190,7 +197,12 @@ const UserRegister = () => {
                                                     <label className="px-3">
                                                         <Field type="radio" name="gender" value="Others"/> Others
                                                     </label>
+
+                                                    {formik.touched.gender && formik.errors.gender ? (
+                                                        <div className="invalid-feedback">{formik.errors.gender}</div>
+                                                    ) : null}
                                                 </div>
+
                                         </div>
                                         <br/>
 
@@ -220,7 +232,15 @@ const UserRegister = () => {
                                         </div>
                                         <br/>
 
-                                        <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
+                                        <div className="row mb-3 px-3"> 
+                                            <button 
+                                            type="submit"
+                                            className="btn btn-blue text-center"
+                                            >
+                                                Register
+                                            </button>
+
+                                        </div>
                                         <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/UserLogIn"> Login </Link>   </small> </div>
 
                                         </p>

@@ -1,85 +1,64 @@
-// import {React,useEffect} from 'react'
-// import './userStyle.css';
-
-// import { BrowserRouter, Link } from 'react-router-dom';
-// import { Formik, Field, Form, ErrorMessage } from 'formik';
-// import * as Yup from 'yup';
-
-
-
-
-// export const UserForm = () => {
-//     useEffect(() => {
-//         window.scrollTo(0, 0)
-//       }, [])
-    
-//     return (
-//         <Formik
-//             initialValues={{ name: '', email: '', subject: '', content: '' }}
-//             onSubmit={(values, { setSubmitting }) => {
-//                 setTimeout(() => {
-//                     alert(JSON.stringify(values, null, 2));
-//                     setSubmitting(false);
-//                 }, 1000);
-//             }}
 import React, { useContext, useEffect } from "react";
 import "./userStyle.css";
+
 import Cookies from "js-cookie";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import APIHelper from "../Registration/apihelper";
 import AuthApi from "../../authAPI";
+
 export const UserForm = (props) => {
-  const Auth = useContext(AuthApi);
-  const readCookies = () => {
-    const user = Cookies.get("user");
-    if (user) {
-      console.log(`user true`);
-      Auth.setAuth(true);
-      props.history.push("/UserDash");
-    }
-  };
-  useEffect(() => {
-    readCookies();
-  }, []);
+    const Auth = useContext(AuthApi);
+    const readCookies = () => {
+        const user = Cookies.get("user");
+        if (user) {
+            console.log(`user true`);
+            Auth.setAuth(true);
+            props.history.push("/UserDash");
+        }
+    };
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-  return (
-    <Formik
-      initialValues={{ name: "", email: "", subject: "", content: "" }}
-      onSubmit={async (values, { setSubmitting }) => {
-        const login = await APIHelper.loginUser({
-          email: values.email,
-          password: values.password,
-        });
-        console.log(login);
-        if (login) {
-          Auth.setAuth(true);
-          console.log(`logged in`);
-          Cookies.set("user", login);
-          props.history.push("/UserDash");
-        } else console.log(`error logging in`);
+    // const []
 
-        setTimeout(() => {
-          // alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 1000);
-      }}
+    useEffect(() => {
+        readCookies();
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    
+    return (
+        <Formik
+            initialValues={{ email: "", password: "" }}
+            onSubmit={async (values, { setSubmitting }) => {
+                const login = await APIHelper.loginUser({
+                    email: values.email,
+                    password: values.password,
+                });
+                console.log(login);
+                if (login) {
+                    Auth.setAuth(true);
+                    console.log(`logged in`);
+                    Cookies.set("user", login);
+                    props.history.push("/UserDash");
+                } else console.log(`error logging in`);
+                
+                setTimeout(() => {
+                    setSubmitting(false);
+                }, 1000);
+            }}
             validationSchema={Yup.object({
                 email: Yup.string()
                     .email('Invalid email address')
                     .required('Email is required'),
                 password: Yup.string()
                     .required('Password is Required'),
-            })}
-        >
+            })}>
 
-        { (formik, isSubmitting) => (
-
-            <Form>
+            { (formik, isSubmitting) => (
+                <Form>
                     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                         <div className="card card0 border-0">
                             <div className="row d-flex">
@@ -106,7 +85,6 @@ export const UserForm = (props) => {
                                             <h6 className="mb-0 text-sm">Email Address</h6>
                                         </label>
 
-
                                             <Field name="email" className={(formik.touched.email && formik.errors.email) ? 'form-control is-invalid' : 'form-control'} type="email" />
                                             {formik.touched.email && formik.errors.email ? (
                                                 <div className="invalid-feedback">{formik.errors.email}</div>
@@ -114,15 +92,15 @@ export const UserForm = (props) => {
 
 
                                         </div>
-                                        <br/>
+                                        <br />
 
                                         <div className="row px-3">
                                             <label className="mb-1">
                                                 <h6 className="mb-0 text-sm">Password</h6>
                                             </label>
-                                            
+
                                             <Field name="password" className={(formik.touched.password && formik.errors.password) ? 'form-control is-invalid' : 'form-control'} type="password" />
-                                            {formik.touched.password && formik.errors.password? (
+                                            {formik.touched.password && formik.errors.password ? (
                                                 <div className="invalid-feedback">{formik.errors.password}</div>
                                             ) : null}
 
@@ -133,7 +111,7 @@ export const UserForm = (props) => {
                                         </div>
 
                                         <div className="row mb-3 px-3">
-                                            <button type="submit" className="btn btn-blue text-center"><Link to='/UserDash'>Login</Link></button>
+                                            <button type="submit" className="btn btn-blue text-center"> Login </button>
                                         </div>
 
                                         <div className="row mb-4 px-3">
@@ -146,8 +124,8 @@ export const UserForm = (props) => {
                         </div>
                     </div>
 
-            </Form>
-        ) }
+                </Form>
+            )}
 
 
         </Formik>

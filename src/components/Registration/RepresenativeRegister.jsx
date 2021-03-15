@@ -117,7 +117,8 @@ const RepresenativeRegister = () => {
                 address: '',
                 gender: ''
             }}
-            onSubmit={async (values, { setSubmitting }) => {
+            onSubmit={async (values, { setSubmitting, resetForm }) => {
+
                 const data = {
                     name: values.name,
                     phoneNumber: values.mobileNumber,
@@ -128,20 +129,16 @@ const RepresenativeRegister = () => {
                     password: values.password,
                 };
                 const response = await APIHelper.registerUsers(data);
+                resetForm({});
+
                 console.log(response);
 
                 setTimeout(() => {
-                    //   alert(JSON.stringify(values, null, 2));
+                      alert(JSON.stringify(values, null, 2));
                     console.log(values.name);
                     setSubmitting(false);
                 }, 1000);
             }}
-            // onSubmit={(values, { setSubmitting }) => {
-            //     setTimeout(() => {
-            //         alert(JSON.stringify(values, null, 2));
-            //         setSubmitting(false);
-            //     }, 1000);
-            // }}
 
             validationSchema={Yup.object({
                 name: Yup.string()
@@ -155,8 +152,8 @@ const RepresenativeRegister = () => {
                     .required('Password is Required')
                     .min(8, 'Password is too short - should be 8 chars minimum.')
                     .max(16, 'Password is too long - should be 16 chars maximum.')
-                    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
-
+                    .matches(/(?=.*[0-9])/, "Password must contain a number."),
+                    
                 confirmPassword: Yup.string()
                     .required('Confirm Password is Required')
                     .min(8, 'Password is too short - should be 8 chars minimum.')
@@ -181,7 +178,7 @@ const RepresenativeRegister = () => {
 
         >
 
-            { (formik, values, isSubmitting) => (
+            { (formik, values, isSubmitting, resetForm) => (
 
                 <Form>
                     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">

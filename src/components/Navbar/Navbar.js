@@ -94,6 +94,7 @@ function Navbar() {
 
           </ul>
         </div>
+        
           <div className="login-navbar mr-auto">
             {
               button && <DropdownButton className="mr-auto" id="dropdown-basic-button" title="LOG IN">

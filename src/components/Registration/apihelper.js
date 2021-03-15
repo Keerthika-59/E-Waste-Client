@@ -8,7 +8,7 @@ async function getAllUsers() {
   }
   
 async function registerUsers(userData) {
-    const { data: users } = await axios.post(API_URL,userData)
+  const { data: users } = await axios.post(`${API_URL}register`,userData)
     return users
   }
   async function loginUser(loginData){

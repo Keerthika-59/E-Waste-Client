@@ -122,11 +122,11 @@ export default (props) => {
                 <Dropdown.Item className="fw-bold">
                   <FontAwesomeIcon icon={faUserShield} className="me-2" /> Support
                 </Dropdown.Item> */}
-
+                
                   <Dropdown.Divider />
 
-                  <Dropdown.Item className="fw-bold">
-                    <FontAwesomeIcon icon={faSignOutAlt} onClick={e => handleLogout(e)} className="text-danger me-2" /> Logout
+                  <Dropdown.Item className="fw-bold" onClick={e => handleLogout(e)} >
+                    <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
                 </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
