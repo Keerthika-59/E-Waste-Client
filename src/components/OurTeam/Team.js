@@ -91,7 +91,7 @@ function Team() {
                             <li><a href="https://www.linkedin.com/login/"><i className='fab fa-linkedin'></i></a></li>
                         </ul>
                         <div className="details">
-                            <h2>Keerthika<span className="job-title">MERN Stack Developerr</span></h2>
+                            <h2>Keerthika<span className="job-title">MERN Stack Developer</span></h2>
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@ function Team() {
                             <li><a href="https://www.linkedin.com/login/"><i className='fab fa-linkedin'></i></a></li>
                         </ul>
                         <div className="details">
-                            <h2>Pooja Prasad<span className="job-title">MERN Stack Developerr</span></h2>
+                            <h2>Pooja Prasad<span className="job-title">MERN Stack Developer</span></h2>
                         </div>
                     </div>
                 </div>
