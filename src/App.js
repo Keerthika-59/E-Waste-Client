@@ -1,24 +1,27 @@
-import React from 'react';
-
+import React,{useState} from 'react';
 // import logo from './logo.svg';
 // import './App.css';
-import './components/Navbar/Navbar.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './components/Footer/Footer';
+import Footer from './components/Footer/Footer'
 import { BrowserRouter, Route } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
 import Navigator from './components/Navbar/PageNavigator'
 import Home from './components/Pages/Home';
-
+import AuthApi from './authAPI'
+import UserDashboard from './components/Dashboard/UserDash/UserDashboardpage'
 const App = () => {
+  const [auth,setAuth]=useState(false)
   return (
     <div className="App">
-       <BrowserRouter>
+      <AuthApi.Provider value={{auth,setAuth}}>
+      <BrowserRouter>
         <Navbar />
         <Route path='/' exact component={Home} />
+        {/* <Route path='/UserDash' exact component={UserDashboard } /> */}
         <Navigator/>
         <Footer />
        </BrowserRouter>
+      </AuthApi.Provider>
+      
        </div>
   );
 }

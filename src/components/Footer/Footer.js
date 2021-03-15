@@ -13,77 +13,71 @@ function Footer() {
           You can unsubscribe at any time.
         </p>        
       </section>
-      <div class='footer-links'>
+      <div className='footer-links'>
         <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>About Us</h2>
-            <Link className="footerlinks" to='/sign-up'>How it works</Link>
-            <Link className="footerlinks" to='/'>Testimonials</Link>
-            <Link className="footerlinks" to='/'>Careers</Link>
-            <Link className="footerlinks" to='/'>Terms of Service</Link>
+            <Link className="footerlinks" to='/UserSignUp'>How it works</Link>
+            <Link className="footerlinks" to='/Testimonials'>Testimonials</Link>
+            <Link className="footerlinks" to='/Goals'>Goals</Link>
+            <Link className="footerlinks" to='/OurTeam'>Our Team</Link>
           </div>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>Contact Us</h2>
             <Link className="footerlinks"  to='/ContactUs'>Contact</Link>
-            <Link className="footerlinks"  to='/'>Support</Link>
-            <Link className="footerlinks"  to='/'>Destinations</Link>
-            <Link className="footerlinks"  to='/'>Sponsorships</Link>
+            <Link className="footerlinks"  to='/Services'>Services</Link>
+            <Link className="footerlinks"  to='/Achievements'>Achievements</Link>
+            <Link className="footerlinks"  to='/RepresentativeSignUp'>Join us</Link>
           </div>
         </div>
         <div className='footer-link-wrapper'>
          </div>
       </div>
-      <section class='social-media'>
-        <div class='social-media-wrap'>
-          <div class='footer-logo'>
+      <section className='social-media'>
+        <div className='social-media-wrap'>
+          <div className='footer-logo'>
            <hr></hr>
           </div>
-          {/* <small class='website-rights'>TRVL © 2020</small> */}
           <div className='socialicons'>
             <Link
-              class='social-icon-link facebook'
+              className='social-icon-link facebook'
               to=''
               target='_blank'
               aria-label='Facebook'
             >
-                <a className="socials" href="https://www.facebook.com/">
-              <i class='fab fa-facebook-f' /></a>
+             <a href="https://www.facebook.com/"><i className='fab fa-facebook-f' href="https://www.facebook.com/"/></a>
             </Link>
             <Link
-              class='social-icon-link instagram'
+              className='social-icon-link instagram'
               to='/'
               target='_blank'
               aria-label='Instagram'
             >
-                <a className="socials" href="https://www.facebook.com/">              
-              <i class='fab fa-instagram' /></a>
+             <a href="https://www.instagram.com/"><i className='fab fa-instagram' href="https://www.facebook.com/" /></a>
             </Link>
             <Link
-              class='social-icon-link youtube'
+              className='social-icon-link youtube'
               to='/'
               target='_blank'
               aria-label='Youtube'
             >
-                <a className="socials" href="https://www.facebook.com/">
-              <i class='fab fa-youtube' /></a>
+             <a href="https://www.youtube.com/?gl=IN"> <i className='fab fa-youtube' href="https://www.facebook.com/" /></a>
             </Link>
             <Link
-              class='social-icon-link twitter'
+              className='social-icon-link twitter'
               to='/'
               target='_blank'
               aria-label='Twitter'
             >
-                <a className="socials" href="https://www.facebook.com/">
-              <i class='fab fa-twitter' /></a>
+             <a href="https://twitter.com/?lang=en-in"> <i className='fab fa-twitter' href="https://www.facebook.com/" /></a>
             </Link>
             <Link
-              class='social-icon-link twitter'
+              className='social-icon-link twitter'
               to='/'
               target='_blank'
               aria-label='LinkedIn'
             >
-                <a className="socials" href="https://www.facebook.com/">
-              <i class='fab fa-linkedin' /></a>
+              <a href="https://www.linkedin.com/login/"><i className='fab fa-linkedin' href="https://www.facebook.com/" /></a>
             </Link>
           </div>
         </div>
@@ -91,5 +85,4 @@ function Footer() {
     </div>
   );
 }
-
 export default Footer;
