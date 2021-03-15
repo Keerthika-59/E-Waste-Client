@@ -1,63 +1,30 @@
-import React from 'react';
-
-// import { UserForm } from './Components/Login/userLogin';
-// import { RepForm } from './Components/Login/representativeLogin';
- import  InputForm from "./components/Contact/InputForm";
-
-// import UserRegister from "./Components/Registration/UserRegister"
-// import RepresenativeRegister from "./Components/Registration/RepresentativeRegister"
-
-
-
-const App = () => {
-  return (
-    <div className="container mt-4">
-      {/* <UserRegister />    */}
-      {/* <RepresenativeRegister /> */}
-
-     <InputForm />
-
-{/* 
-import { UserForm } from './Components/Login/userLogin';
-import { RepForm } from './Components/Login/representativeLogin';
-import { InputForm } from "./Components/Contact/InputForm";
-
-import UserRegister from "./Components/Registration/UserRegister";
-import RepresenativeRegister from "./Components/Registration/RepresentativeRegister";
-
-
-import logo from './logo.svg';
-import './App.css';
-import './Components/Navbar/Navbar.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './Components/Footer/Footer';
+import React,{useState} from 'react';
+// import logo from './logo.svg';
+// import './App.css';
+import Footer from './components/Footer/Footer'
 import { BrowserRouter, Route } from "react-router-dom";
-import Navbar from './Components/Navbar/Navbar';
-import Navigator from './Components/Navbar/PageNavigator'
-import Home from './Components/Pages/Home';
-
+import Navbar from './components/Navbar/Navbar';
+import Navigator from './components/Navbar/PageNavigator'
+import Home from './components/Pages/Home';
+import AuthApi from './authAPI'
+import UserDashboard from './components/Dashboard/UserDash/UserDashboardpage'
 const App = () => {
+  const [auth,setAuth]=useState(false)
   return (
 
     <div className="App">
-       <BrowserRouter>
+      <AuthApi.Provider value={{auth,setAuth}}>
+      <BrowserRouter>
         <Navbar />
         <Route path='/' exact component={Home} />
+        {/* <Route path='/UserDash' exact component={UserDashboard } /> */}
         <Navigator/>
         <Footer />
-       </BrowserRouter> */}
-       
-      {/* <UserRegister />   
-      <RepresenativeRegister /> 
-
-       <UserForm />
-
-       <RepForm />
-       <InputForm /> */}
-
-    </div>
-
+       </BrowserRouter>
+      </AuthApi.Provider>
+      
+       </div>
   );
-};
+}
 
 export default App;
