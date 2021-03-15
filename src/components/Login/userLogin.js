@@ -42,7 +42,7 @@ export const UserForm = (props) => {
             Auth.setAuth(true);
             console.log(`logged in`);
             Cookies.set("user", login);
-            props.history.push("/RepDash");
+            props.history.push("/UserDash");
             setTimeout(() => {
               setSubmitting(false);
             }, 1000);
