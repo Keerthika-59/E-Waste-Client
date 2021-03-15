@@ -7,6 +7,10 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import ApiHelper from './apihelper';
+import toast, { Toaster } from 'react-hot-toast';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+const notify = () => toast.success('User registration successful!');
 
 // const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
 const phoneRegExp = /^[0-9]{10}$/g;
@@ -47,7 +51,7 @@ const UserRegister = () => {
 
                 setTimeout(() => {
                     // alert(JSON.stringify(values, null, 2));
-                    alert('Form Submitted')
+                    // alert('Form Submitted')
                     setSubmitting(false);
                 }, 1000);
 
@@ -227,10 +231,11 @@ const UserRegister = () => {
                                             <button 
                                             type="submit"
                                             className="btn btn-blue text-center"
+                                            onClick={notify}
                                             >
                                                 Register
                                             </button>
-
+                                            <Toaster limit={1}/>
                                         </div>
                                         <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/UserLogIn"> Login </Link>   </small> </div>
 

@@ -6,6 +6,11 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import APIHelper from "../Registration/apihelper2";
 import AuthApi from "../../authAPI";
+import toast, { Toaster } from 'react-hot-toast';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+const notify = () => toast.success('Representative logged in successfully!');
+
 export const RepForm = (props) => {
   const Auth = useContext(AuthApi);
   const readCookies = () => {
@@ -111,7 +116,8 @@ export const RepForm = (props) => {
                                         </div>
 
                                         <div className="row mb-3 px-3">
-                                            <button type="submit" className="btn btn-blue text-center"><Link to='/RepDash'>Login</Link></button>
+                                            <button type="submit" onClick={notify} className="btn btn-blue text-center"><Link to='/RepDash'>Login</Link></button>
+                                            <Toaster limit={1}/>
                                         </div>
 
                                         <div className="row mb-4 px-3">

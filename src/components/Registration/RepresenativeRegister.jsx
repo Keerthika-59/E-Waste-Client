@@ -16,6 +16,10 @@ import '../Registration/style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import toast, { Toaster } from 'react-hot-toast';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+const notify = () => toast.success('Representative registration successful!');
 
 // const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
 const phoneRegExp = /^[0-9]{10}$/g;
@@ -53,7 +57,7 @@ const RepresenativeRegister = () => {
                 console.log(response);
 
                 setTimeout(() => {
-                      alert(JSON.stringify(values, null, 2));
+                    //   alert(JSON.stringify(values, null, 2));
                     console.log(values.name);
                     setSubmitting(false);
                 }, 1000);
@@ -237,7 +241,8 @@ const RepresenativeRegister = () => {
                                                 ) : null}
                                             </div>
                                             <br/>
-                                            <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
+                                            <div className="row mb-3 px-3"> <button type="submit" onClick={notify} className="btn btn-blue text-center">Register</button> </div>
+                                            <Toaster limit={1}/>
                                             <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/RepresentativeLogIn"> Login </Link>   </small> </div>
 
                                         </p>
