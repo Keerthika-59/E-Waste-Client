@@ -1,20 +1,59 @@
-import React, { useState } from 'react'
-
+import React, { useState,useEffect } from 'react'
+import axios from 'axios';
 import { Form, Button, FormLabel } from 'react-bootstrap';
 import './contactStyle.css';
+import { Redirect } from 'react-router';
 
 export const InputForm = () => {
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const [name, setName] = useState()
   const [email, setEmail] = useState()
   const [message, setMessage] = useState()  
+  const [sent, setSent] = useState(false)
+  const [isDataSent, setIsDataSent] = useState('')
 
-const handleContactSubmit = e => {
+  const handleContactSubmit = e => {
+ 
+    e.preventDefault();
 
-  };
+    const newContact = {
+      name,
+      email,
+      message
+    };
+    
+    axios
+      .post("https://ewaste-dec20-dev-api.azurewebsites.net/contacts", newContact)
+      .then(res => { 
+        
+          setName('');
+          setEmail('');
+          setMessage('');
+
+          setTimeout(() => {
+            setIsDataSent('Your message has been sent ')
+            setSent(true)
+          }, 1000);
+
+        // <Redirect to= "/ContactUs"/>
+          console.log(res.data)
+
+      })
+
+    };
 
   return(
+
+    
+
   <div className="contact2" style={{backgroundImage: `url("https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/map.jpg")` }}>
+
+    
   <div className="container">
     <div className="row contact-container">
       <div className="col-lg-12">
@@ -23,6 +62,9 @@ const handleContactSubmit = e => {
             <div className="col-lg-8">
               <div className="contact-box p-4">
                 <h4 className="title">Contact Us</h4>
+                    {
+                      sent && <h3 className = "mx-auto text-center" style={{ color: 'red' }}> {isDataSent} </h3>
+                    }
                     <form onSubmit={handleContactSubmit} >
                   <div className="row">
                     <div className="col-lg-6">

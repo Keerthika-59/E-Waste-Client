@@ -5,7 +5,11 @@ import { faBell, faCog, faEnvelopeOpen, faSearch, faSignOutAlt, faUserShield } f
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, InputGroup } from '@themesberg/react-bootstrap';
 import  {useEffect ,useContext} from "react";
+<<<<<<< HEAD
 import APIHelper from '../../API/apihelper2';
+=======
+import APIHelper from "../../Registration/apihelper";
+>>>>>>> development
 import Cookies from 'js-cookie'
 import { Redirect } from "react-router";
 import AuthApi from "../../../authAPI";
