@@ -5,8 +5,16 @@ import Cookies from "js-cookie";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import APIHelper from "../API/apihelper";
+import APIHelper from "../Registration/apihelper";
 import AuthApi from "../../authAPI";
+<<<<<<< HEAD
+import toast, { Toaster } from 'react-hot-toast';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+const notify = () => toast.success('User logged in successfully!');
+const notify1 = () => toast.error('Email or password is incorrect!');
+=======
+>>>>>>> 63f137f9226e1444feb3cace155b32ed60dc3398
 
 export const UserForm = (props) => {
     const Auth = useContext(AuthApi);
@@ -19,6 +27,11 @@ export const UserForm = (props) => {
         }
     };
 
+<<<<<<< HEAD
+    // const []
+
+=======
+>>>>>>> 63f137f9226e1444feb3cace155b32ed60dc3398
     useEffect(() => {
         readCookies();
     }, []);
@@ -31,6 +44,31 @@ export const UserForm = (props) => {
         <Formik
             initialValues={{ email: "", password: "" }}
             onSubmit={async (values, { resetForm, setSubmitting }) => {
+<<<<<<< HEAD
+                try {
+                    if (values.email && values.password) {
+                      const login = await APIHelper.loginUser({
+                        email: values.email,
+                        password: values.password,
+                      });
+                      Auth.setAuth(true);
+                      console.log(`logged in`);
+                      Cookies.set("user", login);
+                      props.history.push("/UserDash");
+                      setTimeout(() => {
+                        setSubmitting(false);
+                      }, 1000);
+                    }
+                  } catch (err) {
+                    // alert(err.response.data.errorMessage);
+                    notify1();
+                  }
+          
+                
+                // setTimeout(() => {
+                //     setSubmitting(false);
+                // }, 1000);
+=======
                 const login = await APIHelper.loginUser({
                     email: values.email,
                     password: values.password,
@@ -52,6 +90,7 @@ export const UserForm = (props) => {
                     }, 1000);
                     console.log(`error logging in`);
                 }
+>>>>>>> 63f137f9226e1444feb3cace155b32ed60dc3398
             }}
             validationSchema={Yup.object({
                 email: Yup.string()
@@ -116,6 +155,11 @@ export const UserForm = (props) => {
 
                                         <div className="row mb-3 px-3">
                                             <button type="submit" className="btn btn-blue text-center"> Login </button>
+<<<<<<< HEAD
+                                            
+                                            <Toaster limit={1}/>
+=======
+>>>>>>> 63f137f9226e1444feb3cace155b32ed60dc3398
                                         </div>
 
                                         <div className="row mb-4 px-3">

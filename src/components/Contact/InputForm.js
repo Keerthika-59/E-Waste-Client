@@ -2,7 +2,13 @@ import React, { useState,useEffect } from 'react'
 import axios from 'axios';
 import { Form, Button, FormLabel } from 'react-bootstrap';
 import './contactStyle.css';
+ import toast, { Toaster } from 'react-hot-toast';
+ 
 import { Redirect, useHistory } from 'react-router-dom';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+const notify = () => toast.success('Submitted successfully!');
+
 
 export const InputForm = () => {
 
@@ -87,7 +93,8 @@ export const InputForm = () => {
                       </div>
                     </div>
                     <div className="col-lg-12">
-                      <button type="submit"  className="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3"><span> SUBMIT NOW <i className="ti-arrow-right"></i></span></button>
+                      <button type="submit"  onClick={notify}className="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3"><span> SUBMIT NOW <i className="ti-arrow-right"></i></span></button>
+                    <Toaster limit={1}/>
                     </div>
                   </div>
                 </form>

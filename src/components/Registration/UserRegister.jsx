@@ -6,7 +6,12 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-
+import ApiHelper from './apihelper';
+import toast, { Toaster } from 'react-hot-toast';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+const notify = () => toast.success('User registration successful!');
+const notify1 = () => toast.error('Error in User registration !');
 // const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
 const phoneRegExp = /^[0-9]{10}$/g;
 const nameRegExp = /^[a-zA-Z ]{2,30}$/;
@@ -36,19 +41,20 @@ const UserRegister = () => {
                   address: values.address,
                   password: values.password,
                 };
-                
-                console.log(values);
 
-                const response = await APIHelper.registerUsers(data);
-                console.log(response);
-
-                resetForm({});
-
-                setTimeout(() => {
-                    alert('Form Submitted')
-                    setSubmitting(false);
-                }, 1000);
-
+                try {
+                    await APIHelper.registerUsers(data);
+                    resetForm({});
+                    setTimeout(() => {
+                    //   alert("Form Submitted");
+                    notify();
+                      setSubmitting(false);
+                    }, 1000);
+                  } catch (err) {
+                    // alert(err.response.data.errorMessage);
+                    notify1();
+                  }
+          
               }}
 
             validationSchema={Yup.object({
@@ -153,7 +159,6 @@ const UserRegister = () => {
                                             {formik.touched.password && formik.errors.password ? (
                                                 <div className="invalid-feedback">{formik.errors.password}</div>
                                             ) : null}
-
                                                 
                                             </div>
 
@@ -235,6 +240,9 @@ const UserRegister = () => {
                                             disabled = {formik.values.password === formik.values.confirmPassword  ? false : true}
                                             >
                                                 Register
+                                           
+                                            <Toaster limit={1}/>
+                                        
                                                 
                                             </button>
 
