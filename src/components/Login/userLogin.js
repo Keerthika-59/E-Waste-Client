@@ -36,12 +36,13 @@ export const UserForm = (props) => {
                     password: values.password,
                 });
                 console.log(login);
-                
+
                 if (login) {
                     Auth.setAuth(true);
                     console.log(`logged in`);
                     Cookies.set("user", login);
                     props.history.push("/UserDash");
+                    
                 } 
                 else { 
 
