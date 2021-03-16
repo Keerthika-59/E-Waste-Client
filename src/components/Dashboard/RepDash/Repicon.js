@@ -5,11 +5,7 @@ import { faBell, faCog, faEnvelopeOpen, faSearch, faSignOutAlt, faUserShield } f
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, InputGroup } from '@themesberg/react-bootstrap';
 import  {useEffect ,useContext} from "react";
-<<<<<<< HEAD
 import APIHelper from '../../API/apihelper2';
-=======
-import APIHelper from "../../Registration/apihelper";
->>>>>>> development
 import Cookies from 'js-cookie'
 import { Redirect } from "react-router";
 import AuthApi from "../../../authAPI";
@@ -20,7 +16,7 @@ import AuthApi from "../../../authAPI";
 export default (props) => {
   //   const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
   //   const areNotificationsRead = notifications.reduce((acc, notif) => acc && notif.read, true);
-
+  
   //   const markNotificationsAsRead = () => {
   //     setTimeout(() => {
   //       setNotifications(notifications.map(n => ({ ...n, read: true })));
@@ -57,7 +53,7 @@ export default (props) => {
   const handleLogout = async (e) => {
     e.preventDefault()
 
-    // await APIHelper.logoutUser()
+    await APIHelper.logoutUser()
     Auth.setAuth(false)
     Cookies.remove('user')
     console.log("logged out");

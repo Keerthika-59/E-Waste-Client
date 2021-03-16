@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import APIHelper from "../Registration/apihelper";
+import APIHelper from "../API/apihelper";
 import AuthApi from "../../authAPI";
 
 export const UserForm = (props) => {

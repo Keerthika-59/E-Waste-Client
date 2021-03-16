@@ -54,7 +54,7 @@ const Auth=useContext(AuthApi)
 const handleLogout=async (e)=>{
     e.preventDefault()
     
-    // await APIHelper.logoutUser()
+    await APIHelper.logoutUser()
     Auth.setAuth(false)
     Cookies.remove('user')
     console.log("logged out");

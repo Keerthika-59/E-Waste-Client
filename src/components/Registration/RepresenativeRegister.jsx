@@ -1,17 +1,6 @@
-// import React, { useState } from 'react'
-
-// import { BrowserRouter, Link } from 'react-router-dom';
-
-// import '../Registration/style.css';
-
-// const RepresenativeRegister = () => {
-
-//     const [password, setPassword] = useState('')
-//     const [cpassword, setCPassword] = useState('')
-
 import React, { useState } from 'react'
 import { Alert, Modal } from 'react-bootstrap';
-import APIHelper from './apihelper2';
+import APIHelper from '../API/apihelper2';
 import '../Registration/style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
