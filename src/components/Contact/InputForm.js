@@ -2,11 +2,10 @@ import React, { useState,useEffect } from 'react'
 import axios from 'axios';
 import { Form, Button, FormLabel } from 'react-bootstrap';
 import './contactStyle.css';
-import { Redirect } from 'react-router';
+import { Redirect, useHistory } from 'react-router-dom';
 
 export const InputForm = () => {
 
-  
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -16,6 +15,8 @@ export const InputForm = () => {
   const [message, setMessage] = useState()  
   const [sent, setSent] = useState(false)
   const [isDataSent, setIsDataSent] = useState('')
+
+  let history = useHistory();
 
   const handleContactSubmit = e => {
  
@@ -35,10 +36,12 @@ export const InputForm = () => {
           setEmail('');
           setMessage('');
 
+          setIsDataSent('Your message has been sent ')
+          setSent(true);
+          
           setTimeout(() => {
-            setIsDataSent('Your message has been sent ')
-            setSent(true)
-          }, 1000);
+            history.push('/');
+          }, 3000);
 
         // <Redirect to= "/ContactUs"/>
           console.log(res.data)
@@ -69,17 +72,18 @@ export const InputForm = () => {
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="form-group mt-3">
-                            <input className="form-control" onChange={ (e) => setName(e.target.value)}  type="text" required={true} placeholder="Enter your Name"/>
+                            <input className="form-control" value = {name} onChange={ (e) => setName(e.target.value)}  type="text" required={true} placeholder="Enter your Name"/>
                       </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="form-group mt-3">
-                            <input className="form-control" onChange={(e) => setEmail(e.target.value)} type="email" required={true} placeholder="Enter your Email"/>
+                            <input className="form-control" value = {email} onChange={(e) => setEmail(e.target.value)} type="email" required={true} placeholder="Enter your Email"/>
                       </div>
                     </div>                 
+
                     <div className="col-lg-12">
                       <div className="form-group mt-3">
-                            <input className="form-control" onChange={(e) => setMessage(e.target.value)} type="text" required={true} placeholder="Enter your Message"/>
+                            <input className="form-control" value = {message} onChange={(e) => setMessage(e.target.value)} type="text" required={true} placeholder="Enter your Message"/>
                       </div>
                     </div>
                     <div className="col-lg-12">
