@@ -16,7 +16,7 @@ const nameRegExp = /^[a-zA-Z ]{2,30}$/;
 const RepresenativeRegister = () => {
 
   return (
-    
+
     <Formik
       initialValues={{
         name: '',
