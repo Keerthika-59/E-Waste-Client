@@ -10,6 +10,7 @@ import AuthApi from './authAPI'
 const App = () => {
   const [auth,setAuth]=useState(false)
   return (
+
     <div className="App">
       <AuthApi.Provider value={{auth,setAuth}}>
       <BrowserRouter>

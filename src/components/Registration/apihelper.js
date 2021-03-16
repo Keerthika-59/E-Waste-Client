@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "https://ewaste-dec20-dev-api.azurewebsites.net/auth1/"
+const API_URL = "http://localhost:5000/auth1/"
 
 async function getAllUsers() {
     const { data: users } = await axios.get(API_URL)
