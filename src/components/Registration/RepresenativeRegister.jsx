@@ -14,6 +14,11 @@ const phoneRegExp = /^[0-9]{10}$/g;
 const nameRegExp = /^[a-zA-Z ]{2,30}$/;
 
 const RepresenativeRegister = () => {
+    
+    useEffect(() => {
+    window.scrollTo(0, 0)
+  }, []);
+
 
   return (
 
