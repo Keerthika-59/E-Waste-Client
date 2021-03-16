@@ -14,14 +14,12 @@ export const InputForm = () => {
     window.scrollTo(0, 0)
   }, [])
 
-  const [name, setName] = useState()
-  const [email, setEmail] = useState()
-  const [message, setMessage] = useState()  
-  const [sent, setSent] = useState(false)
-  const [isDataSent, setIsDataSent] = useState('')
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [message, setMessage] = useState();  
 
   let history = useHistory();
-
+  
   const handleContactSubmit = e => {
  
     e.preventDefault();
@@ -40,9 +38,6 @@ export const InputForm = () => {
           setEmail('');
           setMessage('');
 
-          setIsDataSent('Your message has been sent ')
-          setSent(true);
-          
           setTimeout(() => {
             history.push('/');
           }, 3000);
@@ -69,9 +64,7 @@ export const InputForm = () => {
             <div className="col-lg-8">
               <div className="contact-box p-4">
                 <h4 className="title">Contact Us</h4>
-                    {
-                      sent && <h3 className = "mx-auto text-center" style={{ color: 'red' }}> {isDataSent} </h3>
-                    }
+
                     <form onSubmit={handleContactSubmit} >
                   <div className="row">
                     <div className="col-lg-6">

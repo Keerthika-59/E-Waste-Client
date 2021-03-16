@@ -30,7 +30,7 @@ export const RepForm = (props) => {
     <Formik
       initialValues={{ email: "", password: "" }}
       onSubmit={async (values, { setSubmitting }) => {
-          
+        
         try{
             if (values.email && values.password) {
               const login = await APIHelper.loginUser({
@@ -117,7 +117,7 @@ export const RepForm = (props) => {
                                         </div>
 
                                         <div className="row mb-3 px-3">
-                                            <button type="submit"  className="btn btn-blue text-center"><Link to='/RepDash'>Login</Link></button>
+                                            <button type="submit"  className="btn btn-blue text-center">Login</button>
                                             <Toaster limit={1}/>
                                         </div>
 
