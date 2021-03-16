@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./userStyle.css";
 
 import Cookies from "js-cookie";
@@ -11,6 +11,7 @@ import toast, { Toaster } from 'react-hot-toast';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 const notify = () => toast.success('User logged in successfully!');
+const notify1 = () => toast.error('Email or password is incorrect!');
 
 export const UserForm = (props) => {
     const Auth = useContext(AuthApi);
@@ -23,7 +24,6 @@ export const UserForm = (props) => {
         }
     };
 
-    
     // const []
 
     useEffect(() => {
@@ -38,24 +38,25 @@ export const UserForm = (props) => {
         <Formik
             initialValues={{ email: "", password: "" }}
             onSubmit={async (values, { resetForm, setSubmitting }) => {
-                const login = await APIHelper.loginUser({
-                    email: values.email,
-                    password: values.password,
-                });
-                console.log(login);
-                if (login) {
-                    Auth.setAuth(true);
-                    console.log(`logged in`);
-                    Cookies.set("user", login);
-                    props.history.push("/UserDash");
-
-                } else { 
-                    resetForm({});
-                    setTimeout(() => {
-                        alert('Invalid Username or Password')
-                    }, 1000);
-                    console.log(`error logging in`);
-                }
+                try {
+                    if (values.email && values.password) {
+                      const login = await APIHelper.loginUser({
+                        email: values.email,
+                        password: values.password,
+                      });
+                      Auth.setAuth(true);
+                      console.log(`logged in`);
+                      Cookies.set("user", login);
+                      props.history.push("/UserDash");
+                      setTimeout(() => {
+                        setSubmitting(false);
+                      }, 1000);
+                    }
+                  } catch (err) {
+                    // alert(err.response.data.errorMessage);
+                    notify1();
+                  }
+          
                 
                 // setTimeout(() => {
                 //     setSubmitting(false);
@@ -123,7 +124,8 @@ export const UserForm = (props) => {
                                         </div>
 
                                         <div className="row mb-3 px-3">
-                                            <button type="submit" onClick={notify} className="btn btn-blue text-center"> Login </button>
+                                            <button type="submit" className="btn btn-blue text-center"> Login </button>
+                                            
                                             <Toaster limit={1}/>
                                         </div>
 

@@ -10,6 +10,7 @@ import toast, { Toaster } from 'react-hot-toast';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 const notify = () => toast.success('Representative logged in successfully!');
+const notify1 = () => toast.warning('Error in Representative login!');
 
 export const RepForm = (props) => {
   const Auth = useContext(AuthApi);
@@ -32,23 +33,25 @@ export const RepForm = (props) => {
       initialValues={{ email: "", password: ""}}
       onSubmit={async (values, { setSubmitting }) => {
           
-        if(values.email && values.password) {
-            const login = await APIHelper.loginUser({
+        try{
+            if (values.email && values.password) {
+              const login = await APIHelper.loginUser({
                 email: values.email,
                 password: values.password,
-            });
-
-            if (login) {
-                Auth.setAuth(true);
-                console.log(`logged in`);
-                Cookies.set("user", login);
-                props.history.push("/RepDash");
-            } else console.log(`error logging in`);
-
-            setTimeout(() => {
+              });
+              Auth.setAuth(true);
+              console.log(`logged in`);
+              Cookies.set("repr", login);
+              props.history.push("/RepDash");
+              setTimeout(() => {
                 setSubmitting(false);
-            }, 1000);
-        }
+              }, 1000);
+            }  
+          }catch(err){
+            // alert(err.response.data.errorMessage);
+            notify1();
+          }
+  
         
       }}
             validationSchema={Yup.object({
@@ -116,7 +119,7 @@ export const RepForm = (props) => {
                                         </div>
 
                                         <div className="row mb-3 px-3">
-                                            <button type="submit" onClick={notify} className="btn btn-blue text-center"><Link to='/RepDash'>Login</Link></button>
+                                            <button type="submit"  className="btn btn-blue text-center"><Link to='/RepDash'>Login</Link></button>
                                             <Toaster limit={1}/>
                                         </div>
 
