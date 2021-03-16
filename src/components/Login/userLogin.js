@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./userStyle.css";
 
 import Cookies from "js-cookie";
@@ -7,6 +7,11 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import APIHelper from "../API/apihelper";
 import AuthApi from "../../authAPI";
+
+import toast, {Toaster} from 'react-hot-toast';
+
+const ERROR_MSG = () => toast.error('Invalid Username or Password');
+const BLANK_MSG = () => toast('');
 
 export const UserForm = (props) => {
     const Auth = useContext(AuthApi);
@@ -19,7 +24,8 @@ export const UserForm = (props) => {
         }
     };
 
-    // const []
+    const [isClicked, setIsClicked] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
         readCookies();
@@ -38,23 +44,25 @@ export const UserForm = (props) => {
                     password: values.password,
                 });
                 console.log(login);
+
+
                 if (login) {
                     Auth.setAuth(true);
                     console.log(`logged in`);
                     Cookies.set("user", login);
+                    setIsLoggedIn(true);
                     props.history.push("/UserDash");
+                } 
+                else { 
 
-                } else { 
+                    setIsLoggedIn(false);
+
                     resetForm({});
                     setTimeout(() => {
                         alert('Invalid Username or Password')
                     }, 1000);
                     console.log(`error logging in`);
                 }
-                
-                // setTimeout(() => {
-                //     setSubmitting(false);
-                // }, 1000);
             }}
             validationSchema={Yup.object({
                 email: Yup.string()
@@ -118,8 +126,10 @@ export const UserForm = (props) => {
                                         </div>
 
                                         <div className="row mb-3 px-3">
-                                            <button type="submit" className="btn btn-blue text-center"> Login </button>
+                                            <button type="submit" onClick = { isLoggedIn ?  ERROR_MSG : BLANK_MSG} className="btn btn-blue text-center"> Login </button>
                                         </div>
+
+                                        <Toaster limit = {1}/>
 
                                         <div className="row mb-4 px-3">
                                             <small className="font-weight-bold">Don't have an account? <a className="text-danger "><Link to="/UserSignUp"> Register </Link></a></small>

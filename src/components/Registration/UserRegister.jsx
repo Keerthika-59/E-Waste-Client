@@ -36,7 +36,7 @@ const UserRegister = () => {
                   address: values.address,
                   password: values.password,
                 };
-
+                
                 console.log(values);
 
                 const response = await APIHelper.registerUsers(data);
@@ -45,7 +45,6 @@ const UserRegister = () => {
                 resetForm({});
 
                 setTimeout(() => {
-                    // alert(JSON.stringify(values, null, 2));
                     alert('Form Submitted')
                     setSubmitting(false);
                 }, 1000);
@@ -154,6 +153,7 @@ const UserRegister = () => {
                                             {formik.touched.password && formik.errors.password ? (
                                                 <div className="invalid-feedback">{formik.errors.password}</div>
                                             ) : null}
+
                                                 
                                             </div>
 
@@ -169,6 +169,13 @@ const UserRegister = () => {
                                                 <div className="invalid-feedback">{formik.errors.confirmPassword}</div>
                                             ) : null}
                                         </div>
+
+                                        {
+                                            formik.values.password && formik.values.confirmPassword ? (
+                                                formik.values.password !== formik.values.confirmPassword ?
+                                                    (<p style={{ color: 'red' }}> Password does not match </p>) : (<p style={{ color: 'green' }} > Password Matched  </p>)
+                                            ) : ''
+                                        }
 
                                         <br />
                                         <p>
@@ -209,7 +216,6 @@ const UserRegister = () => {
                                         </div>
                                         <br/>
 
-
                                         <div className="row px-3">
                                             <label className="mb-1">
                                                 <h6 className="mb-0 text-sm">Address</h6>
@@ -226,8 +232,10 @@ const UserRegister = () => {
                                             <button 
                                             type="submit"
                                             className="btn btn-blue text-center"
+                                            disabled = {formik.values.password === formik.values.confirmPassword  ? false : true}
                                             >
                                                 Register
+                                                
                                             </button>
 
                                         </div>

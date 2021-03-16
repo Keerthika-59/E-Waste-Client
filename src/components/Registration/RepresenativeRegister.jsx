@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Modal } from 'react-bootstrap';
+import { Alert, Modal, Button } from 'react-bootstrap';
 import APIHelper from '../API/apihelper2';
 import '../Registration/style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
@@ -42,7 +42,7 @@ const RepresenativeRegister = () => {
                 console.log(response);
 
                 setTimeout(() => {
-                      alert(JSON.stringify(values, null, 2));
+                      alert('Form Submitted');
                     console.log(values.name);
                     setSubmitting(false);
                 }, 1000);
@@ -178,8 +178,14 @@ const RepresenativeRegister = () => {
                                             {formik.touched.password && formik.errors.confirmPassword ? (
                                                 <div className="invalid-feedback">{formik.errors.confirmPassword}</div>
                                             ) : null}
-                                            {/* <p> */}
-                                            {/* //                                 {password.length > 0 && confirmPassword.length > 0 ? (password === confirmPassword ? 'Password Matched☑️' : 'Password Not Matched yet') : ''}                       </p> */}
+
+                                            {
+                                                formik.values.password && formik.values.confirmPassword ? (
+                                                    formik.values.password !== formik.values.confirmPassword ?
+                                                        (<p style={{ color: 'red' }}> Password does not match </p>) : (<p style={{ color: 'green' }} > Password Matched  </p>)
+                                                ) : ''
+                                            }
+                                            
                                         </div>
                                         <br />
                                         <p>
@@ -226,7 +232,7 @@ const RepresenativeRegister = () => {
                                                 ) : null}
                                             </div>
                                             <br/>
-                                            <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
+                                            <div className="row mb-3 px-3"> <Button type="submit" className="btn btn-blue text-center">Register</Button> </div>
                                             <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/RepresentativeLogIn"> Login </Link>   </small> </div>
 
                                         </p>
