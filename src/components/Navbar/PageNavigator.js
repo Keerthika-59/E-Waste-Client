@@ -4,7 +4,6 @@ import AboutUs from '../Pages/AboutUs/AboutUs'
 import { InputForm } from '../Contact/InputForm'
 import RepresenativeRegister from '../Registration/RepresenativeRegister.jsx'
 import UserRegister from '../Registration/UserRegister.jsx'
-
 import { RepForm } from '../Login/representativeLogin'
 import UserForm from '../Login/userLogin'
 
@@ -22,22 +21,22 @@ function Navigator() {
     return (
         <>
             <Switch>
-                <Route path='/Gallery' component={Gallery} />
-                <Route path='/AboutUs' component={AboutUs} />
-                <Route path='/ContactUs' component={InputForm} />
-                <Route path='/UserSignUp' component={UserRegister} />
-                <Route path='/RepresentativeSignUp' component={RepresenativeRegister} />
-                <Route path='/UserLogIn' component={UserForm} />
-                <Route path='/RepresentativeLogIn' component={RepForm} />
-                <Route path='/SignUpoptions' component={SignUpOptions} />
-                <Route path='/LogInoptions' component={LoginOptions} />
-                <Route path='/Services' component={Services} />
-                <Route path='/Goals' component={Goals} />
-                <Route path='/Achievements' component={Achievements} />
-                <Route path='/OurTeam' component={Team} />
-                <Route path='/Testimonials' component={Testimonials} />
-                <Route path='/UserDash' component={UserDashboard } />
-                <Route path='/RepDash' component={RepDashboard } />
+                <Route exact path='/Gallery' component={Gallery} />
+                <Route exact path='/AboutUs' component={AboutUs} />
+                <Route exact path='/ContactUs' component={InputForm} />
+                <Route exact path='/UserSignUp' component={UserRegister} />
+                <Route exact path='/RepresentativeSignUp' component={RepresenativeRegister} />
+                <Route exact path='/UserLogIn' component={UserForm} />
+                <Route exact path='/RepresentativeLogIn' component={RepForm} />
+                <Route exact path='/SignUpoptions' component={SignUpOptions} />
+                <Route exact path='/LogInoptions' component={LoginOptions} />
+                <Route exact path='/Services' component={Services} />
+                <Route exact path='/Goals' component={Goals} />
+                <Route exact path='/Achievements' component={Achievements} />
+                <Route exact path='/OurTeam' component={Team} />
+                <Route exact path='/Testimonials' component={Testimonials} />
+                <Route exact path='/UserDash' component={UserDashboard } />
+                <Route exact path='/RepDash' component={RepDashboard } />
             </Switch>
         </>
     )
