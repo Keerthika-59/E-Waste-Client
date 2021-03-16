@@ -9,7 +9,7 @@ import * as Yup from 'yup';
 import toast, { Toaster } from 'react-hot-toast';
 
 const notify = () => toast.success('Representative registration successful!');
-const notify1 = () => toast.warning('Error in Representative registration !');
+const notify1 = () => toast.error('Error in Representative registration !');
 const phoneRegExp = /^[0-9]{10}$/g;
 const nameRegExp = /^[a-zA-Z ]{2,30}$/;
 
