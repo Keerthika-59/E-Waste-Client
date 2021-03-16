@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCog, faEnvelopeOpen, faSearch, faSignOutAlt, faUserShield } from "@fortawesome/free-solid-svg-icons";
@@ -13,7 +12,7 @@ import AuthApi from "../../../authAPI";
 // import Profile3 from '../../../public/assets/images/hero.jpg';
 
 
-export default (props) => {
+const Repicon= (props) => {
   //   const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
   //   const areNotificationsRead = notifications.reduce((acc, notif) => acc && notif.read, true);
   
@@ -55,7 +54,7 @@ export default (props) => {
 
     await APIHelper.logoutUser()
     Auth.setAuth(false)
-    Cookies.remove('user')
+    Cookies.remove('repr')
     console.log("logged out");
     <Redirect to='/RepresentativeLogIn' />
     
@@ -136,3 +135,4 @@ export default (props) => {
       </Navbar>) : (<Redirect to='/RepresentativeLogIn' />)
   );
 };
+export default Repicon

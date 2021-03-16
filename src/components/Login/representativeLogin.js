@@ -15,9 +15,8 @@ const notify1 = () => toast.warning('Error in Representative login!');
 export const RepForm = (props) => {
   const Auth = useContext(AuthApi);
   const readCookies = () => {
-    const user = Cookies.get("user");
-    if (user) {
-      console.log(`Representative true`);
+    const representative = Cookies.get("repr");
+    if (representative) {
       Auth.setAuth(true);
       props.history.push("/RepDash");
     }
@@ -26,11 +25,11 @@ export const RepForm = (props) => {
     readCookies();
   }, []);
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Formik
-      initialValues={{ email: "", password: ""}}
+      initialValues={{ email: "", password: "" }}
       onSubmit={async (values, { setSubmitting }) => {
           
         try{
@@ -130,15 +129,95 @@ export const RepForm = (props) => {
                                 </div>
                             </div>
 
+                    <div className="row px-3">
+                      {" "}
+                      <label className="mb-1">
+                        <h6 className="mb-0 text-sm">Email Address</h6>
+                      </label>
+                      <Field
+                        name="email"
+                        className={
+                          formik.touched.email && formik.errors.email
+                            ? "form-control is-invalid"
+                            : "form-control"
+                        }
+                        type="email"
+                      />
+                      {formik.touched.email && formik.errors.email ? (
+                        <div className="invalid-feedback">
+                          {formik.errors.email}
                         </div>
+                      ) : null}
+                    </div>
+                    <br />
+
+                    <div className="row px-3">
+                      <label className="mb-1">
+                        <h6 className="mb-0 text-sm">Password</h6>
+                      </label>
+
+                      <Field
+                        name="password"
+                        className={
+                          formik.touched.password && formik.errors.password
+                            ? "form-control is-invalid"
+                            : "form-control"
+                        }
+                        type="password"
+                      />
+                      {formik.touched.password && formik.errors.password ? (
+                        <div className="invalid-feedback">
+                          {formik.errors.password}
+                        </div>
+                      ) : null}
                     </div>
 
-            </Form>
-        ) }
+                    <div className="row px-3 mb-4">
+                      <div className="custom-control custom-checkbox custom-control-inline">
+                        {" "}
+                        <input
+                          id="chk1"
+                          type="checkbox"
+                          name="chk"
+                          className="custom-control-input"
+                        />{" "}
+                        <label
+                          for="chk1"
+                          className="custom-control-label text-sm"
+                        >
+                          Remember me
+                        </label>{" "}
+                      </div>{" "}
+                      <a href="/" className="ml-auto mb-0 text-sm">
+                        Forgot Password?
+                      </a>
+                    </div>
 
+                    <div className="row mb-3 px-3">
+                      <button
+                        type="submit"
+                        className="btn btn-blue text-center"
+                      >Login
+                      </button>
+                    </div>
 
-        </Formik>
-    )
-}
+                    <div className="row mb-4 px-3">
+                      <small className="font-weight-bold">
+                        Don't have an account?{" "}
+                        <a className="text-danger ">
+                          <Link to="/RepresentativeSignUp"> Register </Link>
+                        </a>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Form>
+      )}
+    </Formik>
+  );
+};
 
 export default RepForm;

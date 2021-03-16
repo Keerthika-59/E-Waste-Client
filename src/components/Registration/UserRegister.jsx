@@ -255,13 +255,230 @@ const UserRegister = () => {
                             </div>
                         </div>
                     </div>
+                  </div>
+                </div>
 
-                </Form>
+                <div className="col-lg-6">
+                  <div className="card2 card border-0 px-4 py-5">
+                    <div className="row mb-4 px-3">
+                      <h3 className="heading">User Sign Up</h3>
+                    </div>
 
-            )}
+                    <div className="row px-3">
+                      {" "}
+                      <label className="mb-1">
+                        <h6 className="mb-0 text-sm">Name</h6>
+                      </label>
+                      <Field
+                        name="name"
+                        placeholder="Enter your Name"
+                        className={
+                          formik.touched.name && formik.errors.name
+                            ? "form-control is-invalid"
+                            : "form-control"
+                        }
+                        type="name"
+                      />
+                      {formik.touched.name && formik.errors.name ? (
+                        <div className="invalid-feedback">
+                          {formik.errors.name}
+                        </div>
+                      ) : null}
+                    </div>
+                    <br />
+                    <div className="row px-3">
+                      <label className="mb-1">
+                        <h6 className="mb-0 text-sm">Phone number</h6>
+                      </label>
 
-        </Formik>
-    )
-}
+                      <Field
+                        name="mobileNumber"
+                        placeholder="Enter your Mobile Number"
+                        className={
+                          formik.touched.mobileNumber &&
+                          formik.errors.mobileNumber
+                            ? "form-control is-invalid"
+                            : "form-control"
+                        }
+                        type="text"
+                      />
+                      {formik.touched.mobileNumber &&
+                      formik.errors.mobileNumber ? (
+                        <div className="invalid-feedback">
+                          {formik.errors.mobileNumber}
+                        </div>
+                      ) : null}
+                    </div>
+                    <br />
+                    <div className="row px-3">
+                      <label className="mb-1">
+                        <h6 className="mb-0 text-sm">Email Address</h6>
+                      </label>
+
+                      <Field
+                        name="email"
+                        placeholder="Enter your Email"
+                        className={
+                          formik.touched.email && formik.errors.email
+                            ? "form-control is-invalid"
+                            : "form-control"
+                        }
+                        type="email"
+                      />
+                      {formik.touched.email && formik.errors.email ? (
+                        <div className="invalid-feedback">
+                          {formik.errors.email}
+                        </div>
+                      ) : null}
+                    </div>
+                    <br />
+
+                    <div className="row px-3">
+                      <label className="mb-1">
+                        <h6 className="mb-0 text-sm"> Password</h6>
+                      </label>
+                      <Field
+                        name="password"
+                        placeholder="Enter your Password"
+                        className={
+                          formik.touched.password && formik.errors.password
+                            ? "form-control is-invalid"
+                            : "form-control"
+                        }
+                        type="password"
+                      />
+                      {formik.touched.password && formik.errors.password ? (
+                        <div className="invalid-feedback">
+                          {formik.errors.password}
+                        </div>
+                      ) : null}
+                    </div>
+
+                    <br />
+                    <div className="row px-3">
+                      <label className="mb-1">
+                        <h6 className="mb-0 text-sm">Confirm Password</h6>
+                      </label>
+
+                      <Field
+                        name="confirmPassword"
+                        placeholder="Enter your Confirm Password"
+                        className={
+                          formik.touched.password && formik.errors.password
+                            ? "form-control is-invalid"
+                            : "form-control"
+                        }
+                        type="password"
+                      />
+                      {formik.touched.password &&
+                      formik.errors.confirmPassword ? (
+                        <div className="invalid-feedback">
+                          {formik.errors.confirmPassword}
+                        </div>
+                      ) : null}
+                    </div>
+
+                    <br />
+                    <p>
+                      <div className="row px-3">
+                        <label className="mb-1">
+                          <h6 className="mb-0 text-sm">Gender</h6>
+                        </label>
+                        <div role="group" aria-labelledby="my-radio-group">
+                          <label className="px-3">
+                            <Field type="radio" name="gender" value="Male" />{" "}
+                            Male
+                          </label>
+                          <label className="px-3">
+                            <Field type="radio" name="gender" value="Female" />{" "}
+                            Female
+                          </label>
+
+                          <label className="px-3">
+                            <Field type="radio" name="gender" value="Others" />{" "}
+                            Others
+                          </label>
+
+                          {formik.touched.gender && formik.errors.gender ? (
+                            <div className="invalid-feedback">
+                              {formik.errors.gender}
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+                      <br />
+
+                      <div className="row px-3">
+                        <label className="mb-1">
+                          <h6 className="mb-0 text-sm">City</h6>
+                        </label>
+
+                        <Field
+                          name="city"
+                          placeholder="Enter your City"
+                          className={
+                            formik.touched.city && formik.errors.city
+                              ? "form-control is-invalid"
+                              : "form-control"
+                          }
+                          type="text"
+                        />
+                        {formik.touched.city && formik.errors.city ? (
+                          <div className="invalid-feedback">
+                            {formik.errors.city}
+                          </div>
+                        ) : null}
+                      </div>
+                      <br />
+
+                      <div className="row px-3">
+                        <label className="mb-1">
+                          <h6 className="mb-0 text-sm">Address</h6>
+                        </label>
+
+                        <Field
+                          name="address"
+                          placeholder="Enter your Address"
+                          className={
+                            formik.touched.address && formik.errors.address
+                              ? "form-control is-invalid"
+                              : "form-control"
+                          }
+                          type="text"
+                        />
+                        {formik.touched.address && formik.errors.address ? (
+                          <div className="invalid-feedback">
+                            {formik.errors.address}
+                          </div>
+                        ) : null}
+                      </div>
+                      <br />
+
+                      <div className="row mb-3 px-3">
+                        <button
+                          type="submit"
+                          className="btn btn-blue text-center"
+                        >
+                          Register
+                        </button>
+                      </div>
+                      <div className="row mb-4 px-3">
+                        {" "}
+                        <small className="font-weight-bold">
+                          Already have an account?{" "}
+                          <Link to="/UserLogIn"> Login </Link>{" "}
+                        </small>{" "}
+                      </div>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Form>
+      )}
+    </Formik>
+  );
+};
 
 export default UserRegister;
