@@ -36,7 +36,7 @@ const UserRegister = () => {
                   address: values.address,
                   password: values.password,
                 };
-
+                
                 console.log(values);
 
                 const response = await APIHelper.registerUsers(data);
@@ -45,7 +45,6 @@ const UserRegister = () => {
                 resetForm({});
 
                 setTimeout(() => {
-                    // alert(JSON.stringify(values, null, 2));
                     alert('Form Submitted')
                     setSubmitting(false);
                 }, 1000);
