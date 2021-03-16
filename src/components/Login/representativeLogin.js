@@ -7,17 +7,15 @@ import * as Yup from "yup";
 import APIHelper from "../API/apihelper2";
 import AuthApi from "../../authAPI";
 import toast, { Toaster } from 'react-hot-toast';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+
 const notify = () => toast.success('Representative logged in successfully!');
 const notify1 = () => toast.warning('Error in Representative login!');
 
 export const RepForm = (props) => {
   const Auth = useContext(AuthApi);
   const readCookies = () => {
-    const user = Cookies.get("user");
-    if (user) {
-      console.log(`Representative true`);
+    const representative = Cookies.get("repr");
+    if (representative) {
       Auth.setAuth(true);
       props.history.push("/RepDash");
     }
@@ -26,11 +24,11 @@ export const RepForm = (props) => {
     readCookies();
   }, []);
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Formik
-      initialValues={{ email: "", password: ""}}
+      initialValues={{ email: "", password: "" }}
       onSubmit={async (values, { setSubmitting }) => {
           
         try{
@@ -130,15 +128,12 @@ export const RepForm = (props) => {
                                 </div>
                             </div>
 
-                        </div>
-                    </div>
-
-            </Form>
-        ) }
-
-
-        </Formik>
-    )
-}
+                </div>
+              </div>
+        </Form>
+      )}
+    </Formik>
+  );
+};
 
 export default RepForm;

@@ -5,10 +5,8 @@ import './contactStyle.css';
  import toast, { Toaster } from 'react-hot-toast';
  
 import { Redirect, useHistory } from 'react-router-dom';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-const notify = () => toast.success('Submitted successfully!');
 
+const notify = () => toast.success('Submitted successfully!');
 
 export const InputForm = () => {
 

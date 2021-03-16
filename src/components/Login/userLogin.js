@@ -8,23 +8,23 @@ import * as Yup from "yup";
 import APIHelper from "../API/apihelper";
 import AuthApi from "../../authAPI";
 import toast, { Toaster } from 'react-hot-toast';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+
 const notify = () => toast.success('User logged in successfully!');
 const notify1 = () => toast.error('Email or password is incorrect!');
 
-export const UserForm = (props) => {
-    const Auth = useContext(AuthApi);
-    const readCookies = () => {
-        const user = Cookies.get("user");
-        if (user) {
-            console.log(`user true`);
-            Auth.setAuth(true);
-            props.history.push("/UserDash");
-        }
-    };
 
-    // const []
+export const UserForm = (props) => {
+  const Auth = useContext(AuthApi);
+  const readCookies = () => {
+    const user = Cookies.get("user");
+    if (user) {
+      console.log(`user true`);
+      Auth.setAuth(true);
+      props.history.push("/UserDash");
+    }
+  };
+
+  // const []
 
     useEffect(() => {
         readCookies();
@@ -56,11 +56,6 @@ export const UserForm = (props) => {
                     // alert(err.response.data.errorMessage);
                     notify1();
                   }
-          
-                
-                // setTimeout(() => {
-                //     setSubmitting(false);
-                // }, 1000);
             }}
             validationSchema={Yup.object({
                 email: Yup.string()
@@ -132,19 +127,17 @@ export const UserForm = (props) => {
                                         <div className="row mb-4 px-3">
                                             <small className="font-weight-bold">Don't have an account? <a className="text-danger "><Link to="/UserSignUp"> Register </Link></a></small>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
+                        </div>    
                     </div>
+        </Form>
+      )}
+    </Formik>
+  );
+};
 
-                </Form>
-            )}
-
-
-        </Formik>
-    )
-}
 
 export default UserForm;
