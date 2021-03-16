@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCog, faEnvelopeOpen, faSearch, faSignOutAlt, faUserShield } from "@fortawesome/free-solid-svg-icons";
@@ -54,7 +53,7 @@ const Auth=useContext(AuthApi)
 const handleLogout=async (e)=>{
     e.preventDefault()
     
-    await APIHelper.logoutUser()
+ 
     Auth.setAuth(false)
     Cookies.remove('user')
     console.log("logged out");
