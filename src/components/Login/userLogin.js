@@ -1,25 +1,30 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./userStyle.css";
 
 import Cookies from "js-cookie";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import APIHelper from "../Registration/apihelper";
+import APIHelper from "../API/apihelper";
 import AuthApi from "../../authAPI";
+import toast, { Toaster } from 'react-hot-toast';
+
+const notify = () => toast.success('User logged in successfully!');
+const notify1 = () => toast.error('Email or password is incorrect!');
+
 
 export const UserForm = (props) => {
-    const Auth = useContext(AuthApi);
-    const readCookies = () => {
-        const user = Cookies.get("user");
-        if (user) {
-            console.log(`user true`);
-            Auth.setAuth(true);
-            props.history.push("/UserDash");
-        }
-    };
+  const Auth = useContext(AuthApi);
+  const readCookies = () => {
+    const user = Cookies.get("user");
+    if (user) {
+      console.log(`user true`);
+      Auth.setAuth(true);
+      props.history.push("/UserDash");
+    }
+  };
 
-    // const []
+  // const []
 
     useEffect(() => {
         readCookies();
@@ -33,28 +38,24 @@ export const UserForm = (props) => {
         <Formik
             initialValues={{ email: "", password: "" }}
             onSubmit={async (values, { resetForm, setSubmitting }) => {
-                const login = await APIHelper.loginUser({
-                    email: values.email,
-                    password: values.password,
-                });
-                console.log(login);
-                if (login) {
-                    Auth.setAuth(true);
-                    console.log(`logged in`);
-                    Cookies.set("user", login);
-                    props.history.push("/UserDash");
-
-                } else { 
-                    resetForm({});
-                    setTimeout(() => {
-                        alert('Invalid Username or Password')
-                    }, 1000);
-                    console.log(`error logging in`);
-                }
-                
-                // setTimeout(() => {
-                //     setSubmitting(false);
-                // }, 1000);
+                try {
+                    if (values.email && values.password) {
+                      const login = await APIHelper.loginUser({
+                        email: values.email,
+                        password: values.password,
+                      });
+                      Auth.setAuth(true);
+                      console.log(`logged in`);
+                      Cookies.set("user", login);
+                      props.history.push("/UserDash");
+                      setTimeout(() => {
+                        setSubmitting(false);
+                      }, 1000);
+                    }
+                  } catch (err) {
+                    // alert(err.response.data.errorMessage);
+                    notify1();
+                  }
             }}
             validationSchema={Yup.object({
                 email: Yup.string()
@@ -119,24 +120,24 @@ export const UserForm = (props) => {
 
                                         <div className="row mb-3 px-3">
                                             <button type="submit" className="btn btn-blue text-center"> Login </button>
+                                                                             
+                                            <Toaster limit={1}/>
                                         </div>
 
                                         <div className="row mb-4 px-3">
                                             <small className="font-weight-bold">Don't have an account? <a className="text-danger "><Link to="/UserSignUp"> Register </Link></a></small>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
+                        </div>    
                     </div>
+        </Form>
+      )}
+    </Formik>
+  );
+};
 
-                </Form>
-            )}
-
-
-        </Formik>
-    )
-}
 
 export default UserForm;

@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import { Alert, Modal } from 'react-bootstrap';
-import APIHelper from './apihelper';
+import APIHelper from '../API/apihelper';
 import '../Registration/style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
-import ApiHelper from './apihelper';
 
+import axios from 'axios';
+
+import toast, { Toaster } from 'react-hot-toast';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+const notify = () => toast.success('User registration successful!');
+const notify1 = () => toast.error('Error in User registration !');
 // const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
 const phoneRegExp = /^[0-9]{10}$/g;
 const nameRegExp = /^[a-zA-Z ]{2,30}$/;
@@ -38,19 +43,19 @@ const UserRegister = () => {
                   password: values.password,
                 };
 
-                console.log(values);
-
-                const response = await APIHelper.registerUsers(data);
-                console.log(response);
-
-                resetForm({});
-
-                setTimeout(() => {
-                    // alert(JSON.stringify(values, null, 2));
-                    alert('Form Submitted')
-                    setSubmitting(false);
-                }, 1000);
-
+                try {
+                    await APIHelper.registerUsers(data);
+                    resetForm({});
+                    setTimeout(() => {
+                    //   alert("Form Submitted");
+                    notify();
+                      setSubmitting(false);
+                    }, 1000);
+                  } catch (err) {
+                    // alert(err.response.data.errorMessage);
+                    notify1();
+                  }
+          
               }}
 
             validationSchema={Yup.object({
@@ -171,6 +176,13 @@ const UserRegister = () => {
                                             ) : null}
                                         </div>
 
+                                        {
+                                            formik.values.password && formik.values.confirmPassword ? (
+                                                formik.values.password !== formik.values.confirmPassword ?
+                                                    (<p style={{ color: 'red' }}> Password does not match </p>) : (<p style={{ color: 'green' }} > Password Matched  </p>)
+                                            ) : ''
+                                        }
+
                                         <br />
                                         <p>
                                         <div className="row px-3"> 
@@ -210,7 +222,6 @@ const UserRegister = () => {
                                         </div>
                                         <br/>
 
-
                                         <div className="row px-3">
                                             <label className="mb-1">
                                                 <h6 className="mb-0 text-sm">Address</h6>
@@ -227,8 +238,13 @@ const UserRegister = () => {
                                             <button 
                                             type="submit"
                                             className="btn btn-blue text-center"
+                                            disabled = {formik.values.password === formik.values.confirmPassword  ? false : true}
                                             >
                                                 Register
+                                           
+                                            <Toaster limit={1}/>
+                                        
+                                                
                                             </button>
 
                                         </div>

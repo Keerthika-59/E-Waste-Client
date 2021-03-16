@@ -4,14 +4,18 @@ import Cookies from "js-cookie";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import APIHelper from "../Registration/apihelper2";
+import APIHelper from "../API/apihelper2";
 import AuthApi from "../../authAPI";
+import toast, { Toaster } from 'react-hot-toast';
+
+const notify = () => toast.success('Representative logged in successfully!');
+const notify1 = () => toast.warning('Error in Representative login!');
+
 export const RepForm = (props) => {
   const Auth = useContext(AuthApi);
   const readCookies = () => {
-    const user = Cookies.get("user");
-    if (user) {
-      console.log(`Representative true`);
+    const representative = Cookies.get("repr");
+    if (representative) {
       Auth.setAuth(true);
       props.history.push("/RepDash");
     }
@@ -20,30 +24,32 @@ export const RepForm = (props) => {
     readCookies();
   }, []);
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Formik
-      initialValues={{ email: "", password: ""}}
+      initialValues={{ email: "", password: "" }}
       onSubmit={async (values, { setSubmitting }) => {
-          
-        if(values.email && values.password) {
-            const login = await APIHelper.loginUser({
+        
+        try{
+            if (values.email && values.password) {
+              const login = await APIHelper.loginUser({
                 email: values.email,
                 password: values.password,
-            });
-
-            if (login) {
-                Auth.setAuth(true);
-                console.log(`logged in`);
-                Cookies.set("user", login);
-                props.history.push("/RepDash");
-            } else console.log(`error logging in`);
-
-            setTimeout(() => {
+              });
+              Auth.setAuth(true);
+              console.log(`logged in`);
+              Cookies.set("repr", login);
+              props.history.push("/RepDash");
+              setTimeout(() => {
                 setSubmitting(false);
-            }, 1000);
-        }
+              }, 1000);
+            }  
+          }catch(err){
+            // alert(err.response.data.errorMessage);
+            notify1();
+          }
+  
         
       }}
             validationSchema={Yup.object({
@@ -111,7 +117,8 @@ export const RepForm = (props) => {
                                         </div>
 
                                         <div className="row mb-3 px-3">
-                                            <button type="submit" className="btn btn-blue text-center"><Link to='/RepDash'>Login</Link></button>
+                                            <button type="submit"  className="btn btn-blue text-center">Login</button>
+                                            <Toaster limit={1}/>
                                         </div>
 
                                         <div className="row mb-4 px-3">
@@ -121,15 +128,12 @@ export const RepForm = (props) => {
                                 </div>
                             </div>
 
-                        </div>
-                    </div>
-
-            </Form>
-        ) }
-
-
-        </Formik>
-    )
-}
+                </div>
+              </div>
+        </Form>
+      )}
+    </Formik>
+  );
+};
 
 export default RepForm;

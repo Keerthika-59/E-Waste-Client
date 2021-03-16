@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import {Dropdown,DropdownButton} from 'react-bootstrap'
-import './Navbar.css';
-import '../Button/Button.css'
-import {Button} from '../Button/Button'
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { Dropdown, DropdownButton } from "react-bootstrap";
+import "./Navbar.css";
+import "../Button/Button.css";
+import { Button } from "../Button/Button";
+
 
 function Navbar() {
+  
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
+  
   const showButton = () => {
     if (window.innerWidth <= 1000) {
       setButton(false);
@@ -24,47 +26,55 @@ function Navbar() {
     showButton();
   }, []);
 
-  window.addEventListener('resize', showButton);
+  window.addEventListener("resize", showButton);
 
   return (
     <>
-      <nav className='navbar'>
-        <div className='navbar-container mr-auto'>
-          <Link to='/' className='navbar-logo ml-auto' onClick={closeMobileMenu}>
-            <img  
-            src={`${process.env.PUBLIC_URL}/assets/images/wm-logo.png`} 
-            alt="" style={{ height: "70px"}}
+      <nav className="navbar">
+        <div className="navbar-container mr-auto">
+          <Link
+            to="/"
+            className="navbar-logo ml-auto"
+            onClick={closeMobileMenu}
+          >
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/images/wm-logo.png`}
+              alt=""
+              style={{ height: "70px" }}
             />
-
           </Link>
-          <div className='menu-icon' onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+          <div className="menu-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
-          <ul className={click ? 'nav-menu active my-4 px-4' : 'nav-menu my-4 px-4'}>
-            <li className='nav-item'>
-              <Link 
-              
-              to='/Gallery' 
-              style={{textDecoration:"none"}} 
-              className='nav-links' 
-              onClick={closeMobileMenu} >
+          <ul
+            className={
+              click ? "nav-menu active my-4 px-4" : "nav-menu my-4 px-4"
+            }
+          >
+            <li className="nav-item">
+              <Link
+                to="/Gallery"
+                style={{ textDecoration: "none" }}
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
                 Gallery
               </Link>
             </li>
-            <li className='nav-item'>
+            <li className="nav-item">
               <Link
-                to='/AboutUs'
-                className='nav-links'
+                to="/AboutUs"
+                className="nav-links"
                 onClick={closeMobileMenu}
                 style={{ textDecoration: "none" }}
               >
                 About
               </Link>
             </li>
-            <li className='nav-item'>
+            <li className="nav-item">
               <Link
-                to='/ContactUs'
-                className='nav-links'
+                to="/ContactUs"
+                className="nav-links"
                 onClick={closeMobileMenu}
                 style={{ textDecoration: "none" }}
               >
@@ -73,8 +83,8 @@ function Navbar() {
             </li>
             <li>
               <Link
-                to='/SignUpoptions'
-                className='nav-links-mobile'
+                to="/SignUpoptions"
+                className="nav-links-mobile"
                 onClick={closeMobileMenu}
                 style={{ textDecoration: "none" }}
               >
@@ -83,29 +93,44 @@ function Navbar() {
             </li>
             <li>
               <Link
-                to='/LogInoptions'
-                className='nav-links-mobile'
+                to="/LogInoptions"
+                className="nav-links-mobile"
+                // ref="loginbtn"
                 onClick={closeMobileMenu}
                 style={{ textDecoration: "none" }}
               >
                 Log In
               </Link>
             </li>
-
           </ul>
         </div>
-        
-          <div className="login-navbar mr-auto">
-            {
-              button && <DropdownButton className="mr-auto" id="dropdown-basic-button" title="LOG IN">
-                <Dropdown.Item ><Link to='/UserLogIn'  >    <p className="navbar-text"> User </p> </Link></Dropdown.Item>
-                <Dropdown.Item ><Link to='/RepresentativeLogIn'>  <p className="navbar-text"> Representative </p> </Link></Dropdown.Item>
-              </DropdownButton>
-            }
 
-          </div>      
-          
-        </nav>
+        <div className="login-navbar mr-auto ">
+          {button && (
+            <DropdownButton
+              className="mr-auto"
+              id="dropdown-basic-button"
+              title="LOG IN"
+            >
+              <Dropdown.Item>
+                <Link to="/UserLogIn">
+                  <div>
+                    <p className="navbar-text"> User </p>
+                  </div>
+                </Link>
+              </Dropdown.Item>
+
+              <Dropdown.Item>
+                <Link to="/RepresentativeLogIn">
+                  <div>
+                    <p className="navbar-text"> Representative </p>
+                  </div>
+                </Link>
+              </Dropdown.Item>
+            </DropdownButton>
+          )}
+        </div>
+      </nav>
     </>
   );
 }
