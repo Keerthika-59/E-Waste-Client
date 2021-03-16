@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Alert, Modal, Button } from 'react-bootstrap';
 import APIHelper from '../API/apihelper2';
 import '../Registration/style.css';
