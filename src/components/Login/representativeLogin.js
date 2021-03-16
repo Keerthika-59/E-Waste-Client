@@ -9,7 +9,7 @@ import AuthApi from "../../authAPI";
 import toast, { Toaster } from 'react-hot-toast';
 
 const notify = () => toast.success('Representative logged in successfully!');
-const notify1 = () => toast.warning('Error in Representative login!');
+const notify1 = () => toast.error('Email or password is incorrect!');
 
 export const RepForm = (props) => {
   const Auth = useContext(AuthApi);
