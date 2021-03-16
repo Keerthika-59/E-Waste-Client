@@ -41,11 +41,11 @@ const RepresenativeRegister = () => {
           await APIHelper.registerUsers(data);
           resetForm({});
           setTimeout(() => {
-            alert("Form Submitted");
+            notify();
             setSubmitting(false);
           }, 1000);
         } catch(err) {
-          alert(err.response.data.errorMessage);
+          notify1();
         }
       }}
       validationSchema={Yup.object({
