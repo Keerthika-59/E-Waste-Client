@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Alert, Modal } from 'react-bootstrap';
-import APIHelper from './apihelper';
+import APIHelper from '../API/apihelper';
 import '../Registration/style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
@@ -175,6 +175,13 @@ const UserRegister = () => {
                                             ) : null}
                                         </div>
 
+                                        {
+                                            formik.values.password && formik.values.confirmPassword ? (
+                                                formik.values.password !== formik.values.confirmPassword ?
+                                                    (<p style={{ color: 'red' }}> Password does not match </p>) : (<p style={{ color: 'green' }} > Password Matched  </p>)
+                                            ) : ''
+                                        }
+
                                         <br />
                                         <p>
                                         <div className="row px-3"> 
@@ -214,7 +221,6 @@ const UserRegister = () => {
                                         </div>
                                         <br/>
 
-
                                         <div className="row px-3">
                                             <label className="mb-1">
                                                 <h6 className="mb-0 text-sm">Address</h6>
@@ -231,11 +237,15 @@ const UserRegister = () => {
                                             <button 
                                             type="submit"
                                             className="btn btn-blue text-center"
-                                            
+                                            disabled = {formik.values.password === formik.values.confirmPassword  ? false : true}
                                             >
                                                 Register
-                                            </button>
+                                           
                                             <Toaster limit={1}/>
+                                        
+                                                
+                                            </button>
+
                                         </div>
                                         <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/UserLogIn"> Login </Link>   </small> </div>
 

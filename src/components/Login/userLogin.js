@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./userStyle.css";
 
 import Cookies from "js-cookie";
