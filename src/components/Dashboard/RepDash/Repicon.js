@@ -8,19 +8,18 @@ import Cookies from 'js-cookie'
 import { Redirect } from "react-router";
 import AuthApi from "../../../authAPI";
 
-
 const Repicon =  (props) => {
-  
+
   const Auth = useContext(AuthApi)
   const handleLogout = async (e) => {
     e.preventDefault()
-
-    await APIHelper.logoutUser()
+    
+    // await APIHelper.logoutUser()
     Auth.setAuth(false)
     Cookies.remove('repr')
     console.log("logged out");
-    <Redirect to='/RepresentativeLogIn' />
-    
+    <Redirect to='/RepresentativeLogIn'/>
+
   }
 
   return (
