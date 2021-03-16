@@ -6,13 +6,12 @@ import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, InputGroup } from '@themesberg/react-bootstrap';
 
 import  {useEffect ,useContext} from "react";
-import APIHelper from "../../Registration/apihelper";
+import APIHelper from "../../API/apihelper.js";
 import Cookies from 'js-cookie'
 import { Redirect } from "react-router";
 import AuthApi from "../../../authAPI";
 // import NOTIFICATIONS_DATA from "../data/notifications";
 // import Profile3 from '../../../public/assets/images/hero.jpg';
-
 
 export default (props) => {
 //   const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
@@ -55,7 +54,7 @@ const Auth=useContext(AuthApi)
 const handleLogout=async (e)=>{
     e.preventDefault()
     
-    // await APIHelper.logoutUser()
+    await APIHelper.logoutUser()
     Auth.setAuth(false)
     Cookies.remove('user')
     console.log("logged out");

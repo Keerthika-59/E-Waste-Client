@@ -8,6 +8,7 @@ import Navigator from './components/Navbar/PageNavigator'
 import Home from './components/Pages/Home';
 import AuthApi from './authAPI'
 import UserDashboard from './components/Dashboard/UserDash/UserDashboardpage'
+
 const App = () => {
   const [auth,setAuth]=useState(false)
   return (
