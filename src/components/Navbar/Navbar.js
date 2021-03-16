@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import "./Navbar.css";
 import "../Button/Button.css";
 import { Button } from "../Button/Button";
 
+
 function Navbar() {
+  
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -93,6 +95,7 @@ function Navbar() {
               <Link
                 to="/LogInoptions"
                 className="nav-links-mobile"
+                // ref="loginbtn"
                 onClick={closeMobileMenu}
                 style={{ textDecoration: "none" }}
               >
@@ -102,7 +105,7 @@ function Navbar() {
           </ul>
         </div>
 
-        <div className="login-navbar mr-auto">
+        <div className="login-navbar mr-auto ">
           {button && (
             <DropdownButton
               className="mr-auto"
