@@ -5,16 +5,13 @@ import Cookies from "js-cookie";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import APIHelper from "../Registration/apihelper";
+import APIHelper from "../API/apihelper";
 import AuthApi from "../../authAPI";
-<<<<<<< HEAD
 import toast, { Toaster } from 'react-hot-toast';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 const notify = () => toast.success('User logged in successfully!');
 const notify1 = () => toast.error('Email or password is incorrect!');
-=======
->>>>>>> 63f137f9226e1444feb3cace155b32ed60dc3398
 
 export const UserForm = (props) => {
     const Auth = useContext(AuthApi);
@@ -27,11 +24,8 @@ export const UserForm = (props) => {
         }
     };
 
-<<<<<<< HEAD
     // const []
 
-=======
->>>>>>> 63f137f9226e1444feb3cace155b32ed60dc3398
     useEffect(() => {
         readCookies();
     }, []);
@@ -44,7 +38,6 @@ export const UserForm = (props) => {
         <Formik
             initialValues={{ email: "", password: "" }}
             onSubmit={async (values, { resetForm, setSubmitting }) => {
-<<<<<<< HEAD
                 try {
                     if (values.email && values.password) {
                       const login = await APIHelper.loginUser({
@@ -68,29 +61,6 @@ export const UserForm = (props) => {
                 // setTimeout(() => {
                 //     setSubmitting(false);
                 // }, 1000);
-=======
-                const login = await APIHelper.loginUser({
-                    email: values.email,
-                    password: values.password,
-                });
-                console.log(login);
-
-                if (login) {
-                    Auth.setAuth(true);
-                    console.log(`logged in`);
-                    Cookies.set("user", login);
-                    props.history.push("/UserDash");
-                    
-                } 
-                else { 
-
-                    resetForm({});
-                    setTimeout(() => {
-                        alert('Invalid Username or Password')
-                    }, 1000);
-                    console.log(`error logging in`);
-                }
->>>>>>> 63f137f9226e1444feb3cace155b32ed60dc3398
             }}
             validationSchema={Yup.object({
                 email: Yup.string()
@@ -155,11 +125,8 @@ export const UserForm = (props) => {
 
                                         <div className="row mb-3 px-3">
                                             <button type="submit" className="btn btn-blue text-center"> Login </button>
-<<<<<<< HEAD
-                                            
+                                                                             
                                             <Toaster limit={1}/>
-=======
->>>>>>> 63f137f9226e1444feb3cace155b32ed60dc3398
                                         </div>
 
                                         <div className="row mb-4 px-3">

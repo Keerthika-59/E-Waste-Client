@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import APIHelper from "../Registration/apihelper2";
+import APIHelper from "../API/apihelper2";
 import AuthApi from "../../authAPI";
 import toast, { Toaster } from 'react-hot-toast';
 // import { ToastContainer, toast } from 'react-toastify';
