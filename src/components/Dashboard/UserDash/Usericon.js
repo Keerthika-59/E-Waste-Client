@@ -12,7 +12,7 @@ import AuthApi from "../../../authAPI";
 // import NOTIFICATIONS_DATA from "../data/notifications";
 // import Profile3 from '../../../public/assets/images/hero.jpg';
 
-export default (props) => {
+const UserDash= (props) => {
 //   const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
 //   const areNotificationsRead = notifications.reduce((acc, notif) => acc && notif.read, true);
 
@@ -137,3 +137,4 @@ const handleLogout=async (e)=>{
     </Navbar>):(<Redirect to='/UserLogIn' />)
   );
 };
+export default UserDash

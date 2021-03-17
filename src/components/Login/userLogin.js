@@ -9,9 +9,6 @@ import APIHelper from "../API/apihelper";
 import AuthApi from "../../authAPI";
 import toast, { Toaster } from 'react-hot-toast';
 
-const notify = () => toast.success('User logged in successfully!');
-const notify1 = () => toast.error('Email or password is incorrect!');
-
 export const UserForm = (props) => {
   const Auth = useContext(AuthApi);
   const readCookies = () => {
@@ -52,8 +49,7 @@ export const UserForm = (props) => {
                       }, 1000);
                     }
                   } catch (err) {
-                    // alert(err.response.data.errorMessage);
-                    notify1();
+                    toast.error(err.response.data.errorMessage);
                   }
             }}
             validationSchema={Yup.object({
