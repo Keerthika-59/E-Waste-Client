@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 import Footer from './components/Footer/Footer'
@@ -7,8 +7,12 @@ import Navbar from './components/Navbar/Navbar';
 import Navigator from './components/Navbar/PageNavigator'
 import Home from './components/Pages/Home';
 import AuthApi from './authAPI'
+import Cookies from 'js-cookie'
+
 const App = () => {
-  const [auth,setAuth]=useState(false)
+  const [auth,setAuth]=useState(false);
+
+
   return (
 
     <div className="App">
