@@ -17,13 +17,19 @@
     "js-cookie": "^2.2.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
+<<<<<<< HEAD
+    "react-bootstrap-sidebar": "^0.0.1",
+=======
     "react-bootstrap-sweetalert": "^5.2.0",
+>>>>>>> 2181adee05322691582698d6daf4ef35fbb98238
     "react-dom": "^17.0.1",
     "react-hot-toast": "^1.0.2",
+    "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.0",
     "react-transition-group": "^4.4.1",
+    "reactstrap": "^8.9.0",
     "simplebar-react": "^2.3.0",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^1.1.0",
