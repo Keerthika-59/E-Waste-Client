@@ -16,15 +16,9 @@ import Team from '../OurTeam/Team'
 import Testimonials from '../Testimonials/Testimonials'
 import UserDashboard from '../Dashboard/UserDash/UserSidebar'
 import RepDashboard from '../Dashboard/RepDash/RepDashboardpage'
-<<<<<<< HEAD
-// import Activity from '../Dashboard/UserDash/pages/activity';
-// import Pending from '../Dashboard/UserDash/pages/pending';
-// import Completed from '../Dashboard/UserDash/pages/completed';
-=======
 import ManageUsers from '../Admin/DashboardPages/ManageUsers'
 import ManageRepresentatives  from '../Admin/DashboardPages/ManageRepresentatives'
 import ManageMessages  from '../Admin/DashboardPages/ManageMessages'
->>>>>>> 2181adee05322691582698d6daf4ef35fbb98238
 
 function Navigator() {
     return (
@@ -46,16 +40,10 @@ function Navigator() {
                 <Route exact path='/Testimonials' component={Testimonials} />
                 <Route exact path='/UserDash' component={UserDashboard } />
                 <Route exact path='/RepDash' component={RepDashboard } />
-<<<<<<< HEAD
-                {/* <Route path='/activity' exact component={Activity} />
-                <Route path='/pending' exact component={Pending} />
-                <Route path='/completed' exact component={Completed} /> */}
-=======
                 <Route exact path='/DisplayUsers' component={ManageUsers } />
                 <Route exact path='/DisplayReps' component={ManageRepresentatives} />
                 <Route exact path='/DisplayMessages' component={ManageMessages} />
 
->>>>>>> 2181adee05322691582698d6daf4ef35fbb98238
             </Switch>
         </>
     )

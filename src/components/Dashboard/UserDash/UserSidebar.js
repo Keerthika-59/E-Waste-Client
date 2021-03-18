@@ -42,7 +42,7 @@ function Navbar() {
         </div>
         <div class="col-md-8 content">
             <Activity/>
-            <Pending/>
+            {/* <Pending/> */}
         </div>
         </div>
       </IconContext.Provider>

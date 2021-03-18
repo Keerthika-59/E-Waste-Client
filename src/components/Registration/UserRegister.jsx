@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Alert, Modal } from 'react-bootstrap';
 import APIHelper from '../API/apihelper';
 import '../Registration/style.css';
@@ -8,11 +8,11 @@ import * as Yup from 'yup';
 
 import axios from 'axios';
 
-import toast, { Toaster } from 'react-hot-toast';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-const notify = () => toast.success('User registration successful!');
-const notify1 = () => toast.error('Error in User registration !');
+// import toast, { Toaster } from 'react-hot-toast';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+const notify = () => toast.success('User registration successful!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
+const notify1 = () => toast.error('Error in User registration !',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 // const phoneRegExp = /^ ((\\+[1 - 9]{ 1, 4 } [\\-] *)| (\\([0 - 9]{ 2, 3 } \\)[\\-] *)| ([0 - 9]{ 2, 4 })[\\-] *)*? [0 - 9]{ 3, 4 }?[\\-] * [0 - 9]{ 3, 4 }?$ /
 const phoneRegExp = /^[0-9]{10}$/g;
 const nameRegExp = /^[a-zA-Z ]{2,30}$/;
@@ -242,7 +242,7 @@ const UserRegister = () => {
                                             >
                                                 Register
                                            
-                                            <Toaster limit={1}/>
+                                            <ToastContainer limit={1}/>
                                         
                                                 
                                             </button>
