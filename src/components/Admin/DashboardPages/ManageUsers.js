@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import APIHelper from '../../API/apihelper'
 import { Card,Table,Button } from 'react-bootstrap'
-
+import Swal from 'sweetalert2'
 const ManageUsers = () => {
 
     const [users, setUsers] = useState([{
@@ -49,9 +49,33 @@ const ManageUsers = () => {
                         <td>{user.email}</td>
                         <td>{user.city}</td>
                         <td>{user.address}</td>
-                        {/* <td><Button style={{backgroundColor:"red",margin:"10px"}}>DELETE</Button></td>     */}
-                        {/* {this.removeToCollection(key, e)} */}
-                        <td> <Button variant="danger"  onClick={() => {if(window.confirm('Do you want to delete the user?')){removeUser(user.email)};}}>DELETE</Button></td>
+                        <td> <Button variant="danger"  onClick={() => {
+                        
+                                Swal.fire({
+                                    title: 'Are you sure?',
+                                    text: 'You will not be able to recover this User Details!',
+                                    icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonText: 'Yes, delete it!',
+                                    cancelButtonText: 'No, keep it'
+                                  }).then((result) => {
+                                    if (result.value) {
+                                      Swal.fire(
+                                        'Deleted!',
+                                        'The User details has been deleted.',
+                                        'success'
+                                      )
+                                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                                      Swal.fire(
+                                        'Cancelled',
+                                        'The User details is not deleted :)',
+                                        'error'
+                                      )
+                                    }
+                                  })
+                        
+                            
+                        }}>DELETE</Button></td>
                         
                     </tr>)}
                    

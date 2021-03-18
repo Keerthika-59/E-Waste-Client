@@ -19,8 +19,10 @@ import RepDashboard from '../Dashboard/RepDash/RepDashboardpage'
 import ManageUsers from '../Admin/DashboardPages/ManageUsers'
 import ManageRepresentatives  from '../Admin/DashboardPages/ManageRepresentatives'
 import ManageMessages  from '../Admin/DashboardPages/ManageMessages'
+import AuthApi from "../../authAPI";
 
 function Navigator() {
+
     return (
         <>
             <Switch>
