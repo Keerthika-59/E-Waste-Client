@@ -22,4 +22,4 @@ async function registerUsers(userData) {
   async function logoutUser(){
     await axios.get(`${API_URL}logout`)
 }
-export default  {getAllUsers,registerUsers,loginUser,logoutUser}
+export default  {getAllUsers,registerUsers,loginUser,logoutUser,API_URL}
