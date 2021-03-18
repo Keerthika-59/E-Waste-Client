@@ -19,7 +19,10 @@ import RepDashboard from '../Dashboard/RepDash/RepDashboardpage'
 import ManageUsers from '../Admin/DashboardPages/ManageUsers'
 import ManageRepresentatives  from '../Admin/DashboardPages/ManageRepresentatives'
 import ManageMessages  from '../Admin/DashboardPages/ManageMessages'
-
+import MyProfile from '../Dashboard/UserDash/pages/Profile/userProfile'
+import Ewaste from '../HomePage/Information/Ewaste'
+import Disposing from '../HomePage/Information/Dispose'
+import Donating from '../HomePage/Information/Donate'
 function Navigator() {
     return (
         <>
@@ -43,6 +46,10 @@ function Navigator() {
                 <Route exact path='/DisplayUsers' component={ManageUsers } />
                 <Route exact path='/DisplayReps' component={ManageRepresentatives} />
                 <Route exact path='/DisplayMessages' component={ManageMessages} />
+                <Route exact path='/MyProfile' component={MyProfile} />
+                <Route exact path='/Ewaste' component={Ewaste} />
+                <Route exact path='/Disposing' component={Disposing} />
+                <Route exact path='/Donating' component={Donating} />
 
             </Switch>
         </>
