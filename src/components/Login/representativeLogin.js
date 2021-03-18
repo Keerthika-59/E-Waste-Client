@@ -49,9 +49,10 @@ export const RepForm = (props) => {
             // alert(err.response.data.errorMessage);
             notify1();
           }
-  
+          
         
-      }}
+      }
+    }
             validationSchema={Yup.object({
                 email: Yup.string()
                     .email('Invalid email address')
@@ -62,7 +63,7 @@ export const RepForm = (props) => {
         >
 
         { (formik, isSubmitting) => (
-
+            
             <Form>
                     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                         <div className="card card0 border-0">
@@ -130,8 +131,10 @@ export const RepForm = (props) => {
 
                 </div>
               </div>
+              
         </Form>
       )}
+   
     </Formik>
   );
 };

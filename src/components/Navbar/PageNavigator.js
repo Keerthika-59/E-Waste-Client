@@ -15,8 +15,12 @@ import Services from '../Pages/AboutUs/Services'
 import Gallery from '../Pages/Gallery/Gallery'
 import Team from '../OurTeam/Team'
 import Testimonials from '../Testimonials/Testimonials'
-import UserDashboard from '../Dashboard/UserDash/UserDashboardpage'
+import UserDashboard from '../Dashboard/UserDash/UserSidebar'
 import RepDashboard from '../Dashboard/RepDash/RepDashboardpage'
+// import Activity from '../Dashboard/UserDash/pages/activity';
+// import Pending from '../Dashboard/UserDash/pages/pending';
+// import Completed from '../Dashboard/UserDash/pages/completed';
+
 function Navigator() {
     return (
         <>
@@ -37,6 +41,9 @@ function Navigator() {
                 <Route exact path='/Testimonials' component={Testimonials} />
                 <Route exact path='/UserDash' component={UserDashboard } />
                 <Route exact path='/RepDash' component={RepDashboard } />
+                {/* <Route path='/activity' exact component={Activity} />
+                <Route path='/pending' exact component={Pending} />
+                <Route path='/completed' exact component={Completed} /> */}
             </Switch>
         </>
     )
