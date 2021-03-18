@@ -19,15 +19,12 @@
     "react-bootstrap": "^1.5.1",
     "react-bootstrap-sidebar": "^0.0.1",
     "react-bootstrap-sweetalert": "^5.2.0",
-<<<<<<< HEAD
-=======
     "react-dom": "^17.0.1",
     "react-hot-toast": "^1.0.2",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.0",
->>>>>>> d6259cf1f87e9d7b0086b79d7c2145533b56b3b7
     "react-transition-group": "^4.4.1",
     "reactstrap": "^8.9.0",
     "simplebar-react": "^2.3.0",

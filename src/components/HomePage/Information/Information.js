@@ -1,8 +1,8 @@
 import React from "react";
-import {Jumbotron,Media,Image} from "react-bootstrap"
+import {Jumbotron,Media,Image,Button} from "react-bootstrap"
 import './Information.css'
 import {data} from './Data.js';
-
+import { Link } from "react-router-dom";
 const Information = () => {
   return (
     <>
@@ -18,7 +18,17 @@ const Information = () => {
     />
     <Media.Body className="text-large ml-5 mr-5">
       {data[0].text}
-
+      <Button
+          // className = "learn-btn"
+          variant = "link"
+          >
+            <Link 
+            to = "/Ewaste" 
+            style = {{textDecoration : 'none'}}
+            >
+                Learn More...
+            </Link>
+          </Button>
     </Media.Body>
   </Media>
   </Jumbotron>
@@ -28,6 +38,17 @@ const Information = () => {
   <Media as="li" className="mt-5 Info text-justify">
     <Media.Body className="text-large ml-5 mr-5">
       {data[1].text}
+      <Button
+          // className = "learn-btn"
+          variant = "link"
+          >
+            <Link 
+            to = "/Disposing" 
+            style = {{textDecoration : 'none'}}
+            >
+                Learn More...
+            </Link>
+          </Button>
 
     </Media.Body>
     <Image
@@ -47,6 +68,17 @@ const Information = () => {
     />
     <Media.Body className="text-large text-justify ml-5 mr-5">
               {data[2].text}
+              <Button
+          // className = "learn-btn"
+          variant = "link"
+          >
+            <Link 
+            to = "/Donating" 
+            style = {{textDecoration : 'none'}}
+            >
+                Learn More...
+            </Link>
+          </Button>
 
     </Media.Body>
   </Media>
@@ -57,4 +89,3 @@ const Information = () => {
 };
 
 export default Information;
-

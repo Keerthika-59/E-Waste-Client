@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './sidebarData';
 import './navbar.css';
+import { Redirect } from "react-router";
+
 import { IconContext } from 'react-icons';
 import Activity from './pages/activity';
 import Pending from './pages/pending';
+import AuthApi from '../../../authAPI'
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+  const Auth = useContext(AuthApi)
 
   return (
+    Auth.auth ?(
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
       <div className='sidenav'>
@@ -48,7 +53,7 @@ function Navbar() {
       </IconContext.Provider>
       
     </>
-
+):(<Redirect to='/UserLogIn' />) 
   );
 }
 
