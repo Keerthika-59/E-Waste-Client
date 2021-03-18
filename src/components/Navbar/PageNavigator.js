@@ -19,6 +19,8 @@ import RepDashboard from '../Dashboard/RepDash/RepDashboardpage'
 import ManageUsers from '../Admin/DashboardPages/ManageUsers'
 import ManageRepresentatives  from '../Admin/DashboardPages/ManageRepresentatives'
 import ManageMessages  from '../Admin/DashboardPages/ManageMessages'
+import UserProfile from '../MyProfile/UserProfile';
+
 
 function Navigator() {
     return (
@@ -43,6 +45,7 @@ function Navigator() {
                 <Route exact path='/DisplayUsers' component={ManageUsers } />
                 <Route exact path='/DisplayReps' component={ManageRepresentatives} />
                 <Route exact path='/DisplayMessages' component={ManageMessages} />
+                <Route exact path='/MyProfile' component={UserProfile} />
 
             </Switch>
         </>

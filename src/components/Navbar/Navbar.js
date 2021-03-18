@@ -4,20 +4,18 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 import "./Navbar.css";
 import "../Button/Button.css";
 import { Button } from "../Button/Button";
-import Cookies from 'js-cookie'
-import AuthApi from '../../authAPI'
+import Cookies from "js-cookie";
+import AuthApi from "../../authAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { Redirect } from "react-router";
 
 function Navbar() {
-
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [userLog, setUser] = useState(false);
-  const [repLog, setRep] = useState(false);  
-
+  const [repLog, setRep] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -31,60 +29,51 @@ function Navbar() {
   };
 
   function readUserLog() {
-    if (Cookies.get('user')) {
-      setUser(true)
-    }
-    else {
-      setUser(false)
+    if (Cookies.get("user")) {
+      setUser(true);
+    } else {
+      setUser(false);
     }
   }
 
   function readRepLog() {
-    if (Cookies.get('repr')) {
-      setRep(true)
-    }
-    else {
-      setRep(false)
+    if (Cookies.get("repr")) {
+      setRep(true);
+    } else {
+      setRep(false);
     }
   }
-
 
   useEffect(() => {
     const interval = setInterval(() => {
       readUserLog();
-      readRepLog()
+      readRepLog();
     }, 1);
     return () => clearInterval(interval);
   }, []);
 
-  
-  const Auth = useContext(AuthApi)
+  const Auth = useContext(AuthApi);
   const handleLogoutUser = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-
-    Auth.setAuth(false)
-    Cookies.remove('user')
+    Auth.setAuth(false);
+    Cookies.remove("user");
     console.log("logged out");
     // props.history.push('/UserLogin')
-    <Redirect to='/UserLogIn' />
-  }
+    <Redirect to="/UserLogIn" />;
+  };
 
   const handleLogoutRep = async (e) => {
-    e.preventDefault()
-
-
-    Auth.setAuth(false)
-    Cookies.remove('repr')
+    e.preventDefault();
+    Auth.setAuth(false);
+    Cookies.remove("repr");
     console.log("logged out");
-    <Redirect to='/RepresentativeLogIn' />
-  }
+    <Redirect to="/RepresentativeLogIn" />;
+  };
 
-  // console.log(userLog)
   useEffect(() => {
     showButton();
   }, []);
-
 
   window.addEventListener("resize", showButton);
 
@@ -166,7 +155,7 @@ function Navbar() {
         </div>
 
         <div className="login-navbar mr-auto ">
-          {button && (!userLog) && (!repLog) && (
+          {button && !userLog && !repLog && (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
@@ -192,14 +181,14 @@ function Navbar() {
         </div>
 
         <div className="login-navbar mr-auto ">
-          {button && (userLog) && (
+          {button && userLog && (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
               title="User"
             >
               <Dropdown.Item className="fw-bold">
-              <Link to='/UserDash' 
+              <Link to='/MyProfile' 
                 style={{ textDecoration: "none" }}
                 >
                 <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile</Link>
@@ -207,32 +196,55 @@ function Navbar() {
 
               <Dropdown.Divider />
 
-              <Dropdown.Item className="fw-bold" onClick={e => handleLogoutUser(e)}>
-                <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
+              <Dropdown.Item className="fw-bold">
+              <Link to='/UserDash' 
+                style={{ textDecoration: "none" }}
+                >
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Dashboard</Link>
              </Dropdown.Item>
+
+              <Dropdown.Divider />
+
+              <Dropdown.Item
+                className="fw-bold"
+                onClick={(e) => handleLogoutUser(e)}
+              >
+                <FontAwesomeIcon
+                  icon={faSignOutAlt}
+                  className="text-danger me-2"
+                />{" "}
+                Logout
+              </Dropdown.Item>
             </DropdownButton>
           )}
         </div>
 
         <div className="login-navbar mr-auto ">
-          {button && (repLog) && (
+          {button && repLog && (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
               title="Representative"
             >
               <Dropdown.Item className="fw-bold">
-              <Link to='/RepDash' 
-                style={{ textDecoration: "none" }}
-                >
-                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile</Link>
-             </Dropdown.Item>
+                <Link to="/RepDash" style={{ textDecoration: "none" }}>
+                  <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My
+                  Profile
+                </Link>
+              </Dropdown.Item>
 
               <Dropdown.Divider />
 
-              <Dropdown.Item className="fw-bold" onClick={e => handleLogoutRep(e)}>
-                <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
-             </Dropdown.Item>
+              <Dropdown.Item
+                className="fw-bold"
+                onClick={(e) => handleLogoutRep(e)}
+              >
+                <FontAwesomeIcon
+                  icon={faSignOutAlt}
+                  className="text-danger me-2"
+                />{" "}
+                Logout
+              </Dropdown.Item>
             </DropdownButton>
           )}
         </div>
