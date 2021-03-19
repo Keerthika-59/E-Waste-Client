@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./userStyle.css";
 import Cookies from "js-cookie";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, Link,Redirect } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import APIHelper from "../API/apihelper";
@@ -33,6 +33,7 @@ export const UserForm = (props) => {
     }, [])
     
     return (
+        (Cookies.get('repr'))?<Redirect to='/' /> :
         <Formik
             initialValues={{ email: "", password: "" }}
             onSubmit={async (values, { resetForm, setSubmitting }) => {

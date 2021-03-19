@@ -25,6 +25,7 @@ import Disposing from '../HomePage/Information/Dispose'
 import Donating from '../HomePage/Information/Donate'
 import App from '../Admin/App';
 
+import RepProfile from '../Dashboard/RepDash/Profile/repProfile'
 function Navigator() {
     return (
         <>
@@ -53,9 +54,10 @@ function Navigator() {
                 <Route exact path='/Disposing' component={Disposing} />
                 <Route exact path='/Donating' component={Donating} />
                 <Route exact path = '/admin' component = {App} />
+                <Route exact path='/RepProfile' component={RepProfile} />
 
             </Switch>
-        </>
+        </> 
     )
 
 }
