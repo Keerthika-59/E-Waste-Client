@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "http://localhost:5000/reps/"
+const API_URL = "https://ewaste-dec20-dev-api.azurewebsites.net/reps/";
 
 async function getAllUsers() {
     const { data: users } = await axios.get(API_URL)
@@ -22,4 +22,4 @@ async function logoutUser(){
     await axios.get(`${API_URL}logout`)
 }
 
-  export default  {getAllUsers,registerUsers,loginUser,logoutUser}
+  export default  {getAllUsers,registerUsers,loginUser,logoutUser,API_URL}

@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 .gal-img {
+    height: 320px;
     width: 30%;
     margin: 1.66%;
+    height: 320px;
 }
 
 .gal {
@@ -27,4 +29,13 @@
     .gal-img {
         width: 84%;
     }
+}
+
+body {
+    background: #f4f4f4;
+}
+
+.banner {
+    background-color: #f8ef42;
+    background-image: linear-gradient(315deg, #f8ef42 0%, #0fd64f 74%);
 }
