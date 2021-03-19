@@ -309,18 +309,31 @@ function Navbar() {
         </div>
 
         <div className="login-navbar mr-auto ">
-          {button && (repLog) && (
+          {button && (repLog)&& (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
-              title="Representative"
+              title="Representative "
             >
               <Dropdown.Item className="fw-bold">
-              <Link to='/RepDash' 
+              <Link to='/RepProfile' 
                 style={{ textDecoration: "none" }}
                 >
                 <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile</Link>
              </Dropdown.Item>
+
+
+
+              <Dropdown.Divider />
+
+              <Dropdown.Item className="fw-bold">
+              <Link to='/RepDash' 
+                style={{ textDecoration: "none" }}
+                >
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Dashboard</Link>
+             </Dropdown.Item>
+
+
 
               <Dropdown.Divider />
 

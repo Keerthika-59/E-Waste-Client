@@ -27,6 +27,9 @@ import SideBar from '../Admin/SideBar';
 import Home from '../Pages/Home';
 import PageNotFound from '../404/PageNotFound';
 
+import App1 from '../Admin/App1'
+
+import RepProfile from '../Dashboard/RepDash/Profile/repProfile'
 function Navigator() {
     return (
         <>
@@ -57,12 +60,13 @@ function Navigator() {
                 <Route exact path='/view/users' component={ManageUsers} />
                 <Route exact path='/view/reps' component={ManageRepresentatives} />
                 <Route exact path='/view/messages' component={ManageMessages} />
-                
+                <Route exact path='/admin' component={App1} />
+                <Route exact path='/RepProfile' component={RepProfile} />
+
                 <Route component={PageNotFound} />
 
-
             </Switch>
-        </>
+        </> 
     )
 
 }
