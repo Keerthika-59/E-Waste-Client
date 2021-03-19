@@ -2,11 +2,15 @@ import React, { useState,useEffect } from 'react'
 import axios from 'axios';
 import { Form, Button, FormLabel } from 'react-bootstrap';
 import './contactStyle.css';
- import toast, { Toaster } from 'react-hot-toast';
- 
+import Swal from 'sweetalert2';
+//  import toast, { Toaster } from 'react-hot-toast';
+ import { ToastContainer,toast } from 'react-toastify';
 import { Redirect, useHistory } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css'; 
 
-const notify = () => toast.success('Submitted successfully!');
+const API_URL  = 'https://ewaste-dec20-dev-api.azurewebsites.net/contacts';
+
+const notify = () => toast.success('Submitted successfully!', {position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 
 export const InputForm = () => {
 
@@ -31,7 +35,7 @@ export const InputForm = () => {
     };
     
     axios
-      .post("https://ewaste-dec20-dev-api.azurewebsites.net/contacts", newContact)
+      .post(API_URL, newContact)
       .then(res => { 
         
           setName('');
@@ -85,7 +89,7 @@ export const InputForm = () => {
                     </div>
                     <div className="col-lg-12">
                       <button type="submit"  onClick={notify}className="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3"><span> SUBMIT NOW <i className="ti-arrow-right"></i></span></button>
-                    <Toaster limit={1}/>
+                    <ToastContainer limit={1}/>
                     </div>
                   </div>
                 </form>
