@@ -80,7 +80,7 @@ console.log(token);
   return Auth.auth ? (
     <div className="container rounded bg-white mt-5">
       <div className="row">
-        <div className="col-md-4 border-right">
+        <div className="col-md-4 border-right bg-c-lite-green">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <img
               className="rounded-circle mt-5"
@@ -88,11 +88,12 @@ console.log(token);
               width="90"
               alt=""
             />
-            <span className="font-weight-bold">{reps.name}</span>
-            <span className="text-black-50">{reps.email}</span>
-            <span>{reps.city}</span>
+            <span className="text-light font-weight-bolder">{reps.name}</span>
+            <span className="text-light font-weight-normal">{reps.email}</span>
+            <span  className="text-light font-weight-normal">{reps.city}</span>
           </div>
         </div>
+    
         <div className="col-md-8">
           <div className="p-3 py-5">
             <div className="justify-content-between align-items-center mb-3">
