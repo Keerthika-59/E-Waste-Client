@@ -15,19 +15,15 @@ const CarouselHome = () => {
 
       <Carousel.Caption>
         <h3>Waste Management</h3>
-        <p>
-          <Button
-          className = "learn-btn"
-          variant = "info"
-          >
-            <Link 
-            to = "/Services" 
-            style = {{textDecoration : 'none'}}
-            >
-                Learn More...
-            </Link>
-          </Button>
-        </p>
+        <h5>
+          ALWAYS WORKING FOR A
+        SUSTAINABLE TOMORROW
+        </h5>
+        <br/>
+        <ul>
+           We Value Safety,</ul>
+           <ul>We Value Our Environment,</ul>
+            <ul>We Value Our Customers</ul>
       </Carousel.Caption>
     </Carousel.Item>
 
