@@ -175,6 +175,17 @@ function Navbar() {
 
             <li className="nav-item">
       <NavDropdown title="Services" className="nav-links" id="basic-nav-dropdown">
+             
+             <NavDropdown.Item>
+                <Link
+                      to="/Services"
+                      // className="nav-links"
+                      onClick={closeMobileMenu}
+                      style={{ textDecoration: "none" }}
+                    >
+                      Our Services
+                </Link>
+              </NavDropdown.Item>
               <NavDropdown.Item>
                 <Link
                       to="/Ewaste"
