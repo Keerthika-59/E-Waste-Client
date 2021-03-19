@@ -12,20 +12,9 @@ const UserProfile = () => {
   const Auth = useContext(AuthApi);
   const [edit, setEdit] = useState(false);
   const [token, setToken] = useState("");
-  const [users, setUsers] = useState({
-    // name: "",
-    // phoneNumber: "",
-    // email: "",
-    // gender: "",
-    // password: "",
-    // city: "",
-    // address: "",
-  });
+  const [users, setUsers] = useState({ });
   const [updated, setUpdated] = useState({
-    // name: "",
-    // phoneNumber: "",
-    // gender: "",
-    // address: "",
+    
   });
 
   const fetchId = async () => {
