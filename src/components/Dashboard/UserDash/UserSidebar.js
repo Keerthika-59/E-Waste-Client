@@ -9,16 +9,20 @@ import { IconContext } from 'react-icons';
 import Activity from './pages/activity';
 import Pending from './pages/pending';
 import AuthApi from '../../../authAPI'
+import Navbar1 from './../../Navbar/Navbar'
+import Footer from '../../Footer/Footer';
 
 function Navbar() {
-  const [sidebar, setSidebar] = useState(false);
 
+  const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => setSidebar(!sidebar);
+
   const Auth = useContext(AuthApi)
-  
+
   return (
     Auth.auth ? (
       <>
+      <Navbar1/>
         <IconContext.Provider value={{ color: '#fff' }}>
           <div className='sidenav'>
             <Link to='#' className='menu-bars'>
@@ -52,6 +56,7 @@ function Navbar() {
           </div>
         </IconContext.Provider>
 
+        <Footer/>
       </>
     ) : (<Redirect to='/UserLogIn' />)
   );

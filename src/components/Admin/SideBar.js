@@ -1,37 +1,95 @@
-import React from 'react'
-import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarContent } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css';
+import React, { useState, useContext } from 'react';
+import * as FaIcons from 'react-icons/fa';
+import * as BsIcons from 'react-icons/bs';
+
+import "./style.css";
+
+import { IconContext } from 'react-icons';
 import {Link, Redirect} from 'react-router-dom';
+import ManageRepresentatives from './DashboardPages/ManageRepresentatives';
+import ManageMessages from './DashboardPages/ManageMessages';
+import ManageUsers from './DashboardPages/ManageUsers';
+import Footer from '../Footer/Footer';
 
 const SideBar = () => {
+
+
+    
+
+    const [sidebar, setSidebar] = useState(true);
+
+    const [show, setShow] = useState(0);
+
+    const showSidebar = () => setSidebar(!sidebar);
+
     return (
         <>
-            <ProSidebar style = {{position : 'fixed'}} className = "mr-auto">
-                <SidebarHeader className = "mx-auto">
-                    <p> Administrator Dashboard </p>
-                </SidebarHeader>
+            <IconContext.Provider value={{ color: '#fff' }}>
+                <div className='sidenav'>
+                    <Link to='#' className='menu-bars'>
+                        <FaIcons.FaBars onClick = {showSidebar} />
+                    </Link>
+                </div>
+                <div class="row">
+                    <div class="col-4 sn">
 
-                <Menu iconShape="square">
-                    <MenuItem > <Link to="/"> <p> Dashboard </p> </Link> </MenuItem>
-                    
-                    <SubMenu title="Representative">
-                        <MenuItem>  Verify Representatives </MenuItem>
-                        <MenuItem> View Representatives  </MenuItem>
-                    </SubMenu>
+                        <nav className={sidebar ? 'sidenav-menu active' : 'sidenav-menu'}>
+                            <ul className='sidenav-menu-items'>
 
-                    <hr />
+                               <li className = " mx-3 py-2 px-2" style= {{listStyle : 'none'}}
+                               onClick = { (e) => setShow(0)}
+                               >
+                                   
+                                      <h5 style = {{color : 'white'}}>
+                                            <BsIcons.BsFillPersonFill />  View Users
+                                      </h5>
+                               </li>
 
-                    <MenuItem style={{ color: 'whitesmoke' }}> <p> View Users </p>   </MenuItem>
-                    
-                    <MenuItem style = {{color : 'whitesmoke'}}> <p> View Donations </p>  </MenuItem>
-                    <MenuItem style = {{color : 'whitesmoke'}}> <p>View Completed Activities </p>  </MenuItem>
-                    <MenuItem style = {{color : 'whitesmoke'}}> <p> View Pending Activities </p>  </MenuItem>
-                    <MenuItem style = {{color : 'whitesmoke'}}>  <p> View Messages  </p> </MenuItem>
+                                <li className="mx-3 py-2 px-2" style={{ listStyle: 'none' }}
+                                    onClick={(e) => setShow(1)}
+                                >
 
-                </Menu>
+                                    <h5 style={{ color: 'white' }}>
+                                        <BsIcons.BsFillPersonFill />  View Reps
+                                      </h5>
+                                </li>
 
-            </ProSidebar>;
+                                <li className="mx-3 py-2 px-2" style={{ listStyle: 'none' }}
+                                    onClick={(e) => setShow(2)}
+                                >
 
+                                    <h5 style={{ color: 'white' }}>
+                                        <BsIcons.BsFillPersonFill />  View Messages
+                                      </h5>
+                                </li>
+
+                                <li className="mx-3 py-2 px-2" style={{ listStyle: 'none' }}
+                                    onClick={(e) => setShow(3)}
+                                >
+
+                                    <h5 style={{ color: 'white' }}>
+                                        <BsIcons.BsFillPersonFill />  Verify Representatives
+                                      </h5>
+                                </li>
+                            </ul>
+
+                        </nav>
+                    </div>
+                    <div class="col-8 content">
+                        {
+                            (show === 0) ? (
+                                <ManageUsers/>
+                            ) : (
+                                (show === 1) ? (
+                                        <ManageRepresentatives/>
+                                ) : (
+                                            <ManageMessages/>
+                                )
+                            )
+                        }
+                    </div>
+                </div>
+            </IconContext.Provider>
         </>
     )
 }

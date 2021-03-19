@@ -1,4 +1,7 @@
 import {React,useEffect} from "react";
+import Footer from "../../Footer/Footer";
+import  Navbar from '../../Navbar/Navbar'
+
 import './Gallery.css'
 function Gallery() {
   useEffect(() => {
@@ -6,6 +9,7 @@ function Gallery() {
   }, [])
   return (
     <>
+      <Navbar/>
       <div className="img-container">
         <img
           className="gal-img"
@@ -54,6 +58,8 @@ function Gallery() {
           alt=""
         />
       </div>
+
+      <Footer/>
     </>
   );
 }

@@ -23,12 +23,16 @@ import MyProfile from '../Dashboard/UserDash/pages/Profile/userProfile'
 import Ewaste from '../HomePage/Information/Ewaste'
 import Disposing from '../HomePage/Information/Dispose'
 import Donating from '../HomePage/Information/Donate'
-import App from '../Admin/App';
+import SideBar from '../Admin/SideBar';
+import Home from '../Pages/Home';
+import PageNotFound from '../404/PageNotFound';
 
 function Navigator() {
     return (
         <>
             <Switch>
+                <Route exact path='/' component={Home} />
+
                 <Route exact path='/Gallery' component={Gallery} />
                 <Route exact path='/AboutUs' component={AboutUs} />
                 <Route exact path='/ContactUs' component={InputForm} />
@@ -45,14 +49,17 @@ function Navigator() {
                 <Route exact path='/Testimonials' component={Testimonials} />
                 <Route exact path='/UserDash' component={UserDashboard } />
                 <Route exact path='/RepDash' component={RepDashboard } />
-                <Route exact path='/DisplayUsers' component={ManageUsers } />
-                <Route exact path='/DisplayReps' component={ManageRepresentatives} />
-                <Route exact path='/DisplayMessages' component={ManageMessages} />
                 <Route exact path='/MyProfile' component={MyProfile} />
                 <Route exact path='/Ewaste' component={Ewaste} />
                 <Route exact path='/Disposing' component={Disposing} />
                 <Route exact path='/Donating' component={Donating} />
-                <Route exact path = '/admin' component = {App} />
+                <Route exact path="/admin" component={SideBar} />
+                <Route exact path='/view/users' component={ManageUsers} />
+                <Route exact path='/view/reps' component={ManageRepresentatives} />
+                <Route exact path='/view/messages' component={ManageMessages} />
+                
+                <Route component={PageNotFound} />
+
 
             </Switch>
         </>

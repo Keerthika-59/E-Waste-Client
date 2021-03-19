@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
  import { ToastContainer,toast } from 'react-toastify';
 import { Redirect, useHistory } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css'; 
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 const API_URL  = 'https://ewaste-dec20-dev-api.azurewebsites.net/contacts';
 
@@ -53,10 +55,8 @@ export const InputForm = () => {
 
     };
 
-  return(
-
-    
-
+  return( <>
+    <Navbar/>
   <div className="contact2" style={{backgroundImage: `url("https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/map.jpg")` }}>
 
     
@@ -114,6 +114,8 @@ export const InputForm = () => {
         </div>
 
         </div>
+    <Footer/>
+    </>
   )
 }
 

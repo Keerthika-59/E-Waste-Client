@@ -21,10 +21,11 @@ const ManageMessages = () => {
     function removeMessage(email){
         alert(`removed ${email}`)
     }
+    
     // console.log(`Messages ${Messages}`)
     return (
         <>
-         <Table striped bordered hover>
+         <Table striped bordered hover className = "text-center">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -44,7 +45,7 @@ const ManageMessages = () => {
                         {/* <td><Button style={{backgroundColor:"red",margin:"10px"}}>DELETE</Button></td>     */}
                         {/* {this.removeToCollection(key, e)} */}
                         <td> <Button variant="danger"  onClick={() => {if(window.confirm('Do you want to delete the Message?')){removeMessage(Message.email)};}}>DELETE</Button></td>
-                        
+
                     </tr>)}
                    
                 </tbody>

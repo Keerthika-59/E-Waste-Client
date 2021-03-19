@@ -18,11 +18,8 @@ const App = () => {
     <div className="App">
       <AuthApi.Provider value={{auth,setAuth}}>
       <BrowserRouter>
-        <Navbar />
-        <Route path='/' exact component={Home} />
-        {/* <Route path='/UserDash' exact component={UserDashboard } /> */}
+      
         <Navigator/>
-        <Footer />
        </BrowserRouter>
       </AuthApi.Provider>
       
