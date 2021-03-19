@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Navbar from '../UserSidebar';
 const notify = () => toast.success('Submitted successfully!');
 
-const Activity = () => {
+const Activity = (props) => {
     const [bio, setBio] = useState();
     const [nonbio, setNonbio] = useState();
     const [donation, setDonation] = useState();  
@@ -19,7 +19,7 @@ const Activity = () => {
     const handleContactSubmit = e => {
         
             e.preventDefault();
-
+            
                 const newData = {
                     bio,
                     nonbio,

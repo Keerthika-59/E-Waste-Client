@@ -8,6 +8,8 @@ import Swal from 'sweetalert2';
 import { Redirect, useHistory } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css'; 
 
+const API_URL  = 'https://ewaste-dec20-dev-api.azurewebsites.net/contacts';
+
 const notify = () => toast.success('Submitted successfully!', {position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 
 export const InputForm = () => {
@@ -33,7 +35,7 @@ export const InputForm = () => {
     };
     
     axios
-      .post("https://ewaste-dec20-dev-api.azurewebsites.net/contacts", newContact)
+      .post(API_URL, newContact)
       .then(res => { 
         
           setName('');
