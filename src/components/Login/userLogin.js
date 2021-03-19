@@ -1,30 +1,27 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./userStyle.css";
-
 import Cookies from "js-cookie";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import APIHelper from "../API/apihelper";
 import AuthApi from "../../authAPI";
-import toast, { Toaster } from 'react-hot-toast';
-
-const notify = () => toast.success('User logged in successfully!');
-const notify1 = () => toast.error('Email or password is incorrect!');
-
+// import toast, { Toaster } from 'react-hot-toast';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+const notify = () => toast.success('User logged in successfully!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
+const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 
 export const UserForm = (props) => {
-  const Auth = useContext(AuthApi);
-  const readCookies = () => {
-    const user = Cookies.get("user");
-    if (user) {
-      console.log(`user true`);
-      Auth.setAuth(true);
-      props.history.push("/UserDash");
-    }
-  };
-
-  // const []
+    const Auth = useContext(AuthApi);
+    const readCookies = () => {
+        const user = Cookies.get("user");
+        if (user) {
+            console.log(`user true`);
+            Auth.setAuth(true);
+            props.history.push("/UserDash");
+        }
+    };
 
     useEffect(() => {
         readCookies();
@@ -56,6 +53,11 @@ export const UserForm = (props) => {
                     // alert(err.response.data.errorMessage);
                     notify1();
                   }
+          
+                
+                // setTimeout(() => {
+                //     setSubmitting(false);
+                // }, 1000);
             }}
             validationSchema={Yup.object({
                 email: Yup.string()
@@ -120,24 +122,26 @@ export const UserForm = (props) => {
 
                                         <div className="row mb-3 px-3">
                                             <button type="submit" className="btn btn-blue text-center"> Login </button>
-                                                                             
-                                            <Toaster limit={1}/>
+                                            
+                                            <ToastContainer limit={1}/>
                                         </div>
 
                                         <div className="row mb-4 px-3">
                                             <small className="font-weight-bold">Don't have an account? <a className="text-danger "><Link to="/UserSignUp"> Register </Link></a></small>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-                        </div>    
-                    </div>
-        </Form>
-      )}
-    </Formik>
-  );
-};
 
+                        </div>
+                    </div>
+
+                </Form>
+            )}
+
+
+        </Formik>
+    )
+}
 
 export default UserForm;

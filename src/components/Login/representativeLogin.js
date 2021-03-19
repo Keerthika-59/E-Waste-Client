@@ -6,10 +6,12 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import APIHelper from "../API/apihelper2";
 import AuthApi from "../../authAPI";
-import toast, { Toaster } from 'react-hot-toast';
+// import toast, { Toaster } from 'react-hot-toast';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const notify = () => toast.success('Representative logged in successfully!');
-const notify1 = () => toast.error('Error in Representative login!');
+const notify = () => toast.success('Representative logged in successfully!',{position: toast.POSITION.BOTTOM_RIGHT}, {autoClose:5000});
+const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.BOTTOM_RIGHT}, {autoClose:5000});
 
 export const RepForm = (props) => {
   const Auth = useContext(AuthApi);
@@ -49,9 +51,10 @@ export const RepForm = (props) => {
             // alert(err.response.data.errorMessage);
             notify1();
           }
-  
+          
         
-      }}
+      }
+    }
             validationSchema={Yup.object({
                 email: Yup.string()
                     .email('Invalid email address')
@@ -62,7 +65,7 @@ export const RepForm = (props) => {
         >
 
         { (formik, isSubmitting) => (
-
+            
             <Form>
                     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                         <div className="card card0 border-0">
@@ -118,7 +121,7 @@ export const RepForm = (props) => {
 
                                         <div className="row mb-3 px-3">
                                             <button type="submit"  className="btn btn-blue text-center">Login</button>
-                                            <Toaster limit={1}/>
+                                            <ToastContainer limit={1}/>
                                         </div>
 
                                         <div className="row mb-4 px-3">
@@ -130,8 +133,10 @@ export const RepForm = (props) => {
 
                 </div>
               </div>
+              
         </Form>
       )}
+   
     </Formik>
   );
 };
