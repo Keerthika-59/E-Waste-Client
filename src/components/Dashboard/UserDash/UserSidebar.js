@@ -9,6 +9,7 @@ import { IconContext } from 'react-icons';
 import Activity from './pages/activity';
 import Pending from './pages/pending';
 import AuthApi from '../../../authAPI'
+import Completed from './pages/completed';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -48,6 +49,7 @@ function Navbar() {
         <div class="col-md-8 content">
             <Activity/>
             {/* <Pending/> */}
+           <Completed/>
         </div>
         </div>
       </IconContext.Provider>
