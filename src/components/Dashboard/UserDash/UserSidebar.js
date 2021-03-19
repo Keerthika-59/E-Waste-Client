@@ -16,7 +16,7 @@ import Completed from './pages/completed';
 
 function Navbar() {
 
-  const [sidebar, setSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState(true);
   const [show, setShow] = useState(0);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -37,7 +37,7 @@ function Navbar() {
             <div class="col-md-4 sn">
 
               <nav className={sidebar ? 'sidenav-menu active' : 'sidenav-menu'}>
-                <ul className='sidenav-menu-items' onClick={showSidebar}>
+                <ul className='sidenav-menu-items' >
                   
                   <li className=" mx-3 py-2 px-2" style={{ listStyle: 'none' }}
                     onClick={(e) => setShow(0)}
