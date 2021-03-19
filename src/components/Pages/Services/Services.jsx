@@ -14,8 +14,14 @@ export default function Services() {
 return(
 <>
     <div className="container-fluid mb-5">
-    <div className="text-center mt-5">
-        <h1>Our Services</h1>
+    <div className="text-center mt-5 ">
+      <div class="col-lg-12 mx-auto">
+        <div class="text-white p-2 shadow-sm rounded banner">
+          <h1 class="display-6">Our Services</h1>
+          <p class="lead">What we Offer!</p>
+      </div>
+    </div>
+
     </div>
     <div className="row">
         {/* <div className="col-md-4">

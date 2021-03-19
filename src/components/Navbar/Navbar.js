@@ -215,7 +215,9 @@ function Navbar() {
                       onClick={closeMobileMenu}
                       style={{ textDecoration: "none" }}
                     >
-                      Donate
+                     <div>
+                    <p className="navbar-text"> Donate </p>
+                  </div>
                 </Link>
               </NavDropdown.Item>
 
