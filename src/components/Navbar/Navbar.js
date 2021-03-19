@@ -332,6 +332,19 @@ function Navbar() {
 
               <Dropdown.Divider />
 
+              <Dropdown.Item className="fw-bold">
+              <Link to='/ActivityDetails' 
+                style={{ textDecoration: "none" }}
+                >
+                <div>
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Activity
+                </div>
+                </Link>
+             </Dropdown.Item>
+
+              <Dropdown.Divider />
+              
+
               <Dropdown.Item className="fw-bold" onClick={e => handleLogoutUser(e)}>
                <div>
                 <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
