@@ -238,12 +238,9 @@ function Navbar() {
                       onClick={closeMobileMenu}
                       style={{ textDecoration: "none" }}
                     >
-                      Contact
+                    Contact Us
                     </Link>
             </li>
-                
-
-
             <li>
               <Link
                 to="/SignUpoptions"
