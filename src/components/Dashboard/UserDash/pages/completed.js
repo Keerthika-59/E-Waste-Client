@@ -1,10 +1,9 @@
 import React from 'react';
+import './completed.css';
 
 function Completed() {
-  return (
-    <div className='completed'>
-      <h1>Completed</h1>
-    </div>
+  return(
+<h1>completed</h1>
   );
 }
 
