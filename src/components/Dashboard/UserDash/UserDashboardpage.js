@@ -9,7 +9,6 @@ function UserDashboard() {
         return (
             Auth.auth ?(
             <>
-                {/* <Usericon/> */}
                 <UserActivity />
             </>):(<Redirect to='/UserLogIn' />)
         )

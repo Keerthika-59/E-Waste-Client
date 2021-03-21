@@ -236,7 +236,7 @@ function Navbar() {
                       to="/ContactUs"
                       className="nav-links"
                       onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
+                      style={{ textDecoration: "none",width:"130px" }}
                     >
                     Contact Us
                     </Link>
@@ -275,20 +275,18 @@ function Navbar() {
               <Dropdown.Item>
                 <Link to="/UserLogIn"
                 style={{ textDecoration: "none" }}>
-                  {/* <div>
+                  <div>
                     <p className="navbar-text"> User </p>
-                  </div> */}
-                  <div>User</div>
+                  </div>
                 </Link>
               </Dropdown.Item>
 
               <Dropdown.Item>
                 <Link to="/RepresentativeLogIn"
                  style={{ textDecoration: "none" }}>
-                  {/* <div>
+                  <div>
                     <p className="navbar-text"> Representative </p>
-                  </div> */}
-                   <div>Representative</div>
+                  </div>
                 </Link>
               </Dropdown.Item>
             </DropdownButton>
