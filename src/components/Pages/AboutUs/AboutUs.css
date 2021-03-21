@@ -1,4 +1,4 @@
-/* .cards{
+.aboutcards{
         width: 70rem;
         margin-top: 2%;
         margin-left: 8%;
@@ -19,7 +19,7 @@
 }
 @media screen and (max-width: 650px) {
 
-.cards{
+.aboutcards{
     width: 100%;
     margin-left: 0%;
     justify-content:center;
@@ -38,11 +38,11 @@ width: 18rem
     margin-left: 35%;
 }
 }
- */
 
-body {
+
+/* body {
     background-color: #eee;
-}
+} */
 
 .title {
     margin-bottom: 50px;
