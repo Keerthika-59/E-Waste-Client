@@ -236,7 +236,7 @@ function Navbar() {
                       to="/ContactUs"
                       className="nav-links"
                       onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
+                      style={{ textDecoration: "none",width:"130px" }}
                     >
                     Contact Us
                     </Link>
