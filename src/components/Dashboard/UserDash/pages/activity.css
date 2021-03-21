@@ -32,20 +32,9 @@ td:nth-child(2) {
     width: 40px;
 }
 
-<<<<<<< HEAD
   .last{
     border:none;
     padding-bottom: 20px;
-=======
-.donation {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-tr:last-child td {
-    border: none;
-    padding: 30px 10px 10px;
->>>>>>> d6f3f420a1c7fb04f012303ad41ac99c8b96d39d
     text-align: center;
 }
 
