@@ -5,7 +5,7 @@ const Goals = () => {
         <div>
             <section id="team" class="pb-5">
     <div class="container">
-        <h5 class="section-title h1">Our Goals</h5>
+    <h5 class="section-title h1">Our Goals</h5>
     
         <div  class="text-white  p-5 shadow-sm  rounded back">
           <h3>DRIVEN BY OUR COMMITMENTS, GUIDED BY OUR VALUES</h3>

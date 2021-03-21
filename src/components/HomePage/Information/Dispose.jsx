@@ -3,6 +3,7 @@ import {Jumbotron,Media,Image} from "react-bootstrap"
 import {Button, Carousel, Container} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import './Information.css'
+import './Dispose.css'
 import {data} from './Data.js';
 const Dispose = () => {
     return (
@@ -30,7 +31,7 @@ const Dispose = () => {
   //       </div>
 
 <div>
-  <Jumbotron style={{ 
+  {/* <Jumbotron style={{ 
   backgroundImage: `url(${process.env.PUBLIC_URL + '/images/recycleRight_copy.jpeg'})` 
 }}>
           <p className="text-center font-italic heading"> {data[1].title}</p>
@@ -42,15 +43,29 @@ const Dispose = () => {
      when yu recycle it in a correct manner.
      We will help you out.
       </p>
-    </Media.Body>
+    </Media.Body> */}
     {/* <Image
       className="mr-3 img"roundedCircle
       src={`${process.env.PUBLIC_URL}/assets/images/mediaDispose.png`}
       alt="Generic placeholder"
-    /> */}
+    /> 
   </Media>
-  </Jumbotron>
- 
+  </Jumbotron>*/}
+   <section id="team" class="pb-5">
+    <div class="container">
+   <h5 class="section-title h1">{data[1].title}</h5>
+  <div className="text-center">
+      <div class="col-lg-12">
+        <div  class="text-white  p-5 shadow-sm  rounded back">
+         
+          <p class="lead">Disposing of waste will done properly only,
+     when yu recycle it in a correct manner.
+     We will help you out.
+     Whether you’re at home or at work, we’ve got the tools
+   to set you up for recycling success.</p>
+      </div>
+    </div>
+    </div>
 
   <Jumbotron>
           <p className="text-center font-italic heading"> Recycle Right....</p>
@@ -81,13 +96,13 @@ const Dispose = () => {
   <Carousel>
   <Carousel.Item interval={1000}>
   <img  className="d-block w-100"
-        src={`${process.env.PUBLIC_URL}/images/pic.jpg`}
+        src={`${process.env.PUBLIC_URL}/images/DisposeCarousel/step1.jpg`}
         alt="Waste Management"
       />
-    <Carousel.Caption>
+    {/* <Carousel.Caption>
       <h3>First slide label</h3>
       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
+    </Carousel.Caption> */}
   </Carousel.Item>
   <Carousel.Item interval={500}>
   <img  className="d-block w-100"
@@ -95,20 +110,20 @@ const Dispose = () => {
         alt="Waste Management"
       />
 
-    <Carousel.Caption>
+    {/* <Carousel.Caption>
       <h3>Second slide label</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
+    </Carousel.Caption> */}
   </Carousel.Item>
   <Carousel.Item>
   <img  className="d-block w-100"
         src={`${process.env.PUBLIC_URL}/images/DisposeCarousel/step3.jpg`}
         alt="Waste Management"
     />
-    <Carousel.Caption>
+    {/* <Carousel.Caption>
       <h3>Third slide label</h3>
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
+    </Carousel.Caption> */}
   </Carousel.Item>
 
   <Carousel.Item>
@@ -116,20 +131,20 @@ const Dispose = () => {
         src={`${process.env.PUBLIC_URL}/images/DisposeCarousel/step4.jpg`}
         alt="Waste Management"
     />
-    <Carousel.Caption>
+    {/* <Carousel.Caption>
       <h3>Third slide label</h3>
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
+    </Carousel.Caption> */}
   </Carousel.Item>
   <Carousel.Item>
   <img  className="d-block w-100"
         src={`${process.env.PUBLIC_URL}/images/DisposeCarousel/step5.jpg`}
         alt="Waste Management"
     />
-    <Carousel.Caption>
+    {/* <Carousel.Caption>
       <h3>Third slide label</h3>
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
+    </Carousel.Caption> */}
   </Carousel.Item>
 
   <Carousel.Item>
@@ -137,13 +152,15 @@ const Dispose = () => {
         src={`${process.env.PUBLIC_URL}/images/DisposeCarousel/step6.jpg`}
         alt="Waste Management"
     />
-    <Carousel.Caption>
+    {/* <Carousel.Caption>
       <h3>Third slide label</h3>
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
+    </Carousel.Caption> */}
   </Carousel.Item>
-  <span aria-hidden="true" className="carousel-control-next-icon" />
+  {/* <span aria-hidden="true" className="carousel-control-next-icon" /> */}
 </Carousel>
+</div>
+</section>
 </div>
      )
 }
