@@ -120,6 +120,6 @@
 .counter.blue .counter-icon{
     background: linear-gradient(45deg,#5DB3E4 49%,#7EBEE1 50%);
 }
-@media screen and (max-width:990px){
+@media screen and (max-width:991px){
     .counter{ margin-bottom: 40px; }
 }

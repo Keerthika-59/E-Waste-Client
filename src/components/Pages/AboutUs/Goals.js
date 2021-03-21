@@ -8,7 +8,7 @@ export default function Goals() {
       }, [])
     return (
         <>
-            <Card className="cards1">
+            <Card className="aboutcards">
                 <Card.Img className="cardimg" variant="top" src={`${process.env.PUBLIC_URL}/assets/images/goals.jpg`} />
                 <Card.Body>
                     <Card.Title className="goals">Our Goals</Card.Title>
