@@ -80,7 +80,7 @@ const UserProfile = () => {
   return Auth.auth ? (
     <div className="container rounded bg-white mt-5">
       <div className="row">
-        <div className="col-md-4 border-right">
+        <div className="col-md-4 border-right bg-c-lite-green">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <img
               className="rounded-circle mt-5"
@@ -88,9 +88,9 @@ const UserProfile = () => {
               width="90"
               alt=""
             />
-            <span className="font-weight-bold">{users.name}</span>
-            <span className="text-black-50">{users.email}</span>
-            <span>{users.city}</span>
+            <span className="text-light font-weight-bolder">{users.name}</span>
+            <span className="text-light font-weight-normal">{users.email}</span>
+            <span className="text-light font-weight-normal">{users.city}</span>
           </div>
         </div>
         <div className="col-md-8">

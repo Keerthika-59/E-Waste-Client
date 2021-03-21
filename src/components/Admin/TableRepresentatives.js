@@ -38,7 +38,6 @@ const TableRepresentatives = () => {
                 .then(json => {
                     hideLoader();
                     setReps(json);
-                    console.log(json);
                 });
         };
 

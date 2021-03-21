@@ -10,7 +10,7 @@ import LoginOptions from '../Pages/LoginPages'
 import SignUpOptions from '../Pages/SignUpPages'
 import Achievements from '../Pages/AboutUs/AchievementPage'
 import Goals from '../Pages/AboutUs/Goals'
-import Services from '../Pages/AboutUs/Services'
+import Services from '../Pages/Services/Services'
 import Gallery from '../Pages/Gallery/Gallery'
 import Team from '../OurTeam/Team'
 import Testimonials from '../Testimonials/Testimonials'
@@ -24,6 +24,7 @@ import Ewaste from '../HomePage/Information/Ewaste'
 import Disposing from '../HomePage/Information/Dispose'
 import Donating from '../HomePage/Information/Donate'
 import RepProfile from '../Dashboard/RepDash/Profile/repProfile'
+import ActivityDetails from '../Dashboard/UserDash/pages/ActivityDetails/activityDetails'
 function Navigator() {
 
     return (
@@ -53,6 +54,7 @@ function Navigator() {
                 <Route exact path='/Disposing' component={Disposing} />
                 <Route exact path='/Donating' component={Donating} />
                 <Route exact path='/RepProfile' component={RepProfile} />
+                <Route exact path='/ActivityDetails' component={ActivityDetails} />
 
 
             </Switch>

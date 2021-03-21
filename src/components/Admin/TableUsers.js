@@ -36,7 +36,6 @@ const TableUsers = () => {
                 .then(json => {
                     hideLoader();
                     setUsers(json);
-                    console.log(json);
                 });
         };
 

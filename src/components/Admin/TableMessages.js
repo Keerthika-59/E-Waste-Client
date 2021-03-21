@@ -34,7 +34,6 @@ const TableMessages = () => {
                 .then(json => {
                     hideLoader();
                     setComments(json);
-                    console.log(json);
                 });
         };
 
