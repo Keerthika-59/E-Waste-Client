@@ -16,9 +16,9 @@ import Team from '../OurTeam/Team'
 import Testimonials from '../Testimonials/Testimonials'
 import UserDashboard from '../Dashboard/UserDash/UserSidebar'
 import RepDashboard from '../Dashboard/RepDash/RepDashboardpage'
-import ManageUsers from '../Admin/DashboardPages/ManageUsers'
-import ManageRepresentatives  from '../Admin/DashboardPages/ManageRepresentatives'
-import ManageMessages  from '../Admin/DashboardPages/ManageMessages'
+import TableMessages  from '../Admin/TableMessages'
+import TableUsers  from '../Admin/TableUsers'
+import TableRepresentatives  from '../Admin/TableRepresentatives'
 import MyProfile from '../Dashboard/UserDash/pages/Profile/userProfile'
 import Ewaste from '../HomePage/Information/Ewaste'
 import Disposing from '../HomePage/Information/Dispose'
@@ -45,14 +45,15 @@ function Navigator() {
                 <Route exact path='/Testimonials' component={Testimonials} />
                 <Route exact path='/UserDash' component={UserDashboard } />
                 <Route exact path='/RepDash' component={RepDashboard } />
-                <Route exact path='/DisplayUsers' component={ManageUsers } />
-                <Route exact path='/DisplayReps' component={ManageRepresentatives} />
-                <Route exact path='/DisplayMessages' component={ManageMessages} />
+                <Route exact path='/DisplayUsers' component={TableUsers } />
+                <Route exact path='/DisplayReps' component={TableRepresentatives} />
+                <Route exact path='/DisplayMessages' component={TableMessages} />
                 <Route exact path='/MyProfile' component={MyProfile} />
                 <Route exact path='/Ewaste' component={Ewaste} />
                 <Route exact path='/Disposing' component={Disposing} />
                 <Route exact path='/Donating' component={Donating} />
                 <Route exact path='/RepProfile' component={RepProfile} />
+
 
             </Switch>
         </> 
