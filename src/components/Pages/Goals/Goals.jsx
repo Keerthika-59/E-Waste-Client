@@ -1,6 +1,9 @@
-import React from 'react'
+import {React,useEffect} from 'react';
 import './Goals.css'
 const Goals = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
         <div>
             <section id="team" class="pb-5">
@@ -15,7 +18,8 @@ const Goals = () => {
 This idea sets the standard for our fundamental commitments and core values
  and guides our daily actions and decisions.</p>
         </div>
-      
+        <br/>
+  <br/><br/>
 
         <div class="row">
             

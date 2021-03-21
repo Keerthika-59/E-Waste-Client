@@ -1,11 +1,15 @@
-import React from 'react'
+import {React,useEffect} from 'react';
 import {Jumbotron,Media,Image} from "react-bootstrap"
 import {Button, Carousel, Container} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import './Information.css'
+
 import './Dispose.css'
 import {data} from './Data.js';
 const Dispose = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
     return (
   //       <div>
   //           <Jumbotron>
@@ -58,7 +62,7 @@ const Dispose = () => {
       <div class="col-lg-12">
         <div  class="text-white  p-5 shadow-sm  rounded back">
          
-          <p class="lead">Disposing of waste will done properly only,
+          <p class="lead">Disposing of waste will don e properly only,
      when yu recycle it in a correct manner.
      We will help you out.
      Whether you’re at home or at work, we’ve got the tools
