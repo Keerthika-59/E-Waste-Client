@@ -6,6 +6,50 @@ import { Link } from "react-router-dom";
 const Information = () => {
   return (
     <>
+    <br/>
+    <br/>
+    <br/>
+    
+        <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="counter">
+                    <div class="counter-icon">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <h3>Happy clients</h3>
+                    <span class="counter-value">565</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="counter orange">
+                    <div class="counter-icon">
+                        <i class="fa fa-rocket"></i>
+                    </div>
+                    <h3>Volunteers</h3>
+                    <span class="counter-value">20</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="counter">
+                    <div class="counter-icon">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <h3>Donation</h3>
+                    <span class="counter-value">65</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="counter orange">
+                    <div class="counter-icon">
+                        <i class="fa fa-rocket"></i>
+                    </div>
+                    <h3>Projects</h3>
+                    <span class="counter-value">87</span>
+                </div>
+            </div>
+        </div>
+    </div>
      <ul className="list-unstyled mt-5">
       <Jumbotron>
       <p className="text-center font-italic heading"> {data[0].title} </p>   
