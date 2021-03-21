@@ -7,7 +7,7 @@ export default function Achievements() {
       }, [])
     return (
         <>
-            <Card className="cards">
+            <Card className="cards1">
                 <Card.Img className="cardimg" variant="top" src={`${process.env.PUBLIC_URL}/assets/images/achievements.png`} />
                 <Card.Body>
                     <Card.Title className="achieves" >Our Achievements</Card.Title>

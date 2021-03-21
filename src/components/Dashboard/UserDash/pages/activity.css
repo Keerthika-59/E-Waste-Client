@@ -31,14 +31,9 @@ body{
     width: 40px;
   }
 
-  .donation{
-      padding-top :10px;
-      padding-bottom: 10px;
-
-  }
-  tr:last-child td{
+  .last{
     border:none;
-    padding:30px 10px 10px;
+    padding-bottom: 20px;
     text-align: center;
   }
   

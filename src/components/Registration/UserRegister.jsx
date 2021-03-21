@@ -189,15 +189,17 @@ const UserRegister = () => {
                                             <label className="mb-1">
                                                 <h6 className="mb-0 text-sm">Gender</h6>
                                             </label>
-                                                <div role="group" aria-labelledby="my-radio-group">
-                                                    <label className = "px-3">
+                                            
+                                                <div  role="group" aria-labelledby="my-radio-group">
+                                                    <label className="mb-1 px-3">
+                                                    <br/>
                                                         <Field type="radio" name="gender" value="Male" /> Male
                                                         </label>
-                                                    <label className="px-3">
+                                                    <label className="mb-1 px-3">
                                                         <Field type="radio" name="gender" value="Female" /> Female
                                                     </label>
 
-                                                    <label className="px-3">
+                                                    <label className="mb-1 px-3">
                                                         <Field type="radio" name="gender" value="Others"/> Others
                                                     </label>
 

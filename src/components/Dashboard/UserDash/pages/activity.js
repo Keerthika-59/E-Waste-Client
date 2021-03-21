@@ -80,8 +80,8 @@ const Activity = () => {
 				</tr>
                 <br/>
                 {(donation===true)?
-				<tr>
-					<td colspan="2">
+				<tr >
+					<td colspan="2" class="last">
                     <ul class="list-group">
                             <li class="list-group-item rounded-0">
                                 <div class="custom-control custom-checkbox">
