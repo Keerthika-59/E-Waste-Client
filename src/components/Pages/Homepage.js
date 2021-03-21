@@ -13,7 +13,7 @@ const Homepage = () => {
                         <div className="carousel-container">
                             <h2 className="animate__animated animate__fadeInDown">Welcome to<span>Waste Management</span></h2>
                             <p className="animate__animated fanimate__adeInUp"> Waste management deals with all types of waste, including industrial, biological and household. We also help in donating of items and make sure it reaches who need it the most.</p>
-                            <a className="btn-get-started animate__animated animate__fadeInUp scrollto"><Link to='/Services'>Read More</Link></a>
+                            <Link to='/Services'  style={{ textDecoration: "none" }}><a className="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a></Link>
                         </div>
                     </div>
                     <div className="carousel-item">
