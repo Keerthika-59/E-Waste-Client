@@ -49,7 +49,9 @@ const TableUsers = () => {
             computedComments = computedComments.filter(
                 user =>
                     user.name.toLowerCase().includes(search.toLowerCase()) ||
-                    user.email.toLowerCase().includes(search.toLowerCase())
+                    user.email.toLowerCase().includes(search.toLowerCase()) ||
+                    user.city.toLowerCase().includes(search.toLowerCase())||
+                    user.address.toLowerCase().includes(search.toLowerCase())
             );
         }
 
