@@ -24,7 +24,7 @@ import Ewaste from '../HomePage/Information/Ewaste'
 import Disposing from '../HomePage/Information/Dispose'
 import Donating from '../HomePage/Information/Donate'
 import RepProfile from '../Dashboard/RepDash/Profile/repProfile'
-import ActivityDetails from '../Dashboard/UserDash/pages/ActivityDetails/activityDetails'
+
 import Goals from '../Pages/Goals/Goals'
 function Navigator() {
 
@@ -55,7 +55,7 @@ function Navigator() {
                 <Route exact path='/Disposing' component={Disposing} />
                 <Route exact path='/Donating' component={Donating} />
                 <Route exact path='/RepProfile' component={RepProfile} />
-                <Route exact path='/ActivityDetails' component={ActivityDetails} />
+                
 
 
             </Switch>

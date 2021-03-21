@@ -5,6 +5,7 @@ function Gallery() {
     window.scrollTo(0, 0)
   }, [])
   return (
+    <>
     <div class="container-fluid">
   <div class="px-lg-5">
 
@@ -25,10 +26,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Waste generation</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-              <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
-            </div>
           </div>
         </div>
       </div>
@@ -38,10 +35,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Recycle</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">PNG</span></p>
-              <div class="badge badge-primary px-3 rounded-pill font-weight-normal">Trend</div>
-            </div>
           </div>
         </div>
       </div>
@@ -51,10 +44,7 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Tree</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-              <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -64,10 +54,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">E-waste</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPEG</span></p>
-              <div class="badge badge-success px-3 rounded-pill font-weight-normal">Hot</div>
-            </div>
           </div>
         </div>
       </div>
@@ -77,10 +63,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Chart</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">PNG</span></p>
-              <div class="badge badge-primary px-3 rounded-pill font-weight-normal">New</div>
-            </div>
           </div>
         </div>
       </div>
@@ -90,10 +72,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Recycling management</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-              <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
-            </div>
           </div>
         </div>
       </div>
@@ -103,10 +81,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Mandala</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPEG</span></p>
-              <div class="badge badge-info px-3 rounded-pill font-weight-normal">Hot</div>
-            </div>
           </div>
         </div>
       </div>
@@ -116,10 +90,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Representatives</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">PNG</span></p>
-              <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
-            </div>
           </div>
         </div>
       </div>
@@ -129,10 +99,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Process</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-              <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
-            </div>
           </div>
         </div>
       </div>
@@ -142,10 +108,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Garbage collection</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">PNG</span></p>
-              <div class="badge badge-primary px-3 rounded-pill font-weight-normal">Trend</div>
-            </div>
           </div>
         </div>
       </div>
@@ -155,10 +117,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Factory</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-              <div class="badge badge-warning px-3 rounded-pill font-weight-normal text-white">Featured</div>
-            </div>
           </div>
         </div>
       </div>
@@ -168,10 +126,6 @@ function Gallery() {
           <div class="p-4">
             <h5> <a href="#" class="text-dark">Donation</a></h5>
             <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-              <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPEG</span></p>
-              <div class="badge badge-success px-3 rounded-pill font-weight-normal">Hot</div>
-            </div>
           </div>
         </div>
       </div>
@@ -180,6 +134,7 @@ function Gallery() {
     </div>
   </div>
 </div>
+</>
     // <>
     //   <div className="img-container">
     //     <img
