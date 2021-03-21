@@ -54,7 +54,7 @@
 
 .nav-item {
     height: 80px;
-    width: 130px;
+    width: fit-content;
 }
 
 .navbar-text {
