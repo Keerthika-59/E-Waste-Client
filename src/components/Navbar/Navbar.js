@@ -281,14 +281,14 @@ function Navbar() {
 
               <Dropdown.Divider />
 
-              <Dropdown.Item className="fw-bold">
+              {/* <Dropdown.Item className="fw-bold">
               <Link to='/MyProfile' 
                 style={{ textDecoration: "none" }}
                 >
                 <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Dashboard</Link>
              </Dropdown.Item>
 
-              <Dropdown.Divider />
+              <Dropdown.Divider /> */}
 
               <Dropdown.Item className="fw-bold">
               <Link to='/UserDash' 
