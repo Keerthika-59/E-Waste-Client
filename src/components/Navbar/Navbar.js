@@ -325,7 +325,7 @@ function Navbar() {
                 </Link>
              </Dropdown.Item>
 
-              <Dropdown.Divider />
+              {/* <Dropdown.Divider />
 
               <Dropdown.Item className="fw-bold">
               <Link to='/ActivityDetails' 
@@ -335,7 +335,7 @@ function Navbar() {
                 <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Activity
                 </div>
                 </Link>
-             </Dropdown.Item>
+             </Dropdown.Item> */}
 
               <Dropdown.Divider />
               
