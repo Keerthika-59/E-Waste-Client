@@ -8,8 +8,18 @@ const Ewaste = () => {
   }, [])
     return (
         <div>
+          <section id="team" class="pb-5">
+    <div class="container">
+    <h5 class="section-title h1">Waste Management</h5>
+    
+        <div  class="text-white p-5 shadow-sm  rounded back">
+          {/* <h3>DRIVEN BY OUR COMMITMENTS, GUIDED BY OUR VALUES</h3> */}
+          <p class="lead">There is no proper system for waste disposal.  Sometimes for more than a week waste will not be collected. Waste management includes the activities and actions required  to manage waste from its inception to its final disposal.</p>
+        </div>
+        </div>
+  </section>
             <Jumbotron>
-      <p className="text-center font-italic heading"> {data[0].title} </p>   
+      {/* <p className="text-center font-italic heading"> {data[0].title} </p>    */}
   <Media as="li" className="mt-5 Info text-justify">
     
     <Image

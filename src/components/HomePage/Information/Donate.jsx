@@ -8,8 +8,18 @@ const Donate = () => {
   }, [])
     return (
         <div>
+          <section id="team" class="pb-5">
+          <div class="container">
+          <h5 class="section-title h1">Donate to Needy</h5>
+          
+              <div  class="text-white p-5 shadow-sm  rounded back">
+              
+                <p class="lead">Unused good condition items such as old mobile phone, old Clothes, Food can be donated to needy. Donating provides an immediate benefit since the receiver can make use of the donated item within the shortest possible time.</p>
+              </div>
+          </div>
+  </section>
              <Jumbotron>
-          <p className="text-center font-italic heading"> {data[2].title}</p>
+          {/* <p className="text-center font-italic heading"> {data[2].title}</p> */}
   <Media as="li"  className="mt-5 Info">
     <Image
       className="mr-3 img" roundedCircle
