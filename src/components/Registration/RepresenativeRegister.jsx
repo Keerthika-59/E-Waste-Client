@@ -1,16 +1,26 @@
-import React, { useState,useEffect } from 'react'
-import { Alert, Modal, Button } from 'react-bootstrap';
-import APIHelper from '../API/apihelper2';
-import '../Registration/style.css';
-import { BrowserRouter, Link } from 'react-router-dom';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import * as Yup from 'yup';
+import React, { useState, useEffect } from "react";
+import { Alert, Modal, Button } from "react-bootstrap";
+import APIHelper from "../API/apihelper2";
+import "../Registration/style.css";
+import { BrowserRouter, Link } from "react-router-dom";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import * as Yup from "yup";
 // import toast, { Toaster } from 'react-hot-toast';
 
-const notify = () => toast.success('Representative registration successful!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
-const notify1 = () => toast.error('Error in Representative registration !',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
+const notify = () =>
+  toast.success(
+    "Representative registration successful!",
+    { position: toast.POSITION.TOP_RIGHT },
+    { autoClose: 5000 }
+  );
+const notify1 = () =>
+  toast.error(
+    "Error in Representative registration !",
+    { position: toast.POSITION.TOP_RIGHT },
+    { autoClose: 5000 }
+  );
 const phoneRegExp = /^[0-9]{10}$/g;
 const nameRegExp = /^[a-zA-Z ]{2,30}$/;
 
@@ -259,7 +269,12 @@ const RepresenativeRegister = () => {
                         </label>
                         <div role="group" aria-labelledby="my-radio-group">
                           <label className="px-3">
-                            <Field type="radio" name="gender" value="Male" />{" "}
+                            <br />
+                            <Field
+                              type="radio"
+                              name="gender"
+                              value="Male"
+                            />{" "}
                             Male
                           </label>
                           <label className="px-3">
@@ -320,10 +335,23 @@ const RepresenativeRegister = () => {
                         ) : null}
                       </div>
                       <br />
-                      <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
+                      <div className="row mb-3 px-3">
+                        {" "}
+                        <button
+                          type="submit"
+                          className="btn btn-blue text-center"
+                        >
+                          Register
+                        </button>{" "}
+                      </div>
                       <ToastContainer limit={1} />
-                      <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/RepresentativeLogIn"> Login </Link>   </small> </div>
-
+                      <div className="row mb-4 px-3">
+                        {" "}
+                        <small className="font-weight-bold">
+                          Already have an account?{" "}
+                          <Link to="/RepresentativeLogIn"> Login </Link>{" "}
+                        </small>{" "}
+                      </div>
                     </p>
                   </div>
                 </div>

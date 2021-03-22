@@ -1,8 +1,11 @@
-import React from 'react'
+import {React,useEffect} from 'react';
 import {Jumbotron,Media,Image} from "react-bootstrap"
 import './Information.css'
 import {data} from './Data.js';
 const Ewaste = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
     return (
         <div>
             <Jumbotron>

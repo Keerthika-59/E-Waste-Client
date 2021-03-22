@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { NavDropdown,Dropdown, DropdownButton } from "react-bootstrap";
+import { NavDropdown, Dropdown, DropdownButton } from "react-bootstrap";
 import "./Navbar.css";
 import "../Button/Button.css";
 import { Button } from "../Button/Button";
@@ -111,108 +111,118 @@ function Navbar() {
               </Link>
             </li>
 
-      
-      <li className="nav-item">
-      <NavDropdown title="About Us" className="nav-links" id="basic-nav-dropdown">
-      <NavDropdown.Item>
-                 <Link
-                      to="/AboutUs"
-                      // className="nav-links"
-                      onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
-                    >
-                     About Us 
-                </Link>
+            <li className="nav-item">
+              <NavDropdown
+                title="About Us"
+                className="nav-links"
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item>
+                  <Link
+                    to="/AboutUs"
+                    // className="nav-links"
+                    onClick={closeMobileMenu}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div>About Us </div>
+                  </Link>
                 </NavDropdown.Item>
-                
-              <NavDropdown.Item>
-                <Link
-                      to="/Goals"
-                      // className="nav-links"
-                      onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
-                    >
-                      Goals
-                </Link>
-              </NavDropdown.Item>
-            
-              <NavDropdown.Item>
-                <Link
-                      to="/Achievements"
-                      // className="nav-links"
-                      onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
-                    >
-                      Achievements
-                </Link>
-              </NavDropdown.Item>
 
-              <NavDropdown.Item>
-                <Link
-                      to="/OurTeam"
-                      // className="nav-links"
-                      onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
-                    >
-                      Our Team
-                </Link>
-              </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link
+                    to="/Goals"
+                    // className="nav-links"
+                    onClick={closeMobileMenu}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div>Goals</div>
+                  </Link>
+                </NavDropdown.Item>
 
-            </NavDropdown>
-                
+                <NavDropdown.Item>
+                  <Link
+                    to="/Achievements"
+                    // className="nav-links"
+                    onClick={closeMobileMenu}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div>Achievements</div>
+                  </Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                  <Link
+                    to="/OurTeam"
+                    // className="nav-links"
+                    onClick={closeMobileMenu}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div>Our Team</div>
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
             </li>
 
             <li className="nav-item">
-      <NavDropdown title="Services" className="nav-links" id="basic-nav-dropdown">
-              <NavDropdown.Item>
-                <Link
-                      to="/Ewaste"
-                      // className="nav-links"
-                      onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
-                    >
-                      E-Waste
-                </Link>
-              </NavDropdown.Item>
-            
-              <NavDropdown.Item>
-                <Link
-                      to="/Disposing"
-                      // className="nav-links"
-                      onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
-                    >
-                      Dispose
-                </Link>
-              </NavDropdown.Item>
+              <NavDropdown
+                title="Services"
+                className="nav-links"
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item>
+                  <Link
+                    to="/Services"
+                    // className="nav-links"
+                    onClick={closeMobileMenu}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div>Our Services</div>
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link
+                    to="/Ewaste"
+                    // className="nav-links"
+                    onClick={closeMobileMenu}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div>E-Waste</div>
+                  </Link>
+                </NavDropdown.Item>
 
-              <NavDropdown.Item>
-                <Link
-                      to="/Donating"
-                      // className="nav-links"
-                      onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
-                    >
-                      Donate
-                </Link>
-              </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link
+                    to="/Disposing"
+                    // className="nav-links"
+                    onClick={closeMobileMenu}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div>Dispose</div>
+                  </Link>
+                </NavDropdown.Item>
 
-            </NavDropdown>
-                
+                <NavDropdown.Item>
+                  <Link
+                    to="/Donating"
+                    // className="nav-links"
+                    onClick={closeMobileMenu}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div>Donate</div>
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
             </li>
             <li className="nav-item">
-                <Link
-                      to="/ContactUs"
-                      className="nav-links"
-                      onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
-                    >
-                      Contact
-                    </Link>
+              <Link
+                to="/ContactUs"
+                className="nav-links"
+                onClick={closeMobileMenu}
+                style={{ textDecoration: "none", width: "130px" }}
+              >
+                Contact Us
+              </Link>
             </li>
-                
-
-
             <li>
               <Link
                 to="/SignUpoptions"
@@ -245,7 +255,7 @@ function Navbar() {
               title="LOG IN"
             >
               <Dropdown.Item>
-                <Link to="/UserLogIn">
+                <Link to="/UserLogIn" style={{ textDecoration: "none" }}>
                   <div>
                     <p className="navbar-text"> User </p>
                   </div>
@@ -253,7 +263,10 @@ function Navbar() {
               </Dropdown.Item>
 
               <Dropdown.Item>
-                <Link to="/RepresentativeLogIn">
+                <Link
+                  to="/RepresentativeLogIn"
+                  style={{ textDecoration: "none" }}
+                >
                   <div>
                     <p className="navbar-text"> Representative </p>
                   </div>
@@ -270,14 +283,14 @@ function Navbar() {
               id="dropdown-basic-button"
               title="User"
             >
-            
-
-             <Dropdown.Item className="fw-bold">
-              <Link to='/MyProfile' 
-                style={{ textDecoration: "none" }}
-                >
-                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile</Link>
-             </Dropdown.Item>
+              <Dropdown.Item className="fw-bold">
+                <Link to="/MyProfile" style={{ textDecoration: "none" }}>
+                  <div>
+                    <FontAwesomeIcon icon={faUserCircle} className="me-2" />
+                    My Profile
+                  </div>
+                </Link>
+              </Dropdown.Item>
 
               <Dropdown.Divider />
 
@@ -291,11 +304,25 @@ function Navbar() {
               <Dropdown.Divider /> */}
 
               <Dropdown.Item className="fw-bold">
-              <Link to='/UserDash' 
+                <Link to="/UserDash" style={{ textDecoration: "none" }}>
+                  <div>
+                    <FontAwesomeIcon icon={faUserCircle} className="me-2" />{" "}
+                    Dashboard
+                  </div>
+                </Link>
+              </Dropdown.Item>
+
+              {/* <Dropdown.Divider />
+
+              <Dropdown.Item className="fw-bold">
+              <Link to='/ActivityDetails' 
                 style={{ textDecoration: "none" }}
                 >
-                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Dashboard</Link>
-             </Dropdown.Item>
+                <div>
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Activity
+                </div>
+                </Link>
+             </Dropdown.Item> */}
 
               <Dropdown.Divider />
 
@@ -303,42 +330,40 @@ function Navbar() {
                 className="fw-bold"
                 onClick={(e) => handleLogoutUser(e)}
               >
-                <FontAwesomeIcon
-                  icon={faSignOutAlt}
-                  className="text-danger me-2"
-                />{" "}
-                Logout
+                <div>
+                  <FontAwesomeIcon
+                    icon={faSignOutAlt}
+                    className="text-danger me-2"
+                  />{" "}
+                  Logout
+                </div>
               </Dropdown.Item>
             </DropdownButton>
           )}
         </div>
 
         <div className="login-navbar mr-auto ">
-          {button && (repLog)&& (
+          {button && repLog && (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
               title="Representative "
             >
               <Dropdown.Item className="fw-bold">
-              <Link to='/RepProfile' 
-                style={{ textDecoration: "none" }}
-                >
-                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile</Link>
-             </Dropdown.Item>
-
-
+                <Link to="/RepProfile" style={{ textDecoration: "none" }}>
+                  <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My
+                  Profile
+                </Link>
+              </Dropdown.Item>
 
               <Dropdown.Divider />
 
               <Dropdown.Item className="fw-bold">
-              <Link to='/RepDash' 
-                style={{ textDecoration: "none" }}
-                >
-                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Dashboard</Link>
-             </Dropdown.Item>
-
-
+                <Link to="/RepDash" style={{ textDecoration: "none" }}>
+                  <FontAwesomeIcon icon={faUserCircle} className="me-2" />{" "}
+                  Dashboard
+                </Link>
+              </Dropdown.Item>
 
               <Dropdown.Divider />
 
