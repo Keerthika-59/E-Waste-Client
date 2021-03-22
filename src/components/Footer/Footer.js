@@ -17,18 +17,32 @@ function Footer() {
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
             <h2>About Us</h2>
-            <Link className="footerlinks" to='/UserSignUp'>How it works</Link>
-            <Link className="footerlinks" to='/Testimonials'>Testimonials</Link>
+            {/* <Link className="footerlinks" to='/UserSignUp'>How it works</Link> */}
+            {/* <Link className="footerlinks" to='/Testimonials'>Testimonials</Link> */}
+            <Link className="footerlinks" to='/AboutUs'>About Us</Link>
             <Link className="footerlinks" to='/Goals'>Goals</Link>
+            <Link className="footerlinks" to='/Achievements'>Achievements</Link>
             <Link className="footerlinks" to='/OurTeam'>Our Team</Link>
           </div>
           <div className='footer-link-items'>
-            <h2>Contact Us</h2>
-            <Link className="footerlinks"  to='/ContactUs'>Contact</Link>
+            <h2>Services</h2>
+            <Link className="footerlinks"  to='/OurServices'>Our Services</Link>
+            <Link className="footerlinks"  to='/Ewaste'>Ewaste</Link>
+            <Link className="footerlinks"  to='/Disposing'>Dispose</Link>
+            <Link className="footerlinks"  to='/Donating'>Donate</Link>
+            {/* <Link className="footerlinks"  to='/ContactUs'>Contact</Link>
             <Link className="footerlinks"  to='/Services'>Services</Link>
             <Link className="footerlinks"  to='/Achievements'>Achievements</Link>
-            <Link className="footerlinks"  to='/RepresentativeSignUp'>Join us</Link>
+            <Link className="footerlinks"  to='/RepresentativeSignUp'>Join us</Link> */}
           </div>
+          <div className='footer-link-items'>
+          <h2>Contact Us</h2>
+          <Link className="footerlinks"  to='/ContactUs'>Contact</Link>
+          <Link className="footerlinks" to='/Testimonials'>Testimonials</Link>
+            {/* <Link className="footerlinks"  to='/Services'>Services</Link>
+            <Link className="footerlinks"  to='/Achievements'>Achievements</Link> */}
+            <Link className="footerlinks"  to='/RepresentativeSignUp'>Join us</Link>
+        </div>
         </div>
         <div className='footer-link-wrapper'>
          </div>
