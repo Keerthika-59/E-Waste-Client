@@ -1,3 +1,4 @@
+
 import React, { useState, useContext } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -26,7 +27,7 @@ function Navbar() {
   return (
     Auth.auth ? (
       <>
-      <Navbar1/>
+        {/* <Navbar1/> */}
         <IconContext.Provider value={{ color: '#fff' }}>
           <div className='sidenav'>
             <Link to='#' className='menu-bars'>
@@ -38,32 +39,32 @@ function Navbar() {
 
               <nav className={sidebar ? 'sidenav-menu active' : 'sidenav-menu'}>
                 <ul className='sidenav-menu-items' >
-                  
-                  <li className=" mx-3 py-2 px-2" style={{ listStyle: 'none' }}
+
+                  <li className="  px-3 nav-text" style={{ listStyle: 'none' }}
                     onClick={(e) => setShow(0)}
                   >
 
-                    <h6 style={{ color: 'white' }}>
+                    <h5 style={{ color: 'white' }}>
                       <BsIcons.BsFillPersonPlusFill />  Create Activity
-                    </h6>
+                    </h5>
 
                   </li>
-                  <li className=" mx-3 py-2 px-2" style={{ listStyle: 'none' }}
+                  <li className="my-3 px-3 nav-text" style={{ listStyle: 'none' }}
                     onClick={(e) => setShow(1)}
                   >
 
-                    <h6 style={{ color: 'white' }}>
+                    <h5 style={{ color: 'white' }}>
                       <BsIcons.BsFillPersonFill />  Pending Activites
-                    </h6>
+                    </h5>
 
                   </li>
 
-                  <li className=" mx-3 py-2 px-2" style={{ listStyle: 'none' }}
+                  <li className=" my-3 px-3 nav-text" style={{ listStyle: 'none' }}
                     onClick={(e) => setShow(2)}
                   >
-                    <h6 style={{ color: 'white' }}>
+                    <h5 style={{ color: 'white' }}>
                       <BsIcons.BsFillPersonCheckFill />  Completed Activites
-                    </h6>
+                    </h5>
 
                   </li>
                 </ul>
@@ -71,21 +72,21 @@ function Navbar() {
               </nav>
             </div>
 
-            <div class="col-md-8 content">
+            <div className="col-md-8 content ">
               {
                 (show === 0) ? (
-                  <Activity/>
+                  <Activity />
                 ) : (show === 1) ? (
-                  <Pending/>
+                  <Pending />
                 ) : (
-                  <Completed/>
+                  <Completed />
                 )
               }
             </div>
           </div>
         </IconContext.Provider>
 
-        <Footer/>
+        {/* <Footer/> */}
       </>
     ) : (<Redirect to='/UserLogIn' />)
   );

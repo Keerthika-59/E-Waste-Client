@@ -11,10 +11,10 @@ function Home() {
   }, [])
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/>
       <CarouselHome/>
       <Information/>
-      <Footer/>
+      <Footer/> */}
     </>
   );
 }

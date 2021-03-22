@@ -4,9 +4,6 @@ import * as BsIcons from 'react-icons/bs';
 
 import { IconContext } from 'react-icons';
 import {Link, Redirect} from 'react-router-dom';
-import ManageRepresentatives from './DashboardPages/ManageRepresentatives';
-import ManageMessages from './DashboardPages/ManageMessages';
-import ManageUsers from './DashboardPages/ManageUsers';
 import Footer from '../Footer/Footer';
 import "./style.css"
 
@@ -72,7 +69,7 @@ const SideBar = () => {
                         </nav>
                     </div>
                     <div class="col-8 content">
-                        {
+                        {/* {
                             (show === 0) ? (
                                 <ManageUsers/>
                             ) : (
@@ -82,7 +79,7 @@ const SideBar = () => {
                                             <ManageMessages/>
                                 )
                             )
-                        }
+                        } */}
                     </div>
                 </div>
             </IconContext.Provider>

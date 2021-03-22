@@ -8,7 +8,7 @@ function Cards() {
 
     return (
         <div className="aboutus">
-            <Card className="Aboutcard">
+            {/* <Card className="Aboutcard">
                 <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} />
                 <Card.Body className="abouttext">
                     <Card.Title>Services</Card.Title>
@@ -20,7 +20,7 @@ function Cards() {
 
                     </Link>
                 </Card.Body>
-            </Card>
+            </Card> */}
             <Card className="Aboutcard">
                 <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/goals2.jpg`} />
                 <Card.Body className="abouttext">

@@ -132,7 +132,8 @@ function Navbar() {
                       onClick={closeMobileMenu}
                       style={{ textDecoration: "none" }}
                     >
-                     About Us 
+                       <div>About Us </div>
+                     
                 </Link>
                 </NavDropdown.Item>
                 
@@ -143,7 +144,8 @@ function Navbar() {
                       onClick={closeMobileMenu}
                       style={{ textDecoration: "none" }}
                     >
-                      Goals
+                       <div>Goals</div>
+                     
                 </Link>
               </NavDropdown.Item>
             
@@ -154,7 +156,8 @@ function Navbar() {
                       onClick={closeMobileMenu}
                       style={{ textDecoration: "none" }}
                     >
-                      Achievements
+                       <div>Achievements</div>
+                      
                 </Link>
               </NavDropdown.Item>
 
@@ -165,7 +168,8 @@ function Navbar() {
                       onClick={closeMobileMenu}
                       style={{ textDecoration: "none" }}
                     >
-                      Our Team
+                     
+                      <div>Our Team</div>
                 </Link>
               </NavDropdown.Item>
 
@@ -175,6 +179,18 @@ function Navbar() {
 
             <li className="nav-item">
       <NavDropdown title="Services" className="nav-links" id="basic-nav-dropdown">
+             
+             <NavDropdown.Item>
+                <Link
+                      to="/Services"
+                      // className="nav-links"
+                      onClick={closeMobileMenu}
+                      style={{ textDecoration: "none" }}
+                    >
+                      
+                      <div>Our Services</div>
+                </Link>
+              </NavDropdown.Item>
               <NavDropdown.Item>
                 <Link
                       to="/Ewaste"
@@ -182,7 +198,8 @@ function Navbar() {
                       onClick={closeMobileMenu}
                       style={{ textDecoration: "none" }}
                     >
-                      E-Waste
+                       <div>E-Waste</div>
+                     
                 </Link>
               </NavDropdown.Item>
             
@@ -193,7 +210,8 @@ function Navbar() {
                       onClick={closeMobileMenu}
                       style={{ textDecoration: "none" }}
                     >
-                      Dispose
+                        <div>Dispose</div>
+                      
                 </Link>
               </NavDropdown.Item>
 
@@ -204,7 +222,9 @@ function Navbar() {
                       onClick={closeMobileMenu}
                       style={{ textDecoration: "none" }}
                     >
-                      Donate
+                     <div>
+                    Donate
+                  </div>
                 </Link>
               </NavDropdown.Item>
 
@@ -216,14 +236,11 @@ function Navbar() {
                       to="/ContactUs"
                       className="nav-links"
                       onClick={closeMobileMenu}
-                      style={{ textDecoration: "none" }}
+                      style={{ textDecoration: "none",width:"130px" }}
                     >
-                      Contact
+                    Contact Us
                     </Link>
             </li>
-                
-
-
             <li>
               <Link
                 to="/SignUpoptions"
@@ -256,7 +273,8 @@ function Navbar() {
               title="LOG IN"
             >
               <Dropdown.Item>
-                <Link to="/UserLogIn">
+                <Link to="/UserLogIn"
+                style={{ textDecoration: "none" }}>
                   <div>
                     <p className="navbar-text"> User </p>
                   </div>
@@ -264,7 +282,8 @@ function Navbar() {
               </Dropdown.Item>
 
               <Dropdown.Item>
-                <Link to="/RepresentativeLogIn">
+                <Link to="/RepresentativeLogIn"
+                 style={{ textDecoration: "none" }}>
                   <div>
                     <p className="navbar-text"> Representative </p>
                   </div>
@@ -287,7 +306,11 @@ function Navbar() {
               <Link to='/MyProfile' 
                 style={{ textDecoration: "none" }}
                 >
-                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile</Link>
+                  <div>
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> 
+                My Profile
+                </div>
+                </Link>
              </Dropdown.Item>
 
               <Dropdown.Divider />
@@ -296,13 +319,31 @@ function Navbar() {
               <Link to='/UserDash' 
                 style={{ textDecoration: "none" }}
                 >
-                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Dashboard</Link>
+                <div>
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Dashboard
+                </div>
+                </Link>
              </Dropdown.Item>
 
               <Dropdown.Divider />
 
+              <Dropdown.Item className="fw-bold">
+              <Link to='/ActivityDetails' 
+                style={{ textDecoration: "none" }}
+                >
+                <div>
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Activity
+                </div>
+                </Link>
+             </Dropdown.Item>
+
+              <Dropdown.Divider />
+              
+
               <Dropdown.Item className="fw-bold" onClick={e => handleLogoutUser(e)}>
+               <div>
                 <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
+                </div>
              </Dropdown.Item>
             </DropdownButton>
           )}

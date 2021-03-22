@@ -2,7 +2,6 @@ import React, { useState,useEffect } from 'react'
 import axios from 'axios';
 import { Form, Button, FormLabel } from 'react-bootstrap';
 import './contactStyle.css';
-import Swal from 'sweetalert2';
 //  import toast, { Toaster } from 'react-hot-toast';
  import { ToastContainer,toast } from 'react-toastify';
 import { Redirect, useHistory } from 'react-router-dom';

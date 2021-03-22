@@ -208,11 +208,12 @@ const RepresenativeRegister = () => {
                         </label>
                         <div role="group" aria-labelledby="my-radio-group">
                           <label className="px-3">
+                          <br/>
                             <Field type="radio" name="gender" value="Male" /> Male
                                                         </label>
                           <label className="px-3">
-                            <Field type="radio" name="gender" value="Female" /> Female
-                                                    </label>
+                            <Field type="radio" name="gender" value="Female"/> Female
+                          </label>
 
                           <label className="px-3">
                             <Field type="radio" name="gender" value="Others" /> Others
