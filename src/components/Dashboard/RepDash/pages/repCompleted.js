@@ -1,5 +1,5 @@
 import React from 'react';
-import './completed.css';
+import './repComplete.css';
 import { useState } from "react";
 
 const Completed = () => {

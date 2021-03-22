@@ -12,6 +12,7 @@ body {
     padding: 10px 20px 0px;
     width: 600px;
     position: relative;
+    cursor:pointer;
 }
 
 .actHeading {
