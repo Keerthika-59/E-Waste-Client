@@ -1,15 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-import Navbar from '../UserSidebar';
-
-function Pending() {
-  return (
-    
-    <div className='pending'>
-      <Navbar/>
-      <h1>Hi I am Pending</h1>
-=======
-import './pending.css';
+import './repPending.css';
 
 const Pending = () => {
   return(
@@ -33,11 +23,10 @@ const Pending = () => {
         <div className="card-foot bg-white px-sm-3 pt-sm-4 px-0">
             <div className="row text-center ">
                 <div className="col my-auto border-line ">
-                    <button type="button" className="btn btn-danger btn-sm btn-block">Cancel</button>
+                    <button type="button" className="btn btn-success btn-sm btn-block">Completed</button>
                 </div>
             </div>
         </div>
->>>>>>> 78bd9c0664734fdb5c8d096c12c7e81112bee62c
     </div>
     </>
   );

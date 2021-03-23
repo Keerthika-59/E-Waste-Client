@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // import React, { useState,useContext } from 'react';
 // import * as FaIcons from 'react-icons/fa';
 // import { Link } from 'react-router-dom';
@@ -63,11 +61,10 @@
 
 // export default Navbar;
 
->>>>>>> 78bd9c0664734fdb5c8d096c12c7e81112bee62c
 import React, { useState, useContext } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { SidebarData } from './sidebarData';
+// import { SidebarData } from './sidebarData';
 import './navbar.css';
 import { Redirect } from "react-router";
 import * as BsIcons from 'react-icons/bs';
@@ -86,13 +83,6 @@ function Navbar() {
   const [show, setShow] = useState(0);
 
   const showSidebar = () => setSidebar(!sidebar);
-<<<<<<< HEAD
-  const Auth = useContext(AuthApi)
-  
-  return (
-    Auth.auth ? (
-      <>
-=======
 
   const Auth = useContext(AuthApi);
 
@@ -100,7 +90,6 @@ function Navbar() {
     Auth.auth ? (
       <>
       {/* <Navbar1/> */}
->>>>>>> 78bd9c0664734fdb5c8d096c12c7e81112bee62c
         <IconContext.Provider value={{ color: '#fff' }}>
           <div className='sidenav'>
             <Link to='#' className='menu-bars'>
@@ -111,20 +100,6 @@ function Navbar() {
             <div class="col-md-4 sn">
 
               <nav className={sidebar ? 'sidenav-menu active' : 'sidenav-menu'}>
-<<<<<<< HEAD
-                <ul className='sidenav-menu-items' onClick={showSidebar}>
-
-                  {SidebarData.map((item, index) => {
-                    return (
-                      <li key={index} className={item.cName}>
-                        <Link to={item.path}>
-                          {item.icon}
-                          <span>{item.title}</span>
-                        </Link>
-                      </li>
-                    );
-                  })}
-=======
                 <ul className='sidenav-menu-items' >
                   
                   <li className="  px-3 nav-text"  style={{ listStyle: 'none' }}
@@ -154,16 +129,10 @@ function Navbar() {
                     </h5>
 
                   </li>
->>>>>>> 78bd9c0664734fdb5c8d096c12c7e81112bee62c
                 </ul>
 
               </nav>
             </div>
-<<<<<<< HEAD
-            <div class="col-md-8 content">
-              <Activity />
-              {/* <Pending/> */}
-=======
 
             <div className="col-md-8 content ">
               {
@@ -175,15 +144,11 @@ function Navbar() {
                   <Completed/>
                 )
               }
->>>>>>> 78bd9c0664734fdb5c8d096c12c7e81112bee62c
             </div>
           </div>
         </IconContext.Provider>
-
-<<<<<<< HEAD
-=======
+        
         {/* <Footer/> */}
->>>>>>> 78bd9c0664734fdb5c8d096c12c7e81112bee62c
       </>
     ) : (<Redirect to='/UserLogIn' />)
   );
