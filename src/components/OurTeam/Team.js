@@ -43,7 +43,7 @@ function Team() {
         window.scrollTo(0, 0)
       }, [])
     return (
-        <div className="container mt-5 carousel">
+        <div className="container mt-5 carousel" style={{marginBottom:"5%"}}>
             <p className="slider_title font-italic">Our Team</p>
 
             <Slider {...settings} className="wid">
