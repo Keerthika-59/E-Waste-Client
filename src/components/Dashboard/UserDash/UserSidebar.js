@@ -60,39 +60,3 @@ function Navbar() {
                       <BsIcons.BsFillPersonFill />  Pending Activites
                     </h5>
 
-                  </li>
-
-                  <li className=" my-3 px-3 nav-text" style={{ listStyle: 'none' }}
-                    onClick={(e) => setShow(2)}
-                  >
-                    <h5 style={{ color: 'white' }}>
-                      <BsIcons.BsFillPersonCheckFill />  Completed Activites
-                    </h5>
-
-                  </li>
-                </ul>
-
-              </nav>
-            </div>
-
-            <div className="col-md-8 content ">
-              {
-                (show === 0) ? (
-                  <Activity />
-                ) : (show === 1) ? (
-                  <Pending />
-                ) : (
-                  <Completed />
-                )
-              }
-            </div>
-          </div>
-        </IconContext.Provider>
-
-        {/* <Footer/> */}
-      </>
-    ) : (<Redirect to='/UserLogIn' />)
-  );
-}
-
-export default Navbar;
