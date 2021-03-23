@@ -1,35 +1,30 @@
 import React, { useState, useEffect, useContext } from "react";
 import Cookies from "js-cookie";
-import axios from "axios";
 import { Button } from "react-bootstrap";
 import AuthApi from "../../../../authAPI";
 import { Redirect } from "react-router";
- import "./repProfile.css";
-// const phoneRegExp = /^[0-9]{10}$/g;
-// const nameRegExp = /^[a-zA-Z ]{2,30}$/;
+import "./repProfile.css";
+import APIHelper from "../../../API/apihelper2";
 
 const RepProfile = () => {
   const Auth = useContext(AuthApi);
   const [edit, setEdit] = useState(false);
   const [token, setToken] = useState("");
-  const [reps, setReps] = useState({ });
-  const [updated, setUpdated] = useState({
-    
-  });
+  const [reps, setReps] = useState({});
+  const [updated, setUpdated] = useState({});
 
   const fetchId = async () => {
     try {
       const token = Cookies.get("repr");
-      const t = await axios.post("http://localhost:5000/reps/getId", {
+      const t = await APIHelper.fetchUserId({
         token: token,
       });
-
-      setToken(t.data);
+      setToken(t);
     } catch (e) {
-      console.log(e.message);
+      console.log(e);
     }
   };
-console.log(token);
+
   useEffect(() => {
     fetchId();
   }, []);
@@ -37,11 +32,9 @@ console.log(token);
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const repData = await axios.get(
-          `http://localhost:5000/reps/${token}`
-        );
-        setReps(repData.data);
-        setUpdated(repData.data);
+        const repData  = await APIHelper.fetchReprData(token);
+        setReps(repData );
+        setUpdated(repData );
       } catch (err) {
         console.log(err.response);
       }
@@ -58,18 +51,18 @@ console.log(token);
   };
 
   const editClick = () => {
-    console.log("clicked");
+    // console.log("clicked");
     setEdit(true);
   };
   const handleUpdate = async (e) => {
     e.preventDefault();
-    console.log(updated);
-    console.log(reps);
+    // console.log(updated);
+    // console.log(reps);
     try {
-      await axios.put(`http://localhost:5000/reps/${token}`, updated);
+      await APIHelper.updateReprProfile(updated,token)
       setEdit(false);
     } catch (err) {
-      console.log(err);
+      console.log(err.response);
     }
   };
   const handleCancel = () => {
@@ -90,10 +83,9 @@ console.log(token);
             />
             <span className="text-light font-weight-bolder">{reps.name}</span>
             <span className="text-light font-weight-normal">{reps.email}</span>
-            <span  className="text-light font-weight-normal">{reps.city}</span>
+            <span className="text-light font-weight-normal">{reps.city}</span>
           </div>
         </div>
-    
         <div className="col-md-8">
           <div className="p-3 py-5">
             <div className="justify-content-between align-items-center mb-3">
@@ -183,9 +175,15 @@ console.log(token);
                             </div> */}
 
             <div className="mt-5 form-row">
-              <pre>           </pre>
-              <Button className="text-center" variant="warning"onClick={editClick}>Edit</Button>
-              <pre>           </pre>
+              <pre> </pre>
+              <Button
+                className="text-center"
+                variant="warning"
+                onClick={editClick}
+              >
+                Edit
+              </Button>
+              <pre> </pre>
               <Button
                 variant="success"
                 disabled={edit ? false : true}
@@ -193,7 +191,7 @@ console.log(token);
               >
                 Update{" "}
               </Button>
-              <pre>           </pre>
+              <pre> </pre>
               <Button
                 variant="danger"
                 disabled={edit ? false : true}
