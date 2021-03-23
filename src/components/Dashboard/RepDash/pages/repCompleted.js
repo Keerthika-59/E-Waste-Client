@@ -20,16 +20,16 @@ const Completed = () => {
                                     <p>Representative name</p>
                                 </li>
                                 <li class="event" data-date="2:30 - 4:00pm">
-                                    <h3>Opening Ceremony</h3>
-                                    <p>Get ready for an exciting event, this will kick off in amazing fashion with MOP &amp; Busta Rhymes as an opening show.</p>
+                                    <h3>Activity ID</h3>
+                                    <p>Representative name</p>
                                 </li>
                                 <li class="event" data-date="5:00 - 8:00pm">
-                                    <h3>Main Event</h3>
-                                    <p>This is where it all goes down. You will compete head to head with your friends and rivals. Get ready!</p>
+                                    <h3>Activity ID</h3>
+                                    <p>Representative name</p>
                                 </li>
                                 <li class="event" data-date="8:30 - 9:30pm">
-                                    <h3>Closing Ceremony</h3>
-                                    <p>See how is the victor and who are the losers. The big stage is where the winners bask in their own glory.</p>
+                                    <h3>Activity ID</h3>
+                                    <p>Representative name</p>
                                 </li>
                             </ul>
                         </div>
