@@ -23,6 +23,8 @@
   top: 100;
   left: -100%;
   transition: 850ms;
+  cursor:pointer;
+
 }
 
 .sidenav-menu.active {

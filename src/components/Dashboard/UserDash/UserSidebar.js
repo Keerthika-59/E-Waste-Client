@@ -64,7 +64,7 @@
 import React, { useState, useContext } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { SidebarData } from './sidebarData';
+// import { SidebarData } from './sidebarData';
 import './navbar.css';
 import { Redirect } from "react-router";
 import * as BsIcons from 'react-icons/bs';
