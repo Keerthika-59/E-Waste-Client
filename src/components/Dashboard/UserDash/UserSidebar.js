@@ -91,11 +91,11 @@ function Navbar() {
       <>
       {/* <Navbar1/> */}
         <IconContext.Provider value={{ color: '#fff' }}>
-          <div className='sidenav'>
+          {/* <div className='sidenav'>
             <Link to='#' className='menu-bars'>
               <FaIcons.FaBars onClick={showSidebar} />
             </Link>
-          </div>
+          </div> */}
           <div class="row">
             <div class="col-md-4 sn">
 
