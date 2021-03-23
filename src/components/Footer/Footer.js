@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className='footer-container' style={{ marginTop: "15%"}}>
+    <div className='footer-container'>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
           Join us for a better environment
         </p>
-        <p className='footer-subscription-text'>
+        {/* <p className='footer-subscription-text'>
           You can unsubscribe at any time.
-        </p>        
+        </p> */}
       </section>
       <div className='footer-links'>
         <div className='footer-link-wrapper'>

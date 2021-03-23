@@ -176,29 +176,30 @@ const RepProfile = () => {
 
             <div className="mt-5 form-row">
               <pre> </pre>
-              <Button
+              {!edit &&  <Button
                 className="text-center"
                 variant="warning"
                 onClick={editClick}
               >
                 Edit
-              </Button>
+              </Button>}
               <pre> </pre>
-              <Button
+              {edit && <Button
                 variant="success"
                 disabled={edit ? false : true}
                 onClick={handleUpdate}
               >
                 Update{" "}
-              </Button>
+              </Button>}
               <pre> </pre>
-              <Button
+              {edit && <Button
                 variant="danger"
                 disabled={edit ? false : true}
-                onClick={handleCancel}
+                onClick={handleCancel}  
+        
               >
                 Cancel
-              </Button>
+              </Button>}
             </div>
           </div>
         </div>
