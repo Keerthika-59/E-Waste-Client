@@ -1,9 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
-=======
-import './completed.css';
+import './repComplete.css';
 import { useState } from "react";
->>>>>>> development
 
 const Completed = () => {
   const [completed, setCompleted] = useState([]);

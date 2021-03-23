@@ -120,7 +120,8 @@ p {
 .cards {
     background-color: #fff;
     box-shadow: 2px 4px 15px 0px rgb(0, 108, 170);
-    z-index: 0
+    z-index: 0;
+    cursor:pointer;
 }
 
 small {
@@ -140,4 +141,9 @@ small {
     font-size: 1.1em;
     color: #8C9EFF;
     cursor: pointer
+}
+.pendingHeading{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
