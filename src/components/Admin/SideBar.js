@@ -7,6 +7,12 @@ import {Link, Redirect} from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import "./style.css"
 
+
+import TableRepresentatives from './TableRepresentatives';
+import TableVerifiedRep from './TableVerifiedRep';
+import TableMessages from './TableMessages';
+import TableUsers from './TableUsers';
+
 const SideBar = () => {
 
     const [sidebar, setSidebar] = useState(true);
@@ -69,17 +75,13 @@ const SideBar = () => {
                         </nav>
                     </div>
                     <div class="col-8 content">
-                        {/* {
+                        {
                             (show === 0) ? (
-                                <ManageUsers/>
-                            ) : (
-                                (show === 1) ? (
-                                        <ManageRepresentatives/>
-                                ) : (
-                                            <ManageMessages/>
-                                )
-                            )
-                        } */}
+                                <TableUsers/>
+                            ) : ( show === 1) ? (
+                                    <TableRepresentatives />) : (show === 2) ? (
+                                        <TableMessages />) : <TableVerifiedRep/>
+                        }
                     </div>
                 </div>
             </IconContext.Provider>

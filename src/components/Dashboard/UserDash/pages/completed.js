@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Completed = () => {
   return(
     <div className=" table-completed px-1 py-2 my-4 mx-4 justify-content-center">
