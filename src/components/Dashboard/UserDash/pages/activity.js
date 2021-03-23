@@ -45,36 +45,41 @@ const Activity = (props) => {
                 <thead>
                 
                     <th class="actHeading">
-                        Create User activity
+                       User activity
                     </th>
                 
                 </thead>
 				<tr>
 					<td>Biodegradable</td>
 					<td>
-						<div>
-							<input type="checkbox" value = {bio} onChange={ (e) => setBio(e.target.checked)}/>
-						    <span></span>
-						</div>
+                    <div class="outerDivFull" >
+                            <div class="switchToggle">
+                                <input type="checkbox" id="switch" value = {bio} onChange={ (e) => setBio(e.target.checked)} />
+                                <label for="switch"></label>
+                            </div>
+                    </div>
 					</td>
 				</tr>
 				<tr>
 					<td>Non-Biodegradable</td>
 					<td>
-						<div>
-							<input type="checkbox" value = {nonbio} onChange={ (e) => setNonbio(e.target.checked)} />
-						    <span></span>
-						</div>
+                    <div class="outerDivFull" >
+                            <div class="switchToggle">
+                                <input type="checkbox" id="switch1" value = {nonbio} onChange={ (e) => setNonbio(e.target.checked)} />
+                                <label for="switch1"></label>
+                            </div>
+                    </div>
 					</td>
 				</tr>
 				<tr>
 					<td class="donation">Donation</td>
 					<td>
-						<div>
-							<input type="checkbox" value = {donation} onChange={ (e) => setDonation(e.target.checked)}/>
-                            
-						    <span></span>
-						</div>
+                    <div class="outerDivFull" >
+                            <div class="switchToggle">
+                                <input type="checkbox" id="switch2" value = {donation} onChange={ (e) => setDonation(e.target.checked)} />
+                                <label for="switch2"></label>
+                            </div>
+                    </div>
 					</td>
 
 				</tr>

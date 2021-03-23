@@ -19,15 +19,15 @@ const Completed = () => {
                                     <h3>Activity ID</h3>
                                     <p>Representative name</p>
                                 </li>
-                                <li class="event" data-date="2:30 - 4:00pm">
+                                <li class="event" data-date="22/03/2021">
                                     <h3>Activity ID</h3>
                                     <p>Representative name</p>
                                 </li>
-                                <li class="event" data-date="5:00 - 8:00pm">
+                                <li class="event" data-date="22/03/2021">
                                     <h3>Activity ID</h3>
                                     <p>Representative name</p>
                                 </li>
-                                <li class="event" data-date="8:30 - 9:30pm">
+                                <li class="event" data-date="22/03/2021">
                                     <h3>Activity ID</h3>
                                     <p>Representative name</p>
                                 </li>
