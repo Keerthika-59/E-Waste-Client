@@ -6,11 +6,11 @@ import { Redirect } from "react-router";
 import "./repProfile.css";
 import APIHelper from "../../../../API/apihelper2";
 
-const UserProfile = () => {
+const RepProfile = () => {
   const Auth = useContext(AuthApi);
   const [edit, setEdit] = useState(false);
   const [token, setToken] = useState("");
-  const [users, setUsers] = useState({});
+  const [reps, setReps] = useState({});
   const [updated, setUpdated] = useState({});
 
   const fetchId = async () => {
@@ -32,9 +32,9 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userData = await APIHelper.fetchReprData(token);
-        setUsers(userData);
-        setUpdated(userData);
+        const repData  = await APIHelper.fetchReprData(token);
+        setReps(repData );
+        setUpdated(repData );
       } catch (err) {
         console.log(err.response);
       }
@@ -51,13 +51,13 @@ const UserProfile = () => {
   };
 
   const editClick = () => {
-    console.log("clicked");
+    // console.log("clicked");
     setEdit(true);
   };
   const handleUpdate = async (e) => {
     e.preventDefault();
-    console.log(updated);
-    console.log(users);
+    // console.log(updated);
+    // console.log(reps);
     try {
       await APIHelper.updateReprProfile(updated,token)
       setEdit(false);
@@ -66,7 +66,7 @@ const UserProfile = () => {
     }
   };
   const handleCancel = () => {
-    setUpdated(users);
+    setUpdated(reps);
     setEdit(false);
   };
 
@@ -81,9 +81,9 @@ const UserProfile = () => {
               width="90"
               alt=""
             />
-            <span className="text-light font-weight-bolder">{users.name}</span>
-            <span className="text-light font-weight-normal">{users.email}</span>
-            <span className="text-light font-weight-normal">{users.city}</span>
+            <span className="text-light font-weight-bolder">{reps.name}</span>
+            <span className="text-light font-weight-normal">{reps.email}</span>
+            <span className="text-light font-weight-normal">{reps.city}</span>
           </div>
         </div>
         <div className="col-md-8">
@@ -130,7 +130,7 @@ const UserProfile = () => {
                   type="text"
                   className="form-control"
                   placeholder="Email"
-                  value={users.email}
+                  value={reps.email}
                   disabled={true}
                 />
               </div>
@@ -139,7 +139,7 @@ const UserProfile = () => {
                 <input
                   type="text"
                   className="form-control"
-                  value={users.gender}
+                  value={reps.gender}
                   placeholder="Gender"
                   disabled={true}
                 />
@@ -163,7 +163,7 @@ const UserProfile = () => {
                 <input
                   type="text"
                   className="form-control"
-                  value={users.city}
+                  value={reps.city}
                   disabled={true}
                   placeholder="City"
                 />
@@ -205,8 +205,8 @@ const UserProfile = () => {
       </div>
     </div>
   ) : (
-    <Redirect to="/UserLogIn" />
+    <Redirect to="/RepresentativeLogIn" />
   );
 };
 
-export default UserProfile;
+export default RepProfile;

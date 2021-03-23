@@ -64,7 +64,7 @@
 import React, { useState, useContext } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { SidebarData } from './sidebarData';
+// import { SidebarData } from './sidebarData';
 import './navbar.css';
 import { Redirect } from "react-router";
 import * as BsIcons from 'react-icons/bs';
@@ -133,7 +133,6 @@ function Navbar() {
 
               </nav>
             </div>
-
             <div className="col-md-8 content ">
               {
                 (show === 0) ? (
@@ -147,7 +146,7 @@ function Navbar() {
             </div>
           </div>
         </IconContext.Provider>
-
+        
         {/* <Footer/> */}
       </>
     ) : (<Redirect to='/UserLogIn' />)

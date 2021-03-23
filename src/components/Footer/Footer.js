@@ -26,7 +26,7 @@ function Footer() {
           </div>
           <div className='footer-link-items'>
             <h2>Services</h2>
-            <Link className="footerlinks"  to='/OurServices'>Our Services</Link>
+            <Link className="footerlinks"  to='/Services'>Our Services</Link>
             <Link className="footerlinks"  to='/Ewaste'>Ewaste</Link>
             <Link className="footerlinks"  to='/Disposing'>Dispose</Link>
             <Link className="footerlinks"  to='/Donating'>Donate</Link>
