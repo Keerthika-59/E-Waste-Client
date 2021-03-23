@@ -7,7 +7,7 @@ import './Card.css'
 function Cards() {
 
     return (
-        <div className="aboutus">
+        <div className="aboutus"   style={{marginBottom:"5%"}}>
             {/* <Card className="Aboutcard">
                 <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/assets/images/logo.jpg`} />
                 <Card.Body className="abouttext">
