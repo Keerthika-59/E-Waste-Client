@@ -55,7 +55,6 @@ export const InputForm = () => {
     };
 
   return( <>
-    <Navbar/>
   <div className="contact2" style={{backgroundImage: `url("https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/map.jpg")` }}>
 
     
