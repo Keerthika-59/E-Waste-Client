@@ -265,12 +265,13 @@ function Navbar() {
           </ul>
         </div>
 
-        <div className="login-navbar mr-auto ">
+        {/* <div className="login-navbar mr-auto "> */}
           {button && (!userLog) && (!repLog) && (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
               title="LOG IN"
+              style={{marginLeft:"200px"}}
             >
               <Dropdown.Item>
                 <Link to="/UserLogIn"
@@ -291,14 +292,16 @@ function Navbar() {
               </Dropdown.Item>
             </DropdownButton>
           )}
-        </div>
+        {/* </div> */}
 
-        <div className="login-navbar mr-auto ">
+        {/* <div className="login-navbar mr-auto "> */}
           {button && (userLog) && (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
               title="User"
+              style={{marginLeft:"200px"}}
+
             >
             
 
@@ -347,14 +350,16 @@ function Navbar() {
              </Dropdown.Item>
             </DropdownButton>
           )}
-        </div>
+        {/* </div> */}
 
-        <div className="login-navbar mr-auto ">
+        {/* <div className="login-navbar mr-auto "> */}
           {button && (repLog)&& (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
               title="Representative "
+              style={{marginLeft:"150px"}}
+
             >
               <Dropdown.Item className="fw-bold">
               <Link to='/RepProfile' 
@@ -383,7 +388,7 @@ function Navbar() {
              </Dropdown.Item>
             </DropdownButton>
           )}
-        </div>
+        {/* </div> */}
       </nav>
     </>
   );
