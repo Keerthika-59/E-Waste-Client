@@ -1,32 +1,27 @@
 import React, { useState, useEffect, useContext } from "react";
 import Cookies from "js-cookie";
-import axios from "axios";
 import { Button } from "react-bootstrap";
-import AuthApi from "../../authAPI";
+import AuthApi from "../../../../../authAPI";
 import { Redirect } from "react-router";
-import "./UserProfile.css";
-// const phoneRegExp = /^[0-9]{10}$/g;
-// const nameRegExp = /^[a-zA-Z ]{2,30}$/;
+import "./repProfile.css";
+import APIHelper from "../../../../API/apihelper2";
 
 const UserProfile = () => {
   const Auth = useContext(AuthApi);
   const [edit, setEdit] = useState(false);
   const [token, setToken] = useState("");
-  const [users, setUsers] = useState({ });
-  const [updated, setUpdated] = useState({
-    
-  });
+  const [users, setUsers] = useState({});
+  const [updated, setUpdated] = useState({});
 
   const fetchId = async () => {
     try {
-      const token = Cookies.get("user");
-      const t = await axios.post("http://localhost:5000/auth1/getId", {
+      const token = Cookies.get("repr");
+      const t = await APIHelper.fetchUserId({
         token: token,
       });
-
-      setToken(t.data);
+      setToken(t);
     } catch (e) {
-      console.log(e.message);
+      console.log(e);
     }
   };
 
@@ -37,11 +32,9 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userData = await axios.get(
-          `http://localhost:5000/auth1/user/${token}`
-        );
-        setUsers(userData.data);
-        setUpdated(userData.data);
+        const userData = await APIHelper.fetchReprData(token);
+        setUsers(userData);
+        setUpdated(userData);
       } catch (err) {
         console.log(err.response);
       }
@@ -66,10 +59,10 @@ const UserProfile = () => {
     console.log(updated);
     console.log(users);
     try {
-      await axios.put(`http://localhost:5000/auth1/user/${token}`, updated);
+      await APIHelper.updateReprProfile(updated,token)
       setEdit(false);
     } catch (err) {
-      console.log(err);
+      console.log(err.response);
     }
   };
   const handleCancel = () => {
@@ -80,7 +73,7 @@ const UserProfile = () => {
   return Auth.auth ? (
     <div className="container rounded bg-white mt-5">
       <div className="row">
-        <div className="col-md-4 border-right">
+        <div className="col-md-4 border-right bg-c-lite-green">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <img
               className="rounded-circle mt-5"
@@ -88,9 +81,9 @@ const UserProfile = () => {
               width="90"
               alt=""
             />
-            <span className="font-weight-bold">{users.name}</span>
-            <span className="text-black-50">{users.email}</span>
-            <span>{users.city}</span>
+            <span className="text-light font-weight-bolder">{users.name}</span>
+            <span className="text-light font-weight-normal">{users.email}</span>
+            <span className="text-light font-weight-normal">{users.city}</span>
           </div>
         </div>
         <div className="col-md-8">
@@ -100,7 +93,7 @@ const UserProfile = () => {
                                     <h6>Back to home</h6>
                                 </div> */}
               <h4 className="text-center">My Profile</h4>
-              <button onClick={editClick}>edit</button>
+              {/* <Button className="text-center" variant="info"onClick={editClick}>Edit</Button> */}
               <br />
             </div>
 
@@ -182,6 +175,15 @@ const UserProfile = () => {
                             </div> */}
 
             <div className="mt-5 form-row">
+              <pre> </pre>
+              <Button
+                className="text-center"
+                variant="warning"
+                onClick={editClick}
+              >
+                Edit
+              </Button>
+              <pre> </pre>
               <Button
                 variant="success"
                 disabled={edit ? false : true}

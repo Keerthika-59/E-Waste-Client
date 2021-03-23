@@ -7,14 +7,14 @@ import Navbar from '../UserSidebar';
 const notify = () => toast.success('Submitted successfully!');
 
 const Activity = () => {
-    const [bio, setBio] = useState();
-    const [nonbio, setNonbio] = useState();
-    const [donation, setDonation] = useState();  
-    const [type1, setType1] = useState(); 
-    const [type2, setType2] = useState(); 
-    const [type3, setType3] = useState(); 
-    const [type4, setType4] = useState(); 
-    const [type5, setType5] = useState(); 
+    const [bio, setBio] = useState(false);
+    const [nonbio, setNonbio] = useState(false);
+    const [donation, setDonation] = useState(false);  
+    const [type1, setType1] = useState(false); 
+    const [type2, setType2] = useState(false); 
+    const [type3, setType3] = useState(false); 
+    const [type4, setType4] = useState(false); 
+    const [type5, setType5] = useState(false); 
 
     const handleContactSubmit = e => {
         
