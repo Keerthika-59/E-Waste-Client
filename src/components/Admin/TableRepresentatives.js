@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 // import Header from "./Header";
-import APIHelper from '../API/apihelper'
+import APIHelper from '../API/apihelper2'
 import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent";
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
