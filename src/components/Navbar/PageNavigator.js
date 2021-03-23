@@ -28,6 +28,7 @@ import Home from '../Pages/Home';
 import PageNotFound from '../404/PageNotFound';
 
 import RepProfile from '../Dashboard/RepDash/Profile/repProfile'
+import RepImage from '../Admin/RepImage'
 
 import Goals from '../Pages/Goals/Goals'
 function Navigator() {
@@ -66,7 +67,7 @@ function Navigator() {
                 {/* <Route exact path='/view/messages' component={ManageMessages} /> */}
                 {/* <Route exact path='/admin' component={App1} /> */}
                 <Route exact path='/RepProfile' component={RepProfile} />
-                
+                <Route exact path='/RepImage' component={RepImage} />             
 
 
                 <Route component={PageNotFound} />
