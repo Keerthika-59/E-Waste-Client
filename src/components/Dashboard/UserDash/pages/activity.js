@@ -6,7 +6,6 @@ import toast, { Toaster } from 'react-hot-toast';
 import Navbar from '../UserSidebar';
 const notify = () => toast.success('Submitted successfully!');
 
-<<<<<<< HEAD
 const Activity = () => {
     const [bio, setBio] = useState(false);
     const [nonbio, setNonbio] = useState(false);
@@ -16,17 +15,6 @@ const Activity = () => {
     const [type3, setType3] = useState(false); 
     const [type4, setType4] = useState(false); 
     const [type5, setType5] = useState(false); 
-=======
-const Activity = (props) => {
-    const [bio, setBio] = useState();
-    const [nonbio, setNonbio] = useState();
-    const [donation, setDonation] = useState();  
-    const [type1, setType1] = useState(); 
-    const [type2, setType2] = useState(); 
-    const [type3, setType3] = useState(); 
-    const [type4, setType4] = useState(); 
-    const [type5, setType5] = useState(); 
->>>>>>> fae4d1ae2bdd31d8cbc5e9c0ac3511ce5ddf6451
 
     const handleContactSubmit = e => {
         

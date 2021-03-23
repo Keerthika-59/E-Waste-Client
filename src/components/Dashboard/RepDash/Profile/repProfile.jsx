@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import Cookies from "js-cookie";
 import { Button } from "react-bootstrap";
-import AuthApi from "../../../../../authAPI";
+import AuthApi from "../../../../authAPI";
 import { Redirect } from "react-router";
 import "./repProfile.css";
 import APIHelper from "../../../API/apihelper2";
 
-const UserProfile = () => {
+const RepProfile = () => {
   const Auth = useContext(AuthApi);
   const [edit, setEdit] = useState(false);
   const [token, setToken] = useState("");
@@ -66,7 +66,7 @@ const UserProfile = () => {
     }
   };
   const handleCancel = () => {
-    setUpdated(users);
+    setUpdated(reps);
     setEdit(false);
   };
 
@@ -130,7 +130,7 @@ const UserProfile = () => {
                   type="text"
                   className="form-control"
                   placeholder="Email"
-                  value={users.email}
+                  value={reps.email}
                   disabled={true}
                 />
               </div>
@@ -139,7 +139,7 @@ const UserProfile = () => {
                 <input
                   type="text"
                   className="form-control"
-                  value={users.gender}
+                  value={reps.gender}
                   placeholder="Gender"
                   disabled={true}
                 />
@@ -163,7 +163,7 @@ const UserProfile = () => {
                 <input
                   type="text"
                   className="form-control"
-                  value={users.city}
+                  value={reps.city}
                   disabled={true}
                   placeholder="City"
                 />
@@ -205,8 +205,8 @@ const UserProfile = () => {
       </div>
     </div>
   ) : (
-    <Redirect to="/UserLogIn" />
+    <Redirect to="/RepresentativeLogIn" />
   );
 };
 
-export default UserProfile;
+export default RepProfile;
