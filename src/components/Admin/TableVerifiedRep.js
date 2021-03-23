@@ -1,14 +1,17 @@
 import React, { useEffect, useState, useMemo } from "react";
 // import Header from "./Header";
 import APIHelper from '../API/apihelper2'
+
 import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent";
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
+import { Button, Card } from 'react-bootstrap'
+
+import './style.css'
 // import AppConfig from "App.config";
+
 import Swal from 'sweetalert2'
-import {Button} from 'react-bootstrap'
 
-
-const TableRepresentatives = () => {
+const TableVerifiedRep = () => {
     const [reps, setReps] = useState([]);
     const [loader, showLoader, hideLoader] = useFullPageLoader();
     const [totalItems, setTotalItems] = useState(0);
@@ -16,7 +19,7 @@ const TableRepresentatives = () => {
     const [search, setSearch] = useState("");
     const [sorting, setSorting] = useState({ field: "", order: "" });
 
-    const ITEMS_PER_PAGE = 9;
+    const ITEMS_PER_PAGE = 2;
 
     const headers = [
         { name: "No#", field: "id", sortable: false },
@@ -31,6 +34,7 @@ const TableRepresentatives = () => {
 
     useEffect(() => {
         const getData = () => {
+            
             showLoader();
 
             fetch(`${APIHelper.API_URL}`)
@@ -42,7 +46,7 @@ const TableRepresentatives = () => {
         };
 
         getData();
-    }, []);
+    }, [reps]);
 
     const repsData = useMemo(() => {
         let computedComments = reps;
@@ -76,10 +80,7 @@ const TableRepresentatives = () => {
         );
     }, [reps, currentPage, search, sorting]);
 
-    return (
-        <>
-            {/* <ExternalInfo page="datatable" /> */}
-
+    return (<>
             <div className="row w-100">
                 <div className="col mb-3 col-12 text-center">
                     <div className="row">
@@ -100,61 +101,64 @@ const TableRepresentatives = () => {
                             />
                         </div>
                     </div>
-
-                    <table className="table table-striped">
-                        <TableHeader
-                            headers={headers}
-                            onSorting={(field, order) =>
-                                setSorting({ field, order })
-                            }
-                        />
-                        <tbody>
-                            {repsData.map(rep => (
-                                <tr>
-                                    <th scope="row" key={rep.id}>
-                                        {rep.id}
-                                    </th>
-                                    <td>{rep.name}</td>
-                                    <td>{rep.email}</td>
-                                    <td>{rep.phoneNumber}</td>
-                                    <td>{rep.city}</td>
-                                    <td>{rep.address}</td>
-                                    <td>  <Button variant="danger" onClick={() => {
-
-                                        Swal.fire({
-                                            title: 'Are you sure?',
-                                            text: 'You will not be able to recover this Representative Details!',
-                                            icon: 'warning',
-                                            showCancelButton: true,
-                                            confirmButtonText: 'Yes, delete it!',
-                                            cancelButtonText: 'No, keep it'
-                                        }).then((result) => {
-                                            if (result.value) {
-                                                Swal.fire(
-                                                    'Deleted!',
-                                                    'The Representative details has been deleted.',
-                                                    // 'success'
-                                                )
-                                            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                                Swal.fire(
-                                                    'Cancelled',
-                                                    'The Representative details is not deleted :)',
-                                                    // 'error'
-                                                )
-                                            }
-                                        })
-
-
-                                    }}>DELETE</Button></td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
             </div>
-            {loader}
-        </>
-    );
+            
+            {
+                repsData.map(rep => (
+                        <div className="col-10  my-3">
+                            <div className="bg-white shadow rounded overflow-hidden">
+                                <div className="px-4 pt-0 pb-4 cover">
+
+                                    <div className="media align-items-end profile-head">
+                                    <div class="profile mr-5">
+                                        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+                                            alt="..."
+                                            width='230'
+                                            height='230'
+                                            class="rounded mb-5 img-thumbnail" />
+                                    </div>
+                                        <div class="media-body mb-5 text-white">
+                                            <h4 class="mt-0 mb-0"> {rep.name} </h4>
+                                            <p class="small mb-5"> <i class="fas fa-map-marker-alt mr-3"></i> {rep.city} </p>
+                                        </div>
+                                        
+                                            <hr />
+                                    </div>
+                                </div>
+                            </div>
+                                   
+                        <div className = 'mx-auto' style = {{background : 'white'}}  >
+                            <Button className="py-2 mx-3 my-2 " variant="success"
+
+                                onClick={() => {
+
+                                    Swal.fire({
+                                        title: 'Are you sure to verify the representative?',
+                                        icon: 'success',
+                                        showCancelButton: true,
+                                        confirmButtonText: 'Verify',
+                                        cancelButtonText: 'Cancel'
+                                    }).then((result) => {
+                                        if (result.value) {
+                                            Swal.fire(
+                                                'Successfully Verified',
+                                                'Representative has been verified.',
+                                            )
+                                        }
+                                    })
+                                }}
+
+                            > Verify  </Button>
+                            <Button className="py-2 px-2 mx-2 my-3 mx-auto" variant="danger" > Reject  </Button>
+                        </div>    
+                    </div>
+
+                ))
+            })
+
+            </div>          
+            {/* {loader} */}
+        </>);
 };
 
-export default TableRepresentatives;
+export default TableVerifiedRep;

@@ -133,7 +133,6 @@ function Navbar() {
 
               </nav>
             </div>
-
             <div className="col-md-8 content ">
               {
                 (show === 0) ? (
@@ -147,7 +146,7 @@ function Navbar() {
             </div>
           </div>
         </IconContext.Provider>
-
+        
         {/* <Footer/> */}
       </>
     ) : (<Redirect to='/UserLogIn' />)

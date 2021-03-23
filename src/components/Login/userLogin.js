@@ -9,6 +9,7 @@ import AuthApi from "../../authAPI";
 // import toast, { Toaster } from 'react-hot-toast';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const notify = () => toast.success('User logged in successfully!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 
