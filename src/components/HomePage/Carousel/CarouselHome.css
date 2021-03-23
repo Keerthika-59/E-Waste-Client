@@ -1,7 +1,8 @@
-.carousel
-{
+.carousel {
     width: 100%;
 }
+
+
 /* .carousel .slick-next {
     right: 0px;
 } */
@@ -11,16 +12,17 @@
     width: fit-content;
 }
 
-.learn-btn :hover{
+.learn-btn :hover {
     border-radius: 5px 5px;
     width: fit-content;
-    color : white;
+    color: white;
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
+/* .carousel-control-next-icon,
+.carousel-control-prev-icon {
     display: none;
 }
 
 .carousel-indicators {
     display: none;
-}
+} */

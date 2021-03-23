@@ -6,21 +6,37 @@ import RepresenativeRegister from '../Registration/RepresenativeRegister.jsx'
 import UserRegister from '../Registration/UserRegister.jsx'
 import { RepForm } from '../Login/representativeLogin'
 import UserForm from '../Login/userLogin'
-
 import LoginOptions from '../Pages/LoginPages'
 import SignUpOptions from '../Pages/SignUpPages'
-import Achievements from '../Pages/AboutUs/AchievementPage'
-import Goals from '../Pages/AboutUs/Goals'
-import Services from '../Pages/AboutUs/Services'
+import Achievements from '../Pages/Achievements/Achievements'
+// import Goals from '../Pages/AboutUs/Goals'
+import Services from '../Pages/Services/Services'
 import Gallery from '../Pages/Gallery/Gallery'
 import Team from '../OurTeam/Team'
 import Testimonials from '../Testimonials/Testimonials'
-import UserDashboard from '../Dashboard/UserDash/UserDashboardpage'
-import RepDashboard from '../Dashboard/RepDash/RepDashboardpage'
+import UserDashboard from '../Dashboard/UserDash/UserSidebar'
+import RepDashboard from '../Dashboard/RepDash/RepSidebar'
+import TableMessages  from '../Admin/TableMessages'
+import TableUsers  from '../Admin/TableUsers'
+import TableRepresentatives  from '../Admin/TableRepresentatives'
+import MyProfile from '../Dashboard/UserDash/pages/Profile/userProfile'
+import Ewaste from '../HomePage/Information/Ewaste'
+import Disposing from '../HomePage/Information/Dispose'
+import Donating from '../HomePage/Information/Donate'
+import SideBar from '../Admin/SideBar';
+import Home from '../Pages/Home';
+import PageNotFound from '../404/PageNotFound';
+
+import RepProfile from '../Dashboard/RepDash/Profile/repProfile'
+
+import Goals from '../Pages/Goals/Goals'
 function Navigator() {
+
     return (
         <>
             <Switch>
+                <Route exact path='/' component={Home} />
+
                 <Route exact path='/Gallery' component={Gallery} />
                 <Route exact path='/AboutUs' component={AboutUs} />
                 <Route exact path='/ContactUs' component={InputForm} />
@@ -37,8 +53,26 @@ function Navigator() {
                 <Route exact path='/Testimonials' component={Testimonials} />
                 <Route exact path='/UserDash' component={UserDashboard } />
                 <Route exact path='/RepDash' component={RepDashboard } />
+                <Route exact path='/DisplayUsers' component={TableUsers } />
+                <Route exact path='/DisplayReps' component={TableRepresentatives} />
+                <Route exact path='/DisplayMessages' component={TableMessages} />
+                <Route exact path='/MyProfile' component={MyProfile} />
+                <Route exact path='/Ewaste' component={Ewaste} />
+                <Route exact path='/Disposing' component={Disposing} />
+                <Route exact path='/Donating' component={Donating} />
+                <Route exact path="/admin" component={SideBar} />
+                {/* <Route exact path='/view/users' component={ManageUsers} /> */}
+                {/* <Route exact path='/view/reps' component={ManageRepresentatives} /> */}
+                {/* <Route exact path='/view/messages' component={ManageMessages} /> */}
+                {/* <Route exact path='/admin' component={App1} /> */}
+                <Route exact path='/RepProfile' component={RepProfile} />
+                
+
+
+                <Route component={PageNotFound} />
+
             </Switch>
-        </>
+        </> 
     )
 
 }

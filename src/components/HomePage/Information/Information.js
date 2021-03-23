@@ -1,11 +1,55 @@
 import React from "react";
-import {Jumbotron,Media,Image} from "react-bootstrap"
+import {Jumbotron,Media,Image,Button} from "react-bootstrap"
 import './Information.css'
 import {data} from './Data.js';
-
+import { Link } from "react-router-dom";
 const Information = () => {
   return (
     <>
+    <br/>
+    <br/>
+    <br/>
+    
+        <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="counter">
+                    <div class="counter-icon">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <h3>Happy clients</h3>
+                    <span class="counter-value">565</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="counter orange">
+                    <div class="counter-icon">
+                        <i class="fa fa-rocket"></i>
+                    </div>
+                    <h3>Volunteers</h3>
+                    <span class="counter-value">20</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="counter">
+                    <div class="counter-icon">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <h3>Donation</h3>
+                    <span class="counter-value">65</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="counter orange">
+                    <div class="counter-icon">
+                        <i class="fa fa-rocket"></i>
+                    </div>
+                    <h3>Projects</h3>
+                    <span class="counter-value">87</span>
+                </div>
+            </div>
+        </div>
+    </div>
      <ul className="list-unstyled mt-5">
       <Jumbotron>
       <p className="text-center font-italic heading"> {data[0].title} </p>   
@@ -18,7 +62,17 @@ const Information = () => {
     />
     <Media.Body className="text-large ml-5 mr-5">
       {data[0].text}
-
+      <Button
+          // className = "learn-btn"
+          variant = "link"
+          >
+            <Link 
+            to = "/Ewaste" 
+            style = {{textDecoration : 'none'}}
+            >
+                Learn More...
+            </Link>
+          </Button>
     </Media.Body>
   </Media>
   </Jumbotron>
@@ -28,6 +82,17 @@ const Information = () => {
   <Media as="li" className="mt-5 Info text-justify">
     <Media.Body className="text-large ml-5 mr-5">
       {data[1].text}
+      <Button
+          // className = "learn-btn"
+          variant = "link"
+          >
+            <Link 
+            to = "/Disposing" 
+            style = {{textDecoration : 'none'}}
+            >
+                Learn More...
+            </Link>
+          </Button>
 
     </Media.Body>
     <Image
@@ -47,6 +112,17 @@ const Information = () => {
     />
     <Media.Body className="text-large text-justify ml-5 mr-5">
               {data[2].text}
+              <Button
+          // className = "learn-btn"
+          variant = "link"
+          >
+            <Link 
+            to = "/Donating" 
+            style = {{textDecoration : 'none'}}
+            >
+                Learn More...
+            </Link>
+          </Button>
 
     </Media.Body>
   </Media>
@@ -57,4 +133,3 @@ const Information = () => {
 };
 
 export default Information;
-

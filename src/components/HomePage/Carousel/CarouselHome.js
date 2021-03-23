@@ -16,18 +16,13 @@ const CarouselHome = () => {
       <Carousel.Caption>
         <h3>Waste Management</h3>
         <p>
-          <Button
-          className = "learn-btn"
-          variant = "info"
-          >
-            <Link 
-            to = "/Services" 
-            style = {{textDecoration : 'none'}}
-            >
-                Learn More...
-            </Link>
-          </Button>
+          ALWAYS WORKING FOR A
+        SUSTAINABLE TOMORROW
         </p>
+        <ul>
+           We Value Safety,
+We Value Our Environment,
+            We Value Our Customers</ul>
       </Carousel.Caption>
     </Carousel.Item>
 

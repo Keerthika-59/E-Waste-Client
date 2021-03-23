@@ -1,14 +1,17 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import UserActivity from './UserActivity'
-import Usericon from './Usericon'
-import UserSidebar from './UserSidebar'
-function UserDashboard(){
-    return(
-        <>
-        <Usericon/>
-        <UserActivity/>
-        </>
-    )
-}
+import { Redirect } from "react-router";
+import AuthApi from "../../../authAPI";
+function UserDashboard() {
 
-export default UserDashboard;
+    const Auth = useContext(AuthApi)
+
+        return (
+            Auth.auth ?(
+            <>
+                <UserActivity />
+            </>):(<Redirect to='/UserLogIn' />)
+        )
+    }
+
+    export default UserDashboard;

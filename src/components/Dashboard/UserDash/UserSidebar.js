@@ -1,160 +1,156 @@
+// import React, { useState,useContext } from 'react';
+// import * as FaIcons from 'react-icons/fa';
+// import { Link } from 'react-router-dom';
+// import { SidebarData } from './sidebarData';
+// import './navbar.css';
+// import { Redirect } from "react-router";
 
-import React, { useState } from "react";
-import SimpleBar from 'simplebar-react';
-import { useLocation } from "react-router-dom";
-import { CSSTransition } from 'react-transition-group';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faBoxOpen, faChartPie, faCog, faFileAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from '@themesberg/react-bootstrap';
+// import { IconContext } from 'react-icons';
+// import Activity from './pages/activity';
+// import Pending from './pages/pending';
+// import AuthApi from '../../../authAPI'
+// import Completed from './pages/completed';
+
+// function Navbar() {
+//   const [sidebar, setSidebar] = useState(false);
+
+//   const showSidebar = () => setSidebar(!sidebar);
+//   const Auth = useContext(AuthApi)
+
+//   return (
+//     Auth.auth ?(
+//     <>
+//       <IconContext.Provider value={{ color: '#fff' }}>
+//       <div className='sidenav'>
+//           <Link to='#' className='menu-bars'>
+//             <FaIcons.FaBars onClick={showSidebar} />
+//           </Link>
+//         </div>
+//       <div class="row">
+//         <div class="col-md-4 sn">
+        
+//         <nav className={sidebar ? 'sidenav-menu active' : 'sidenav-menu'}>
+//           <ul className='sidenav-menu-items' onClick={showSidebar}>
+         
+//             {SidebarData.map((item, index) => {
+//               return (
+//                 <li key={index} className={item.cName}>
+//                   <Link to={item.path}>
+//                     {item.icon}
+//                     <span>{item.title}</span>
+//                   </Link>
+//                 </li>
+//               );
+//             })}
+//           </ul>
+         
+//         </nav>
+//         </div>
+//         <div class="col-md-8 content">
+//             <Activity/>
+//             <Pending/>
+//            <Completed/>
+//         </div>
+//         </div>
+//       </IconContext.Provider>
+      
+//     </>
+// ):(<Redirect to='/UserLogIn' />) 
+//   );
+// }
+
+// export default Navbar;
+
+import React, { useState, useContext } from 'react';
+import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+// import { SidebarData } from './sidebarData';
+import './navbar.css';
+import { Redirect } from "react-router";
+import * as BsIcons from 'react-icons/bs';
 
-// import { Routes } from "../routes";
-// import ThemesbergLogo from "../assets/img/themesberg.svg";
-// import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
-// import ProfilePicture from "../assets/img/team/profile-picture-3.jpg";
+import { IconContext } from 'react-icons';
+import Activity from './pages/activity';
+import Pending from './pages/pending';
+import AuthApi from '../../../authAPI'
+import Navbar1 from './../../Navbar/Navbar'
+import Footer from '../../Footer/Footer';
+import Completed from './pages/completed';
 
-export default (props = {}) => {
-  const location = useLocation();
-  const { pathname } = location;
-  const [show, setShow] = useState(false);
-  const showClass = show ? "show" : "";
+function Navbar() {
 
-  const onCollapse = () => setShow(!show);
+  const [sidebar, setSidebar] = useState(true);
+  const [show, setShow] = useState(0);
 
-  const CollapsableNavItem = (props) => {
-    const { eventKey, title, icon, children = null } = props;
-    const defaultKey = pathname.indexOf(eventKey) !== -1 ? eventKey : "";
+  const showSidebar = () => setSidebar(!sidebar);
 
-    return (
-      <Accordion as={Nav.Item} defaultActiveKey={defaultKey}>
-        <Accordion.Item eventKey={eventKey}>
-          <Accordion.Button as={Nav.Link} className="d-flex justify-content-between align-items-center">
-            <span>
-              <span className="sidebar-icon"><FontAwesomeIcon icon={icon} /> </span>
-              <span className="sidebar-text">{title}</span>
-            </span>
-          </Accordion.Button>
-          <Accordion.Body className="multi-level">
-            <Nav className="flex-column">
-              {children}
-            </Nav>
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
-    );
-  };
-
-  const NavItem = (props) => {
-    const { title, link, external, target, icon, image, badgeText, badgeBg = "secondary", badgeColor = "primary" } = props;
-    const classNames = badgeText ? "d-flex justify-content-start align-items-center justify-content-between" : "";
-    const navItemClassName = link === pathname ? "active" : "";
-    const linkProps = external ? { href: link } : { as: Link, to: link };
-
-    return (
-      <Nav.Item className={navItemClassName} onClick={() => setShow(false)}>
-        <Nav.Link {...linkProps} target={target} className={classNames}>
-          <span>
-            {icon ? <span className="sidebar-icon"><FontAwesomeIcon icon={icon} /> </span> : null}
-            {image ? <Image src={image} width={20} height={20} className="sidebar-icon svg-icon" /> : null}
-
-            <span className="sidebar-text">{title}</span>
-          </span>
-          {badgeText ? (
-            <Badge pill bg={badgeBg} text={badgeColor} className="badge-md notification-count ms-2">{badgeText}</Badge>
-          ) : null}
-        </Nav.Link>
-      </Nav.Item>
-    );
-  };
+  const Auth = useContext(AuthApi);
 
   return (
-    <>
-      <Navbar expand={false} collapseOnSelect variant="dark" className="navbar-theme-primary px-4 d-md-none">
-        <Navbar.Brand className="me-lg-5" as={Link} to='/'>
-          {/* <Image src={ReactHero} className="navbar-brand-light" /> */}
-        </Navbar.Brand>
-        <Navbar.Toggle as={Button} aria-controls="main-navbar" onClick={onCollapse}>
-          <span className="navbar-toggler-icon" />
-        </Navbar.Toggle>
-      </Navbar>
-      <CSSTransition timeout={300} in={show} classNames="sidebar-transition">
-        <SimpleBar className={`collapse ${showClass} sidebar d-md-block bg-primary text-white`}>
-          <div className="sidebar-inner px-4 pt-3">
-            <div className="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
-              <div className="d-flex align-items-center">
-                <div className="user-avatar lg-avatar me-4">
-                  {/* <Image src={`${process.env.PUBLIC_URL}/assets/images/hero.jpg`} className="card-img-top rounded-circle border-white" /> */}
-                </div>
-                <div className="d-block">
-                  <h6>Hi, Jane</h6>
-                  <Button as={Link} variant="secondary" size="xs" to='/' className="text-dark">
-                    <FontAwesomeIcon icon={faSignOutAlt} className="me-2" /> Sign Out
-                  </Button>
-                </div>
-              </div>
-              <Nav.Link className="collapse-close d-md-none" onClick={onCollapse}>
-                <FontAwesomeIcon icon={faTimes} />
-              </Nav.Link>
+    Auth.auth ? (
+      <>
+      {/* <Navbar1/> */}
+        <IconContext.Provider value={{ color: '#fff' }}>
+          {/* <div className='sidenav'>
+            <Link to='#' className='menu-bars'>
+              <FaIcons.FaBars onClick={showSidebar} />
+            </Link>
+          </div> */}
+          <div class="row">
+            <div class="col-md-4 sn">
+
+              <nav className={sidebar ? 'sidenav-menu active' : 'sidenav-menu'}>
+                <ul className='sidenav-menu-items' >
+                  
+                  <li className="  px-3 nav-text"  style={{ listStyle: 'none' }}
+                    onClick={(e) => setShow(0)}
+                  >
+
+                    <h5 style={{ color: 'white'}}>
+                      <BsIcons.BsFillPersonPlusFill />  Create Activity
+                    </h5>
+
+                  </li>
+                  <li className="my-3 px-3 nav-text" style={{ listStyle: 'none' }}
+                    onClick={(e) => setShow(1)}
+                  >
+
+                    <h5 style={{ color: 'white' }}>
+                      <BsIcons.BsFillPersonFill />  Pending Activites
+                    </h5>
+
+                  </li>
+
+                  <li className=" my-3 px-3 nav-text" style={{ listStyle: 'none'}}
+                    onClick={(e) => setShow(2)}
+                  >
+                    <h5 style={{ color: 'white' }}>
+                      <BsIcons.BsFillPersonCheckFill />  Completed Activites
+                    </h5>
+
+                  </li>
+                </ul>
+
+              </nav>
             </div>
-            <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Volt React" />
-
-              <NavItem title="Overview" icon={faChartPie} />
-              <NavItem title="Transactions" icon={faHandHoldingUsd}  />
-              <NavItem title="Settings" icon={faCog} />
-
-              <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>
-                <NavItem title="Bootstrap Table" />
-              </CollapsableNavItem>
-
-              <CollapsableNavItem eventKey="examples/" title="Page Examples" icon={faFileAlt}>
-                <NavItem title="Sign In"/>
-                <NavItem title="Sign Up"  />
-                <NavItem title="Forgot password" />
-                <NavItem title="Reset password" />
-                <NavItem title="Lock"  />
-                <NavItem title="404 Not Found" />
-                <NavItem title="500 Server Error" />
-              </CollapsableNavItem>
-
-              <NavItem external title="Plugins" link="https://demo.themesberg.com/volt-pro-react/#/plugins/charts" target="_blank" badgeText="Pro" icon={faChartPie} />
-
-              <Dropdown.Divider className="my-3 border-indigo" />
-
-              <CollapsableNavItem eventKey="documentation/" title="Getting Started" icon={faBook}>
-                <NavItem title="Overview" />
-                <NavItem title="Download"  />
-                <NavItem title="Quick Start"  />
-                <NavItem title="License"  />
-                <NavItem title="Folder Structure"  />
-                <NavItem title="Build Tools" />
-                <NavItem title="Changelog"  />
-              </CollapsableNavItem>
-              <CollapsableNavItem eventKey="components/" title="Components" icon={faBoxOpen}>
-                <NavItem title="Accordion"  />
-                <NavItem title="Alerts"  />
-                <NavItem title="Badges"  />
-                <NavItem external title="Widgets" link="https://demo.themesberg.com/volt-pro-react/#/components/widgets" target="_blank" badgeText="Pro" />
-                <NavItem title="Breadcrumbs"  />
-                <NavItem title="Buttons" />
-                <NavItem title="Forms"  />
-                <NavItem title="Modals"  />
-                <NavItem title="Navbars" />
-                <NavItem title="Navs"  />
-                <NavItem title="Pagination" />
-                <NavItem title="Popovers"  />
-                <NavItem title="Progress" />
-                <NavItem title="Tables" />
-                <NavItem title="Tabs"  />
-                <NavItem title="Toasts" />
-                <NavItem title="Tooltips"  />
-              </CollapsableNavItem>
-              <NavItem external title="Themesberg" link="https://themesberg.com" target="_blank"  />
-
-            </Nav>
+            <div className="col-md-8 content ">
+              {
+                (show === 0) ? (
+                  <Activity/>
+                ) : (show === 1) ? (
+                  <Pending/>
+                ) : (
+                  <Completed/>
+                )
+              }
+            </div>
           </div>
-        </SimpleBar>
-      </CSSTransition>
-    </>
+        </IconContext.Provider>
+        
+        {/* <Footer/> */}
+      </>
+    ) : (<Redirect to='/UserLogIn' />)
   );
-};
+}
+
+export default Navbar;
