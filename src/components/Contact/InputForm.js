@@ -6,8 +6,6 @@ import './contactStyle.css';
  import { ToastContainer,toast } from 'react-toastify';
 import { Redirect, useHistory } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css'; 
-import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
 
 const API_URL  = 'https://ewaste-dec20-dev-api.azurewebsites.net/contacts';
 
@@ -112,7 +110,6 @@ export const InputForm = () => {
         </div>
 
         </div>
-    <Footer/>
     </>
   )
 }
