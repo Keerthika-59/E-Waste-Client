@@ -71,7 +71,7 @@ const RepProfile = () => {
   };
 
   return Auth.auth ? (
-    <div className="container rounded bg-white mt-5">
+    <div className="container rounded bg-white mt-5"  style={{marginBottom:"5%"}}>
       <div className="row">
         <div className="col-md-4 border-right bg-c-lite-green">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -176,29 +176,30 @@ const RepProfile = () => {
 
             <div className="mt-5 form-row">
               <pre> </pre>
-              <Button
+              {!edit &&  <Button
                 className="text-center"
                 variant="warning"
                 onClick={editClick}
               >
                 Edit
-              </Button>
+              </Button>}
               <pre> </pre>
-              <Button
+              {edit && <Button
                 variant="success"
                 disabled={edit ? false : true}
                 onClick={handleUpdate}
               >
                 Update{" "}
-              </Button>
+              </Button>}
               <pre> </pre>
-              <Button
+              {edit && <Button
                 variant="danger"
                 disabled={edit ? false : true}
-                onClick={handleCancel}
+                onClick={handleCancel}  
+        
               >
                 Cancel
-              </Button>
+              </Button>}
             </div>
           </div>
         </div>

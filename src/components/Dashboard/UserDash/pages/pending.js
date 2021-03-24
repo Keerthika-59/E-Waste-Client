@@ -69,8 +69,12 @@ return (user.activity?(user.activity.map((activity, index) => (
                 </div>
               </div>
             </div>
-            <div className="card-foot bg-white px-sm-3 pt-sm-4 px-0">
-              <div className="row text-center ">
+        </div>
+        <div className="card-foot bg-white px-sm-3 pt-sm-4 px-0">
+        <div className="row text-center ">
+                <div className="col my-auto border-line ">
+                    <button type="button" className="btn btn-warning btn-sm btn-block">Edit</button>
+                </div>
                 <div className="col my-auto border-line ">
                   <button type="button" className="btn btn-danger btn-sm btn-block">
                     Cancel
@@ -78,7 +82,7 @@ return (user.activity?(user.activity.map((activity, index) => (
                 </div>
               </div>
             </div>
-          </div>
+         
         </>
       ))):(<div>Loading...</div>))
 //   return (user.activity?(user.activity.map((activity, index) => (

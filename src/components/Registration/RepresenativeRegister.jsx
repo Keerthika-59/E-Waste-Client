@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { Alert, Modal, Button } from "react-bootstrap";
 import APIHelper from "../API/apihelper2";
@@ -7,6 +8,21 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as Yup from "yup";
+=======
+import React, { useState,useEffect } from 'react'
+import {Input} from 'reactstrap';
+import { storage } from '../../firebase/firebase';
+
+import APIHelper from '../API/apihelper2';
+import '../Registration/style.css';
+import { BrowserRouter, Link } from 'react-router-dom';
+import { Formik, Field, Form, ErrorMessage, yupToFormErrors } from 'formik';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import * as Yup from 'yup';
+import axios from 'axios';
+
+>>>>>>> 7b2989721d44ff1614c0ea12e6dcae23931c7140
 // import toast, { Toaster } from 'react-hot-toast';
 
 const notify = () =>
@@ -29,9 +45,29 @@ const RepresenativeRegister = () => {
     window.scrollTo(0, 0);
   }, []);
 
+<<<<<<< HEAD
+=======
+  const [fileInput, setFileInput] = useState(null)
+  const [url, setURL] = useState("");
+
+  const onFileChange = event => {
+
+    // let reader = new FileReader();
+
+    // reader.onload = function () {
+    //   console.log(reader.result);
+    //   // setFileInput(reader.result)
+    // }
+
+    // reader.readAsDataURL(event.target.files[0]);
+    setFileInput(event.target.files[0]);
+  }
+
+>>>>>>> 7b2989721d44ff1614c0ea12e6dcae23931c7140
   return (
     <Formik
       initialValues={{
+<<<<<<< HEAD
         name: "",
         email: "",
         mobileNumber: "",
@@ -53,6 +89,51 @@ const RepresenativeRegister = () => {
         };
         try {
           await APIHelper.registerUsers(data);
+=======
+        name: '',
+        email: '',
+        mobileNumber: '',
+        password: '',
+        idProof : '',
+        confirmPassword: '',
+        city: '',
+        address: '',
+        gender: ''
+      }}
+
+      onSubmit={async (values, {setSubmitting, resetForm }) => {
+
+        const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
+
+        await uploadTask.on("state_changed", console.log, console.error, async () => {
+
+          const url = await storage .ref("images").child(fileInput.name).getDownloadURL();
+          console.log('First Line');
+          setURL(url);
+
+          console.log('Url : ' + url);
+        });
+
+        console.log('Second Line');
+
+        let data = {
+            name: values.name,
+            phoneNumber: values.mobileNumber,
+            email: values.email,
+            gender: values.gender,
+            idProof: url,
+            city: values.city,
+            address: values.address,
+            password: values.password,
+          };
+        console.log('Third Line');
+        console.log(data);
+
+        try 
+        {
+          await axios.post('http://localhost:5000/reps/add', data);
+          
+>>>>>>> 7b2989721d44ff1614c0ea12e6dcae23931c7140
           resetForm({});
           setTimeout(() => {
             //   alert("Form Submitted");
@@ -97,7 +178,13 @@ const RepresenativeRegister = () => {
         address: Yup.string().required("Address is Required"),
       })}
     >
+<<<<<<< HEAD
       {(formik, values, isSubmitting, resetForm) => (
+=======
+
+      { (formik, values, isSubmitting, resetForm, handleChange, touched, setFieldValue) => (
+
+>>>>>>> 7b2989721d44ff1614c0ea12e6dcae23931c7140
         <Form>
           <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
             <div className="card card0 border-0">
@@ -194,11 +281,21 @@ const RepresenativeRegister = () => {
                       {" "}
                       <h6 className="mb-0 text-sm">Id Proof</h6>
                       <input
+<<<<<<< HEAD
                         type="file"
                         accept=".png, .jpg, .jpeg"
                         name="photo"
                         // onChange={handlePhoto}
                       />
+=======
+                      name = "file"
+                      type = "file"
+                      onChange = {onFileChange}
+                        />
+
+                      <img src = {url} />
+
+>>>>>>> 7b2989721d44ff1614c0ea12e6dcae23931c7140
                     </div>
                     <br />
 

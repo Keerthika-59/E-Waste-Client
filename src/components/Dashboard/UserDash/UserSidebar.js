@@ -76,6 +76,7 @@ import AuthApi from '../../../authAPI'
 import Navbar1 from './../../Navbar/Navbar'
 import Footer from '../../Footer/Footer';
 import Completed from './pages/completed';
+import UserCompletedActivities from '../../Admin/UserCompletedActivities'
 
 function Navbar() {
 
@@ -91,11 +92,11 @@ function Navbar() {
       <>
       {/* <Navbar1/> */}
         <IconContext.Provider value={{ color: '#fff' }}>
-          <div className='sidenav'>
+          {/* <div className='sidenav'>
             <Link to='#' className='menu-bars'>
               <FaIcons.FaBars onClick={showSidebar} />
             </Link>
-          </div>
+          </div> */}
           <div class="row">
             <div class="col-md-4 sn">
 
@@ -140,7 +141,8 @@ function Navbar() {
                 ) : (show === 1) ? (
                   <Pending/>
                 ) : (
-                  <Completed/>
+                 // <Completed/>
+                   <UserCompletedActivities/>
                 )
               }
             </div>

@@ -3,11 +3,11 @@ import UserActivity from './UserActivity'
 import { Redirect } from "react-router";
 import AuthApi from "../../../authAPI";
 function UserDashboard() {
-
+    
     const Auth = useContext(AuthApi)
-
+    
         return (
-            Auth.auth ?(
+            (Auth.auth) ? (
             <>
                 <UserActivity />
             </>):(<Redirect to='/UserLogIn' />)

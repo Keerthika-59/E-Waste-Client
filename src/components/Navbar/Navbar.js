@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { NavDropdown, Dropdown, DropdownButton } from "react-bootstrap";
 import "./Navbar.css";
 import "../Button/Button.css";
+
 import { Button } from "../Button/Button";
 import Cookies from "js-cookie";
 import AuthApi from "../../authAPI";
@@ -15,7 +16,8 @@ function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [userLog, setUser] = useState(false);
-  const [repLog, setRep] = useState(false);
+  const [repLog, setRep] = useState(false);  
+  const [adminLog, setAdmin] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -44,10 +46,20 @@ function Navbar() {
     }
   }
 
+  function readAdminLog() {
+    if (Cookies.get('admin')) {
+      setAdmin(true);
+    }
+    else {
+      setAdmin(false);
+    }
+  }
+  
   useEffect(() => {
     const interval = setInterval(() => {
       readUserLog();
       readRepLog();
+      readAdminLog();
     }, 1);
     return () => clearInterval(interval);
   }, []);
@@ -71,6 +83,17 @@ function Navbar() {
     <Redirect to="/RepresentativeLogIn" />;
   };
 
+  const handleLogoutAdmin = async (e) => {
+    e.preventDefault()
+
+    Auth.setAuth(false)
+    Cookies.remove('admin')
+    console.log("Admin logged out");
+
+    <Redirect to='/admin/login' />
+  }
+
+  // console.log(userLog)
   useEffect(() => {
     showButton();
   }, []);
@@ -247,8 +270,8 @@ function Navbar() {
           </ul>
         </div>
 
-        <div className="login-navbar mr-auto ">
-          {button && !userLog && !repLog && (
+        {/* <div className="login-navbar mr-auto "> */}
+          {button && (!userLog) && (!repLog) && (!adminLog) && (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
@@ -257,42 +280,44 @@ function Navbar() {
               <Dropdown.Item>
                 <Link to="/UserLogIn" style={{ textDecoration: "none" }}>
                   <div>
-                    <p className="navbar-text"> User </p>
+                   User
                   </div>
                 </Link>
               </Dropdown.Item>
-
+<Dropdown.Divider />
               <Dropdown.Item>
                 <Link
                   to="/RepresentativeLogIn"
                   style={{ textDecoration: "none" }}
                 >
                   <div>
-                    <p className="navbar-text"> Representative </p>
+                  Representative
                   </div>
+                </Link>
+              </Dropdown.Item>
+              {/* ------ */}
+              
+            <Dropdown.Divider />
+              <Dropdown.Item>
+                <Link to="/admin/login"
+                  style={{ textDecoration: "none" }}>
+                  <div>
+                    Admin
+                    </div>
                 </Link>
               </Dropdown.Item>
             </DropdownButton>
           )}
-        </div>
 
-        <div className="login-navbar mr-auto ">
-          {button && userLog && (
+        {/* </div> */}
+
+        {/* <div className="login-navbar mr-auto "> */}
+          {button && (userLog) && (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
               title="User"
-            >
-              <Dropdown.Item className="fw-bold">
-                <Link to="/MyProfile" style={{ textDecoration: "none" }}>
-                  <div>
-                    <FontAwesomeIcon icon={faUserCircle} className="me-2" />
-                    My Profile
-                  </div>
-                </Link>
-              </Dropdown.Item>
-
-              <Dropdown.Divider />
+             >
 
               {/* <Dropdown.Item className="fw-bold">
               <Link to='/MyProfile' 
@@ -340,30 +365,29 @@ function Navbar() {
               </Dropdown.Item>
             </DropdownButton>
           )}
-        </div>
+        {/* </div> */}
 
-        <div className="login-navbar mr-auto ">
-          {button && repLog && (
+        {/* <div className="login-navbar mr-auto "> */}
+          {button && (repLog)&& (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
               title="Representative "
             >
               <Dropdown.Item className="fw-bold">
-                <Link to="/RepProfile" style={{ textDecoration: "none" }}>
-                  <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My
-                  Profile
-                </Link>
-              </Dropdown.Item>
-
+              <Link to='/RepProfile' 
+                style={{ textDecoration: "none" }}
+                >
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile</Link>
+             </Dropdown.Item>
               <Dropdown.Divider />
 
               <Dropdown.Item className="fw-bold">
-                <Link to="/RepDash" style={{ textDecoration: "none" }}>
-                  <FontAwesomeIcon icon={faUserCircle} className="me-2" />{" "}
-                  Dashboard
-                </Link>
-              </Dropdown.Item>
+              <Link to='/RepDash' 
+                style={{ textDecoration: "none" }}
+                >
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Dashboard</Link>
+             </Dropdown.Item>
 
               <Dropdown.Divider />
 
@@ -379,7 +403,28 @@ function Navbar() {
               </Dropdown.Item>
             </DropdownButton>
           )}
-        </div>
+        {/* </div> */}
+
+        {button && (adminLog) && (
+          <DropdownButton
+            className="mr-auto"
+            id="dropdown-basic-button"
+            title="Admin"
+          >
+            <Dropdown.Item className="fw-bold">
+              <Link to='/admin'
+                style={{ textDecoration: "none" }}
+              >
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Dashboard</Link>
+            </Dropdown.Item>
+
+            <Dropdown.Divider />
+
+            <Dropdown.Item className="fw-bold" onClick={e => handleLogoutAdmin(e)}>
+              <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
+             </Dropdown.Item>
+          </DropdownButton>
+        )}
       </nav>
     </>
   );
