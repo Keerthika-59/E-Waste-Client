@@ -27,6 +27,7 @@ body {
 td {
     border-bottom: 1px solid #f6f6f6;
     padding: 5px 10px;
+    width:fit-content;
 }
 
 td:nth-child(2) {
@@ -133,3 +134,32 @@ input[type=submit] {
 .toggle-switchArea {
     margin: 10px 0 10px 0;
 }
+
+@media only screen and (max-width:480px) {
+    .holder {
+        width: 80%;
+        
+    }
+    input[type=submit]{
+        width:60%;
+    }
+    .content{
+        width:60%;
+    }
+    .form-content{
+        width:30%;
+    }
+  }
+  @media only screen and (max-width:360px) {
+    .holder {
+        width: 80%;
+        
+    }
+    input[type=submit]{
+        width:60%;
+    }
+    .form-content{
+        
+        width:fit-content;
+    }
+  }
