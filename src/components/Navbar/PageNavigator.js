@@ -30,6 +30,8 @@ import PageNotFound from '../404/PageNotFound';
 import RepProfile from '../Dashboard/RepDash/Profile/repProfile'
 
 import Goals from '../Pages/Goals/Goals'
+import AdminLogin from '../Login/Admin/AdminLogin';
+
 function Navigator() {
 
     return (
@@ -60,15 +62,10 @@ function Navigator() {
                 <Route exact path='/Ewaste' component={Ewaste} />
                 <Route exact path='/Disposing' component={Disposing} />
                 <Route exact path='/Donating' component={Donating} />
-                <Route exact path="/admin" component={SideBar} />
-                {/* <Route exact path='/view/users' component={ManageUsers} /> */}
-                {/* <Route exact path='/view/reps' component={ManageRepresentatives} /> */}
-                {/* <Route exact path='/view/messages' component={ManageMessages} /> */}
-                {/* <Route exact path='/admin' component={App1} /> */}
+                <Route exact path="/admin" component={SideBar} />                
                 <Route exact path='/RepProfile' component={RepProfile} />
+                <Route exact path='/admin/login' component={AdminLogin} />
                 
-
-
                 <Route component={PageNotFound} />
 
             </Switch>
