@@ -72,7 +72,7 @@ const UserProfile = () => {
   };
 
   return Auth.auth ? (
-    <div className="container rounded bg-white mt-5">
+    <div className="container rounded bg-white mt-5" style={{marginBottom:"5%"}}>
       <div className="row">
         <div className="col-md-4 border-right bg-c-lite-green">
           <div className="d-flex flex-column align-items-center text-center p-3 py-5">
