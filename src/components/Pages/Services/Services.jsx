@@ -50,7 +50,7 @@ return(
                 <div className="our-services backups">
                     <div className="icon"> <img src="https://i.imgur.com/vdH9LKi.png"/> </div>
                     <h4>E-Waste</h4>
-                    <p className="text-justify">There is no proper system for waste disposal. 
+                    <p className="text-justify text-space">There is no proper system for waste disposal. 
                     Sometimes for more than a week waste will not be collected.
                     </p>  <Button
           className = "learn-btn"
@@ -73,7 +73,7 @@ return(
                 <div className="our-services speedup">
                     <div className="icon"> <img src="https://i.imgur.com/KMbnpFF.png"/> </div>
                     <h4>Dispose</h4>
-                    <p  className="text-justify">Some waste disposed be reused for some purpose. Unused waste will be separated and disposed.
+                    <p  className="text-justify  text-space">Some waste disposed be reused for some purpose. Unused waste will be separated and disposed.
                    </p>
                     <Button
            className = "learn-btn"
@@ -107,7 +107,7 @@ return(
                 <div className="our-services database">
                     <div className="icon"> <img src="https://i.imgur.com/VzjZw9M.png"/> </div>
                     <h4>Donate</h4>
-                    <p  className="text-justify">Unused good condition items such as old mobiles, electric goods, Clothes, Food can be donated to needy.
+                    <p  className="text-justify  text-space">Unused good condition items such as old mobiles, electric goods, Clothes, Food can be donated.
                    </p>
                     <Button
           className = "learn-btn"

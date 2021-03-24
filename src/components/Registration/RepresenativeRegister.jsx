@@ -1,12 +1,16 @@
 import React, { useState,useEffect } from 'react'
-import { Alert, Modal, Button } from 'react-bootstrap';
+import {Input} from 'reactstrap';
+import { storage } from '../../firebase/firebase';
+
 import APIHelper from '../API/apihelper2';
 import '../Registration/style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage, yupToFormErrors } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
+import axios from 'axios';
+
 // import toast, { Toaster } from 'react-hot-toast';
 
 const notify = () => toast.success('Representative registration successful!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
@@ -20,6 +24,21 @@ const RepresenativeRegister = () => {
     window.scrollTo(0, 0)
   }, []);
 
+  const [fileInput, setFileInput] = useState(null)
+  const [url, setURL] = useState("");
+
+  const onFileChange = event => {
+
+    // let reader = new FileReader();
+
+    // reader.onload = function () {
+    //   console.log(reader.result);
+    //   // setFileInput(reader.result)
+    // }
+
+    // reader.readAsDataURL(event.target.files[0]);
+    setFileInput(event.target.files[0]);
+  }
 
   return (
 
@@ -29,25 +48,45 @@ const RepresenativeRegister = () => {
         email: '',
         mobileNumber: '',
         password: '',
+        idProof : '',
         confirmPassword: '',
         city: '',
         address: '',
         gender: ''
       }}
-      onSubmit={async (values, { setSubmitting, resetForm }) => {
 
-        const data = {
-          name: values.name,
-          phoneNumber: values.mobileNumber,
-          email: values.email,
-          gender: values.gender,
-          city: values.city,
-          address: values.address,
-          password: values.password,
-        };
-        try {
+      onSubmit={async (values, {setSubmitting, resetForm }) => {
 
-          await APIHelper.registerUsers(data);
+        const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
+
+        await uploadTask.on("state_changed", console.log, console.error, async () => {
+
+          const url = await storage .ref("images").child(fileInput.name).getDownloadURL();
+          console.log('First Line');
+          setURL(url);
+
+          console.log('Url : ' + url);
+        });
+
+        console.log('Second Line');
+
+        let data = {
+            name: values.name,
+            phoneNumber: values.mobileNumber,
+            email: values.email,
+            gender: values.gender,
+            idProof: url,
+            city: values.city,
+            address: values.address,
+            password: values.password,
+          };
+        console.log('Third Line');
+        console.log(data);
+
+        try 
+        {
+          await axios.post('http://localhost:5000/reps/add', data);
+          
           resetForm({});
           setTimeout(() => {
             //   alert("Form Submitted");
@@ -58,7 +97,6 @@ const RepresenativeRegister = () => {
           // alert(err.response.data.errorMessage);
           notify1();
         }
-
       }}
 
       validationSchema={Yup.object({
@@ -99,7 +137,7 @@ const RepresenativeRegister = () => {
 
     >
 
-      { (formik, values, isSubmitting, resetForm) => (
+      { (formik, values, isSubmitting, resetForm, handleChange, touched, setFieldValue) => (
 
         <Form>
           <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
@@ -113,9 +151,7 @@ const RepresenativeRegister = () => {
                 </div>
 
                 <div className="col-lg-6">
-
                   <div className="card2 card border-0 px-4 py-5">
-
                     <div className="row mb-4 px-3">
                       <h3 className="heading">Representative Sign Up</h3>
                     </div>
@@ -159,14 +195,15 @@ const RepresenativeRegister = () => {
 
                     <div>  <h6 className="mb-0 text-sm">Id Proof</h6>
                       <input
-                        type="file"
-                        accept=".png, .jpg, .jpeg"
-                        name="photo"
-                      // onChange={handlePhoto}
-                      />
+                      name = "file"
+                      type = "file"
+                      onChange = {onFileChange}
+                        />
+
+                      <img src = {url} />
+
                     </div>
                     <br />
-
 
                     <div className="row px-3">
                       <label className="mb-1">
@@ -208,11 +245,12 @@ const RepresenativeRegister = () => {
                         </label>
                         <div role="group" aria-labelledby="my-radio-group">
                           <label className="px-3">
+                          <br/>
                             <Field type="radio" name="gender" value="Male" /> Male
                                                         </label>
                           <label className="px-3">
-                            <Field type="radio" name="gender" value="Female" /> Female
-                                                    </label>
+                            <Field type="radio" name="gender" value="Female"/> Female
+                          </label>
 
                           <label className="px-3">
                             <Field type="radio" name="gender" value="Others" /> Others

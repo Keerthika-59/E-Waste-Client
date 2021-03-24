@@ -59,7 +59,7 @@ const Homepage = () => {
 
   </section>
   <Information/>
-        </div>
+    </div>
     )
 }
 

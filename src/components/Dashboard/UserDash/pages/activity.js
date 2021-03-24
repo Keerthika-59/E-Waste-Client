@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Navbar from '../UserSidebar';
 const notify = () => toast.success('Submitted successfully!');
 
-const Activity = () => {
+const Activity = (props) => {
     const [bio, setBio] = useState();
     const [nonbio, setNonbio] = useState();
     const [donation, setDonation] = useState();  
@@ -19,7 +19,7 @@ const Activity = () => {
     const handleContactSubmit = e => {
         
             e.preventDefault();
-
+            
                 const newData = {
                     bio,
                     nonbio,
@@ -45,43 +45,48 @@ const Activity = () => {
                 <thead>
                 
                     <th class="actHeading">
-                        Create User activity
+                       User activity
                     </th>
                 
                 </thead>
 				<tr>
 					<td>Biodegradable</td>
 					<td>
-						<div>
-							<input type="checkbox" value = {bio} onChange={ (e) => setBio(e.target.checked)}/>
-						    <span></span>
-						</div>
+                    <div class="outerDivFull" >
+                            <div class="switchToggle">
+                                <input type="checkbox" id="switch" value = {bio} onChange={ (e) => setBio(e.target.checked)} />
+                                <label for="switch"></label>
+                            </div>
+                    </div>
 					</td>
 				</tr>
 				<tr>
 					<td>Non-Biodegradable</td>
 					<td>
-						<div>
-							<input type="checkbox" value = {nonbio} onChange={ (e) => setNonbio(e.target.checked)} />
-						    <span></span>
-						</div>
+                    <div class="outerDivFull" >
+                            <div class="switchToggle">
+                                <input type="checkbox" id="switch1" value = {nonbio} onChange={ (e) => setNonbio(e.target.checked)} />
+                                <label for="switch1"></label>
+                            </div>
+                    </div>
 					</td>
 				</tr>
 				<tr>
 					<td class="donation">Donation</td>
 					<td>
-						<div>
-							<input type="checkbox" value = {donation} onChange={ (e) => setDonation(e.target.checked)}/>
-                            
-						    <span></span>
-						</div>
+                    <div class="outerDivFull" >
+                            <div class="switchToggle">
+                                <input type="checkbox" id="switch2" value = {donation} onChange={ (e) => setDonation(e.target.checked)} />
+                                <label for="switch2"></label>
+                            </div>
+                    </div>
 					</td>
 
 				</tr>
                 <br/>
                 {(donation===true)?
-				<tr>
-					<td colspan="2">
+				<tr >
+					<td colspan="2" class="last">
                     <ul class="list-group">
                             <li class="list-group-item rounded-0">
                                 <div class="custom-control custom-checkbox">

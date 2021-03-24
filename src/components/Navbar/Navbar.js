@@ -265,41 +265,42 @@ function Navbar() {
           </ul>
         </div>
 
-        <div className="login-navbar mr-auto ">
+        {/* <div className="login-navbar mr-auto "> */}
           {button && (!userLog) && (!repLog) && (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
               title="LOG IN"
+            
             >
               <Dropdown.Item>
                 <Link to="/UserLogIn"
                 style={{ textDecoration: "none" }}>
                   <div>
-                    <p className="navbar-text"> User </p>
+                   User
                   </div>
                 </Link>
               </Dropdown.Item>
-
+<Dropdown.Divider />
               <Dropdown.Item>
                 <Link to="/RepresentativeLogIn"
                  style={{ textDecoration: "none" }}>
                   <div>
-                    <p className="navbar-text"> Representative </p>
+                  Representative
                   </div>
                 </Link>
               </Dropdown.Item>
             </DropdownButton>
           )}
-        </div>
+        {/* </div> */}
 
-        <div className="login-navbar mr-auto ">
+        {/* <div className="login-navbar mr-auto "> */}
           {button && (userLog) && (
             <DropdownButton
               className="mr-auto"
               id="dropdown-basic-button"
               title="User"
-            >
+             >
             
 
              <Dropdown.Item className="fw-bold">
@@ -325,7 +326,7 @@ function Navbar() {
                 </Link>
              </Dropdown.Item>
 
-              <Dropdown.Divider />
+              {/* <Dropdown.Divider />
 
               <Dropdown.Item className="fw-bold">
               <Link to='/ActivityDetails' 
@@ -335,7 +336,7 @@ function Navbar() {
                 <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Activity
                 </div>
                 </Link>
-             </Dropdown.Item>
+             </Dropdown.Item> */}
 
               <Dropdown.Divider />
               
@@ -347,9 +348,9 @@ function Navbar() {
              </Dropdown.Item>
             </DropdownButton>
           )}
-        </div>
+        {/* </div> */}
 
-        <div className="login-navbar mr-auto ">
+        {/* <div className="login-navbar mr-auto "> */}
           {button && (repLog)&& (
             <DropdownButton
               className="mr-auto"
@@ -362,9 +363,6 @@ function Navbar() {
                 >
                 <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile</Link>
              </Dropdown.Item>
-
-
-
               <Dropdown.Divider />
 
               <Dropdown.Item className="fw-bold">
@@ -383,7 +381,7 @@ function Navbar() {
              </Dropdown.Item>
             </DropdownButton>
           )}
-        </div>
+        {/* </div> */}
       </nav>
     </>
   );

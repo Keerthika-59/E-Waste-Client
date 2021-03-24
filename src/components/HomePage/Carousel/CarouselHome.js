@@ -15,15 +15,14 @@ const CarouselHome = () => {
 
       <Carousel.Caption>
         <h3>Waste Management</h3>
-        <h5>
+        <p>
           ALWAYS WORKING FOR A
         SUSTAINABLE TOMORROW
-        </h5>
-        <br/>
+        </p>
         <ul>
-           We Value Safety,</ul>
-           <ul>We Value Our Environment,</ul>
-            <ul>We Value Our Customers</ul>
+           We Value Safety,
+We Value Our Environment,
+            We Value Our Customers</ul>
       </Carousel.Caption>
     </Carousel.Item>
 

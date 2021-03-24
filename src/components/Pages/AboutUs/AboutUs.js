@@ -8,9 +8,9 @@ export default function AboutUs() {
   }, [])
   return (
     <>
-    {/* <Cards/> */}
+    <Cards/>
 
-   
+{/*    
     <div className="text-center mt-5 ">
       <div class="col-lg-12 mx-auto">
         <div class="text-white p-2 shadow-sm rounded banner">
@@ -55,30 +55,12 @@ export default function AboutUs() {
 
             <div class="col-md-5">
               <div id="CarouselTest" class="carousel slide" data-ride="carousel">
-                {/* <ol class="carousel-indicators">
-                  <li data-target="#CarouselTest" data-slide-to="0" class="active"></li>
-                  <li data-target="#CarouselTest" data-slide-to="1"></li>
-                  <li data-target="#CarouselTest" data-slide-to="2"></li>
-
-                </ol> */}
+                
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                  <img class="d-block imageCar" src={`${process.env.PUBLIC_URL}/images/DisposeCarousel/goalsYelUp.jpg`}alt=""/>
+                  <img class="d-block imageCar"  style={{height:"300px"}}  src={`${process.env.PUBLIC_URL}/images/DisposeCarousel/goalsYelUp.jpg`}alt=""/>
                   </div>
-                  {/* <div class="carousel-item">
-                    <img class="d-block" src="https://picsum.photos/450/300?image=855" alt=""/>
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block" src="https://picsum.photos/450/300?image=355" alt=""/>
-                  </div> */}
-                  {/* <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-                  <a class="carousel-control-next" href="#CarouselTest" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a> */}
+                
                 </div>
               </div>
             </div>
@@ -100,30 +82,25 @@ export default function AboutUs() {
 
             <div class="col-md-5">
               <div id="CarouselTest" class="carousel slide" data-ride="carousel">
-                {/* <ol class="carousel-indicators">
-                  <li data-target="#CarouselTest" data-slide-to="0" class="active"></li>
-                  <li data-target="#CarouselTest" data-slide-to="1"></li>
-                  <li data-target="#CarouselTest" data-slide-to="2"></li>
-
-                </ol> */}
+               
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img class="d-block imageCar" src={`${process.env.PUBLIC_URL}/images/DisposeCarousel/achiv.png`} alt=""/>
                   </div>
-                  {/* <div class="carousel-item">
+                   <div class="carousel-item">
                     <img class="d-block" src="https://picsum.photos/450/300?image=855" alt=""/>
                   </div>
                   <div class="carousel-item">
                     <img class="d-block" src="https://picsum.photos/450/300?image=355" alt=""/>
-                  </div> */}
-                  {/* <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
+                  </div>
+                   <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
                   <a class="carousel-control-next" href="#CarouselTest" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
-        </a> */}
+        </a> 
                 </div>
               </div>
             </div>
@@ -196,30 +173,30 @@ export default function AboutUs() {
 
             <div class="col-md-5">
               <div id="CarouselTest" class="carousel slide" data-ride="carousel">
-                {/* <ol class="carousel-indicators">
+                <ol class="carousel-indicators">
                   <li data-target="#CarouselTest" data-slide-to="0" class="active"></li>
                   <li data-target="#CarouselTest" data-slide-to="1"></li>
                   <li data-target="#CarouselTest" data-slide-to="2"></li>
 
-                </ol> */}
+                </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img class="d-block imageCar"src={`${process.env.PUBLIC_URL}/images/DisposeCarousel/teamG.jpg`}alt=""/>
                   </div>
-                  {/* <div class="carousel-item">
+                  <div class="carousel-item">
                     <img class="d-block" src="https://picsum.photos/450/300?image=855" alt=""/>
                   </div>
                   <div class="carousel-item">
                     <img class="d-block" src="https://picsum.photos/450/300?image=355" alt=""/>
-                  </div> */}
-                  {/* <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
+                  </div>
+                   <a class="carousel-control-prev" href="#CarouselTest" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
                   <a class="carousel-control-next" href="#CarouselTest" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
-        </a> */}
+        </a> 
                 </div>
               </div>
             </div>
@@ -267,7 +244,7 @@ export default function AboutUs() {
  
       </div>
     </div>
-  </div> */}
+  </div>  */}
  
  
     </>
