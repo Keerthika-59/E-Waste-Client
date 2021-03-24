@@ -55,6 +55,7 @@ const Pending = () => {
                     <input type="text" class="form-control"/>
                     </div>
                 </div>
+                <br/>
                 <div class="form-row">
                     <div class="col">
                     <label for="id">Address</label>
