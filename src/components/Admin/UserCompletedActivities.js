@@ -108,7 +108,6 @@ const UserCompletedActivities = () => {
                         <tbody>
                             {UserCompActData.map(act => (
                                 <tr>
-                                   
                                     <td>{act._id}</td>
                                     <td>{act.bioWaste}</td>
                                     <td>{act.nonBioWaste}</td>

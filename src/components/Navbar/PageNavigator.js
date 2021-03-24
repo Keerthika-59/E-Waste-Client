@@ -28,6 +28,7 @@ import Home from '../Pages/Home';
 import PageNotFound from '../404/PageNotFound';
 
 import RepProfile from '../Dashboard/RepDash/Profile/repProfile'
+import RepImage from '../Admin/RepImage'
 
 import Goals from '../Pages/Goals/Goals'
 import AdminLogin from '../Login/Admin/AdminLogin';
@@ -64,8 +65,7 @@ function Navigator() {
                 <Route exact path='/Donating' component={Donating} />
                 <Route exact path="/admin" component={SideBar} />                
                 <Route exact path='/RepProfile' component={RepProfile} />
-                <Route exact path='/admin/login' component={AdminLogin} />
-                
+                <Route exact path='/admin/login' component={AdminLogin} />                
                 <Route component={PageNotFound} />
 
             </Switch>

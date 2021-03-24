@@ -117,7 +117,7 @@ function Navbar() {
                   >
 
                     <h5 style={{ color: 'white' }}>
-                      <BsIcons.BsFillPersonFill />  Pending Activites
+                      <BsIcons.BsFillPersonFill />  Pending Activity
                     </h5>
 
                   </li>
@@ -141,8 +141,8 @@ function Navbar() {
                 ) : (show === 1) ? (
                   <Pending/>
                 ) : (
-                  // <Completed/>
-                  <UserCompletedActivities/>
+                 // <Completed/>
+                   <UserCompletedActivities/>
                 )
               }
             </div>
