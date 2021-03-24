@@ -19,7 +19,6 @@ const TableRepresentatives = () => {
     const ITEMS_PER_PAGE = 9;
 
     const headers = [
-        { name: "No#", field: "id", sortable: false },
         { name: "Name", field: "name", sortable: true },
         { name: "Email", field: "email", sortable: true },
         { name: "Phone Number", field: "phonenumber", sortable: false },
@@ -102,7 +101,7 @@ const TableRepresentatives = () => {
                     </div>
 
                     <table className="table table-striped">
-                        <TableHeader
+                        <TableHeader responsive
                             headers={headers}
                             onSorting={(field, order) =>
                                 setSorting({ field, order })
@@ -111,9 +110,6 @@ const TableRepresentatives = () => {
                         <tbody>
                             {repsData.map(rep => (
                                 <tr>
-                                    <th scope="row" key={rep.id}>
-                                        {rep.id}
-                                    </th>
                                     <td>{rep.name}</td>
                                     <td>{rep.email}</td>
                                     <td>{rep.phoneNumber}</td>

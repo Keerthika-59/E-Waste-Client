@@ -17,7 +17,6 @@ const TableMessages = () => {
     const ITEMS_PER_PAGE = 9;
 
     const headers = [
-        { name: "No#", field: "id", sortable: false },
         { name: "Name", field: "name", sortable: true },
         { name: "Email", field: "email", sortable: true },
         { name: "Message", field: "message", sortable: true },
@@ -105,9 +104,6 @@ const TableMessages = () => {
                         <tbody>
                             {commentsData.map(comment => (
                                 <tr>
-                                    <th scope="row" key={comment.id}>
-                                        {comment.id}
-                                    </th>
                                     <td>{comment.name}</td>
                                     <td>{comment.email}</td>
                                     <td>{comment.message}</td>

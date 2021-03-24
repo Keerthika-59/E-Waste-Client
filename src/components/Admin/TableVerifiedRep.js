@@ -106,21 +106,24 @@ const TableVerifiedRep = () => {
             {
                 repsData.map(rep => (
                     <div className="col-10  my-3">
-                        <div className="bg-white shadow rounded overflow-hidden">
+                        <div className="bg-black shadow rounded overflow-hidden">
                             <div className="px-4 pt-0 pb-4 cover">
 
                                 <div className="media align-items-end profile-head">
                                     <div class="profile mr-5">
                                         <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
                                             alt="..."
-                                            width='230'
-                                            height='230'
+                                            width='300'
+                                            height='300'
                                             class="rounded mb-5 img-thumbnail" />
                                     </div>
                                     <div class="media-body mb-5 text-white">
                                         <h4 class="mt-0 mb-0"> {rep.name} </h4>
                                         <p class="small mb-5"> <i class="fas fa-map-marker-alt mr-3"></i> {rep.city} </p>
                                     </div>
+                                    {rep.isVerified &&<button type="button" class="btn btn-success">verified</button>}<hr/>
+                                    {/* <p>Representative is Verified</p> */}
+                                    {!rep.isVerified && <button type="button" class="btn btn-danger">Not Verified</button>}
 
                                     <hr />
                                 </div>
@@ -128,13 +131,13 @@ const TableVerifiedRep = () => {
                         </div>
 
                         <div className='mx-auto' style={{ background: 'white' }}  >
-                            <Button className="py-2 mx-3 my-2 " variant="success"
+                          {!rep.isVerified &&  <Button className="py-2 mx-3 my-2 " variant="success"
 
                                 onClick={() => {
 
                                     Swal.fire({
                                         title: 'Are you sure to verify the representative?',
-                                        icon: 'success',
+                                        // icon: 'success',
                                         showCancelButton: true,
                                         confirmButtonText: 'Verify',
                                         cancelButtonText: 'Cancel'
@@ -148,13 +151,22 @@ const TableVerifiedRep = () => {
                                     })
                                 }}
                                 
-                            > Verify  </Button>
-                            <Button className="py-2 px-2 mx-2 my-3 mx-auto" variant="danger" > Reject  </Button>
+                            > Verify  </Button>}
+                            {!rep.isVerified &&<Button className="py-2 px-2 mx-2 my-3 mx-auto" variant="danger"
+                            
+                            onClick={() => {
+                                Swal.fire(
+                                    'Representative Rejected',
+                                    'Representative has not been verified.',
+                                )
+                            }}                            
+                            
+                            > Reject  </Button>}
                         </div>
                     </div>
 
                 ))
-            })
+            }
 
             </div>
         {/* {loader} */}

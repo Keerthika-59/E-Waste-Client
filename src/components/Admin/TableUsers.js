@@ -18,7 +18,6 @@ const TableUsers = () => {
     const ITEMS_PER_PAGE = 9;
 
     const headers = [
-        { name: "No#", field: "id", sortable: false },
         { name: "Name", field: "name", sortable: true },
         { name: "Email", field: "email", sortable: true },
         { name: "Phone Number", field: "body", sortable: false },
@@ -108,9 +107,6 @@ const TableUsers = () => {
                         <tbody>
                             {usersData.map(user => (
                                 <tr>
-                                    <th scope="row" key={user.id}>
-                                        {user.id}
-                                    </th>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user.phoneNumber}</td>
