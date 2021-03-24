@@ -76,6 +76,7 @@ import AuthApi from '../../../authAPI'
 import Navbar1 from './../../Navbar/Navbar'
 import Footer from '../../Footer/Footer';
 import Completed from './pages/completed';
+import UserCompletedActivities from '../../Admin/UserCompletedActivities'
 
 function Navbar() {
 
@@ -140,7 +141,8 @@ function Navbar() {
                 ) : (show === 1) ? (
                   <Pending/>
                 ) : (
-                  <Completed/>
+                  // <Completed/>
+                  <UserCompletedActivities/>
                 )
               }
             </div>
