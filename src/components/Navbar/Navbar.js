@@ -280,7 +280,7 @@ function Navbar() {
                   </div>
                 </Link>
               </Dropdown.Item>
-              <Dropdown.Divider />
+<Dropdown.Divider />
               <Dropdown.Item>
                 <Link to="/RepresentativeLogIn"
                  style={{ textDecoration: "none" }}>

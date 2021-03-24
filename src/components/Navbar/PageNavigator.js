@@ -38,7 +38,7 @@ function Navigator() {
             <Switch>
                 <Route exact path='/' component={Home} />
 
-                <Route exact path='/Gallery' component={Gallery} />
+                <Route exact path='/Gallery'className component={Gallery} />
                 <Route exact path='/AboutUs' component={AboutUs} />
                 <Route exact path='/ContactUs' component={InputForm} />
                 <Route exact path='/UserSignUp' component={UserRegister} />

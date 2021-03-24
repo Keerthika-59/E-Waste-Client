@@ -107,7 +107,7 @@ return(
                 <div className="our-services database">
                     <div className="icon"> <img src="https://i.imgur.com/VzjZw9M.png"/> </div>
                     <h4>Donate</h4>
-                    <p  className="text-justify  text-space">Unused good condition items such as old mobiles, electric goods, Clothes, Food can be donated to needy.
+                    <p  className="text-justify  text-space">Unused good condition items such as old mobiles, electric goods, Clothes, Food can be donated.
                    </p>
                     <Button
           className = "learn-btn"
