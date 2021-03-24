@@ -12,17 +12,21 @@ import TableRepresentatives from './TableRepresentatives';
 import TableVerifiedRep from './TableVerifiedRep';
 import TableMessages from './TableMessages';
 import TableUsers from './TableUsers';
+import AuthApi from '../../authAPI';
+import Cookies from 'js-cookie';
 
 const SideBar = () => {
+
+    const Auth = useContext(AuthApi);
 
     const [sidebar, setSidebar] = useState(true);
 
     const [show, setShow] = useState(0);
 
     const showSidebar = () => setSidebar(!sidebar);
-
+    
     return (
-        <>
+       ( Cookies.get('admin') ) ? <>
             <IconContext.Provider value={{ color: '#fff' }}>
                 <div className='sidenav'>
                     <Link to='#' className='menu-bars'>
@@ -85,7 +89,7 @@ const SideBar = () => {
                     </div>
                 </div>
             </IconContext.Provider>
-        </>
+        </>  :  (<Redirect to = '/admin/login' />)
     )
 }
 
