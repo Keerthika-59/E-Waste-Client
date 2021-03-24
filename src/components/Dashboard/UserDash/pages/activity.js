@@ -63,7 +63,7 @@ const Activity = (props) => {
 	    <div class="row">
 	    <div class="holder">
             
-        <form onSubmit={handleContactSubmit} >
+        <form onSubmit={handleContactSubmit}  className="form-content">
 			<table width="100%">
                 <thead>
                 

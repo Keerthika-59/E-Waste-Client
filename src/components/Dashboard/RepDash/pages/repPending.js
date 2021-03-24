@@ -5,9 +5,9 @@ const Pending = () => {
   return(
     <>
     
-    <div className="cards justify-content-center" style={{width:'650px'}}>
+    <div className="cards px-3 py-2 my-4 mx-4 justify-content-center" style={{width:'700px'}}>
         <div className="card-header bg-white">
-        <h3 className="pendingHeading">Pending activities</h3>
+        <h3 className="pendingHeading">Pending activity</h3>
             <div className="row justify-content-between">
             
             <br/>
@@ -47,18 +47,12 @@ const Pending = () => {
                 <br/>
                 <div class="form-row">
                     <div class="col">
-                    <label for="bio">User Name</label>
+                    <label for="bio">Representative Name</label>
                     <input type="text" class="form-control" />
                     </div>
                     <div class="col">
-                    <label for="id">User Number</label>
+                    <label for="id">Representative Number</label>
                     <input type="text" class="form-control"/>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col">
-                    <label for="bio">User Address</label>
-                    <input type="text" class="form-control" />
                     </div>
                 </div>
                 </form>
