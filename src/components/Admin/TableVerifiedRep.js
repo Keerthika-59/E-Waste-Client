@@ -34,7 +34,7 @@ const TableVerifiedRep = () => {
 
     useEffect(() => {
         const getData = () => {
-            
+
             showLoader();
 
             fetch(`${APIHelper.API_URL}`)
@@ -81,35 +81,35 @@ const TableVerifiedRep = () => {
     }, [reps, currentPage, search, sorting]);
 
     return (<>
-            <div className="row w-100">
-                <div className="col mb-3 col-12 text-center">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <Pagination
-                                total={totalItems}
-                                itemsPerPage={ITEMS_PER_PAGE}
-                                currentPage={currentPage}
-                                onPageChange={page => setCurrentPage(page)}
-                            />
-                        </div>
-                        <div className="col-md-6 d-flex flex-row-reverse">
-                            <Search
-                                onSearch={value => {
-                                    setSearch(value);
-                                    setCurrentPage(1);
-                                }}
-                            />
-                        </div>
+        <div className="row w-100">
+            <div className="col mb-3 col-12 text-center">
+                <div className="row">
+                    <div className="col-md-6">
+                        <Pagination
+                            total={totalItems}
+                            itemsPerPage={ITEMS_PER_PAGE}
+                            currentPage={currentPage}
+                            onPageChange={page => setCurrentPage(page)}
+                        />
                     </div>
+                    <div className="col-md-6 d-flex flex-row-reverse">
+                        <Search
+                            onSearch={value => {
+                                setSearch(value);
+                                setCurrentPage(1);
+                            }}
+                        />
+                    </div>
+                </div>
             </div>
-            
+
             {
                 repsData.map(rep => (
-                        <div className="col-10  my-3">
-                            <div className="bg-white shadow rounded overflow-hidden">
-                                <div className="px-4 pt-0 pb-4 cover">
+                    <div className="col-10  my-3">
+                        <div className="bg-white shadow rounded overflow-hidden">
+                            <div className="px-4 pt-0 pb-4 cover">
 
-                                    <div className="media align-items-end profile-head">
+                                <div className="media align-items-end profile-head">
                                     <div class="profile mr-5">
                                         <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
                                             alt="..."
@@ -117,17 +117,17 @@ const TableVerifiedRep = () => {
                                             height='230'
                                             class="rounded mb-5 img-thumbnail" />
                                     </div>
-                                        <div class="media-body mb-5 text-white">
-                                            <h4 class="mt-0 mb-0"> {rep.name} </h4>
-                                            <p class="small mb-5"> <i class="fas fa-map-marker-alt mr-3"></i> {rep.city} </p>
-                                        </div>
-                                        
-                                            <hr />
+                                    <div class="media-body mb-5 text-white">
+                                        <h4 class="mt-0 mb-0"> {rep.name} </h4>
+                                        <p class="small mb-5"> <i class="fas fa-map-marker-alt mr-3"></i> {rep.city} </p>
                                     </div>
+
+                                    <hr />
                                 </div>
                             </div>
-                                   
-                        <div className = 'mx-auto' style = {{background : 'white'}}  >
+                        </div>
+
+                        <div className='mx-auto' style={{ background: 'white' }}  >
                             <Button className="py-2 mx-3 my-2 " variant="success"
 
                                 onClick={() => {
@@ -147,18 +147,18 @@ const TableVerifiedRep = () => {
                                         }
                                     })
                                 }}
-
+                                
                             > Verify  </Button>
                             <Button className="py-2 px-2 mx-2 my-3 mx-auto" variant="danger" > Reject  </Button>
-                        </div>    
+                        </div>
                     </div>
 
                 ))
             })
 
-            </div>          
-            {/* {loader} */}
-        </>);
+            </div>
+        {/* {loader} */}
+    </>);
 };
 
 export default TableVerifiedRep;
