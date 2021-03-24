@@ -102,7 +102,8 @@ const TableRepresentatives = () => {
                             }}
                         />
                     </div>
-
+                    <h4>Representatives</h4>                         
+                    
                     <table className="table table-striped">
                         <TableHeader responsive
                             headers={headers}

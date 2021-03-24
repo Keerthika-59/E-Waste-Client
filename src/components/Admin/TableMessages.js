@@ -96,6 +96,7 @@ const TableMessages = () => {
                             }}
                         />
                     </div>
+                    <h4>Messages</h4>                         
 
                     <table className="table table-striped">
                         <TableHeader

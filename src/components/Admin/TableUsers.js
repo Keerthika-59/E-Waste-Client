@@ -100,7 +100,7 @@ const TableUsers = () => {
                             }}
                         />
                     </div>
-
+                    <h4>Users</h4>                            
                     <table className="table table-striped">
                         <TableHeader
                             headers={headers}
