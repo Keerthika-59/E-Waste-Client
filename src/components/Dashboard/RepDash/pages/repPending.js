@@ -47,12 +47,18 @@ const Pending = () => {
                 <br/>
                 <div class="form-row">
                     <div class="col">
-                    <label for="bio">Representative Name</label>
+                    <label for="bio">User Name</label>
                     <input type="text" class="form-control" />
                     </div>
                     <div class="col">
-                    <label for="id">Representative Number</label>
+                    <label for="id">User Number</label>
                     <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                    <label for="id">Address</label>
+                    <input type="textarea" class="form-control"/>
                     </div>
                 </div>
                 </form>
