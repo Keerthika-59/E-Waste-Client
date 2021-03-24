@@ -5,7 +5,9 @@ import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
 import Swal from 'sweetalert2'
-import {Button} from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+import axios from 'axios'
+
 
 const TableUsers = () => {
     const [users, setUsers] = useState([]);
@@ -26,11 +28,13 @@ const TableUsers = () => {
         { name: "Action", field: "body", sortable: false }
     ];
 
+    const url = 'http://ewaste-dec20-dev-api.azurewebsites.net/'
+
     useEffect(() => {
         const getData = () => {
             showLoader();
 
-            fetch(`${APIHelper.API_URL}`)
+            fetch(`${url}/admin/users`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -39,7 +43,7 @@ const TableUsers = () => {
         };
 
         getData();
-    }, []);
+    }, [users]);
 
     const usersData = useMemo(() => {
         let computedComments = users;
@@ -49,7 +53,7 @@ const TableUsers = () => {
                 user =>
                     user.name.toLowerCase().includes(search.toLowerCase()) ||
                     user.email.toLowerCase().includes(search.toLowerCase()) ||
-                    user.city.toLowerCase().includes(search.toLowerCase())||
+                    user.city.toLowerCase().includes(search.toLowerCase()) ||
                     user.address.toLowerCase().includes(search.toLowerCase())
             );
         }
@@ -87,14 +91,14 @@ const TableUsers = () => {
                                 onPageChange={page => setCurrentPage(page)}
                             />
                         </div>
-                        <div className="col-md-6 d-flex flex-row-reverse">
-                            <Search
-                                onSearch={value => {
-                                    setSearch(value);
-                                    setCurrentPage(1);
-                                }}
-                            />
-                        </div>
+                    </div>
+                    <div className="col-md-6 d-flex flex-row-reverse" style={{ marginLeft: "400px" }}>
+                        <Search
+                            onSearch={value => {
+                                setSearch(value);
+                                setCurrentPage(1);
+                            }}
+                        />
                     </div>
 
                     <table className="table table-striped">
@@ -128,6 +132,7 @@ const TableUsers = () => {
                                                     'The User details has been deleted.',
                                                     // 'success'
                                                 )
+                                                axios.delete(`${url}/admin/user/${user._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
@@ -145,7 +150,6 @@ const TableUsers = () => {
                     </table>
                 </div>
             </div>
-            {loader}
         </>
     );
 };

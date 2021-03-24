@@ -5,7 +5,8 @@ import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
 import Swal from 'sweetalert2'
-import {Button} from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+import axios from 'axios'
 
 
 const TableRepresentatives = () => {
@@ -28,11 +29,13 @@ const TableRepresentatives = () => {
 
     ];
 
+    const url = 'http://ewaste-dec20-dev-api.azurewebsites.net/'
+
     useEffect(() => {
         const getData = () => {
             showLoader();
 
-            fetch(`${APIHelper.API_URL}`)
+            fetch(`${url}/admin/representatives`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -41,7 +44,7 @@ const TableRepresentatives = () => {
         };
 
         getData();
-    }, []);
+    }, [reps]);
 
     const repsData = useMemo(() => {
         let computedComments = reps;
@@ -90,14 +93,14 @@ const TableRepresentatives = () => {
                                 onPageChange={page => setCurrentPage(page)}
                             />
                         </div>
-                        <div className="col-md-6 d-flex flex-row-reverse">
-                            <Search
-                                onSearch={value => {
-                                    setSearch(value);
-                                    setCurrentPage(1);
-                                }}
-                            />
-                        </div>
+                    </div>
+                    <div className="col-md-6 d-flex flex-row-reverse" style={{ marginLeft: "400px" }}>
+                        <Search
+                            onSearch={value => {
+                                setSearch(value);
+                                setCurrentPage(1);
+                            }}
+                        />
                     </div>
 
                     <table className="table table-striped">
@@ -131,6 +134,7 @@ const TableRepresentatives = () => {
                                                     'The Representative details has been deleted.',
                                                     // 'success'
                                                 )
+                                                axios.delete(`${url}/admin/rep/${rep._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
@@ -148,7 +152,6 @@ const TableRepresentatives = () => {
                     </table>
                 </div>
             </div>
-            {loader}
         </>
     );
 };
