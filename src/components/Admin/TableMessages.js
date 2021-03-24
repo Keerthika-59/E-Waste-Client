@@ -4,7 +4,8 @@ import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
 import Swal from 'sweetalert2'
-import {Button} from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+import axios from 'axios'
 
 const TableMessages = () => {
     const [comments, setComments] = useState([]);
@@ -17,7 +18,6 @@ const TableMessages = () => {
     const ITEMS_PER_PAGE = 9;
 
     const headers = [
-        { name: "No#", field: "id", sortable: false },
         { name: "Name", field: "name", sortable: true },
         { name: "Email", field: "email", sortable: true },
         { name: "Message", field: "message", sortable: true },
@@ -25,11 +25,13 @@ const TableMessages = () => {
 
     ];
 
+    const url = 'http://ewaste-dec20-dev-api.azurewebsites.net/'
+
     useEffect(() => {
         const getData = () => {
             showLoader();
 
-            fetch("https://ewaste-dec20-dev-api.azurewebsites.net/contacts")
+            fetch(`${url}/admin/contacts`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -38,7 +40,7 @@ const TableMessages = () => {
         };
 
         getData();
-    }, []);
+    }, [comments]);
 
     const commentsData = useMemo(() => {
         let computedComments = comments;
@@ -85,15 +87,16 @@ const TableMessages = () => {
                                 onPageChange={page => setCurrentPage(page)}
                             />
                         </div>
-                        <div className="col-md-6 d-flex flex-row-reverse">
-                            <Search
-                                onSearch={value => {
-                                    setSearch(value);
-                                    setCurrentPage(1);
-                                }}
-                            />
-                        </div>
                     </div>
+                    <div className="col-md-6 d-flex flex-row-reverse" style={{ marginLeft: "400px" }}>
+                        <Search
+                            onSearch={value => {
+                                setSearch(value);
+                                setCurrentPage(1);
+                            }}
+                        />
+                    </div>
+                    <h4>Messages</h4>                         
 
                     <table className="table table-striped">
                         <TableHeader
@@ -105,9 +108,6 @@ const TableMessages = () => {
                         <tbody>
                             {commentsData.map(comment => (
                                 <tr>
-                                    <th scope="row" key={comment.id}>
-                                        {comment.id}
-                                    </th>
                                     <td>{comment.name}</td>
                                     <td>{comment.email}</td>
                                     <td>{comment.message}</td>
@@ -128,6 +128,7 @@ const TableMessages = () => {
                                                     'The Message details has been deleted.',
                                                     // 'success'
                                                 )
+                                                axios.delete(`${url}/admin/contacts/${comment._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
@@ -146,7 +147,6 @@ const TableMessages = () => {
                     </table>
                 </div>
             </div>
-            {loader}
         </>
     );
 };

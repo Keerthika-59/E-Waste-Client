@@ -290,7 +290,6 @@ function Navbar() {
               className="mr-auto"
               id="dropdown-basic-button"
               title="LOG IN"
-            
             >
               <Dropdown.Item>
                 <Link to="/UserLogIn"
