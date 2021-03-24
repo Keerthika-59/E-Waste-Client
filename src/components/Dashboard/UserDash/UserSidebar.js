@@ -117,7 +117,7 @@ function Navbar() {
                   >
 
                     <h5 style={{ color: 'white' }}>
-                      <BsIcons.BsFillPersonFill />  Pending Activites
+                      <BsIcons.BsFillPersonFill />  Pending Activity
                     </h5>
 
                   </li>
