@@ -1,10 +1,12 @@
 import React, { useState,useEffect } from 'react'
 import {Input} from 'reactstrap';
+import {Button} from 'react-bootstrap';
+
 import { storage } from '../../firebase/firebase';
 
 import APIHelper from '../API/apihelper2';
 import '../Registration/style.css';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { BrowserRouter, Link, Redirect } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage, yupToFormErrors } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,18 +28,27 @@ const RepresenativeRegister = () => {
 
   const [fileInput, setFileInput] = useState(null)
   const [url, setURL] = useState("");
+  const [upload, setUpload] = useState(false);
 
   const onFileChange = event => {
-
-    // let reader = new FileReader();
-
-    // reader.onload = function () {
-    //   console.log(reader.result);
-    //   // setFileInput(reader.result)
-    // }
-
-    // reader.readAsDataURL(event.target.files[0]);
+    
     setFileInput(event.target.files[0]);
+  }
+
+  const submitFile = async () => {
+
+    if(fileInput) {
+      const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
+
+      await uploadTask.on("state_changed", console.log, console.error, async () => {
+
+        const url = await storage.ref("images").child(fileInput.name).getDownloadURL();
+        setURL(url);
+        setUpload(true);
+      });
+
+    }
+    
   }
 
   return (
@@ -57,18 +68,8 @@ const RepresenativeRegister = () => {
 
       onSubmit={async (values, {setSubmitting, resetForm }) => {
 
-        const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
+        
 
-        await uploadTask.on("state_changed", console.log, console.error, async () => {
-
-          const url = await storage .ref("images").child(fileInput.name).getDownloadURL();
-          console.log('First Line');
-          setURL(url);
-
-          console.log('Url : ' + url);
-        });
-
-        console.log('Second Line');
 
         let data = {
             name: values.name,
@@ -80,8 +81,7 @@ const RepresenativeRegister = () => {
             address: values.address,
             password: values.password,
           };
-        console.log('Third Line');
-        console.log(data);
+        // console.log(data);
 
         try 
         {
@@ -90,12 +90,21 @@ const RepresenativeRegister = () => {
           resetForm({});
           setTimeout(() => {
             //   alert("Form Submitted");
+            document.getElementById('file').value = '';
             notify();
             setSubmitting(false);
+            setUpload(false);
+
           }, 1000);
         } catch (err) {
           // alert(err.response.data.errorMessage);
+          setURL('');
+          setFileInput(null);
+          setUpload(false);
+          document.getElementById('file').value = '';
           notify1();
+
+          <Redirect to= '/RepresentativeLogIn' />
         }
       }}
 
@@ -193,15 +202,23 @@ const RepresenativeRegister = () => {
                     </div>
                     <br />
 
-                    <div>  <h6 className="mb-0 text-sm">Id Proof</h6>
-                      <input
-                      name = "file"
-                      type = "file"
-                      onChange = {onFileChange}
+                    <div className = "row"> 
+                    
+                     <h6 className="mb-0 py-3 px-3 text-sm">Id Proof</h6>
+
+                      <div className = "col-6">
+                        <input
+                        required = {true}
+                          name="file"
+                          id="file"
+                          type="file"
+                          onChange={onFileChange}
                         />
+                      </div> 
 
-                      <img src = {url} />
-
+                      <div className = "col-4">
+                        <Button onClick={submitFile} variant= { upload ? "success" : "info" } > {!upload ?   'Upload' : 'Uploaded' }  </Button>
+                      </div>                     
                     </div>
                     <br />
 
@@ -283,7 +300,7 @@ const RepresenativeRegister = () => {
                         ) : null}
                       </div>
                       <br />
-                      <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
+                      <div className="row mb-3 px-3"> <button type="submit" disabled = {!upload} className="btn btn-blue text-center">Register</button> </div>
                       <ToastContainer limit={1} />
                       <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/RepresentativeLogIn"> Login </Link>   </small> </div>
 
