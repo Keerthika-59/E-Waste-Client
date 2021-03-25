@@ -1,0 +1,26 @@
+.verifyrep{
+    width: 50rem;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    align-items: center;
+
+}
+
+.status1{
+    width: 180px;
+}
+
+.verify{
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 650px) {
+    .verifyrep{
+        width: 100%;
+        margin-left: 10%;
+        margin-bottom: 10%;
+    }
+
+}
