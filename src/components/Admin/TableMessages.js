@@ -25,13 +25,13 @@ const TableMessages = () => {
 
     ];
 
-    const url = 'http://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
 
     useEffect(() => {
         const getData = () => {
             showLoader();
 
-            fetch(`${url}admin/contacts`)
+            fetch('https://ewaste-dec20-dev-api.azurewebsites.net/contacts')
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
