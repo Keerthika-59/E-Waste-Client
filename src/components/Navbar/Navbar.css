@@ -107,9 +107,16 @@
 }
 
 @media screen and (max-width: 960px) {
-    .NavbarItems {
-        position: relative;
-    }
+    /* .navbar { 
+        position: sticky;
+        width: 100%;
+        border-bottom: 10%;
+        clear: both;
+        position: fixed;
+        width: 100%;
+        top: 5px;
+    } */
+    
     .nav-menu {
         display: flex;
         flex-direction: column;

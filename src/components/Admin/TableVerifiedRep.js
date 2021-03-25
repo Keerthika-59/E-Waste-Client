@@ -95,14 +95,12 @@ const TableVerifiedRep = () => {
                         />
                     </div>
                 </div>
-                <div className="col-md-6 d-flex flex-row-reverse" style={{ marginLeft: "400px" }}>
                     <Search
                         onSearch={value => {
                             setSearch(value);
                             setCurrentPage(1);
                         }}
                     />
-                </div>
             </div>
 
             {
