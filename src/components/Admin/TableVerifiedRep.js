@@ -22,7 +22,7 @@ const TableVerifiedRep = () => {
 
     const ITEMS_PER_PAGE = 7;
 
-    const url = 'http://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
 
     const headers = [
         { name: "No#", field: "id", sortable: false },
@@ -35,12 +35,14 @@ const TableVerifiedRep = () => {
 
     ];
 
+    const urls='http://localhost:5000/admin/representatives'
+
     useEffect(() => {
         const getData = () => {
 
             showLoader();
 
-            fetch(`${APIHelper.API_URL}`)
+            fetch(`${urls}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
