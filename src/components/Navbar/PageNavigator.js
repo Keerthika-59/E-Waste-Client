@@ -66,9 +66,7 @@ function Navigator() {
                 <Route exact path='/Donating' component={Donating} />
                 <Route exact path="/admin" component={SideBar} />                
                 <Route exact path='/RepProfile' component={RepProfile} />
-                <Route exact path='/admin/login' component={AdminLogin} />   
-                <Route exact path='/activity' component={Activity} />  
-                <Route exact path='/completed' component={RepCompletedActivities} />              
+                <Route exact path='/admin/login' component={AdminLogin} />             
                 <Route component={PageNotFound} />
 
             </Switch>

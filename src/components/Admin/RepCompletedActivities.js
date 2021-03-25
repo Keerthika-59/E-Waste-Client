@@ -4,7 +4,11 @@ import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
 import Swal from 'sweetalert2'
+<<<<<<< HEAD
 import {Button,Table} from 'react-bootstrap'
+=======
+import { Button, Table } from 'react-bootstrap'
+>>>>>>> a18d06d5cdd5ee2a729fb396b781893ca33afc44
 
 const RepCompletedActivities = () => {
     const [compActivity, setCompActivity] = useState([]);
@@ -29,7 +33,7 @@ const RepCompletedActivities = () => {
         const getData = () => {
             showLoader();
 
-            fetch("https://ewaste-dec20-dev-api.azurewebsites.net/contacts")
+            fetch("https://ewaste-dec20-dev-api.azurewebsites.net/reps")
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -38,7 +42,7 @@ const RepCompletedActivities = () => {
         };
 
         getData();
-    }, []);
+    }, [compActivity]);
 
     const UserCompActData = useMemo(() => {
         let compAct = compActivity;
@@ -83,14 +87,22 @@ const RepCompletedActivities = () => {
                                 currentPage={currentPage}
                                 onPageChange={page => setCurrentPage(page)}
                             />
+<<<<<<< HEAD
                         </div>
                     </div>
                     {/* <div className="col-md-6 d-flex flex-row-reverse" > */}
                         <Search
+=======
+                        </div> */}
+
+                        {/* <Search
+
+>>>>>>> a18d06d5cdd5ee2a729fb396b781893ca33afc44
                             onSearch={value => {
                                 setSearch(value);
                                 setCurrentPage(1);
                             }}
+<<<<<<< HEAD
                         />
                     {/* </div> */}
                     <h4>Users</h4>
@@ -118,6 +130,43 @@ const RepCompletedActivities = () => {
                         </tbody>
                     </Table>
                 </div>
+=======
+                        /> */}
+                    </div>
+                    <Table responsive >
+                        <thead>
+                            <tr>
+                                <th>Activity Id</th>
+                                <th>Bio</th>
+                                <th>Non-bio</th>
+                                <th>Donation</th>
+                                <th>UserId</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        {UserCompActData.map(act => (
+                            <tr>
+
+                                <td>{act._id}</td>
+                                <td>{act.bioWaste}</td>
+                                <td>{act.nonBioWaste}</td>
+                                <td>{act.donation}</td>
+                                <td>{act.userId}</td>
+
+                            </tr>
+                        ))}
+                    </tbody>
+                    </Table>
+                </div>
+                <div className="col-md-6">
+                    <Pagination
+                        total={totalItems}
+                        itemsPerPage={ITEMS_PER_PAGE}
+                        currentPage={currentPage}
+                        onPageChange={page => setCurrentPage(page)}
+                    />
+                </div>
+>>>>>>> a18d06d5cdd5ee2a729fb396b781893ca33afc44
             </div>
         </>
     );

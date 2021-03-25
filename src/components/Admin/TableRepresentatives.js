@@ -5,7 +5,7 @@ import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
 import Swal from 'sweetalert2'
-import { Button } from 'react-bootstrap'
+import { Button ,Table} from 'react-bootstrap'
 import axios from 'axios'
 
 
@@ -35,7 +35,7 @@ const TableRepresentatives = () => {
         const getData = () => {
             showLoader();
 
-            fetch(`${url}/admin/representatives`)
+            fetch(`${url}admin/representatives`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -94,23 +94,27 @@ const TableRepresentatives = () => {
                             />
                         </div>
                     </div>
-                    <div className="col-md-6 d-flex flex-row-reverse" style={{ marginLeft: "400px" }}>
-                        <Search
+                    {/* <div className="col-md-6 d-flex flex-row-reverse" > */}
+                        {/* <Search
                             onSearch={value => {
                                 setSearch(value);
                                 setCurrentPage(1);
                             }}
-                        />
-                    </div>
-                    <h4>Representatives</h4>                         
-                    
-                    <table className="table table-striped">
-                        <TableHeader responsive
-                            headers={headers}
-                            onSorting={(field, order) =>
-                                setSorting({ field, order })
-                            }
-                        />
+                        /> */}
+                    {/* </div> */}
+                    <h4>Representative</h4>
+                    <Table responsive>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>E-mail</th>
+                                <th>Phone Number</th>
+                                <th>City</th>
+                                <th>Address</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
                         <tbody>
                             {repsData.map(rep => (
                                 <tr>
@@ -119,11 +123,11 @@ const TableRepresentatives = () => {
                                     <td>{rep.phoneNumber}</td>
                                     <td>{rep.city}</td>
                                     <td>{rep.address}</td>
-                                    <td>  <Button variant="danger" onClick={() => {
+                                    <td>   <Button variant="danger" onClick={() => {
 
                                         Swal.fire({
                                             title: 'Are you sure?',
-                                            text: 'You will not be able to recover this Representative Details!',
+                                            text: 'You will not be able to recover this User Details!',
                                             icon: 'warning',
                                             showCancelButton: true,
                                             confirmButtonText: 'Yes, delete it!',
@@ -132,25 +136,25 @@ const TableRepresentatives = () => {
                                             if (result.value) {
                                                 Swal.fire(
                                                     'Deleted!',
-                                                    'The Representative details has been deleted.',
+                                                    'The User details has been deleted.',
                                                     // 'success'
                                                 )
                                                 axios.delete(`${url}/admin/rep/${rep._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
-                                                    'The Representative details is not deleted :)',
+                                                    'The User details is not deleted :)',
                                                     // 'error'
                                                 )
                                             }
                                         })
 
 
-                                    }}>DELETE</Button></td>
+                                    }}>DELETE</Button> </td>
                                 </tr>
                             ))}
                         </tbody>
-                    </table>
+                    </Table>
                 </div>
             </div>
         </>
