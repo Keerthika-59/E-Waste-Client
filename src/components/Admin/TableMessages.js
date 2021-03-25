@@ -31,7 +31,7 @@ const TableMessages = () => {
         const getData = () => {
             showLoader();
 
-            fetch(`${url}admin/contacts`)
+            fetch('http://ewaste-dec20-dev-api.azurewebsites.net/contacts')
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
