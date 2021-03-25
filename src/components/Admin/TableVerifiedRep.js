@@ -22,7 +22,7 @@ const TableVerifiedRep = () => {
 
     const ITEMS_PER_PAGE = 7;
 
-    const url = 'http://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
 
     const headers = [
         { name: "No#", field: "id", sortable: false },

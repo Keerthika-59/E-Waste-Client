@@ -28,7 +28,7 @@ const TableUsers = () => {
         { name: "Action", field: "body", sortable: false }
     ];
 
-    const url = 'http://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
 
     useEffect(() => {
         const getData = () => {
