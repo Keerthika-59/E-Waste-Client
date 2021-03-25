@@ -36,7 +36,7 @@ const SideBar = () => {
                 <div className="row">
                     <div className="col-md-4 sn">
 
-                        <nav className={sidebar ? 'sidenav-menu active' : 'sidenav-menu'}>
+                        <nav className={sidebar ? 'sidenav-menuad active' : 'sidenav-menuad'}>
                             <ul className='sidenav-menu-items'>
 
                                <li className = " mx-3 py-2 px-2" style= {{listStyle : 'none'}}

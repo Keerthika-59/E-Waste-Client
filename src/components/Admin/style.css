@@ -15,13 +15,13 @@
     
   }
 
-.sidenav-menu {
+.sidenav-menuad {
   background-color: #004430;
   width: 270px;
   height: 100vh;
   display: flex;
   justify-content: center;
-  position: relative;
+  position: fixed;
   top: 100;
   left: -100%;
   transition: 850ms;
@@ -29,7 +29,7 @@
 
 }
 
-.sidenav-menu.active {
+.sidenav-menuad.active {
   left: 0;
   transition: 350ms;
 }
@@ -79,12 +79,12 @@ span {
 
 @media screen and (max-width: 767px) 
 {
-    .sidenav-menu {
+    .sidenav-menuad {
         display: flex;
         flex-direction: column;
         width: 100%;
         height: 40vh;
-        position: relative;
+        position: sticky;
         top: 0px;
         left: -100%;
         opacity: 1;
