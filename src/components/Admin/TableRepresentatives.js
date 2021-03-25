@@ -35,7 +35,7 @@ const TableRepresentatives = () => {
         const getData = () => {
             showLoader();
 
-            fetch(`${url}admin/representatives`)
+            fetch(`${APIHelper.API_URL}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
