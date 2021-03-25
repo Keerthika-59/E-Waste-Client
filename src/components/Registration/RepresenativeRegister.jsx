@@ -1,12 +1,18 @@
 import React, { useState,useEffect } from 'react'
-import { Alert, Modal, Button } from 'react-bootstrap';
+import {Input} from 'reactstrap';
+import {Button} from 'react-bootstrap';
+
+import { storage } from '../../firebase/firebase';
+
 import APIHelper from '../API/apihelper2';
 import '../Registration/style.css';
-import { BrowserRouter, Link } from 'react-router-dom';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { BrowserRouter, Link, Redirect } from 'react-router-dom';
+import { Formik, Field, Form, ErrorMessage, yupToFormErrors } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
+import axios from 'axios';
+
 // import toast, { Toaster } from 'react-hot-toast';
 
 const notify = () => toast.success('Representative registration successful!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
@@ -20,6 +26,30 @@ const RepresenativeRegister = () => {
     window.scrollTo(0, 0)
   }, []);
 
+  const [fileInput, setFileInput] = useState(null)
+  const [url, setURL] = useState("");
+  const [upload, setUpload] = useState(false);
+
+  const onFileChange = event => {
+
+    setFileInput(event.target.files[0]);
+  }
+
+  const submitFile = async () => {
+
+    if(fileInput) {
+      const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
+
+      await uploadTask.on("state_changed", console.log, console.error, async () => {
+
+        const url = await storage.ref("images").child(fileInput.name).getDownloadURL();
+        setURL(url);
+        setUpload(true);
+      });
+
+    }
+    
+  }
 
   return (
 
@@ -29,36 +59,50 @@ const RepresenativeRegister = () => {
         email: '',
         mobileNumber: '',
         password: '',
+        idProof : '',
         confirmPassword: '',
         city: '',
         address: '',
         gender: ''
       }}
-      onSubmit={async (values, { setSubmitting, resetForm }) => {
 
-        const data = {
-          name: values.name,
-          phoneNumber: values.mobileNumber,
-          email: values.email,
-          gender: values.gender,
-          city: values.city,
-          address: values.address,
-          password: values.password,
-        };
-        try {
+      onSubmit={async (values, {setSubmitting, resetForm }) => {
 
+        let data = {
+            name: values.name,
+            phoneNumber: values.mobileNumber,
+            email: values.email,
+            gender: values.gender,
+            idProof: url,
+            city: values.city,
+            address: values.address,
+            password: values.password,
+          };
+        // console.log(data);
+
+        try 
+        {
           await APIHelper.registerUsers(data);
+          
           resetForm({});
           setTimeout(() => {
             //   alert("Form Submitted");
+            document.getElementById('file').value = '';
             notify();
             setSubmitting(false);
+            setUpload(false);
+
           }, 1000);
         } catch (err) {
           // alert(err.response.data.errorMessage);
+          setURL('');
+          setFileInput(null);
+          setUpload(false);
+          document.getElementById('file').value = '';
           notify1();
-        }
 
+          <Redirect to= '/RepresentativeLogIn' />
+        }
       }}
 
       validationSchema={Yup.object({
@@ -99,7 +143,7 @@ const RepresenativeRegister = () => {
 
     >
 
-      { (formik, values, isSubmitting, resetForm) => (
+      { (formik, values, isSubmitting, resetForm, handleChange, touched, setFieldValue) => (
 
         <Form>
           <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
@@ -113,9 +157,7 @@ const RepresenativeRegister = () => {
                 </div>
 
                 <div className="col-lg-6">
-
                   <div className="card2 card border-0 px-4 py-5">
-
                     <div className="row mb-4 px-3">
                       <h3 className="heading">Representative Sign Up</h3>
                     </div>
@@ -157,16 +199,25 @@ const RepresenativeRegister = () => {
                     </div>
                     <br />
 
-                    <div>  <h6 className="mb-0 text-sm">Id Proof</h6>
-                      <input
-                        type="file"
-                        accept=".png, .jpg, .jpeg"
-                        name="photo"
-                      // onChange={handlePhoto}
-                      />
+                    <div className = "row"> 
+                    
+                     <h6 className="mb-0 py-3 px-3 text-sm">Id Proof</h6>
+
+                      <div className = "col-6">
+                        <input
+                        required = {true}
+                          name="file"
+                          id="file"
+                          type="file"
+                          onChange={onFileChange}
+                        />
+                      </div> 
+
+                      <div className = "col-4">
+                        <Button onClick={submitFile} variant= { upload ? "success" : "info" } > {!upload ?   'Upload' : 'Uploaded' }  </Button>
+                      </div>                     
                     </div>
                     <br />
-
 
                     <div className="row px-3">
                       <label className="mb-1">
@@ -246,7 +297,7 @@ const RepresenativeRegister = () => {
                         ) : null}
                       </div>
                       <br />
-                      <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
+                      <div className="row mb-3 px-3"> <button type="submit" disabled = {!upload} className="btn btn-blue text-center">Register</button> </div>
                       <ToastContainer limit={1} />
                       <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/RepresentativeLogIn"> Login </Link>   </small> </div>
 

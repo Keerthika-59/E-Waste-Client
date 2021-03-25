@@ -13,7 +13,8 @@ import Pending from './pages/repPending';
 import AuthApi from '../../../authAPI'
 // import Navbar1 from './../../Navbar/Navbar'
 // import Footer from '../../Footer/Footer';
-import Completed from './pages/repCompleted';
+//import Completed from './pages/repCompleted';
+import RepCompletedActivities from '../../Admin/RepCompletedActivities'
 
 function RepNavbar() {
 
@@ -68,8 +69,8 @@ function RepNavbar() {
                 (show === 0) ? (
                     <Pending/>
                 ) : (
-                 
-                  <Completed/>
+                  // <Completed/>
+                  <RepCompletedActivities/>
                 )
               }
             </div>

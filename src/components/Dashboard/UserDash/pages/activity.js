@@ -4,23 +4,56 @@ import { Form, Button, FormLabel } from 'react-bootstrap';
 import './activity.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Navbar from '../UserSidebar';
+import { BsColumnsGap } from 'react-icons/bs';
 const notify = () => toast.success('Submitted successfully!');
 
+// const API_URL  = 'https://ewaste-dec20-dev-api.azurewebsites.net/';
+
 const Activity = (props) => {
-    const [bio, setBio] = useState();
-    const [nonbio, setNonbio] = useState();
-    const [donation, setDonation] = useState();  
-    const [type1, setType1] = useState(); 
-    const [type2, setType2] = useState(); 
-    const [type3, setType3] = useState(); 
-    const [type4, setType4] = useState(); 
-    const [type5, setType5] = useState(); 
+    const [bio, setBio] = useState(false);
+    const [nonbio, setNonbio] = useState(false);
+    const [donation, setDonation] = useState(false);  
+    const [type1, setType1] = useState(false); 
+    const [type2, setType2] = useState(false); 
+    const [type3, setType3] = useState(false); 
+    const [type4, setType4] = useState(false); 
+    const [type5, setType5] = useState(false); 
 
     const handleContactSubmit = e => {
-        
-            e.preventDefault();
+        e.preventDefault();
+           
+            let newData;
+            if(donation==false)
+            {
+                 newData = {
+                    bio,
+                    nonbio,
+                    donation,
+                    type1:false,
+                    type2:false,
+                    type3:false,
+                    type4:false,
+                    type5:false
+                };
+            }
             
-                const newData = {
+            else if(donation==true && type1==false && type2==false && type3==false && type4==false && type5==false){
+                // setDonation(false);
+                newData = {
+                    bio,
+                    nonbio,
+                    donation:false,
+                    type1,
+                    type2,
+                    type3,
+                    type4,
+                    type5
+                };
+                // console.log(donation);
+                alert("Choose one category!");
+            }
+            else{
+                newData = {
                     bio,
                     nonbio,
                     donation,
@@ -30,17 +63,40 @@ const Activity = (props) => {
                     type4,
                     type5
                 };
+            }
+            
             console.log(newData);
-  
-      };
-   
+             
+    //   axios
+    //   .post(API_URL, newData)
+    //   .then(res => { 
+        
+    //       setBio('');
+    //       setNonbio('');
+    //       setDonation('');
+    //       setType1('');
+    //       setType2('');
+    //       setType3('');
+    //       setType4('');
+    //       setType5('');
+        
+    //       setTimeout(() => {
+    //         history.push('/');
+    //       }, 3000);
+
+    //       console.log(res.data)
+
+    //   })
+
+    };
+
   return(
     
     <div class="container">
 	    <div class="row">
 	    <div class="holder">
             
-        <form onSubmit={handleContactSubmit} >
+        <form onSubmit={handleContactSubmit}  className="form-content">
 			<table width="100%">
                 <thead>
                 
@@ -76,7 +132,7 @@ const Activity = (props) => {
 					<td>
                     <div class="outerDivFull" >
                             <div class="switchToggle">
-                                <input type="checkbox" id="switch2" value = {donation} onChange={ (e) => setDonation(e.target.checked)} />
+                                <input type="checkbox" id="switch2" value = {donation} onChange={ (e) => setDonation(!donation)} />
                                 <label for="switch2"></label>
                             </div>
                     </div>

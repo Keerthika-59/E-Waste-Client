@@ -66,7 +66,7 @@ function Team() {
                 <div className="teamcard-wrapper">
                     <div className="teamcard">
                         <div className="teamcard-image">
-                            <img src="assets/images/img2.jpg" />
+                            <img src="assets/images/anuragpro.jpg" />
                         </div>
                         <ul className="social-icons">
                             <li><a href="https://www.facebook.com/"><i className='fab fa-facebook-f'></i></a></li>
@@ -82,7 +82,7 @@ function Team() {
                 <div className="teamcard-wrapper">
                     <div className="teamcard">
                         <div className="teamcard-image">
-                            <img src="assets/images/img3.jpg" />
+                            <img src="assets/images/keeRthipro.jpg" />
                         </div>
                         <ul className="social-icons">
                             <li><a href="https://www.facebook.com/"><i className='fab fa-facebook-f'></i></a></li>
@@ -98,7 +98,7 @@ function Team() {
                 <div className="teamcard-wrapper">
                     <div className="teamcard">
                         <div className="teamcard-image">
-                            <img src="assets/images/img4.jpg" />
+                            <img src="assets/images/lakshmipro.jpg" />
                         </div>
                         <ul className="social-icons">
                             <li><a href="https://www.facebook.com/"><i className='fab fa-facebook-f'></i></a></li>
@@ -114,7 +114,7 @@ function Team() {
                 <div className="teamcard-wrapper">
                     <div className="teamcard">
                         <div className="teamcard-image">
-                            <img src="assets/images/img3.jpg" />
+                            <img src="assets/images/poojapro.jpg" />
                         </div>
                         <ul className="social-icons">
                             <li><a href="https://www.facebook.com/"><i className='fab fa-facebook-f'></i></a></li>
