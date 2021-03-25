@@ -4,7 +4,7 @@ import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
 import Swal from 'sweetalert2'
-import {Button} from 'react-bootstrap'
+import {Button,Table} from 'react-bootstrap'
 
 const RepCompletedActivities = () => {
     const [compActivity, setCompActivity] = useState([]);
@@ -69,67 +69,56 @@ const RepCompletedActivities = () => {
     }, [compActivity, currentPage, search, sorting]);
 
     return (
-        <>
+
+            <>
             {/* <ExternalInfo page="datatable" /> */}
 
             <div className="row w-100">
                 <div className="col mb-3 col-12 text-center">
                     <div className="row">
-                        {/* <div className="col-md-6">
+                        <div className="col-md-6">
                             <Pagination
                                 total={totalItems}
                                 itemsPerPage={ITEMS_PER_PAGE}
                                 currentPage={currentPage}
                                 onPageChange={page => setCurrentPage(page)}
-                            />
-                        </div> */}
-                       
-                        <div className="col-md-6 d-flex flex-row-reverse"
-                         style={{marginLeft:"350px"}}
-                        >
-                        
-                            <Search
-                           
-                                onSearch={value => {
-                                    setSearch(value);
-                                    setCurrentPage(1);
-                                }}
                             />
                         </div>
                     </div>
-
-                    <table className="table table-striped">
-                        <TableHeader
-                            headers={headers}
-                            onSorting={(field, order) =>
-                                setSorting({ field, order })
-                            }
+                    {/* <div className="col-md-6 d-flex flex-row-reverse" > */}
+                        <Search
+                            onSearch={value => {
+                                setSearch(value);
+                                setCurrentPage(1);
+                            }}
                         />
+                    {/* </div> */}
+                    <h4>Users</h4>
+                    <Table responsive>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Bio</th>
+                                <th>Non-bio</th>
+                                <th>Donation</th>
+                                <th>User id</th>
+                               
+                            </tr>
+                        </thead>
                         <tbody>
                             {UserCompActData.map(act => (
                                 <tr>
-                                   
                                     <td>{act._id}</td>
-                                    <td>{act.bioWaste}</td>
-                                    <td>{act.nonBioWaste}</td>
-                                    <td>{act.donation}</td>
-                                    <td>{act.userId}</td>
-
+                                    <td>{act.email}</td>
+                                    <td>{act.phoneNumber}</td>
+                                    <td>{act.city}</td>
+                                    <td>{act.address}</td>
                                 </tr>
                             ))}
                         </tbody>
-                    </table>
+                    </Table>
                 </div>
-                <div className="col-md-6">
-                            <Pagination
-                                total={totalItems}
-                                itemsPerPage={ITEMS_PER_PAGE}
-                                currentPage={currentPage}
-                                onPageChange={page => setCurrentPage(page)}
-                            />
-                        </div>
             </div>
-            {loader}
         </>
     );
 };

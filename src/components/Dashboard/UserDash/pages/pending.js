@@ -11,17 +11,17 @@ const Pending = () => {
   return(
     <>
     
-    <div className="cards px-3 py-2 my-4 mx-4 justify-content-center" style={{width:'700px'}}>
+    <div className="cards px-3 py-2 my-4 mx-4 justify-content-center">
         <div className="card-header bg-white">
         <h3 className="pendingHeading">Pending activity</h3>
             <div className="row justify-content-between">
             
             <br/>
                 <div className="col">
-                    <p className="text-muted"> Activity ID <span className="font-weight-bold text-dark">1222528743</span></p>
+                    <p className="text-muted"> Activity ID<br/> <span className="font-weight-bold text-dark">1222528743</span></p>
                 </div>
                 <div className="col">
-                <p className="text-muted"> Placed On <span className="font-weight-bold text-dark">19th March,2021</span> </p>
+                <p className="text-muted"> Placed On <br/> <span className="font-weight-bold text-dark">19th March,2021</span> </p>
                 </div>
             </div>
         </div>
@@ -34,20 +34,20 @@ const Pending = () => {
                 <form>
                 <div class="form-row">
                     <div class="col">
-                    <label for="bio">Biodegradable</label>
+                    <label for="bio">Bio</label>
                     <input type="text" class="form-control" value = {bio} onChange={ (e) => setBio(e.target.value)}/>
                     </div>
                     <div class="col">
-                    <label for="id">Non-biodegradable</label>
+                    <label for="id">Non-bio</label>
                     <input type="text" class="form-control" value = {nonbio} onChange={ (e) => setNonbio(e.target.value)}/>
                     </div>
-                    <div class="col">
+                   
+                </div>
+                <br/>
+                <div class="form-row">
+                <div class="col">
                     <label for="id">Donation</label>
-                    <input type="text" class="form-control" value = {donation} onChange={ (e) => setDonation(e.target.value)}/>
-                    </div>
-                    <div class="col">
-                    <label for="id">Category</label>
-                    <input type="text" class="form-control" value = {type} onChange={ (e) => setType(e.target.checked)}/>
+                    <input type="text" class="form-control" value = {donation} onChange={ (e) => setDonation(e.target.value)} disabled/>
                     </div>
                 </div>
                 <br/>

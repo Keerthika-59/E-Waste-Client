@@ -32,7 +32,8 @@ import RepImage from '../Admin/RepImage'
 
 import Goals from '../Pages/Goals/Goals'
 import AdminLogin from '../Login/Admin/AdminLogin';
-
+import Activity from '../Dashboard/UserDash/pages/activity';
+import RepCompletedActivities from '../Admin/RepCompletedActivities';
 function Navigator() {
 
     return (
@@ -65,7 +66,9 @@ function Navigator() {
                 <Route exact path='/Donating' component={Donating} />
                 <Route exact path="/admin" component={SideBar} />                
                 <Route exact path='/RepProfile' component={RepProfile} />
-                <Route exact path='/admin/login' component={AdminLogin} />                
+                <Route exact path='/admin/login' component={AdminLogin} />   
+                <Route exact path='/activity' component={Activity} />  
+                <Route exact path='/completed' component={RepCompletedActivities} />              
                 <Route component={PageNotFound} />
 
             </Switch>
