@@ -40,15 +40,13 @@ const RepresenativeRegister = () => {
     if(fileInput) {
       const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
 
-      await uploadTask.on("state_changed", console.log, console.error, async () => {
+      await uploadTask.on("state_changed", async () => {
 
         const url = await storage.ref("images").child(fileInput.name).getDownloadURL();
         setURL(url);
         setUpload(true);
       });
-
-    }
-    
+    }    
   }
 
   return (
