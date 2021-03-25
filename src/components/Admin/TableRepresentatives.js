@@ -94,13 +94,15 @@ const TableRepresentatives = () => {
                             />
                         </div>
                     </div>
-                        <Search
+                    {/* <div className="col-md-6 d-flex flex-row-reverse" > */}
+                        {/* <Search
                             onSearch={value => {
                                 setSearch(value);
                                 setCurrentPage(1);
                             }}
-                        />
-                    <h4>Representatives</h4>
+                        /> */}
+                    {/* </div> */}
+                    <h4>Representative</h4>
                     <Table responsive>
                         <thead>
                             <tr>
@@ -110,7 +112,7 @@ const TableRepresentatives = () => {
                                 <th>City</th>
                                 <th>Address</th>
                                 <th>Action</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -121,7 +123,6 @@ const TableRepresentatives = () => {
                                     <td>{rep.phoneNumber}</td>
                                     <td>{rep.city}</td>
                                     <td>{rep.address}</td>
-
                                     <td>   <Button variant="danger" onClick={() => {
 
                                         Swal.fire({
@@ -138,7 +139,7 @@ const TableRepresentatives = () => {
                                                     'The User details has been deleted.',
                                                     // 'success'
                                                 )
-                                                axios.delete(`${url}/admin/representative/${rep._id}`)
+                                                axios.delete(`${url}/admin/rep/${rep._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',

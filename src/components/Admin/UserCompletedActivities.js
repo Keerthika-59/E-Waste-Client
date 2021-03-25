@@ -38,7 +38,7 @@ const UserCompletedActivities = () => {
         };
 
         getData();
-    }, []);
+    }, [compActivity]);
 
     const UserCompActData = useMemo(() => {
         let compAct = compActivity;
@@ -85,13 +85,13 @@ const UserCompletedActivities = () => {
                         </div> */}
                        
                         
-                            <Search
+                            {/* <Search
                            
                                 onSearch={value => {
                                     setSearch(value);
                                     setCurrentPage(1);
                                 }}
-                            />
+                            /> */}
                     </div>
                         <Table responsive>
                             <thead>
@@ -127,7 +127,6 @@ const UserCompletedActivities = () => {
                             />
                         </div>
             </div>
-            {loader}
         </>
     );
 };
