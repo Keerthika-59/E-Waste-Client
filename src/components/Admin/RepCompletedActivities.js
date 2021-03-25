@@ -4,11 +4,7 @@ import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
 import Swal from 'sweetalert2'
-<<<<<<< HEAD
-import {Button,Table} from 'react-bootstrap'
-=======
 import { Button, Table } from 'react-bootstrap'
->>>>>>> a18d06d5cdd5ee2a729fb396b781893ca33afc44
 
 const RepCompletedActivities = () => {
     const [compActivity, setCompActivity] = useState([]);
@@ -87,50 +83,14 @@ const RepCompletedActivities = () => {
                                 currentPage={currentPage}
                                 onPageChange={page => setCurrentPage(page)}
                             />
-<<<<<<< HEAD
-                        </div>
-                    </div>
-                    {/* <div className="col-md-6 d-flex flex-row-reverse" > */}
-                        <Search
-=======
                         </div> */}
 
                         {/* <Search
 
->>>>>>> a18d06d5cdd5ee2a729fb396b781893ca33afc44
                             onSearch={value => {
                                 setSearch(value);
                                 setCurrentPage(1);
                             }}
-<<<<<<< HEAD
-                        />
-                    {/* </div> */}
-                    <h4>Users</h4>
-                    <Table responsive>
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Bio</th>
-                                <th>Non-bio</th>
-                                <th>Donation</th>
-                                <th>User id</th>
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {UserCompActData.map(act => (
-                                <tr>
-                                    <td>{act._id}</td>
-                                    <td>{act.email}</td>
-                                    <td>{act.phoneNumber}</td>
-                                    <td>{act.city}</td>
-                                    <td>{act.address}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </Table>
-                </div>
-=======
                         /> */}
                     </div>
                     <Table responsive >
@@ -166,7 +126,6 @@ const RepCompletedActivities = () => {
                         onPageChange={page => setCurrentPage(page)}
                     />
                 </div>
->>>>>>> a18d06d5cdd5ee2a729fb396b781893ca33afc44
             </div>
         </>
     );

@@ -203,15 +203,16 @@ input[type=submit] {
     font-size:30px;
 }
 
-/* @media only screen and (max-width:280px) {
+@media only screen and (max-width:280px) {
     .holder {
-        width: 80%;
+        width: 50%;
         
     }
     input[type=submit]{
-        width:35%;
+        width:10%;
     }
-    .switchToggle{
-        flex-direction: column;
+    .container,.switchToggle{
+       width:fit-content;
     }
-  }   */
+
+  }  
