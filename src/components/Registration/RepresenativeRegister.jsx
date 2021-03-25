@@ -31,7 +31,7 @@ const RepresenativeRegister = () => {
   const [upload, setUpload] = useState(false);
 
   const onFileChange = event => {
-    
+
     setFileInput(event.target.files[0]);
   }
 
@@ -68,9 +68,6 @@ const RepresenativeRegister = () => {
 
       onSubmit={async (values, {setSubmitting, resetForm }) => {
 
-        
-
-
         let data = {
             name: values.name,
             phoneNumber: values.mobileNumber,
@@ -85,7 +82,7 @@ const RepresenativeRegister = () => {
 
         try 
         {
-          await axios.post('http://localhost:5000/reps/add', data);
+          await APIHelper.registerUsers(data);
           
           resetForm({});
           setTimeout(() => {
