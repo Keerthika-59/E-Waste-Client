@@ -41,7 +41,7 @@ const AdminLogin = (props) => {
 
             if(email && password) {
 
-                const login = await axios.post('http://localhost:5000/admin/login', {
+                const login = await axios.post('https://ewaste-dec20-dev-api.azurewebsites.net/admin/login', {
                     email : email,
                     password : password
                 });
