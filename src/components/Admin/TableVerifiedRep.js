@@ -35,12 +35,14 @@ const TableVerifiedRep = () => {
 
     ];
 
+    const urls='http://localhost:5000/admin/representatives'
+
     useEffect(() => {
         const getData = () => {
 
             showLoader();
 
-            fetch(`${APIHelper.API_URL}`)
+            fetch(`${urls}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
