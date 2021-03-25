@@ -4,7 +4,7 @@ import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
 import Swal from 'sweetalert2'
-import {Button} from 'react-bootstrap'
+import { Button, Table } from 'react-bootstrap'
 
 const RepCompletedActivities = () => {
     const [compActivity, setCompActivity] = useState([]);
@@ -29,7 +29,7 @@ const RepCompletedActivities = () => {
         const getData = () => {
             showLoader();
 
-            fetch("https://ewaste-dec20-dev-api.azurewebsites.net/contacts")
+            fetch("https://ewaste-dec20-dev-api.azurewebsites.net/reps")
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -83,51 +83,48 @@ const RepCompletedActivities = () => {
                                 onPageChange={page => setCurrentPage(page)}
                             />
                         </div> */}
-                       
-                        <div className="col-md-6 d-flex flex-row-reverse"
-                         style={{marginLeft:"350px"}}
-                        >
-                        
-                            <Search
-                           
-                                onSearch={value => {
-                                    setSearch(value);
-                                    setCurrentPage(1);
-                                }}
-                            />
-                        </div>
-                    </div>
 
-                    <table className="table table-striped">
-                        <TableHeader
-                            headers={headers}
-                            onSorting={(field, order) =>
-                                setSorting({ field, order })
-                            }
+                        <Search
+
+                            onSearch={value => {
+                                setSearch(value);
+                                setCurrentPage(1);
+                            }}
                         />
-                        <tbody>
-                            {UserCompActData.map(act => (
-                                <tr>
-                                   
-                                    <td>{act._id}</td>
-                                    <td>{act.bioWaste}</td>
-                                    <td>{act.nonBioWaste}</td>
-                                    <td>{act.donation}</td>
-                                    <td>{act.userId}</td>
+                    </div>
+                    <Table responsive >
+                        <thead>
+                            <tr>
+                                <th>Activity Id</th>
+                                <th>Bio</th>
+                                <th>Non-bio</th>
+                                <th>Donation</th>
+                                <th>UserId</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        {UserCompActData.map(act => (
+                            <tr>
 
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                                <td>{act._id}</td>
+                                <td>{act.bioWaste}</td>
+                                <td>{act.nonBioWaste}</td>
+                                <td>{act.donation}</td>
+                                <td>{act.userId}</td>
+
+                            </tr>
+                        ))}
+                    </tbody>
+                    </Table>
                 </div>
                 <div className="col-md-6">
-                            <Pagination
-                                total={totalItems}
-                                itemsPerPage={ITEMS_PER_PAGE}
-                                currentPage={currentPage}
-                                onPageChange={page => setCurrentPage(page)}
-                            />
-                        </div>
+                    <Pagination
+                        total={totalItems}
+                        itemsPerPage={ITEMS_PER_PAGE}
+                        currentPage={currentPage}
+                        onPageChange={page => setCurrentPage(page)}
+                    />
+                </div>
             </div>
             {loader}
         </>

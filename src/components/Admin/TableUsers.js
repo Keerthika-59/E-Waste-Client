@@ -5,7 +5,7 @@ import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
 import Swal from 'sweetalert2'
-import { Button } from 'react-bootstrap'
+import { Button, Table } from 'react-bootstrap'
 import axios from 'axios'
 
 
@@ -34,7 +34,7 @@ const TableUsers = () => {
         const getData = () => {
             showLoader();
 
-            fetch(`${url}/admin/users`)
+            fetch(`${url}admin/users`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -92,22 +92,27 @@ const TableUsers = () => {
                             />
                         </div>
                     </div>
-                    <div className="col-md-6 d-flex flex-row-reverse" style={{ marginLeft: "400px" }}>
+                    {/* <div className="col-md-6 d-flex flex-row-reverse" > */}
                         <Search
                             onSearch={value => {
                                 setSearch(value);
                                 setCurrentPage(1);
                             }}
                         />
-                    </div>
-                    <h4>Users</h4>                            
-                    <table className="table table-striped">
-                        <TableHeader
-                            headers={headers}
-                            onSorting={(field, order) =>
-                                setSorting({ field, order })
-                            }
-                        />
+                    {/* </div> */}
+                    <h4>Users</h4>
+                    <Table responsive>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>E-mail</th>
+                                <th>Phone Number</th>
+                                <th>City</th>
+                                <th>Address</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
                         <tbody>
                             {usersData.map(user => (
                                 <tr>
@@ -147,7 +152,7 @@ const TableUsers = () => {
                                 </tr>
                             ))}
                         </tbody>
-                    </table>
+                    </Table>
                 </div>
             </div>
         </>

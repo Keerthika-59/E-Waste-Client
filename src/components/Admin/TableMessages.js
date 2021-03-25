@@ -4,7 +4,7 @@ import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 // import AppConfig from "App.config";
 import Swal from 'sweetalert2'
-import { Button } from 'react-bootstrap'
+import { Button,Table } from 'react-bootstrap'
 import axios from 'axios'
 
 const TableMessages = () => {
@@ -15,7 +15,7 @@ const TableMessages = () => {
     const [search, setSearch] = useState("");
     const [sorting, setSorting] = useState({ field: "", order: "" });
 
-    const ITEMS_PER_PAGE = 9;
+    const ITEMS_PER_PAGE = 15;
 
     const headers = [
         { name: "Name", field: "name", sortable: true },
@@ -31,7 +31,7 @@ const TableMessages = () => {
         const getData = () => {
             showLoader();
 
-            fetch(`${url}/admin/contacts`)
+            fetch(`${url}admin/contacts`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -88,35 +88,36 @@ const TableMessages = () => {
                             />
                         </div>
                     </div>
-                    <div className="col-md-6 d-flex flex-row-reverse" style={{ marginLeft: "400px" }}>
-                        <Search
-                            onSearch={value => {
-                                setSearch(value);
-                                setCurrentPage(1);
-                            }}
-                        />
-                    </div>
-                    <h4>Messages</h4>                         
+                    {/* <div className="col-md-6 d-flex flex-row-reverse" style={{ marginLeft: "400px" }}> */}
+                    <Search
+                        onSearch={value => {
+                            setSearch(value);
+                            setCurrentPage(1);
+                        }}
+                    />
+                    {/* </div> */}
+                    <h4>Messages</h4>
 
-                    <table className="table table-striped">
-                        <TableHeader
-                            headers={headers}
-                            onSorting={(field, order) =>
-                                setSorting({ field, order })
-                            }
-                        />
+                    <Table responsive>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>E-mail</th>
+                                <th>Message</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             {commentsData.map(comment => (
                                 <tr>
                                     <td>{comment.name}</td>
                                     <td>{comment.email}</td>
                                     <td>{comment.message}</td>
-                                    <td>{comment.createdAt}</td>
-                                    <td>    <Button variant="danger" onClick={() => {
+                                    <td>   <Button variant="danger" onClick={() => {
 
                                         Swal.fire({
                                             title: 'Are you sure?',
-                                            text: 'You will not be able to recover this Message Details!',
+                                            text: 'You will not be able to recover this User Details!',
                                             icon: 'warning',
                                             showCancelButton: true,
                                             confirmButtonText: 'Yes, delete it!',
@@ -125,26 +126,25 @@ const TableMessages = () => {
                                             if (result.value) {
                                                 Swal.fire(
                                                     'Deleted!',
-                                                    'The Message details has been deleted.',
+                                                    'The User details has been deleted.',
                                                     // 'success'
                                                 )
-                                                axios.delete(`${url}/admin/contacts/${comment._id}`)
+                                                axios.delete(`${url}/admin/user/${comment._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
-                                                    'The Message details is not deleted :)',
+                                                    'The User details is not deleted :)',
                                                     // 'error'
                                                 )
                                             }
                                         })
 
 
-                                    }}>DELETE</Button></td>
-
+                                    }}>DELETE</Button> </td>
                                 </tr>
                             ))}
                         </tbody>
-                    </table>
+                    </Table>
                 </div>
             </div>
         </>
