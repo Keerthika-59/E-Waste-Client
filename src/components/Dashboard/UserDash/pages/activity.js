@@ -7,6 +7,8 @@ import Navbar from '../UserSidebar';
 import { BsColumnsGap } from 'react-icons/bs';
 const notify = () => toast.success('Submitted successfully!');
 
+// const API_URL  = 'https://ewaste-dec20-dev-api.azurewebsites.net/';
+
 const Activity = (props) => {
     const [bio, setBio] = useState(false);
     const [nonbio, setNonbio] = useState(false);
@@ -36,8 +38,18 @@ const Activity = (props) => {
             }
             
             else if(donation==true && type1==false && type2==false && type3==false && type4==false && type5==false){
-                setDonation(false);
-                console.log(donation);
+                // setDonation(false);
+                newData = {
+                    bio,
+                    nonbio,
+                    donation:false,
+                    type1,
+                    type2,
+                    type3,
+                    type4,
+                    type5
+                };
+                // console.log(donation);
                 alert("Choose one category!");
             }
             else{
@@ -54,9 +66,30 @@ const Activity = (props) => {
             }
             
             console.log(newData);
-            
-      };
-   
+             
+    //   axios
+    //   .post(API_URL, newData)
+    //   .then(res => { 
+        
+    //       setBio('');
+    //       setNonbio('');
+    //       setDonation('');
+    //       setType1('');
+    //       setType2('');
+    //       setType3('');
+    //       setType4('');
+    //       setType5('');
+        
+    //       setTimeout(() => {
+    //         history.push('/');
+    //       }, 3000);
+
+    //       console.log(res.data)
+
+    //   })
+
+    };
+
   return(
     
     <div class="container">

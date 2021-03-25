@@ -1,7 +1,13 @@
-import React from 'react';
+import React , { useState,useEffect }from 'react';
 import './pending.css';
 
 const Pending = () => {
+    const [bio, setBio] = useState(false);
+    const [nonbio, setNonbio] = useState(false);
+    const [donation, setDonation] = useState(false);  
+    const [type, setType] = useState([]); 
+   
+
   return(
     <>
     
@@ -29,19 +35,19 @@ const Pending = () => {
                 <div class="form-row">
                     <div class="col">
                     <label for="bio">Biodegradable</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" value = {bio} onChange={ (e) => setBio(e.target.value)}/>
                     </div>
                     <div class="col">
                     <label for="id">Non-biodegradable</label>
-                    <input type="text" class="form-control"/>
+                    <input type="text" class="form-control" value = {nonbio} onChange={ (e) => setNonbio(e.target.value)}/>
                     </div>
                     <div class="col">
                     <label for="id">Donation</label>
-                    <input type="text" class="form-control"/>
+                    <input type="text" class="form-control" value = {donation} onChange={ (e) => setDonation(e.target.value)}/>
                     </div>
                     <div class="col">
                     <label for="id">Category</label>
-                    <input type="text" class="form-control"/>
+                    <input type="text" class="form-control" value = {type} onChange={ (e) => setType(e.target.checked)}/>
                     </div>
                 </div>
                 <br/>
