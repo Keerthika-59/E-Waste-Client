@@ -1,11 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import {Button, Image} from 'react-bootstrap';
 import axios from 'axios';
-import { BrowserRouter, Link, Redirect } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import AuthApi from '../../../authAPI';
 import './style.css';
+import { BrowserRouter, Link, Redirect } from "react-router-dom";
+
+const notify1 = () => toast.error('Email or password is incorrect!', { position: toast.POSITION.TOP_RIGHT }, { autoClose: 5000 });
+
 
 const AdminLogin = (props) => {
 
@@ -55,7 +59,7 @@ const AdminLogin = (props) => {
 
             // await axios.post('')
         } catch (error) {
-
+            notify1();
             console.log('Login Failed');
         }
     }
@@ -88,6 +92,9 @@ const AdminLogin = (props) => {
 
                                     <div className="row">
                                         <Button disable = {show} className = "admin" type = "submit" variant = "info"> Log In </Button>
+                                    
+                                        <ToastContainer limit={1} />
+
                                     </div>
 						        </form>
                             </div>
