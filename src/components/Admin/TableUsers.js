@@ -34,7 +34,7 @@ const TableUsers = () => {
         const getData = () => {
             showLoader();
 
-            fetch(`${url}admin/users`)
+            fetch(`${APIHelper.API_URL}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
