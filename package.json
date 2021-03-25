@@ -15,6 +15,7 @@
         "bootstrap": "^4.6.0",
         "firebase": "^8.3.1",
         "formik": "^2.2.6",
+        "fs-extra": "^9.1.0",
         "js-cookie": "^2.2.1",
         "react": "^17.0.1",
         "react-bootstrap": "^1.5.1",
@@ -41,7 +42,8 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "postbuild": "node iisConfig/copyIISConfig.js"
     },
     "eslintConfig": {
         "extends": [
