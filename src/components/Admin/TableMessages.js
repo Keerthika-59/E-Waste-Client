@@ -25,7 +25,7 @@ const TableMessages = () => {
 
     ];
 
-    const url = 'http://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
 
     useEffect(() => {
         const getData = () => {
