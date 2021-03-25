@@ -95,12 +95,12 @@ const TableVerifiedRep = () => {
                         />
                     </div>
                 </div>
-                    <Search
+                    {/* <Search
                         onSearch={value => {
                             setSearch(value);
                             setCurrentPage(1);
                         }}
-                    />
+                    /> */}
             </div>
 
             {
