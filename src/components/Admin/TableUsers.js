@@ -93,12 +93,12 @@ const TableUsers = () => {
                         </div>
                     </div>
                     {/* <div className="col-md-6 d-flex flex-row-reverse" > */}
-                        <Search
+                        {/* <Search
                             onSearch={value => {
                                 setSearch(value);
                                 setCurrentPage(1);
                             }}
-                        />
+                        /> */}
                     {/* </div> */}
                     <h4>Users</h4>
                     <Table responsive>
@@ -137,7 +137,7 @@ const TableUsers = () => {
                                                     'The User details has been deleted.',
                                                     // 'success'
                                                 )
-                                                axios.delete(`${url}/admin/user/${user._id}`)
+                                                axios.delete(`${url}admin/user/${user._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
