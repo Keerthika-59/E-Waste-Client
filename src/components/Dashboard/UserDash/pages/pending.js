@@ -97,11 +97,11 @@ const Pending = () => {
                         <div class="">
                           {activity.donation ? (
                             <>
-                              <p>{activity.cl ? "clothes" : ""}</p>
-                              <p>{activity.el ? "Electronics" : ""}</p>
-                              <p>{activity.to ? "toys" : ""}</p>
-                              <p>{activity.fo ? "food" : ""}</p>
-                              <p>{activity.st ? "stationary" : ""}</p>{" "}
+                              {activity.cl ? "clothes" : ""}{" "}
+                              {activity.el ? "Electronics" : ""}{" "}
+                              {activity.to ? "toys" : ""}{" "}
+                              {activity.fo ? "food" : ""}{" "}
+                              {activity.st ? "stationary" : ""}
                             </>
                           ) : (
                             "No"
