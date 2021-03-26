@@ -174,7 +174,7 @@ return(
 				</tr>:''
                 }
                 <br/>
-                {(bio==true || nonbio==true ||( donation==true)?(type1==true || type2==true || type3==true || type4==true|| type5==true):'')?
+                {(bio==true || nonbio==true || donation==true && (type1==true || type2==true || type3==true || type4==true|| type5==true))?
 				<tr>
 					<td colspan="2">
 						{/* <input type="submit" value="Submit" onSubmit={handleContactSubmit} /> */}
