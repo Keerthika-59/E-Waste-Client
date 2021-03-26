@@ -25,13 +25,18 @@ const TableMessages = () => {
 
     ];
 
-    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url1 = 'https://ewaste-dec20-dev-api.azurewebsites.net/contacts'
+    // const url2 = 'https://ewaste-dec20-dev-api.azurewebsites.net/admin/contact/'
+
+
+    // const url2 = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
+
 
     useEffect(() => {
         const getData = () => {
             showLoader();
 
-            fetch('https://ewaste-dec20-dev-api.azurewebsites.net/contacts')
+            fetch(`${url1}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -89,12 +94,12 @@ const TableMessages = () => {
                         </div>
                     </div>
                     {/* <div className="col-md-6 d-flex flex-row-reverse" style={{ marginLeft: "400px" }}> */}
-                    <Search
+                    {/* <Search
                         onSearch={value => {
                             setSearch(value);
                             setCurrentPage(1);
                         }}
-                    />
+                    /> */}
                     {/* </div> */}
                     <h4>Messages</h4>
 
@@ -129,7 +134,7 @@ const TableMessages = () => {
                                                     'The User details has been deleted.',
                                                     // 'success'
                                                 )
-                                                axios.delete(`${url}/admin/user/${comment._id}`)
+                                                axios.delete(`${url1}${comment._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',

@@ -29,7 +29,7 @@ const AdminCompletedActivities = () => {
 
     ];
 
-    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/activities/completed'
 
     const urls='http://localhost:5000/activities/completed'
 
@@ -37,7 +37,7 @@ const AdminCompletedActivities = () => {
         const getData = () => {
             showLoader();
 
-            fetch(`${urls}`)
+            fetch(`${url}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();

@@ -35,14 +35,16 @@ const TableVerifiedRep = () => {
 
     ];
 
-    const urls='http://localhost:5000/admin/representatives'
+    // const url1='http://localhost:5000/admin/representatives/'
+    const url2='https://ewaste-dec20-dev-api.azurewebsites.net/admin/representatives/'
+
 
     useEffect(() => {
         const getData = () => {
 
             showLoader();
 
-            fetch(`${urls}`)
+            fetch(`${url2}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -157,7 +159,7 @@ const TableVerifiedRep = () => {
                                                     'Rejected',
                                                     'Representative has been rejected.',
                                                 )
-                                                // axios.delete(`${url}/admin/rep/${rep._id}`)
+                                                axios.delete(`https://ewaste-dec20-dev-api.azurewebsites.net/admin/rep/${rep._id}`)
                                             }
                                         })
                                     }}

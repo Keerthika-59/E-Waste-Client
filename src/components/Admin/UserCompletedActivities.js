@@ -24,12 +24,12 @@ const UserCompletedActivities = () => {
         { name: "Representative Id", field: "repId", sortable: false }
 
     ];
-    const urls='http://localhost:5000/admin/user/completed/605771f21de2a726b49fe001'
+
     useEffect(() => {
         const getData = () => {
             showLoader();
 
-            fetch(`${urls}`)
+            fetch("https://ewaste-dec20-dev-api.azurewebsites.net/admin/representatives")
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();

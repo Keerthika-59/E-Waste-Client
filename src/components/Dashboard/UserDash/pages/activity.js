@@ -81,7 +81,7 @@ const Activity = (props) => {
           setType5('');
         
           setTimeout(() => {
-            history.push('/');
+            // history.push('/');
           }, 3000);
 
           console.log(res.data)
