@@ -29,7 +29,7 @@ const AdminPendingActivities = () => {
 
     ];
 
-    const url1 = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url1 = 'https://ewaste-dec20-dev-api.azurewebsites.net/activities/pending'
 
     const urls='http://localhost:5000/activities/pending'
 
@@ -37,12 +37,11 @@ const AdminPendingActivities = () => {
         const getData = () => {
             showLoader();
 
-            fetch(`${urls}`)
+            fetch(`${url1}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
                     setReps(json);
-                    console.log(json)
                 });
         };
 
@@ -126,8 +125,7 @@ const AdminPendingActivities = () => {
                                     <td>{data.nonBioWaste ? 'Yes':'No'}</td>
                                     <td>{data.donation ? 'Yes':'No'}</td>
                                     { data.repDetails && <td>{data.repDetails.repName}</td>}
-
-                                    {/* <td>{rep.repDetails.repId}</td> */}
+                                    { !data.repDetails && <td>{'N/A'}</td>}
                                 </tr>
                             ))}
                         </tbody>

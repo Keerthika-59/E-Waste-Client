@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from 'react'
-import {Input} from 'reactstrap';
-import {Button} from 'react-bootstrap';
+import React, { useState, useEffect } from 'react'
+import { Input } from 'reactstrap';
+import { Button } from 'react-bootstrap';
 
 import { storage } from '../../firebase/firebase';
 
@@ -12,17 +12,18 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 // import toast, { Toaster } from 'react-hot-toast';
 
-const notify = () => toast.success('Representative registration successful!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
-const notify1 = () => toast.error('Error in Representative registration !',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
+const notify = () => toast.success('Representative registration successful!', { position: toast.POSITION.TOP_RIGHT }, { autoClose: 5000 });
+const notify1 = () => toast.error('Error in Representative registration !', { position: toast.POSITION.TOP_RIGHT }, { autoClose: 5000 });
 const phoneRegExp = /^[0-9]{10}$/g;
 const nameRegExp = /^[a-zA-Z ]{2,30}$/;
 
 const RepresenativeRegister = () => {
-    
-    useEffect(() => {
+
+  useEffect(() => {
     window.scrollTo(0, 0)
   }, []);
 
@@ -37,7 +38,7 @@ const RepresenativeRegister = () => {
 
   const submitFile = async () => {
 
-    if(fileInput) {
+    if (fileInput) {
       const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
 
       await uploadTask.on("state_changed", console.log, console.error, async () => {
@@ -48,7 +49,7 @@ const RepresenativeRegister = () => {
       });
 
     }
-    
+
   }
 
   return (
@@ -59,36 +60,36 @@ const RepresenativeRegister = () => {
         email: '',
         mobileNumber: '',
         password: '',
-        idProof : '',
+        idProof: '',
         confirmPassword: '',
         city: '',
         address: '',
         gender: ''
       }}
 
-      onSubmit={async (values, {setSubmitting, resetForm }) => {
+      onSubmit={async (values, { setSubmitting, resetForm }) => {
 
         let data = {
-            name: values.name,
-            phoneNumber: values.mobileNumber,
-            email: values.email,
-            gender: values.gender,
-            idProof: url,
-            city: values.city,
-            address: values.address,
-            password: values.password,
-          };
+          name: values.name,
+          phoneNumber: values.mobileNumber,
+          email: values.email,
+          gender: values.gender,
+          idProof: url,
+          city: values.city,
+          address: values.address,
+          password: values.password,
+        };
         // console.log(data);
 
-        try 
-        {
+        try {
           await APIHelper.registerUsers(data);
-          
+
           resetForm({});
           setTimeout(() => {
             //   alert("Form Submitted");
             document.getElementById('file').value = '';
-            notify();
+
+            Swal.fire('Registration Succesfull!')
             setSubmitting(false);
             setUpload(false);
 
@@ -99,9 +100,12 @@ const RepresenativeRegister = () => {
           setFileInput(null);
           setUpload(false);
           document.getElementById('file').value = '';
-          notify1();
+          Swal.fire('Registration failed!',
+            'An account with same mail id might already be present',
+            'warning');
 
-          <Redirect to= '/RepresentativeLogIn' />
+
+            < Redirect to = '/RepresentativeLogIn' />
         }
       }}
 
@@ -199,23 +203,23 @@ const RepresenativeRegister = () => {
                     </div>
                     <br />
 
-                    <div className = "row"> 
-                    
-                     <h6 className="mb-0 py-3 px-3 text-sm">Id Proof</h6>
+                    <div className="row">
 
-                      <div className = "col-6">
+                      <h6 className="mb-0 py-3 px-3 text-sm">Id Proof</h6>
+
+                      <div className="col-6">
                         <input
-                        required = {true}
+                          required={true}
                           name="file"
                           id="file"
                           type="file"
                           onChange={onFileChange}
                         />
-                      </div> 
+                      </div>
 
-                      <div className = "col-4">
-                        <Button onClick={submitFile} variant= { upload ? "success" : "info" } > {!upload ?   'Upload' : 'Uploaded' }  </Button>
-                      </div>                     
+                      <div className="col-4">
+                        <Button onClick={submitFile} variant={upload ? "success" : "info"} > {!upload ? 'Upload' : 'Uploaded'}  </Button>
+                      </div>
                     </div>
                     <br />
 
@@ -259,11 +263,11 @@ const RepresenativeRegister = () => {
                         </label>
                         <div role="group" aria-labelledby="my-radio-group">
                           <label className="px-3">
-                          <br/>
+                            <br />
                             <Field type="radio" name="gender" value="Male" /> Male
                                                         </label>
                           <label className="px-3">
-                            <Field type="radio" name="gender" value="Female"/> Female
+                            <Field type="radio" name="gender" value="Female" /> Female
                           </label>
 
                           <label className="px-3">
@@ -297,7 +301,7 @@ const RepresenativeRegister = () => {
                         ) : null}
                       </div>
                       <br />
-                      <div className="row mb-3 px-3"> <button type="submit" disabled = {!upload} className="btn btn-blue text-center">Register</button> </div>
+                      <div className="row mb-3 px-3"> <button type="submit" disabled={!upload} className="btn btn-blue text-center">Register</button> </div>
                       <ToastContainer limit={1} />
                       <div className="row mb-4 px-3"> <small className="font-weight-bold">Already have an account?  <Link to="/RepresentativeLogIn"> Login </Link>   </small> </div>
 
