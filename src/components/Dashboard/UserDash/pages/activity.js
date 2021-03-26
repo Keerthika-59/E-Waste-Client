@@ -67,26 +67,26 @@ const Activity = (props) => {
             
             console.log(newData);
              
-      axios
-      .post(API_URL, newData)
-      .then(res => { 
+    //   axios
+    //   .post(API_URL, newData)
+    //   .then(res => { 
         
-          setBio('');
-          setNonbio('');
-          setDonation('');
-          setType1('');
-          setType2('');
-          setType3('');
-          setType4('');
-          setType5('');
+    //       setBio('');
+    //       setNonbio('');
+    //       setDonation('');
+    //       setType1('');
+    //       setType2('');
+    //       setType3('');
+    //       setType4('');
+    //       setType5('');
         
-          setTimeout(() => {
-            // history.push('/');
-          }, 3000);
+    //       setTimeout(() => {
+    //         history.push('/');
+    //       }, 3000);
 
-          console.log(res.data)
+    //       console.log(res.data)
 
-      })
+    //   })
 
     };
 return(

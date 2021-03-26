@@ -50,7 +50,7 @@ function Team() {
                 <div className="teamcard-wrapper">
                     <div className="teamcard">
                         <div className="teamcard-image">
-                            <img src="assets/images/img1.jpeg" alt="image" />
+                            <img src="assets/images/Abhinavpro.jpg" alt="image" />
                         </div>
                         <ul className="social-icons">
                             <li><a href="https://www.facebook.com/"><i className='fab fa-facebook-f'></i></a></li>
