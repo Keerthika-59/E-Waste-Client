@@ -13,7 +13,7 @@ test('renders test NavBar', () => {
     ReactDOM.unmountComponentAtNode(div);
    });
 
-   test('renders test NavBar', () => {
+   test('renders test NavBars', () => {
     const div=document.createElement("div");
     <Route>
         ReactDom.render(<RepForm/>,div);
@@ -21,7 +21,7 @@ test('renders test NavBar', () => {
     ReactDOM.unmountComponentAtNode(div);
    });
 
-   test('renders test NavBar', () => {
+   test('renders test NavBar2', () => {
     const div=document.createElement("div");
     <Route>
         ReactDom.render(<AdminLogin/>,div);
