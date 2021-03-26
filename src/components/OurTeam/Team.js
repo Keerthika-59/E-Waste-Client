@@ -130,7 +130,7 @@ function Team() {
                 <div className="teamcard-wrapper">
                     <div className="teamcard">
                         <div className="teamcard-image">
-                            <img src="assets/images/img2.jpg" />
+                            <img src="assets/images/Akashpro.jpg" />
                         </div>
                         <ul className="social-icons">
                             <li><a href="https://www.facebook.com/"><i className='fab fa-facebook-f'></i></a></li>
@@ -146,7 +146,7 @@ function Team() {
                 <div className="teamcard-wrapper">
                     <div className="teamcard">
                         <div className="teamcard-image">
-                            <img src="assets/images/img4.jpg" />
+                            <img src="assets/images/Deepakpro.jpeg" />
                         </div>
                         <ul className="social-icons">
                             <li><a href="https://www.facebook.com/"><i className='fab fa-facebook-f'></i></a></li>
@@ -162,7 +162,7 @@ function Team() {
                 <div className="teamcard-wrapper">
                     <div className="teamcard">
                         <div className="teamcard-image">
-                            <img src="assets/images/img3.jpg" />
+                            <img src="assets/images/Srikarpro.jpeg" />
                         </div>
                         <ul className="social-icons">
                             <li><a href="https://www.facebook.com/"><i className='fab fa-facebook-f'></i></a></li>
