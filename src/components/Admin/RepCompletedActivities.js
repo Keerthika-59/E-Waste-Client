@@ -69,20 +69,21 @@ const RepCompletedActivities = () => {
     }, [compActivity, currentPage, search, sorting]);
 
     return (
-        <>
+
+            <>
             {/* <ExternalInfo page="datatable" /> */}
 
             <div className="row w-100">
                 <div className="col mb-3 col-12 text-center">
                     <div className="row">
-                        {/* <div className="col-md-6">
+                        <div className="col-md-6">
                             <Pagination
                                 total={totalItems}
                                 itemsPerPage={ITEMS_PER_PAGE}
                                 currentPage={currentPage}
                                 onPageChange={page => setCurrentPage(page)}
                             />
-                        </div> */}
+                        </div> 
 
                         {/* <Search
 

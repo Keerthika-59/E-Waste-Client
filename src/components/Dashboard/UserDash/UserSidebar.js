@@ -89,7 +89,7 @@ function Navbar() {
 
   return (
     Auth.auth ? (
-      <>
+      <div className="nav-body">
       {/* <Navbar1/> */}
         <IconContext.Provider value={{ color: '#fff' }}>
           {/* <div className='sidenav'>
@@ -150,7 +150,7 @@ function Navbar() {
         </IconContext.Provider>
         
         {/* <Footer/> */}
-      </>
+      </div>
     ) : (<Redirect to='/UserLogIn' />)
   );
 }
