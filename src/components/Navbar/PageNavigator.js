@@ -29,7 +29,8 @@ import PageNotFound from '../404/PageNotFound';
 import RepProfile from '../Dashboard/RepDash/Profile/repProfile'
 import Goals from '../Pages/Goals/Goals'
 import AdminLogin from '../Login/Admin/AdminLogin';
-
+import Activity from '../Dashboard/UserDash/pages/activity';
+import RepCompletedActivities from '../Admin/RepCompletedActivities';
 function Navigator() {
 
     return (

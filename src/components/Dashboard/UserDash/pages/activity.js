@@ -7,7 +7,7 @@ import Navbar from '../UserSidebar';
 import { BsColumnsGap } from 'react-icons/bs';
 const notify = () => toast.success('Submitted successfully!');
 
-// const API_URL  = 'https://ewaste-dec20-dev-api.azurewebsites.net/';
+const API_URL  = 'http://localhost:5000/activity/';
 
 const Activity = (props) => {
     const [bio, setBio] = useState(false);
@@ -89,89 +89,83 @@ const Activity = (props) => {
     //   })
 
     };
+return(
 
-  return(
-    
-    <div class="container">
-	    <div class="row">
-	    <div class="holder">
-            
-        <form onSubmit={handleContactSubmit}  className="form-content">
-			<table width="100%">
-                <thead>
-                
-                    <th class="actHeading">
+<div class="container">
+	<div class="row">
+	<div class="holder">
+    <form onSubmit={handleContactSubmit}  className="form-content">
+			<table width="100%" className="table-content">
+                <tr>
+                <th className="table-heading">
                        User activity
                     </th>
-                
-                </thead>
+                </tr>
 				<tr>
-					<td>Biodegradable</td>
-					<td>
-                    <div class="outerDivFull" >
-                            <div class="switchToggle">
-                                <input type="checkbox" id="switch" value = {bio} onChange={ (e) => setBio(e.target.checked)} />
-                                <label for="switch"></label>
-                            </div>
-                    </div>
+                <td>Biodegradable</td>
+ 					<td>
+                     <div className="outerDivFull" >
+                             <div className="switchToggle">
+                                 <input type="checkbox" id="switch" value = {bio} onChange={ (e) => setBio(e.target.checked)} />
+                                 <label for="switch"></label>
+                             </div>
+                     </div>
 					</td>
 				</tr>
 				<tr>
-					<td>Non-Biodegradable</td>
-					<td>
-                    <div class="outerDivFull" >
-                            <div class="switchToggle">
-                                <input type="checkbox" id="switch1" value = {nonbio} onChange={ (e) => setNonbio(e.target.checked)} />
-                                <label for="switch1"></label>
-                            </div>
-                    </div>
-					</td>
+                <td>Non-Biodegradable</td>
+ 					<td>
+                     <div className="outerDivFull" >
+                             <div className="switchToggle">
+                                 <input type="checkbox" id="switch1" value = {nonbio} onChange={ (e) => setNonbio(e.target.checked)} />
+                                 <label for="switch1"></label>
+                             </div>
+                     </div>
+				</td>
 				</tr>
 				<tr>
-					<td class="donation">Donation</td>
-					<td>
-                    <div class="outerDivFull" >
-                            <div class="switchToggle">
-                                <input type="checkbox" id="switch2" value = {donation} onChange={ (e) => setDonation(!donation)} />
-                                <label for="switch2"></label>
-                            </div>
+                <td className="donation">Donation</td>
+ 					<td>
+                     <div className="outerDivFull" >
+                             <div className="switchToggle">
+                                 <input type="checkbox" id="switch2" value = {donation} onChange={ (e) => setDonation(!donation)} />
+                                 <label for="switch2"></label>
+                             </div>
                     </div>
 					</td>
-
 				</tr>
-                <br/>
                 {(donation===true)?
 				<tr >
-					<td colspan="2" class="last">
-                    <ul class="list-group">
-                            <li class="list-group-item rounded-0">
-                                <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" id="customCheck1" type="checkbox" value = {type1} onChange={ (e) => setType1(e.target.checked)}/>
-                                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck1">Stationery</label>
+					<td colspan="2" className="last">
+                    <ul className="list-group">
+                            <li className="list-group-item rounded-0">
+                                <div className="custom-control custom-checkbox">
+                                    <input className="custom-control-input" id="customCheck1" type="checkbox" value = {type1} onChange={ (e) => setType1(e.target.checked)}/>
+                                    <label className="cursor-pointer font-italic d-block custom-control-label" for="customCheck1">Stationery</label>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" id="customCheck2" type="checkbox" value = {type2} onChange={ (e) => setType2(e.target.checked)}/>
-                                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck2">Clothes</label>
+                            <li className="list-group-item">
+                                <div className="custom-control custom-checkbox">
+                                    <input className="custom-control-input" id="customCheck2" type="checkbox" value = {type2} onChange={ (e) => setType2(e.target.checked)}/>
+                                    <label className="cursor-pointer font-italic d-block custom-control-label" for="customCheck2">Clothes</label>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" id="customCheck3" type="checkbox" value = {type3} onChange={ (e) => setType3(e.target.checked)}/>
-                                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck3">Food</label>
+                            <li className="list-group-item">
+                                <div className="custom-control custom-checkbox">
+                                    <input className="custom-control-input" id="customCheck3" type="checkbox" value = {type3} onChange={ (e) => setType3(e.target.checked)}/>
+                                    <label className="cursor-pointer font-italic d-block custom-control-label" for="customCheck3">Food</label>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" id="customCheck4" type="checkbox" value = {type4} onChange={ (e) => setType4(e.target.checked)}/>
-                                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck4">Electronic items</label>
+                            <li className="list-group-item">
+                                <div className="custom-control custom-checkbox">
+                                    <input className="custom-control-input" id="customCheck4" type="checkbox" value = {type4} onChange={ (e) => setType4(e.target.checked)}/>
+                                    <label className="cursor-pointer font-italic d-block custom-control-label" for="customCheck4">Electronic items</label>
                                 </div>
                             </li>
-                            <li class="list-group-item rounded-0">
-                                <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" id="customCheck5" type="checkbox" value = {type5} onChange={ (e) => setType5(e.target.checked)}/>
-                                    <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck5">Toys</label>
+                            <li className="list-group-item rounded-0">
+                                <div className="custom-control custom-checkbox">
+                                    <input className="custom-control-input" id="customCheck5" type="checkbox" value = {type5} onChange={ (e) => setType5(e.target.checked)}/>
+                                    <label className="cursor-pointer font-italic d-block custom-control-label" for="customCheck5">Toys</label>
                                 </div>
                             </li>
                         </ul>
@@ -179,18 +173,28 @@ const Activity = (props) => {
 					</td>
 				</tr>:''
                 }
+                <br/>
+                {(bio==true || nonbio==true || donation==true && (type1==true || type2==true || type3==true || type4==true|| type5==true))?
 				<tr>
 					<td colspan="2">
-						<input type="submit" value="Submit" onSubmit={handleContactSubmit} />
+						{/* <input type="submit" value="Submit" onSubmit={handleContactSubmit} /> */}
+                        <button type="button" class="btn btn-success btn-lg btn-block" onSubmit={handleContactSubmit}>Submit</button>
 					</td>
 				</tr>
+                :
+                <tr>
+					<td colspan="2">
+                    <button type="button" class="btn btn-secondary btn-lg btn-block" disabled>Submit</button>
+					</td>
+				</tr>
+                }
+                <br/>
 			</table>
             </form>
 		</div>
-	    </div>
-    </div>
-    
-  )
+	</div>
+</div>
+)
 }
 export default Activity;
 
