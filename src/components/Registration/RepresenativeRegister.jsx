@@ -1,38 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { Input } from "reactstrap";
-import { Button } from "react-bootstrap";
+import React, { useState, useEffect } from 'react'
+import { Input } from 'reactstrap';
+import { Button } from 'react-bootstrap';
 
 import { storage } from "../../firebase/firebase";
 
-import APIHelper from "../API/apihelper2";
-import "../Registration/style.css";
-import { BrowserRouter, Link, Redirect } from "react-router-dom";
-import { Formik, Field, Form, ErrorMessage, yupToFormErrors } from "formik";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import * as Yup from "yup";
-import axios from "axios";
+import APIHelper from '../API/apihelper2';
+import '../Registration/style.css';
+import { BrowserRouter, Link, Redirect } from 'react-router-dom';
+import { Formik, Field, Form, ErrorMessage, yupToFormErrors } from 'formik';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import * as Yup from 'yup';
+import axios from 'axios';
+import Swal from 'sweetalert2'
 
 // import toast, { Toaster } from 'react-hot-toast';
 
-const notify = () =>
-  toast.success(
-    "Representative registration successful!",
-    { position: toast.POSITION.TOP_RIGHT },
-    { autoClose: 5000 }
-  );
-const notify1 = () =>
-  toast.error(
-    "Error in Representative registration !",
-    { position: toast.POSITION.TOP_RIGHT },
-    { autoClose: 5000 }
-  );
+const notify = () => toast.success('Representative registration successful!', { position: toast.POSITION.TOP_RIGHT }, { autoClose: 5000 });
+const notify1 = () => toast.error('Error in Representative registration !', { position: toast.POSITION.TOP_RIGHT }, { autoClose: 5000 });
 const phoneRegExp = /^[0-9]{10}$/g;
 const nameRegExp = /^[a-zA-Z ]{2,30}$/;
 
 const RepresenativeRegister = () => {
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0)
   }, []);
 
   const [fileInput, setFileInput] = useState(null);
@@ -44,41 +36,37 @@ const RepresenativeRegister = () => {
   };
 
   const submitFile = async () => {
-    if (fileInput) {
-      const uploadTask = storage
-        .ref(`/images/${fileInput.name}`)
-        .put(fileInput);
 
-      await uploadTask.on(
-        "state_changed",
-        console.log,
-        console.error,
-        async () => {
-          const url = await storage
-            .ref("images")
-            .child(fileInput.name)
-            .getDownloadURL();
-          setURL(url);
-          setUpload(true);
-        }
-      );
+    if (fileInput) {
+      const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
+
+      await uploadTask.on("state_changed", console.log, console.error, async () => {
+
+        const url = await storage.ref("images").child(fileInput.name).getDownloadURL();
+        setURL(url);
+        setUpload(true);
+      });
+
     }
-  };
+
+  }
 
   return (
     <Formik
       initialValues={{
-        name: "",
-        email: "",
-        mobileNumber: "",
-        password: "",
-        idProof: "",
-        confirmPassword: "",
-        city: "",
-        address: "",
-        gender: "",
+        name: '',
+        email: '',
+        mobileNumber: '',
+        password: '',
+        idProof: '',
+        confirmPassword: '',
+        city: '',
+        address: '',
+        gender: ''
       }}
+
       onSubmit={async (values, { setSubmitting, resetForm }) => {
+
         let data = {
           name: values.name,
           phoneNumber: values.mobileNumber,
@@ -97,8 +85,9 @@ const RepresenativeRegister = () => {
           resetForm({});
           setTimeout(() => {
             //   alert("Form Submitted");
-            document.getElementById("file").value = "";
-            notify();
+            document.getElementById('file').value = '';
+
+            Swal.fire('Registration Succesfull!')
             setSubmitting(false);
             setUpload(false);
           }, 1000);
@@ -107,10 +96,13 @@ const RepresenativeRegister = () => {
           setURL("");
           setFileInput(null);
           setUpload(false);
-          document.getElementById("file").value = "";
-          notify1();
+          document.getElementById('file').value = '';
+          Swal.fire('Registration failed!',
+            'An account with same mail id might already be present',
+            'warning');
 
-          <Redirect to="/RepresentativeLogIn" />;
+
+            < Redirect to = '/RepresentativeLogIn' />
         }
       }}
       validationSchema={Yup.object({
@@ -260,13 +252,7 @@ const RepresenativeRegister = () => {
                       </div>
 
                       <div className="col-4">
-                        <Button
-                          onClick={submitFile}
-                          variant={upload ? "success" : "info"}
-                        >
-                          {" "}
-                          {!upload ? "Upload" : "Uploaded"}{" "}
-                        </Button>
+                        <Button onClick={submitFile} variant={upload ? "success" : "info"} > {!upload ? 'Upload' : 'Uploaded'}  </Button>
                       </div>
                     </div>
                     <br />
@@ -339,16 +325,10 @@ const RepresenativeRegister = () => {
                         <div role="group" aria-labelledby="my-radio-group">
                           <label className="px-3">
                             <br />
-                            <Field
-                              type="radio"
-                              name="gender"
-                              value="Male"
-                            />{" "}
-                            Male
-                          </label>
+                            <Field type="radio" name="gender" value="Male" /> Male
+                                                        </label>
                           <label className="px-3">
-                            <Field type="radio" name="gender" value="Female" />{" "}
-                            Female
+                            <Field type="radio" name="gender" value="Female" /> Female
                           </label>
 
                           <label className="px-3">
@@ -404,16 +384,7 @@ const RepresenativeRegister = () => {
                         ) : null}
                       </div>
                       <br />
-                      <div className="row mb-3 px-3">
-                        {" "}
-                        <button
-                          type="submit"
-                          disabled={!upload}
-                          className="btn btn-blue text-center"
-                        >
-                          Register
-                        </button>{" "}
-                      </div>
+                      <div className="row mb-3 px-3"> <button type="submit" disabled={!upload} className="btn btn-blue text-center">Register</button> </div>
                       <ToastContainer limit={1} />
                       <div className="row mb-4 px-3">
                         {" "}

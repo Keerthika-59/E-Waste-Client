@@ -9,9 +9,10 @@ import AuthApi from "../../authAPI";
 // import toast, { Toaster } from 'react-hot-toast';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2'
 
-const notify = () => toast.success('Representative logged in successfully!',{position: toast.POSITION.BOTTOM_RIGHT}, {autoClose:5000});
-const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.BOTTOM_RIGHT}, {autoClose:5000});
+const notify = () => toast.success('Representative logged in successfully!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
+const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 
 export const RepForm = (props) => {
   const Auth = useContext(AuthApi);
@@ -33,25 +34,27 @@ export const RepForm = (props) => {
     <Formik
       initialValues={{ email: "", password: "" }}
       onSubmit={async (values, { setSubmitting }) => {
-        try {
-          if (values.email && values.password) {
-            const login = await APIHelper.loginUser({
-              email: values.email,
-              password: values.password,
-            });
-            Auth.setAuth(true);
-            console.log(`logged in`);
-            Cookies.set("repr", login);
-            props.history.push("/RepDash");
-            setTimeout(() => {
-              setSubmitting(false);
-            }, 1000);
+        
+        try{
+            if (values.email && values.password) {
+              const login = await APIHelper.loginUser({
+                email: values.email,
+                password: values.password,
+              });
+              Auth.setAuth(true);
+              console.log(`logged in`);
+              Cookies.set("repr", login);
+              props.history.push("/RepDash");
+              setTimeout(() => {
+                setSubmitting(false);
+              }, 1000);
+            }  
+          }catch(err){
+            Swal.fire('Login not approved!',
+            'Invalid login credentails or Your Account has not been verfied by the admin yet. Please try again after some time',
+            'warning')
           }
-        } catch (err) {
-          // toast.error(err.response.data.errorMessage);
-          notify1()
-        }
-      }}
+        } }
       validationSchema={Yup.object({
         email: Yup.string()
           .email("Invalid email address")

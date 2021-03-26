@@ -29,16 +29,21 @@ const TableRepresentatives = () => {
 
     ];
 
-    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url1 = 'https://ewaste-dec20-dev-api.azurewebsites.net/admin/representatives/'
+    const url2 = 'https://ewaste-dec20-dev-api.azurewebsites.net/admin/rep/'
 
-    const urls='http://localhost:5000/admin/users'
+    // const url1 = 'http://localhost:5000/admin/representatives/'
+    // const url2 = 'http://localhost:5000/admin/representatives/rep/'
+
+
+    // const urls='http://localhost:5000/admin/representatives'
     
 
     useEffect(() => {
         const getData = () => {
             showLoader();
 
-            fetch(`${urls}`)
+            fetch(`${url1}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -142,7 +147,7 @@ const TableRepresentatives = () => {
                                                     'The User details has been deleted.',
                                                     // 'success'
                                                 )
-                                                axios.delete(`${url}/admin/rep/${rep._id}`)
+                                                axios.delete(`${url2}${rep._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
