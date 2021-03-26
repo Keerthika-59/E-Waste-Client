@@ -11,10 +11,11 @@ const Pending = () => {
   const fetchId = async () => {
     try {
       const token = Cookies.get("rep");
-      const id = await APIHelper.fetchRepId({
+      const response = await APIHelper.fetchRepId({
         token: token,
       });
-      setId(id);
+      setId(response);
+      console.log(response);
     } catch (e) {
       console.log(e);
     }
@@ -22,14 +23,15 @@ const Pending = () => {
 
   const url =`http://localhost:5000/representative/pending/${id}`;
 
-  useEffect(() => {
-    fetchId();
-  }, []);
+//   useEffect(() => {
+    
+//   }, []);
 
   useEffect(() => {
+    fetchId();
     const fetchRepData = async () => {
       try {
-        const repData = await axios.get('http://localhost:5000/representative/pending/6059e3f25c01de3758413c45');
+        const repData = await axios.get(`http://localhost:5000/representative/pending/605b45c3022f814160eceacb`);
         console.log(repData.data);
         setRep(repData.data);
       } catch (err) {
@@ -37,8 +39,13 @@ const Pending = () => {
       }
     };
     fetchRepData();
-  }, [id]);
+  }, []);
 
+  const completed = async (id)=>{
+    const repData = await axios.put(`http://localhost:5000/admin/activity/complete/${id}`);
+    console.log(repData);
+     console.log(id);
+  }
 
   return (
     <>
@@ -141,7 +148,7 @@ const Pending = () => {
                     <div className="card-foot bg-white px-sm-3 pt-sm-4 px-0">
                         <div className="row text-center ">
                         <div className="col my-auto border-line ">
-                            <button type="button" className="btn btn-warning btn-lg ">Mark as Complete</button>
+                            <button type="button" className="btn btn-warning btn-lg" onSubmit={completed(activity._id)} variant={(activity.status===true)?"success":"secondary"}>Mark as Complete</button>
                         </div>                
                         </div>
                     </div>
@@ -160,86 +167,3 @@ const Pending = () => {
 
 export default Pending;
 
-//   return(
-//     <>
-    
-//     <div className="cards px-3 py-2 my-4 mx-4 justify-content-center" >
-//         <div className="card-header bg-white">
-//         <h3 className="pendingHeading">Pending activity</h3>
-//             <div className="row justify-content-between">
-            
-//             <br/>
-//                 <div className="col">
-//                     <p className="text-muted"> Activity ID <br/><span className="font-weight-bold text-dark">1222528743</span></p>
-//                 </div>
-//                 <div className="col">
-//                 <p className="text-muted"> Placed On <br/><span className="font-weight-bold text-dark">19th March,2021</span> </p>
-//                 </div>
-//             </div>
-//         </div>
-//         <br/>
-//         <div className="card-header bg-white">
-//         <div className="row justify-content-between">
-            
-//             <br/>
-//                 <div className="col">
-//                 <form>
-//                 <div class="form-row">
-//                     <div class="col">
-//                     <label for="bio">Bio</label>
-//                     <input type="text" class="form-control" />
-//                     </div>
-//                     <div class="col">
-//                     <label for="id">Non-bio</label>
-//                     <input type="text" class="form-control"/>
-//                     </div>
-                                     
-//                 </div>
-//                 <br/>
-//                 <div class="form-row">
-//                     <div class="col">
-//                     <label for="bio">Donation</label>
-//                     <input type="text" class="form-control" />
-//                     </div>
-//                 </div>
-//                 <br/>
-//                 <div class="form-row">
-//                     <div class="col">
-//                     <label for="bio">User Name</label>
-//                     <input type="text" class="form-control" />
-//                     </div>
-//                     <div class="col">
-//                     <label for="id">User Number</label>
-//                     <input type="text" class="form-control"/>
-//                     </div>
-//                 </div>
-//                 <br/>
-//                 <div class="form-row">
-//                     <div class="col">
-//                     <label for="id">Address</label>
-//                     <input type="textarea" class="form-control"/>
-//                     </div>
-//                 </div>
-//                 </form>
-//                 </div>
-//             </div>
-//             <br/>
-//         </div>
-//         <div className="card-foot bg-white px-sm-3 pt-sm-4 px-0">
-//         <div className="row text-center ">
-//                 <div className="col my-auto border-line ">
-//                     <button type="button" className="btn btn-success btn-lg ">Completed</button>
-//                 </div>
-//                 {/* <div className="col my-auto border-line ">
-//                     <button type="button" className="btn btn-danger btn-sm btn-block">Cancel</button>
-//                 </div> */}
-                
-//             </div>
-//         </div>
-        
-//     </div>
-//     </>
-//   );
-// }
-
-// export default Pending;
