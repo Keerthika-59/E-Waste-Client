@@ -5,6 +5,7 @@ import '../Registration/style.css';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import Swal from 'sweetalert2'
 
 import axios from 'axios';
 
@@ -47,13 +48,13 @@ const UserRegister = () => {
                     await APIHelper.registerUsers(data);
                     resetForm({});
                     setTimeout(() => {
-                    //   alert("Form Submitted");
-                    notify();
+                    Swal.fire('Registration Succesfull!')
                       setSubmitting(false);
                     }, 1000);
                   } catch (err) {
-                    // alert(err.response.data.errorMessage);
-                    notify1();
+                    Swal.fire('Registration failed!',
+                    'An account with same mail id might already be present',
+                    'warning');
                   }
           
               }}

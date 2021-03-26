@@ -9,6 +9,7 @@ import AuthApi from "../../authAPI";
 // import toast, { Toaster } from 'react-hot-toast';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2'
 
 const notify = () => toast.success('Representative logged in successfully!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
@@ -47,23 +48,21 @@ export const RepForm = (props) => {
               setTimeout(() => {
                 setSubmitting(false);
               }, 1000);
-            }  
+            } 
           }catch(err){
-            // alert(err.response.data.errorMessage);
-            notify1();
+            Swal.fire('Login not approved!',
+            '',
+            'warning')
           }
-          
-        
-      }
-    }
-            validationSchema={Yup.object({
-                email: Yup.string()
-                    .email('Invalid email address')
-                    .required('Email is required'),
-                password: Yup.string()
-                    .required('Password is Required'),
-            })}
-        >
+        } }
+      validationSchema={Yup.object({
+        email: Yup.string()
+          .email("Invalid email address")
+          .required("Email is required"),
+        password: Yup.string().required("Password is Required"),
+      })}
+    >
+
 
         { (formik, isSubmitting) => (
             

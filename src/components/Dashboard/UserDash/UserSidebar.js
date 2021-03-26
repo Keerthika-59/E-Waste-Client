@@ -141,8 +141,8 @@ function Navbar() {
                 ) : (show === 1) ? (
                   <Pending/>
                 ) : (
-                 // <Completed/>
-                   <UserCompletedActivities/>
+                 <Completed/>
+                  //  <UserCompletedActivities/>
                 )
               }
             </div>

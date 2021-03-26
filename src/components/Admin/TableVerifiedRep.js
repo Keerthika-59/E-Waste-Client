@@ -35,14 +35,16 @@ const TableVerifiedRep = () => {
 
     ];
 
-    const urls='http://localhost:5000/admin/representatives'
+    const url1 = 'http://localhost:5000/admin/representatives/unverified'
+    const url2 = 'https://ewaste-dec20-dev-api.azurewebsites.net/admin/representatives/unverified'
+
 
     useEffect(() => {
         const getData = () => {
 
             showLoader();
 
-            fetch(`${urls}`)
+            fetch(`${url2}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -88,6 +90,8 @@ const TableVerifiedRep = () => {
     return (<>
         <div className="row w-100">
             <div className="col mb-3 col-12 text-center">
+                <h3>Verify representatives</h3>
+
                 <div className="row">
                     <div className="col-md-6">
                         <Pagination
@@ -157,7 +161,7 @@ const TableVerifiedRep = () => {
                                                     'Rejected',
                                                     'Representative has been rejected.',
                                                 )
-                                                // axios.delete(`${url}/admin/rep/${rep._id}`)
+                                                axios.delete(`${url}admin/rep/${rep._id}`)
                                             }
                                         })
                                     }}
