@@ -3,8 +3,6 @@ import {Jumbotron,Media,Image} from "react-bootstrap"
 import {Button, Carousel, Container} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import './Information.css'
-
-import './Dispose.css'
 import {data} from './Data.js';
 const Dispose = () => {
   useEffect(() => {

@@ -57,11 +57,7 @@ export const UserForm = (props) => {
                     'Invalid login credentails',
                     'warning')
                   }
-          
-                
-                // setTimeout(() => {
-                //     setSubmitting(false);
-                // }, 1000);
+        
             }}
             validationSchema={Yup.object({
                 email: Yup.string()

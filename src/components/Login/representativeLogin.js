@@ -54,18 +54,15 @@ export const RepForm = (props) => {
             'Invalid login credentails or Your Account has not been verfied by the admin yet. Please try again after some time',
             'warning')
           }
-          
-        
-      }
-    }
-            validationSchema={Yup.object({
-                email: Yup.string()
-                    .email('Invalid email address')
-                    .required('Email is required'),
-                password: Yup.string()
-                    .required('Password is Required'),
-            })}
-        >
+        } }
+      validationSchema={Yup.object({
+        email: Yup.string()
+          .email("Invalid email address")
+          .required("Email is required"),
+        password: Yup.string().required("Password is Required"),
+      })}
+    >
+
 
         { (formik, isSubmitting) => (
             
