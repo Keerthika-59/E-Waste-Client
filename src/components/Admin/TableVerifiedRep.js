@@ -35,7 +35,7 @@ const TableVerifiedRep = () => {
 
     ];
 
-    // const url1='http://localhost:5000/admin/representatives/'
+    const url1='http://localhost:5000/admin/representatives/unverified'
     const url2='https://ewaste-dec20-dev-api.azurewebsites.net/admin/representatives/'
 
 
@@ -159,7 +159,7 @@ const TableVerifiedRep = () => {
                                                     'Rejected',
                                                     'Representative has been rejected.',
                                                 )
-                                                axios.delete(`https://ewaste-dec20-dev-api.azurewebsites.net/admin/rep/${rep._id}`)
+                                                axios.delete(`${url}admin/rep/${rep._id}`)
                                             }
                                         })
                                     }}

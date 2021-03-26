@@ -25,11 +25,12 @@ const TableMessages = () => {
 
     ];
 
-    const url1 = 'https://ewaste-dec20-dev-api.azurewebsites.net/contacts'
-    // const url2 = 'https://ewaste-dec20-dev-api.azurewebsites.net/admin/contact/'
+ 
+    const url1 = 'https://ewaste-dec20-dev-api.azurewebsites.net/admin/contacts/'
 
 
-    // const url2 = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url2 = 'https://ewaste-dec20-dev-api.azurewebsites.net/admin/delete/contact/'
+    
 
 
     useEffect(() => {
@@ -134,7 +135,7 @@ const TableMessages = () => {
                                                     'The User details has been deleted.',
                                                     // 'success'
                                                 )
-                                                axios.delete(`${url1}${comment._id}`)
+                                                axios.delete(`http://localhost:5000/admin/delete/contact/${comment._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
