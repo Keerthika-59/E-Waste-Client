@@ -10,8 +10,8 @@ import AuthApi from "../../authAPI";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const notify = () => toast.success('Representative logged in successfully!',{position: toast.POSITION.BOTTOM_RIGHT}, {autoClose:5000});
-const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.BOTTOM_RIGHT}, {autoClose:5000});
+const notify = () => toast.success('Representative logged in successfully!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
+const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 
 export const RepForm = (props) => {
   const Auth = useContext(AuthApi);
