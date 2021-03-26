@@ -67,26 +67,26 @@ const Activity = (props) => {
             
             console.log(newData);
              
-      axios
-      .post(API_URL, newData)
-      .then(res => { 
+    //   axios
+    //   .post(API_URL, newData)
+    //   .then(res => { 
         
-          setBio('');
-          setNonbio('');
-          setDonation('');
-          setType1('');
-          setType2('');
-          setType3('');
-          setType4('');
-          setType5('');
+    //       setBio('');
+    //       setNonbio('');
+    //       setDonation('');
+    //       setType1('');
+    //       setType2('');
+    //       setType3('');
+    //       setType4('');
+    //       setType5('');
         
-          setTimeout(() => {
-            history.push('/');
-          }, 3000);
+    //       setTimeout(() => {
+    //         history.push('/');
+    //       }, 3000);
 
-          console.log(res.data)
+    //       console.log(res.data)
 
-      })
+    //   })
 
     };
 return(
@@ -174,7 +174,7 @@ return(
 				</tr>:''
                 }
                 <br/>
-                {(bio==true || nonbio==true ||( donation==true)?(type1==true || type2==true || type3==true || type4==true|| type5==true):'')?
+                {(bio==true || nonbio==true || donation==true && (type1==true || type2==true || type3==true || type4==true|| type5==true))?
 				<tr>
 					<td colspan="2">
 						{/* <input type="submit" value="Submit" onSubmit={handleContactSubmit} /> */}
