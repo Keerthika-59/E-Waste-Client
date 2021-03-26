@@ -28,6 +28,10 @@ async function fetchUserId(token) {
   const { data: id } = await axios.post(`${API_URL}getId`, token);
   return id;
 }
+async function fetchRepId(token) {
+  const  response= await axios.post(`${API_URL}getId`, token);
+  return response._id;
+}
 async function fetchReprData(token) {
   const { data: repr } = await axios.get(`${API_URL}/${token}`);
   return repr;

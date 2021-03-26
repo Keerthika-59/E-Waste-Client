@@ -1,7 +1,7 @@
 import React,{useContext} from 'react'
-import UserActivity from './UserActivity'
 import { Redirect } from "react-router";
 import AuthApi from "../../../authAPI";
+import Activity from './pages/activity';
 function UserDashboard() {
     
     const Auth = useContext(AuthApi)
@@ -9,7 +9,7 @@ function UserDashboard() {
         return (
             (Auth.auth) ? (
             <>
-                <UserActivity />
+                <Activity />
             </>):(<Redirect to='/UserLogIn' />)
         )
     }

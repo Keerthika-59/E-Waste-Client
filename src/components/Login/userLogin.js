@@ -9,6 +9,7 @@ import AuthApi from "../../authAPI";
 // import toast, { Toaster } from 'react-hot-toast';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2'
 
 const notify = () => toast.success('User logged in successfully!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
@@ -52,15 +53,11 @@ export const UserForm = (props) => {
                       }, 1000);
                     }
                   } catch (err) {
-                    // alert(err.response.data.errorMessage);
-                  
-                    notify1();
+                    Swal.fire('Login not approved!',
+                    'Invalid login credentails',
+                    'warning')
                   }
-          
-                
-                // setTimeout(() => {
-                //     setSubmitting(false);
-                // }, 1000);
+        
             }}
             validationSchema={Yup.object({
                 email: Yup.string()

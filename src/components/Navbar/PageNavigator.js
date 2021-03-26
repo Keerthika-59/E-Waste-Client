@@ -26,20 +26,17 @@ import Donating from '../HomePage/Information/Donate'
 import SideBar from '../Admin/SideBar';
 import Home from '../Pages/Home';
 import PageNotFound from '../404/PageNotFound';
-
 import RepProfile from '../Dashboard/RepDash/Profile/repProfile'
-import RepImage from '../Admin/RepImage'
-
 import Goals from '../Pages/Goals/Goals'
 import AdminLogin from '../Login/Admin/AdminLogin';
-
+import Activity from '../Dashboard/UserDash/pages/activity';
+import RepCompletedActivities from '../Admin/RepCompletedActivities';
 function Navigator() {
 
     return (
         <>
             <Switch>
                 <Route exact path='/' component={Home} />
-
                 <Route exact path='/Gallery'className component={Gallery} />
                 <Route exact path='/AboutUs' component={AboutUs} />
                 <Route exact path='/ContactUs' component={InputForm} />
@@ -65,7 +62,7 @@ function Navigator() {
                 <Route exact path='/Donating' component={Donating} />
                 <Route exact path="/admin" component={SideBar} />                
                 <Route exact path='/RepProfile' component={RepProfile} />
-                <Route exact path='/admin/login' component={AdminLogin} />             
+                <Route exact path='/admin/login' component={AdminLogin} />               
                 <Route component={PageNotFound} />
 
             </Switch>
