@@ -10,7 +10,8 @@ import { BsColumnsGap } from "react-icons/bs";
 import apihelper from "../../../API/apihelper";
 const notify = () => toast.success("Submitted successfully!");
 
-const API_URL = "http://localhost:5000/auth1/userAct/";
+
+const API_URL  = 'http://localhost:5000/activity/';
 
 const Activity = (props) => {
   const [bio, setBio] = useState(false);
