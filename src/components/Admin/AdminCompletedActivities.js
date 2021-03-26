@@ -42,7 +42,6 @@ const AdminCompletedActivities = () => {
                 .then(json => {
                     hideLoader();
                     setReps(json);
-                    console.log(json)
                 });
         };
 
