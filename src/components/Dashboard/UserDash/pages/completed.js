@@ -1,208 +1,70 @@
-import React from 'react';
-import './completed.css';
-import { useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
+import Cookies from "js-cookie";
+import APIHelper from "../../../API/apihelper";
+import { Table } from "react-bootstrap";
+import axios from 'axios'
+const UserCompletedActivities = () => {
+  const [compActivity, setCompActivity] = useState([]);
+  const [id, setId] = useState("");
 
-const Completed = () => {
-  const [completed, setCompleted] = useState([]);
-
-    return(
-     <>
-       <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <div class="card  px-3 py-4 my-4 mx-5 justify-content-center">
-                    <div class="card-body1">
-                        <h6 class="card-title">Timeline</h6>
-                        <div id="content">
-                            <ul class="timeline">
-                                <li class="event" data-date="22/03/2021">
-                                    <h3>Activity ID</h3>
-                                    <p>Representative name</p>
-                                </li>
-                                <li class="event" data-date="22/03/2021">
-                                    <h3>Activity ID</h3>
-                                    <p>Representative name</p>
-                                </li>
-                                <li class="event" data-date="22/03/2021">
-                                    <h3>Activity ID</h3>
-                                    <p>Representative name</p>
-                                </li>
-                                <li class="event" data-date="22/03/2021">
-                                    <h3>Activity ID</h3>
-                                    <p>Representative name</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-       
-
-    </>   
-    );
+  const fetchId = async () => {
+    try {
+      const token = Cookies.get("user");
+      const id = await APIHelper.fetchUserId({
+        token: token,
+      });
+      setId(id);
+    } catch (e) {
+      console.log(e);
     }
+  };
 
-export default Completed;
+  useEffect(() => {
+    fetchId();
+  }, []);
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        // const userData = await APIHelper.fetchUserData(id);
+        const userData = await axios.get(`http://localhost:5000/admin/user/completed/${id}`)
+        console.log(userData.data);
+        setCompActivity(userData.data);
+      } catch (err) {
+        console.log(err.response || err);
+      }
+    };
+    fetchUserData();
+  }, [id]);
 
+  return (
+    <>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Activity Id</th>
+            <th>Bio Waste</th>
+            <th>Non Bio Waste</th>
+            <th>Donation</th>
+            <th>Representative Id</th>
+          </tr>
+        </thead>
+        <tbody>
+          {compActivity.user_activities?(compActivity.user_activities
+            // .filter((activity) => activity.status === true)
+            .map((act) => (
+              <tr>
+                <td>{act._id}</td>
+                <td>{act.bioWaste ? "Yes" : "No"}</td>
+                <td>{act.nonBioWaste ? "Yes" : "No"}</td>
+                <td>{act.donation ? "Yes" : "No"}</td>
+                <td>{act.repDetails.repId}</td>
+              </tr>
+            ))):(<div>Loading...</div>)}
+        </tbody>
+      </Table>
+    </>
+  );
+};
 
-
-// import React, { useEffect, useState, useMemo } from "react";
-// // import Header from "./Header";
-// import APIHelper from '../../../API/apihelper';
-// import { TableHeader, Pagination, Search } from "../../../Admin/DashboardPages/Tablecomponent";
-// import useFullPageLoader from "../../../Admin/DashboardPages/useFullPageLoader";
-// // import AppConfig from "App.config";
-// import Swal from 'sweetalert2'
-// import {Button} from 'react-bootstrap'
-
-// const Completed = () => {
-//     const [completed, setCompleted] = useState([]);
-//     const [loader, showLoader, hideLoader] = useFullPageLoader();
-//     const [totalItems, setTotalItems] = useState(0);
-//     const [currentPage, setCurrentPage] = useState(1);
-//     const [search, setSearch] = useState("");
-//     const [sorting, setSorting] = useState({ field: "", order: "" });
-
-//     const ITEMS_PER_PAGE = 9;
-
-//     const headers = [
-//         { name: "No#", field: "id", sortable: false },
-//         { name: "Name", field: "name", sortable: true },
-//         { name: "Email", field: "email", sortable: true },
-//         { name: "Phone Number", field: "body", sortable: false },
-//         { name: "City", field: "city", sortable: true },
-//         { name: "Address", field: "address", sortable: true },
-//         { name: "Action", field: "body", sortable: false }
-//     ];
-
-//     useEffect(() => {
-//         const getData = () => {
-//             showLoader();
-
-//             fetch(`${APIHelper.API_URL}`)
-//                 .then(response => response.json())
-//                 .then(json => {
-//                     hideLoader();
-//                     setCompleted(json);
-//                 });
-//         };
-
-//         getData();
-//     }, []);
-
-//     const completeData = useMemo(() => {
-//         let computedComments = completed;
-
-//         if (search) {
-//             computedComments = computedComments.filter(
-//                 complete =>
-//                 complete.name.toLowerCase().includes(search.toLowerCase()) ||
-//                 complete.email.toLowerCase().includes(search.toLowerCase()) ||
-//                 complete.city.toLowerCase().includes(search.toLowerCase())||
-//                 complete.address.toLowerCase().includes(search.toLowerCase())
-//             );
-//         }
-
-//         setTotalItems(computedComments.length);
-
-//         //Sorting comments
-//         if (sorting.field) {
-//             const reversed = sorting.order === "asc" ? 1 : -1;
-//             computedComments = computedComments.sort(
-//                 (a, b) =>
-//                     reversed * a[sorting.field].localeCompare(b[sorting.field])
-//             );
-//         }
-
-//         //Current Page slice
-//         return computedComments.slice(
-//             (currentPage - 1) * ITEMS_PER_PAGE,
-//             (currentPage - 1) * ITEMS_PER_PAGE + ITEMS_PER_PAGE
-//         );
-//     }, [completed, currentPage, search, sorting]);
-
-//     return (
-//         <>
-//             {/* <ExternalInfo page="datatable" /> */}
-
-//             <div className="row w-100">
-//                 <div className="col mb-3 col-12 text-center">
-//                     <div className="row">
-//                         <div className="col-md-6">
-//                             <Pagination
-//                                 total={totalItems}
-//                                 itemsPerPage={ITEMS_PER_PAGE}
-//                                 currentPage={currentPage}
-//                                 onPageChange={page => setCurrentPage(page)}
-//                             />
-//                         </div>
-//                         <div className="col-md-6 d-flex flex-row-reverse">
-//                             <Search
-//                                 onSearch={value => {
-//                                     setSearch(value);
-//                                     setCurrentPage(1);
-//                                 }}
-//                             />
-//                         </div>
-//                     </div>
-
-//                     <table className="table table-striped">
-//                         <TableHeader
-//                             headers={headers}
-//                             onSorting={(field, order) =>
-//                                 setSorting({ field, order })
-//                             }
-//                         />
-//                         <tbody>
-//                             {completeData.map(user => (
-//                                 <tr>
-//                                     <th scope="row" key={complete.id}>
-//                                         {complete.id}
-//                                     </th>
-//                                     <td>{complete.name}</td>
-//                                     <td>{complete.email}</td>
-//                                     <td>{complete.phoneNumber}</td>
-//                                     <td>{complete.city}</td>
-//                                     <td>{complete.address}</td>
-//                                     <td>   <Button variant="danger" onClick={() => {
-
-//                                         Swal.fire({
-//                                             title: 'Are you sure?',
-//                                             text: 'You will not be able to recover this User Details!',
-//                                             icon: 'warning',
-//                                             showCancelButton: true,
-//                                             confirmButtonText: 'Yes, delete it!',
-//                                             cancelButtonText: 'No, keep it'
-//                                         }).then((result) => {
-//                                             if (result.value) {
-//                                                 Swal.fire(
-//                                                     'Deleted!',
-//                                                     'The User details has been deleted.',
-//                                                     // 'success'
-//                                                 )
-//                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
-//                                                 Swal.fire(
-//                                                     'Cancelled',
-//                                                     'The User details is not deleted :)',
-//                                                     // 'error'
-//                                                 )
-//                                             }
-//                                         })
-
-
-//                                     }}>DELETE</Button> </td>
-//                                 </tr>
-//                             ))}
-//                         </tbody>
-//                     </table>
-//                 </div>
-//             </div>
-//             {loader}
-//         </>
-//     );
-// };
-
-// export default Completed;
+export default UserCompletedActivities;

@@ -2,16 +2,16 @@ import React from 'react';
 import './app.css';
 import Navbar from '../UserSidebar';
 import Navigator from '../UserNavigator';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter} from 'react-router-dom';
 import Footer from '../../../Footer/Footer';
-import Navbar from '../../../Navbar/Navbar'
+import Navbar1 from '../../../Navbar/Navbar'
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Navbar1/>
         <Navbar/>
-        <Navbar />
         <Navigator/>
         <Footer/>
       </BrowserRouter>

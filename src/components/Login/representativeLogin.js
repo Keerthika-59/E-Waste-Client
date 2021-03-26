@@ -9,9 +9,10 @@ import AuthApi from "../../authAPI";
 // import toast, { Toaster } from 'react-hot-toast';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2'
 
-const notify = () => toast.success('Representative logged in successfully!',{position: toast.POSITION.BOTTOM_RIGHT}, {autoClose:5000});
-const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.BOTTOM_RIGHT}, {autoClose:5000});
+const notify = () => toast.success('Representative logged in successfully!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
+const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 
 export const RepForm = (props) => {
   const Auth = useContext(AuthApi);
@@ -49,21 +50,19 @@ export const RepForm = (props) => {
               }, 1000);
             }  
           }catch(err){
-            // alert(err.response.data.errorMessage);
-            notify1();
+            Swal.fire('Login not approved!',
+            'Invalid login credentails or Your Account has not been verfied by the admin yet. Please try again after some time',
+            'warning')
           }
-          
-        
-      }
-    }
-            validationSchema={Yup.object({
-                email: Yup.string()
-                    .email('Invalid email address')
-                    .required('Email is required'),
-                password: Yup.string()
-                    .required('Password is Required'),
-            })}
-        >
+        } }
+      validationSchema={Yup.object({
+        email: Yup.string()
+          .email("Invalid email address")
+          .required("Email is required"),
+        password: Yup.string().required("Password is Required"),
+      })}
+    >
+
 
         { (formik, isSubmitting) => (
             
@@ -117,7 +116,8 @@ export const RepForm = (props) => {
                                         </div>
 
                                         <div className="row px-3 mb-4">
-                                            <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input" /> <label for="chk1" className="custom-control-label text-sm">Remember me</label> </div> <a href="/" className="ml-auto mb-0 text-sm">Forgot Password?</a>
+                                            <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input" /> <label for="chk1" className="custom-control-label text-sm">Remember me</label> </div>
+                                             {/* <a href="/" className="ml-auto mb-0 text-sm">Forgot Password?</a> */}
                                         </div>
 
                                         <div className="row mb-3 px-3">

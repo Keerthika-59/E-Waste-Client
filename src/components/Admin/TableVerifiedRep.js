@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useMemo } from "react";
 // import Header from "./Header";
 import APIHelper from '../API/apihelper2'
-
+import axios from 'axios'
 import { TableHeader, Pagination, Search } from "./DashboardPages/Tablecomponent";
 import useFullPageLoader from "./DashboardPages/useFullPageLoader";
 import { Button, Card } from 'react-bootstrap'
+import './Test.css'
 
 import './style.css'
 // import AppConfig from "App.config";
@@ -19,7 +20,9 @@ const TableVerifiedRep = () => {
     const [search, setSearch] = useState("");
     const [sorting, setSorting] = useState({ field: "", order: "" });
 
-    const ITEMS_PER_PAGE = 2;
+    const ITEMS_PER_PAGE = 7;
+
+    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
 
     const headers = [
         { name: "No#", field: "id", sortable: false },
@@ -32,12 +35,16 @@ const TableVerifiedRep = () => {
 
     ];
 
+    const url1 = 'http://localhost:5000/admin/representatives/unverified'
+    const url2 = 'https://ewaste-dec20-dev-api.azurewebsites.net/admin/representatives/unverified'
+
+
     useEffect(() => {
         const getData = () => {
 
             showLoader();
 
-            fetch(`${APIHelper.API_URL}`)
+            fetch(`${url2}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -83,6 +90,8 @@ const TableVerifiedRep = () => {
     return (<>
         <div className="row w-100">
             <div className="col mb-3 col-12 text-center">
+                <h3>Verify representatives</h3>
+
                 <div className="row">
                     <div className="col-md-6">
                         <Pagination
@@ -92,71 +101,82 @@ const TableVerifiedRep = () => {
                             onPageChange={page => setCurrentPage(page)}
                         />
                     </div>
-                    <div className="col-md-6 d-flex flex-row-reverse">
-                        <Search
-                            onSearch={value => {
-                                setSearch(value);
-                                setCurrentPage(1);
-                            }}
-                        />
-                    </div>
                 </div>
             </div>
 
             {
                 repsData.map(rep => (
-                    <div className="col-10  my-3">
-                        <div className="bg-white shadow rounded overflow-hidden">
-                            <div className="px-4 pt-0 pb-4 cover">
-
-                                <div className="media align-items-end profile-head">
-                                    <div class="profile mr-5">
-                                        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
-                                            alt="..."
-                                            width='230'
-                                            height='230'
-                                            class="rounded mb-5 img-thumbnail" />
-                                    </div>
-                                    <div class="media-body mb-5 text-white">
-                                        <h4 class="mt-0 mb-0"> {rep.name} </h4>
-                                        <p class="small mb-5"> <i class="fas fa-map-marker-alt mr-3"></i> {rep.city} </p>
-                                    </div>
-
-                                    <hr />
+                    <div className="verify">
+                        <Card className='verifyrep card text-white bg-secondary'>
+                            <img src={`${rep.idProof}`}
+                                alt='No ID Proof Provided'
+                                width='300'
+                                height='300'
+                                className="rounded mb-5 img-thumbnail"
+                                style={{ color: "black" }} />
+                            {rep.isVerified && <button type="button" class="btn btn-success status1">verified</button>}<hr />
+                            {/* {!rep.isVerified && <button type="button" class="btn btn-danger status1">Not Verified</button>} */}
+                            <Card.Text>
+                                <div class="media-body mb-5 text-white">
+                                    <h4 class="mt-0 mb-0"> {rep.name} </h4>
+                                    <p class="small mb-5"> <i class="fas fa-map-marker-alt mr-3"></i> {rep.city} </p>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div className='mx-auto' style={{ background: 'white' }}  >
-                            <Button className="py-2 mx-3 my-2 " variant="success"
+                                {!rep.isVerified && <Button className="py-2 mx-3 my-2 " variant="success"
 
-                                onClick={() => {
+                                    onClick={() => {
 
-                                    Swal.fire({
-                                        title: 'Are you sure to verify the representative?',
-                                        icon: 'success',
-                                        showCancelButton: true,
-                                        confirmButtonText: 'Verify',
-                                        cancelButtonText: 'Cancel'
-                                    }).then((result) => {
-                                        if (result.value) {
-                                            Swal.fire(
-                                                'Successfully Verified',
-                                                'Representative has been verified.',
-                                            )
-                                        }
-                                    })
-                                }}
-                                
-                            > Verify  </Button>
-                            <Button className="py-2 px-2 mx-2 my-3 mx-auto" variant="danger" > Reject  </Button>
-                        </div>
+                                        Swal.fire({
+                                            title: 'Are you sure to verify the representative?',
+                                            icon: 'question',
+                                            showCancelButton: true,
+                                            confirmButtonText: 'Verify',
+                                            cancelButtonText: 'Cancel'
+                                        }).then((result) => {
+                                            if (result.value) {
+                                                Swal.fire(
+                                                    'Successfully Verified',
+                                                    'Representative has been verified.',
+                                                )
+                                                axios.put(`${url}admin/representative/${rep._id}`);
+
+                                            }
+                                        })
+                                    }}
+
+                                > Verify  </Button>}
+                                {!rep.isVerified && <Button className="py-2 px-2 mx-2 my-3 mx-auto" variant="danger"
+
+                                    onClick={() => {
+                                        Swal.fire({
+                                            title: 'Are you sure you want to reject the representative?',
+                                            text: 'This may delete the representative account',
+                                            icon: 'question',
+                                            showCancelButton: true,
+                                            confirmButtonText: 'reject',
+                                            cancelButtonText: 'Cancel'
+                                        }).then((result) => {
+                                            if (result.value) {
+                                                Swal.fire(
+                                                    'Rejected',
+                                                    'Representative has been rejected.',
+                                                )
+                                                axios.delete(`${url}admin/rep/${rep._id}`)
+                                            }
+                                        })
+                                    }}
+
+                                > Reject  </Button>}</Card.Text>
+
+
+                        </Card>
+
                     </div>
 
                 ))
-            })
+            }
 
-            </div>
+        </div>
         {/* {loader} */}
     </>);
 };
