@@ -9,8 +9,8 @@ import { Button ,Table} from 'react-bootstrap'
 import axios from 'axios'
 
 
-const TableRepresentatives = () => {
-    const [reps, setReps] = useState([]);
+const AdminPendingActivities = () => {
+    const [data, setReps] = useState([]);
     const [loader, showLoader, hideLoader] = useFullPageLoader();
     const [totalItems, setTotalItems] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
@@ -29,10 +29,9 @@ const TableRepresentatives = () => {
 
     ];
 
-    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url1 = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
 
-    const urls='http://localhost:5000/admin/users'
-    
+    const urls='http://localhost:5000/activities/pending'
 
     useEffect(() => {
         const getData = () => {
@@ -43,14 +42,15 @@ const TableRepresentatives = () => {
                 .then(json => {
                     hideLoader();
                     setReps(json);
+                    console.log(json)
                 });
         };
 
         getData();
-    }, [reps]);
+    }, [data]);
 
     const repsData = useMemo(() => {
-        let computedComments = reps;
+        let computedComments = data;
 
         if (search) {
             computedComments = computedComments.filter(
@@ -79,7 +79,7 @@ const TableRepresentatives = () => {
             (currentPage - 1) * ITEMS_PER_PAGE,
             (currentPage - 1) * ITEMS_PER_PAGE + ITEMS_PER_PAGE
         );
-    }, [reps, currentPage, search, sorting]);
+    }, [data, currentPage, search, sorting]);
 
     return (
         <>
@@ -105,55 +105,29 @@ const TableRepresentatives = () => {
                             }}
                         /> */}
                     {/* </div> */}
-                    <h4>Representative</h4>
+                    <h4>Pending Activities</h4>
                     <Table responsive>
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>E-mail</th>
-                                <th>Phone Number</th>
-                                <th>City</th>
-                                <th>Address</th>
-                                <th>Action</th>
-
+                                <th>Activity Id</th>
+                                <th>User Name</th>
+                                <th>Bio Waste</th>
+                                <th>Non-Bio Waste</th>
+                                <th>Donation</th>
+                                <th>Representative Name</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {repsData.map(rep => (
+                            {repsData.map(data => (
                                 <tr>
-                                    <td>{rep.name}</td>
-                                    <td>{rep.email}</td>
-                                    <td>{rep.phoneNumber}</td>
-                                    <td>{rep.city}</td>
-                                    <td>{rep.address}</td>
-                                    <td>   <Button variant="danger" onClick={() => {
+                                    <td>{data._id}</td>
+                                    <td>{data.userDetails.userName}</td>
+                                    <td>{data.bioWaste ? 'Yes':"No"}</td>
+                                    <td>{data.nonBioWaste ? 'Yes':'No'}</td>
+                                    <td>{data.donation ? 'Yes':'No'}</td>
+                                    { data.repDetails && <td>{data.repDetails.repName}</td>}
 
-                                        Swal.fire({
-                                            title: 'Are you sure?',
-                                            text: 'You will not be able to recover this User Details!',
-                                            icon: 'warning',
-                                            showCancelButton: true,
-                                            confirmButtonText: 'Yes, delete it!',
-                                            cancelButtonText: 'No, keep it'
-                                        }).then((result) => {
-                                            if (result.value) {
-                                                Swal.fire(
-                                                    'Deleted!',
-                                                    'The User details has been deleted.',
-                                                    // 'success'
-                                                )
-                                                axios.delete(`${url}/admin/rep/${rep._id}`)
-                                            } else if (result.dismiss === Swal.DismissReason.cancel) {
-                                                Swal.fire(
-                                                    'Cancelled',
-                                                    'The User details is not deleted :)',
-                                                    // 'error'
-                                                )
-                                            }
-                                        })
-
-
-                                    }}>DELETE</Button> </td>
+                                    {/* <td>{rep.repDetails.repId}</td> */}
                                 </tr>
                             ))}
                         </tbody>
@@ -164,4 +138,4 @@ const TableRepresentatives = () => {
     );
 };
 
-export default TableRepresentatives;
+export default AdminPendingActivities;

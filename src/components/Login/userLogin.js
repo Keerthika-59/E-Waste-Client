@@ -52,14 +52,10 @@ export const UserForm = (props) => {
                       }, 1000);
                     }
                   } catch (err) {
-                    // alert(err.response.data.errorMessage);
+                    // toast.error(err.response.data.errorMessage);
                     notify1();
                   }
-          
-                
-                // setTimeout(() => {
-                //     setSubmitting(false);
-                // }, 1000);
+        
             }}
             validationSchema={Yup.object({
                 email: Yup.string()

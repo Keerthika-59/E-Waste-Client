@@ -33,37 +33,33 @@ export const RepForm = (props) => {
     <Formik
       initialValues={{ email: "", password: "" }}
       onSubmit={async (values, { setSubmitting }) => {
-        
-        try{
-            if (values.email && values.password) {
-              const login = await APIHelper.loginUser({
-                email: values.email,
-                password: values.password,
-              });
-              Auth.setAuth(true);
-              console.log(`logged in`);
-              Cookies.set("repr", login);
-              props.history.push("/RepDash");
-              setTimeout(() => {
-                setSubmitting(false);
-              }, 1000);
-            }  
-          }catch(err){
-            // alert(err.response.data.errorMessage);
-            notify1();
+        try {
+          if (values.email && values.password) {
+            const login = await APIHelper.loginUser({
+              email: values.email,
+              password: values.password,
+            });
+            Auth.setAuth(true);
+            console.log(`logged in`);
+            Cookies.set("repr", login);
+            props.history.push("/RepDash");
+            setTimeout(() => {
+              setSubmitting(false);
+            }, 1000);
           }
-          
-        
-      }
-    }
-            validationSchema={Yup.object({
-                email: Yup.string()
-                    .email('Invalid email address')
-                    .required('Email is required'),
-                password: Yup.string()
-                    .required('Password is Required'),
-            })}
-        >
+        } catch (err) {
+          // toast.error(err.response.data.errorMessage);
+          notify1()
+        }
+      }}
+      validationSchema={Yup.object({
+        email: Yup.string()
+          .email("Invalid email address")
+          .required("Email is required"),
+        password: Yup.string().required("Password is Required"),
+      })}
+    >
+
 
         { (formik, isSubmitting) => (
             
