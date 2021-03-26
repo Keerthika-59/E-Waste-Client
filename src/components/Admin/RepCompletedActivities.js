@@ -148,7 +148,7 @@ const RepCompletedActivities = () => {
   const fetchId = async () => {
     try {
       const token = Cookies.get("rep");
-      const id = await url.fetchRepId({
+      const id = await APIHelper.fetchRepId({
         token: token,
       });
       setId(id);
@@ -159,14 +159,15 @@ const RepCompletedActivities = () => {
 
   const url =`http://localhost:5000/representative/completed/${id}`;
   
-  useEffect(() => {
-    fetchId();
-  }, []);
+//   useEffect(() => {
+    
+//   }, []);
 
   useEffect(() => {
+    fetchId();
     const fetchReprData = async () => {
       try {
-        const repData = await axios.get('http://localhost:5000/representative/completed/6059ab53e6083d13803afa69');
+        const repData = await axios.get('http://localhost:5000/representative/completed/605b45c3022f814160eceacb');
         console.log(repData.data);
         setCompActivity(repData.data.user_activities);
       } catch (err) {
@@ -174,7 +175,7 @@ const RepCompletedActivities = () => {
       }
     };
     fetchReprData();
-  }, [id]);
+  }, []);
 
   return (
     <>
