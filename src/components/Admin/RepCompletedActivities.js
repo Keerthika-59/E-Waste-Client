@@ -83,7 +83,7 @@ const RepCompletedActivities = () => {
                                 currentPage={currentPage}
                                 onPageChange={page => setCurrentPage(page)}
                             />
-                        </div> */}
+                        </div> 
 
                         {/* <Search
 
