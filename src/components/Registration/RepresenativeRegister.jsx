@@ -1,30 +1,18 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
-import { Alert, Modal, Button } from "react-bootstrap";
+import { Input } from "reactstrap";
+import { Button } from "react-bootstrap";
+
+import { storage } from "../../firebase/firebase";
+
 import APIHelper from "../API/apihelper2";
 import "../Registration/style.css";
-import { BrowserRouter, Link } from "react-router-dom";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { BrowserRouter, Link, Redirect } from "react-router-dom";
+import { Formik, Field, Form, ErrorMessage, yupToFormErrors } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as Yup from "yup";
-=======
-import React, { useState,useEffect } from 'react'
-import {Input} from 'reactstrap';
-import {Button} from 'react-bootstrap';
+import axios from "axios";
 
-import { storage } from '../../firebase/firebase';
-
-import APIHelper from '../API/apihelper2';
-import '../Registration/style.css';
-import { BrowserRouter, Link, Redirect } from 'react-router-dom';
-import { Formik, Field, Form, ErrorMessage, yupToFormErrors } from 'formik';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import * as Yup from 'yup';
-import axios from 'axios';
-
->>>>>>> 7b2989721d44ff1614c0ea12e6dcae23931c7140
 // import toast, { Toaster } from 'react-hot-toast';
 
 const notify = () =>
@@ -47,113 +35,82 @@ const RepresenativeRegister = () => {
     window.scrollTo(0, 0);
   }, []);
 
-<<<<<<< HEAD
-=======
-  const [fileInput, setFileInput] = useState(null)
+  const [fileInput, setFileInput] = useState(null);
   const [url, setURL] = useState("");
   const [upload, setUpload] = useState(false);
 
-  const onFileChange = event => {
-
+  const onFileChange = (event) => {
     setFileInput(event.target.files[0]);
-  }
+  };
 
   const submitFile = async () => {
+    if (fileInput) {
+      const uploadTask = storage
+        .ref(`/images/${fileInput.name}`)
+        .put(fileInput);
 
-    if(fileInput) {
-      const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
-
-      await uploadTask.on("state_changed", console.log, console.error, async () => {
-
-        const url = await storage.ref("images").child(fileInput.name).getDownloadURL();
-        setURL(url);
-        setUpload(true);
-      });
-
+      await uploadTask.on(
+        "state_changed",
+        console.log,
+        console.error,
+        async () => {
+          const url = await storage
+            .ref("images")
+            .child(fileInput.name)
+            .getDownloadURL();
+          setURL(url);
+          setUpload(true);
+        }
+      );
     }
-    
-  }
+  };
 
->>>>>>> 7b2989721d44ff1614c0ea12e6dcae23931c7140
   return (
     <Formik
       initialValues={{
-<<<<<<< HEAD
         name: "",
         email: "",
         mobileNumber: "",
         password: "",
+        idProof: "",
         confirmPassword: "",
         city: "",
         address: "",
         gender: "",
       }}
       onSubmit={async (values, { setSubmitting, resetForm }) => {
-        const data = {
+        let data = {
           name: values.name,
           phoneNumber: values.mobileNumber,
           email: values.email,
           gender: values.gender,
+          idProof: url,
           city: values.city,
           address: values.address,
           password: values.password,
         };
-        try {
-          await APIHelper.registerUsers(data);
-=======
-        name: '',
-        email: '',
-        mobileNumber: '',
-        password: '',
-        idProof : '',
-        confirmPassword: '',
-        city: '',
-        address: '',
-        gender: ''
-      }}
-
-      onSubmit={async (values, {setSubmitting, resetForm }) => {
-
-        let data = {
-            name: values.name,
-            phoneNumber: values.mobileNumber,
-            email: values.email,
-            gender: values.gender,
-            idProof: url,
-            city: values.city,
-            address: values.address,
-            password: values.password,
-          };
         // console.log(data);
 
-        try 
-        {
+        try {
           await APIHelper.registerUsers(data);
-          
->>>>>>> 7b2989721d44ff1614c0ea12e6dcae23931c7140
+
           resetForm({});
           setTimeout(() => {
             //   alert("Form Submitted");
-            document.getElementById('file').value = '';
+            document.getElementById("file").value = "";
             notify();
             setSubmitting(false);
             setUpload(false);
-
           }, 1000);
         } catch (err) {
-<<<<<<< HEAD
-          toast.error(err.response.data.errorMessage);
-          // notify1();
-=======
           // alert(err.response.data.errorMessage);
-          setURL('');
+          setURL("");
           setFileInput(null);
           setUpload(false);
-          document.getElementById('file').value = '';
+          document.getElementById("file").value = "";
           notify1();
 
-          <Redirect to= '/RepresentativeLogIn' />
->>>>>>> 34734351125cc7354a93370b651bfe4c5d9cef5f
+          <Redirect to="/RepresentativeLogIn" />;
         }
       }}
       validationSchema={Yup.object({
@@ -177,7 +134,6 @@ const RepresenativeRegister = () => {
           .oneOf([Yup.ref("password"), "Password not matching..."]),
 
         mobileNumber: Yup.string()
-          .required("Phone Number is Required")
           .matches(phoneRegExp, "Mobile Number is not Valid")
           .min(10, "Too short")
           .max(10, "Too long"),
@@ -189,13 +145,15 @@ const RepresenativeRegister = () => {
         address: Yup.string().required("Address is Required"),
       })}
     >
-<<<<<<< HEAD
-      {(formik, values, isSubmitting, resetForm) => (
-=======
-
-      { (formik, values, isSubmitting, resetForm, handleChange, touched, setFieldValue) => (
-
->>>>>>> 7b2989721d44ff1614c0ea12e6dcae23931c7140
+      {(
+        formik,
+        values,
+        isSubmitting,
+        resetForm,
+        handleChange,
+        touched,
+        setFieldValue
+      ) => (
         <Form>
           <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
             <div className="card card0 border-0">
@@ -206,7 +164,7 @@ const RepresenativeRegister = () => {
                       {" "}
                       <img
                         src={`${process.env.PUBLIC_URL}/images/picture.jpg`}
-                        alt=""
+                        alt="image"
                         className="image"
                       />{" "}
                     </div>
@@ -288,46 +246,28 @@ const RepresenativeRegister = () => {
                     </div>
                     <br />
 
-<<<<<<< HEAD
-                    <div>
-                      {" "}
-                      <h6 className="mb-0 text-sm">Id Proof</h6>
-                      <input
-<<<<<<< HEAD
-                        type="file"
-                        accept=".png, .jpg, .jpeg"
-                        name="photo"
-                        // onChange={handlePhoto}
-                      />
-=======
-                      name = "file"
-                      type = "file"
-                      onChange = {onFileChange}
-=======
-                    <div className = "row"> 
-                    
-                     <h6 className="mb-0 py-3 px-3 text-sm">Id Proof</h6>
+                    <div className="row">
+                      <h6 className="mb-0 py-3 px-3 text-sm">Id Proof</h6>
 
-                      <div className = "col-6">
+                      <div className="col-6">
                         <input
-                        required = {true}
+                          required={true}
                           name="file"
                           id="file"
                           type="file"
                           onChange={onFileChange}
->>>>>>> 34734351125cc7354a93370b651bfe4c5d9cef5f
                         />
-                      </div> 
+                      </div>
 
-<<<<<<< HEAD
-                      <img src = {url} />
-
->>>>>>> 7b2989721d44ff1614c0ea12e6dcae23931c7140
-=======
-                      <div className = "col-4">
-                        <Button onClick={submitFile} variant= { upload ? "success" : "info" } > {!upload ?   'Upload' : 'Uploaded' }  </Button>
-                      </div>                     
->>>>>>> 34734351125cc7354a93370b651bfe4c5d9cef5f
+                      <div className="col-4">
+                        <Button
+                          onClick={submitFile}
+                          variant={upload ? "success" : "info"}
+                        >
+                          {" "}
+                          {!upload ? "Upload" : "Uploaded"}{" "}
+                        </Button>
+                      </div>
                     </div>
                     <br />
 
@@ -464,19 +404,16 @@ const RepresenativeRegister = () => {
                         ) : null}
                       </div>
                       <br />
-<<<<<<< HEAD
                       <div className="row mb-3 px-3">
                         {" "}
                         <button
                           type="submit"
+                          disabled={!upload}
                           className="btn btn-blue text-center"
                         >
                           Register
                         </button>{" "}
                       </div>
-=======
-                      <div className="row mb-3 px-3"> <button type="submit" disabled = {!upload} className="btn btn-blue text-center">Register</button> </div>
->>>>>>> 34734351125cc7354a93370b651bfe4c5d9cef5f
                       <ToastContainer limit={1} />
                       <div className="row mb-4 px-3">
                         {" "}

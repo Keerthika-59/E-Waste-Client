@@ -10,12 +10,11 @@ import { BsColumnsGap } from "react-icons/bs";
 import apihelper from "../../../API/apihelper";
 const notify = () => toast.success("Submitted successfully!");
 
-
-const API_URL  = 'http://localhost:5000/activity/';
+const API_URL = "http://localhost:5000/activity/";
 
 const Activity = (props) => {
-  const [bio, setBio] = useState(false);
-  const [nonbio, setNonbio] = useState(false);
+  const [bioWaste, setBio] = useState(false);
+  const [nonBioWaste, setnonBioWaste] = useState(false);
   const [donation, setDonation] = useState(false);
   const [st, setst] = useState(false);
   const [cl, setcl] = useState(false);
@@ -23,12 +22,12 @@ const Activity = (props) => {
   const [el, setel] = useState(false);
   const [to, setto] = useState(false);
   const [id, setId] = useState("");
-  const [repId, setRepId] = useState("");
+  // const [repId, setRepId] = useState("");
   let history = useHistory();
-  const findRep = async () => {
-    const {data:reps} = await axios.get("http://localhost:5000/reps/")
-    setRepId(reps[0]._id)
-  };
+  // const findRep = async () => {
+  //   const {data:reps} = await axios.get("http://localhost:5000/reps/")
+  //   setRepId(reps[0]._id)
+  // };
 
   const fetchId = async () => {
     try {
@@ -44,9 +43,9 @@ const Activity = (props) => {
   useEffect(() => {
     fetchId();
   }, []);
-  useEffect(() => {
-    findRep();
-  }, []);
+  // useEffect(() => {
+  //   findRep();
+  // }, []);
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
@@ -54,10 +53,8 @@ const Activity = (props) => {
     let newData;
     if (donation === false) {
       newData = {
-        repId,
-        userId:id,
-        bio,
-        nonbio,
+        bioWaste,
+        nonBioWaste,
         donation,
         st: false,
         cl: false,
@@ -75,10 +72,8 @@ const Activity = (props) => {
     ) {
       // setDonation(false);
       newData = {
-        repId,
-        userId:id,
-        bio,
-        nonbio,
+        bioWaste,
+        nonBioWaste,
         donation: false,
         st,
         cl,
@@ -90,10 +85,8 @@ const Activity = (props) => {
       alert("Choose one category!");
     } else {
       newData = {
-        repId,
-        userId:id,
-        bio,
-        nonbio,
+        bioWaste,
+        nonBioWaste,
         donation,
         st,
         cl,
@@ -105,9 +98,8 @@ const Activity = (props) => {
     console.log(newData);
 
     axios.post(`${API_URL}${id}`, newData).then((res) => {
-      setRepId("")
       setBio(false);
-      setNonbio(false);
+      setnonBioWaste(false);
       setDonation(false);
       setst(false);
       setcl(false);
@@ -119,7 +111,10 @@ const Activity = (props) => {
       }, 2000);
 
       console.log(res.data);
-    });
+    }).catch((err)=>{
+      console.log(err.message)
+      alert("NO representative available, check back later")
+    })
   };
 
   return (
@@ -139,7 +134,7 @@ const Activity = (props) => {
                       <input
                         type="checkbox"
                         id="switch"
-                        value={bio}
+                        value={bioWaste}
                         onChange={(e) => setBio(e.target.checked)}
                       />
                       <label for="switch"></label>
@@ -155,8 +150,8 @@ const Activity = (props) => {
                       <input
                         type="checkbox"
                         id="switch1"
-                        value={nonbio}
-                        onChange={(e) => setNonbio(e.target.checked)}
+                        value={nonBioWaste}
+                        onChange={(e) => setnonBioWaste(e.target.checked)}
                       />
                       <label for="switch1"></label>
                     </div>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./pending.css";
+import axios from "axios";
 import Cookies from "js-cookie";
 import APIHelper from "../../../API/apihelper";
 const Pending = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
   const [id, setId] = useState("");
   const fetchId = async () => {
     try {
@@ -24,11 +25,14 @@ const Pending = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userData = await APIHelper.fetchUserData(id);
-        console.log(userData);
-        setUser(userData);
+        // const userData = await APIHelper.fetchUserData(id);
+        const userData = await axios.get(
+          `http://localhost:5000/admin/user/pending/${id}`
+        );
+        console.log(userData.data);
+        setUser(userData.data);
       } catch (err) {
-        console.log(err.response);
+        console.log(err.response || err.message);
       }
     };
     fetchUserData();
@@ -37,9 +41,9 @@ const Pending = () => {
   return (
     <>
       <h3 className="pendingHeading">Pending activity</h3>
-      {user.activity ? (
-        user.activity
-          .filter((activity) => activity.status === false)
+      {user.user_activities ? (
+        user.user_activities
+          // .filter((activity) => activity.status === false)
           .map((activity, index) => (
             <div
               className="cards px-3 py-2 my-4 mx-4 justify-content-center"
@@ -90,24 +94,34 @@ const Pending = () => {
                       </div>
                       <div class="col">
                         <label for="id">Donation</label>
-                        <div class="form-control">
-                          {activity.donation ? "Yes" : "No"}
+                        <div class="">
+                          {activity.donation ? (
+                            <>
+                              <p>{activity.cl ? "clothes" : ""}</p>
+                              <p>{activity.el ? "Electronics" : ""}</p>
+                              <p>{activity.to ? "toys" : ""}</p>
+                              <p>{activity.fo ? "food" : ""}</p>
+                              <p>{activity.st ? "stationary" : ""}</p>{" "}
+                            </>
+                          ) : (
+                            "No"
+                          )}
                         </div>
-                      </div>
-                      <div class="col">
-                        <label for="id">Category</label>
-                        <div class="form-control">~</div>
                       </div>
                     </div>
                     <br />
                     <div class="form-row">
                       <div class="col">
                         <label for="bio">Representative Name</label>
-                        <div class="form-control">some name</div>
+                        <div class="form-control">
+                          {activity.repDetails.repName}
+                        </div>
                       </div>
                       <div class="col">
                         <label for="id">Representative Number</label>
-                        <div class="form-control">some num</div>
+                        <div class="form-control">
+                          {activity.repDetails.repPhoneNumber}
+                        </div>
                       </div>
                     </div>
                   </form>

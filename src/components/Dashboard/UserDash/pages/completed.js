@@ -2,13 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import Cookies from "js-cookie";
 import APIHelper from "../../../API/apihelper";
 import { Table } from "react-bootstrap";
-import {
-  TableHeader,
-  Pagination,
-  Search,
-} from "../../../Admin/DashboardPages/Tablecomponent";
-import useFullPageLoader from "../../../Admin/DashboardPages/useFullPageLoader";
-
+import axios from 'axios'
 const UserCompletedActivities = () => {
   const [compActivity, setCompActivity] = useState([]);
   const [id, setId] = useState("");
@@ -32,9 +26,10 @@ const UserCompletedActivities = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userData = await APIHelper.fetchUserData(id);
-        console.log(userData.activity);
-        setCompActivity(userData.activity);
+        // const userData = await APIHelper.fetchUserData(id);
+        const userData = await axios.get(`http://localhost:5000/admin/user/completed/${id}`)
+        console.log(userData.data);
+        setCompActivity(userData.data);
       } catch (err) {
         console.log(err.response || err);
       }
@@ -55,17 +50,17 @@ const UserCompletedActivities = () => {
           </tr>
         </thead>
         <tbody>
-          {compActivity
-            .filter((activity) => activity.status === true)
+          {compActivity.user_activities?(compActivity.user_activities
+            // .filter((activity) => activity.status === true)
             .map((act) => (
               <tr>
                 <td>{act._id}</td>
-                <td>{act.bioWaste?'Yes':'No'}</td>
-                <td>{act.nonBioWaste?'Yes':'No'}</td>
-                <td>{act.donation?'Yes':'No'}</td>
-                <td>{act.repId}</td>
+                <td>{act.bioWaste ? "Yes" : "No"}</td>
+                <td>{act.nonBioWaste ? "Yes" : "No"}</td>
+                <td>{act.donation ? "Yes" : "No"}</td>
+                <td>{act.repDetails.repId}</td>
               </tr>
-            ))}
+            ))):(<div>Loading...</div>)}
         </tbody>
       </Table>
     </>

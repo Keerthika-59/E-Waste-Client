@@ -319,14 +319,14 @@ function Navbar() {
               title="User"
              >
 
-              {/* <Dropdown.Item className="fw-bold">
+              <Dropdown.Item className="fw-bold">
               <Link to='/MyProfile' 
                 style={{ textDecoration: "none" }}
                 >
-                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> Dashboard</Link>
+                <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My profile</Link>
              </Dropdown.Item>
 
-              <Dropdown.Divider /> */}
+              <Dropdown.Divider />
 
               <Dropdown.Item className="fw-bold">
                 <Link to="/UserDash" style={{ textDecoration: "none" }}>

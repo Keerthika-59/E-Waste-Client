@@ -52,12 +52,7 @@ export const UserForm = (props) => {
                       }, 1000);
                     }
                   } catch (err) {
-<<<<<<< HEAD
                     // toast.error(err.response.data.errorMessage);
-=======
-                    // alert(err.response.data.errorMessage);
-                  
->>>>>>> 34734351125cc7354a93370b651bfe4c5d9cef5f
                     notify1();
                   }
         
