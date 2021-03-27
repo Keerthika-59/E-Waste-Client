@@ -112,7 +112,7 @@ const Activity = (props) => {
             setel(false);
             setto(false);
             setTimeout(() => {
-                history.push("/");
+                history.push("/UserDash");
             }, 2000);
 
             console.log(res.data);
