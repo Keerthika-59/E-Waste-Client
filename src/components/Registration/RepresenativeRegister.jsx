@@ -46,13 +46,7 @@ const RepresenativeRegister = () => {
         setURL(url);
         setUpload(true);
       });
-<<<<<<< HEAD
     }    
-=======
-
-    }
-
->>>>>>> 35af7980a9280734b13f264fa5f4c77d393f64c2
   }
 
   return (
