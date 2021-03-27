@@ -147,18 +147,15 @@ const RepCompletedActivities = () => {
 
   const fetchId = async () => {
     try {
-      const token = Cookies.get("rep");
-      const id = await APIHelper.fetchRepId({
-        token: token,
-      });
-      setId(id);
+      const token = Cookies.get("repr");
+      const response = await APIHelper.fetchRepId(token)
+      setId(response.data);
+
     } catch (e) {
       console.log(e);
     }
   };
-
-  const url =`http://localhost:5000/representative/completed/${id}`;
-  
+    
 //   useEffect(() => {
     
 //   }, []);
@@ -167,8 +164,10 @@ const RepCompletedActivities = () => {
     fetchId();
     const fetchReprData = async () => {
       try {
-        const repData = await axios.get('http://localhost:5000/representative/completed/605b45c3022f814160eceacb');
-        console.log(repData.data);
+
+        const repData = await axios.get(`https://ewaste-dec20-dev-api.azurewebsites.net/representative/completed/605e1e67e5318a3b94a75a26`);
+        console.log(repData.data.user_activities);
+
         setCompActivity(repData.data.user_activities);
       } catch (err) {
         console.log(err.response || err);
