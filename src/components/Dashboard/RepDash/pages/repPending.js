@@ -1,38 +1,47 @@
 import './repPending.css';
 import React, { useState, useEffect } from "react";
+import {Button} from 'react-bootstrap';
+
 import Cookies from "js-cookie";
-import APIHelper from "../../../API/apihelper2";
 import axios from 'axios';
+import API from '../../../API/apihelper2';
 
 const Pending = () => {
 
     const [rep, setRep] = useState({});
-  const [id, setId] = useState("");
+    const [userid, setUserid] = useState();
+
   const fetchId = async () => {
+
     try {
-      const token = Cookies.get("rep");
-      const response = await APIHelper.fetchRepId({
-        token: token,
-      });
-      setId(response);
-      console.log(response);
+      const token = Cookies.get("repr");
+      console.log(token);
+
+      const response = await API.fetchRepId(token);
+
+      const ID = response.data;
+
+      return ID;
+
+      console.log(response.data);
     } catch (e) {
       console.log(e);
     }
   };
+  
+  useEffect( async () => {
 
-  const url =`http://localhost:5000/representative/pending/${id}`;
-
-//   useEffect(() => {
-    
-//   }, []);
-
-  useEffect(() => {
-    fetchId();
     const fetchRepData = async () => {
       try {
-        const repData = await axios.get(`http://localhost:5000/representative/pending/605b45c3022f814160eceacb`);
+
+        const id = await  fetchId();
+        console.log(id);
+
+        console.log('First')
+        const repData = await axios.get(`https://ewaste-dec20-dev-api.azurewebsites.net/representative/pending/${id}`);
         console.log(repData.data);
+        // console.log(repData.data);
+
         setRep(repData.data);
       } catch (err) {
         console.log(err.response);
@@ -41,14 +50,24 @@ const Pending = () => {
     fetchRepData();
   }, []);
 
-  const completed = async (id)=>{
-    const repData = await axios.put(`http://localhost:5000/admin/activity/complete/${id}`);
-    console.log(repData);
-     console.log(id);
+  const completed = async (id) => {
+
+    try {
+
+      const repData = await axios.put(`https://ewaste-dec20-dev-api.azurewebsites.net/admin/activity/complete/${id}`);
+      
+      console.log('Hasi aa gayi')
+    } catch (error) {
+
+      console.log('No Activity');
+    }
+    // console.log(repData);
   }
 
   return (
     <>
+
+    {userid}
       <h3 className="pendingHeading">Pending activity</h3>
       {rep.user_activities ? (
         rep.user_activities
@@ -145,10 +164,11 @@ const Pending = () => {
                         }</div>
                       </div>
                     </div>
+                           
                     <div className="card-foot bg-white px-sm-3 pt-sm-4 px-0">
                         <div className="row text-center ">
                         <div className="col my-auto border-line ">
-                            <button type="button" className="btn btn-warning btn-lg" onSubmit={completed(activity._id)} variant={(activity.status===true)?"success":"secondary"}>Mark as Complete</button>
+                            <Button type="button" className="btn btn-warning btn-lg" onClick={ () =>  {completed(activity._id)}} variant={(activity.status===true) ?"success":"secondary"}>Mark as Complete </Button>
                         </div>                
                         </div>
                     </div>
