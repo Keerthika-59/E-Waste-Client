@@ -7,38 +7,60 @@ import axios from 'axios';
 const Pending = () => {
 
     const [rep, setRep] = useState({});
-  const [id, setId] = useState("");
+    const [userid, setUserid] = useState();
+
+
   const fetchId = async () => {
     try {
-      const token = Cookies.get("rep");
-      const id = await APIHelper.fetchRepId({
-        token: token,
-      });
-      setId(id);
+      const token = Cookies.get("repr");
+      console.log(token);
+
+      const response = await API.fetchRepId(token);
+
+      const ID = response.data;
+
+      return ID;
+
+      console.log(response.data);
     } catch (e) {
       console.log(e);
     }
   };
+  
+  useEffect( async () => {
 
-  const url =`http://localhost:5000/representative/pending/${id}`;
-
-  useEffect(() => {
-    fetchId();
-  }, []);
-
-  useEffect(() => {
     const fetchRepData = async () => {
       try {
-        const repData = await axios.get('http://localhost:5000/representative/pending/6059e3f25c01de3758413c45');
+
+        const id = await  fetchId();
+        console.log(id);
+
+        console.log('First')
+        const repData = await axios.get(`https://ewaste-dec20-dev-api.azurewebsites.net/representative/pending/${id}`);
         console.log(repData.data);
+        // console.log(repData.data);
+
         setRep(repData.data);
       } catch (err) {
         console.log(err.response);
       }
     };
     fetchRepData();
-  }, [id]);
+  }, []);
 
+  const completed = async (id) => {
+
+    try {
+
+      const repData = await axios.put(`https://ewaste-dec20-dev-api.azurewebsites.net/admin/activity/complete/${id}`);
+      
+      console.log('Hasi aa gayi')
+    } catch (error) {
+
+      console.log('No Activity');
+    }
+    // console.log(repData);
+  }
 
   return (
     <>
