@@ -30,7 +30,7 @@ async function fetchUserId(token) {
   return id;
 }
 async function fetchUserData(token) {
- const {data:user}= await axios.get(`${API_URL}/user/${token}`);
+ const {data:user}= await axios.get(`${API_URL}user/${token}`);
  return user
 }
 export default {

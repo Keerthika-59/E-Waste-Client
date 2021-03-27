@@ -38,7 +38,7 @@ const RepCompletedActivities = () => {
       }
     };
     fetchReprData();
-  }, [id]);
+  }, []);
 
   return (
     <>

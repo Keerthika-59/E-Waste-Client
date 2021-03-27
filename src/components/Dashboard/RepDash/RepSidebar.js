@@ -27,7 +27,7 @@ function RepNavbar() {
 
   return (
     Auth.auth ? (
-      <>
+      <div className="nav-body">
       {/* <Navbar1/> */}
         <IconContext.Provider value={{ color: '#fff' }}>
           {/* <div className='sidenav'>
@@ -78,7 +78,7 @@ function RepNavbar() {
         </IconContext.Provider>
 
         {/* <Footer/> */}
-      </>
+        </div>
     ) : (<Redirect to='/RepresentativeLogIn' />)
   );
 }

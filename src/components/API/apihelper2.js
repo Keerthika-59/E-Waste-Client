@@ -19,7 +19,7 @@ async function loginUser(loginData) {
   return login;
 }
 async function updateReprProfile(updated, token) {
-  await axios.put(`${API_URL}/${token}`, updated);
+   await axios.put(`${API_URL}${token}`, updated);
 }
 async function logoutUser() {
   await axios.get(`${API_URL}logout`);
@@ -29,16 +29,19 @@ async function fetchUserId(token) {
   return id;
 }
 async function fetchRepId(token) {
-  const { data: id } = await axios.post(`${API_URL}getId`, token);
-  return id;
+  const  response = await axios.post(`${API_URL}getId`, {
+    token : token
+  });
+  return response;
 }
 async function fetchReprData(token) {
-  const { data: repr } = await axios.get(`${API_URL}/${token}`);
+  const { data: repr } = await axios.get(`${API_URL}${token}`);
   return repr;
 }
 
 export default {
   getAllUsers,
+  fetchRepId,
   registerUsers,
   loginUser,
   logoutUser,
