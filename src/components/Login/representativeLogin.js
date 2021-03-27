@@ -48,10 +48,10 @@ export const RepForm = (props) => {
               setTimeout(() => {
                 setSubmitting(false);
               }, 1000);
-            }  
+            } 
           }catch(err){
             Swal.fire('Login not approved!',
-            'Invalid login credentails or Your Account has not been verfied by the admin yet. Please try again after some time',
+            '',
             'warning')
           }
         } }
