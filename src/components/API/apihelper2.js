@@ -19,7 +19,8 @@ async function loginUser(loginData) {
   return login;
 }
 async function updateReprProfile(updated, token) {
-  await axios.put(`${API_URL}/${token}`, updated);
+  // await axios.put(`${API_URL}${token}`, updated);
+  await axios.put(`http://localhost:5000/reps/${token}`, updated);
 }
 async function logoutUser() {
   await axios.get(`${API_URL}logout`);

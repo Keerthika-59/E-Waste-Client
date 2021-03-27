@@ -32,3 +32,9 @@
     background: webkit-gradient(linear, left top, right top, from(#2a6437), to(#eed85a));
     background: linear-gradient(to right, #ee5a6f, #f29263);
 }
+
+
+.error {
+    font-size: .8rem;
+    color: #fa2d2d;
+}
