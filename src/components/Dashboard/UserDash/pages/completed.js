@@ -27,7 +27,7 @@ const UserCompletedActivities = () => {
     const fetchUserData = async () => {
       try {
         // const userData = await APIHelper.fetchUserData(id);
-        const userData = await axios.get(`http://localhost:5000/admin/user/completed/${id}`)
+        const userData = await axios.get(`https://ewaste-dec20-dev-api.azurewebsites.net/admin/user/completed/${id}`)
         console.log(userData.data);
         setCompActivity(userData.data);
       } catch (err) {
