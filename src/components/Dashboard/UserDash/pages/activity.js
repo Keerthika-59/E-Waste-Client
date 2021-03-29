@@ -72,8 +72,8 @@ const Activity = (props) => {
             el === false &&
             to === false
         ) {
-            Swal.fire('Choose a category!','',
-            'warning')
+            Swal.fire('Choose a category!', '',
+                'warning')
             return;
             // setDonation(false);
             newData = {
@@ -87,7 +87,7 @@ const Activity = (props) => {
                 to,
             };
             // console.log(donation);
-           
+
         } else {
             newData = {
                 bioWaste,
@@ -112,10 +112,14 @@ const Activity = (props) => {
             setel(false);
             setto(false);
             setTimeout(() => {
-                history.push("/");
+                history.push("/UserDash");
             }, 2000);
 
-            console.log(res.data);
+            // console.log(res.data);
+
+            Swal.fire('A new Activity has been created!',
+                '',
+                '')
         }).catch((err) => {
             console.log(err.message)
 

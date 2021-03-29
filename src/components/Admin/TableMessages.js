@@ -16,7 +16,7 @@ const TableMessages = () => {
     const [sorting, setSorting] = useState({ field: "", order: "" });
 
     const ITEMS_PER_PAGE = 15;
-
+    
     const headers = [
         { name: "Name", field: "name", sortable: true },
         { name: "Email", field: "email", sortable: true },

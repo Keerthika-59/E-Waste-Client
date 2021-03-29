@@ -29,8 +29,10 @@ async function fetchUserId(token) {
   return id;
 }
 async function fetchRepId(token) {
-  const  response= await axios.post(`${API_URL}getId`, token);
-  return response._id;
+  const  response = await axios.post(`${API_URL}getId`, {
+    token : token
+  });
+  return response;
 }
 async function fetchReprData(token) {
   const { data: repr } = await axios.get(`${API_URL}${token}`);
@@ -39,6 +41,7 @@ async function fetchReprData(token) {
 
 export default {
   getAllUsers,
+  fetchRepId,
   registerUsers,
   loginUser,
   logoutUser,
