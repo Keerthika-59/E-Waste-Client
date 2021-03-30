@@ -1,8 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Button, Image } from 'react-bootstrap';
-import axios from 'axios';
-import { BrowserRouter, Link, Redirect } from "react-router-dom";
+import {Redirect} from 'react-router-dom';
 
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import AuthApi from '../../../authAPI';
 import './style.css';
@@ -58,7 +60,6 @@ const AdminLogin = (props) => {
         } catch (error) {
 
             Swal.fire('Login failed!','invalid credentials')
-
         }
     }
     return ((Cookies.get('admin')) ? <Redirect to='/admin' /> : (

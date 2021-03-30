@@ -20,9 +20,9 @@ const TableVerifiedRep = () => {
     const [search, setSearch] = useState("");
     const [sorting, setSorting] = useState({ field: "", order: "" });
 
-    const ITEMS_PER_PAGE = 7;
+    const ITEMS_PER_PAGE = 5;
 
-    const url = 'https://ewaste-dec20-dev-api.azurewebsites.net/'
+    const url = 'http://ewaste-dec20-dev-api.azurewebsites.net/'
 
     const headers = [
         { name: "No#", field: "id", sortable: false },
@@ -35,16 +35,12 @@ const TableVerifiedRep = () => {
 
     ];
 
-    // const url1 = 'http://localhost:5000/admin/representatives/unverified'
-    const url2 = 'https://ewaste-dec20-dev-api.azurewebsites.net/admin/representatives/unverified'
-
-
     useEffect(() => {
         const getData = () => {
 
             showLoader();
 
-            fetch(`${url2}`)
+            fetch(`${APIHelper.API_URL}`)
                 .then(response => response.json())
                 .then(json => {
                     hideLoader();
@@ -90,8 +86,6 @@ const TableVerifiedRep = () => {
     return (<>
         <div className="row w-100">
             <div className="col mb-3 col-12 text-center">
-                <h3>Verify representatives</h3>
-
                 <div className="row">
                     <div className="col-md-6">
                         <Pagination
@@ -161,7 +155,7 @@ const TableVerifiedRep = () => {
                                                     'Rejected',
                                                     'Representative has been rejected.',
                                                 )
-                                                axios.delete(`${url}admin/rep/${rep._id}`)
+                                                // axios.delete(`${url}/admin/rep/${rep._id}`)
                                             }
                                         })
                                     }}

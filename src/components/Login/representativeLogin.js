@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect,useState } from "react";
 import "./userStyle.css";
 import Cookies from "js-cookie";
 import { BrowserRouter, Link,Redirect } from "react-router-dom";
@@ -10,6 +10,8 @@ import AuthApi from "../../authAPI";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2'
+import {Spinner } from 'react-bootstrap'
+
 
 const notify = () => toast.success('Representative logged in successfully!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
@@ -23,6 +25,8 @@ export const RepForm = (props) => {
       props.history.push("/RepDash");
     }
   };
+  const [loading,setLoading]=useState(false);
+
   useEffect(() => {
     readCookies();
   }, []);
@@ -37,6 +41,8 @@ export const RepForm = (props) => {
         
         try{
             if (values.email && values.password) {
+              setLoading(true);
+
               const login = await APIHelper.loginUser({
                 email: values.email,
                 password: values.password,
@@ -48,8 +54,11 @@ export const RepForm = (props) => {
               setTimeout(() => {
                 setSubmitting(false);
               }, 1000);
+              setLoading(false);
+
             } 
           }catch(err){
+            setLoading(false);
             Swal.fire('Login not approved!',
             '',
             'warning')
@@ -116,12 +125,17 @@ export const RepForm = (props) => {
                                         </div>
 
                                         <div className="row px-3 mb-4">
-                                            <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input" /> <label for="chk1" className="custom-control-label text-sm">Remember me</label> </div>
+                                          {/* <br/> */}
+                                            {/* <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input" /> <label for="chk1" className="custom-control-label text-sm">Remember me</label> </div> */}
                                              {/* <a href="/" className="ml-auto mb-0 text-sm">Forgot Password?</a> */}
                                         </div>
 
                                         <div className="row mb-3 px-3">
-                                            <button type="submit"  className="btn btn-blue text-center">Login</button>
+                                            <button type="submit"  className="btn btn-blue text-center">
+                                            {loading && <Spinner animation="border" size="sm" variant="light" />} 
+                                              
+                                              Login</button>
+
                                             <ToastContainer limit={1}/>
                                         </div>
 

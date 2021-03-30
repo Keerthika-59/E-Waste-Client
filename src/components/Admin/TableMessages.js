@@ -16,7 +16,7 @@ const TableMessages = () => {
     const [sorting, setSorting] = useState({ field: "", order: "" });
 
     const ITEMS_PER_PAGE = 15;
-
+    
     const headers = [
         { name: "Name", field: "name", sortable: true },
         { name: "Email", field: "email", sortable: true },
@@ -123,7 +123,7 @@ const TableMessages = () => {
 
                                         Swal.fire({
                                             title: 'Are you sure?',
-                                            text: 'You will not be able to recover this User Details!',
+                                            text: 'You will not be able to recover this comment!',
                                             icon: 'warning',
                                             showCancelButton: true,
                                             confirmButtonText: 'Yes, delete it!',
@@ -132,14 +132,14 @@ const TableMessages = () => {
                                             if (result.value) {
                                                 Swal.fire(
                                                     'Deleted!',
-                                                    'The User details has been deleted.',
+                                                    'The comment has been deleted.',
                                                     // 'success'
                                                 )
-                                                axios.delete(`http://localhost:5000/admin/delete/contact/${comment._id}`)
+                                                axios.delete(`https://ewaste-dec20-dev-api.azurewebsites.net/admin/delete/contact/${comment._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
-                                                    'The User details is not deleted :)',
+                                                    'The comment is not deleted :)',
                                                     // 'error'
                                                 )
                                             }

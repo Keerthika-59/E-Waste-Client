@@ -27,9 +27,9 @@ const Pending = () => {
       try {
         // const userData = await APIHelper.fetchUserData(id);
         const userData = await axios.get(
-          `http://localhost:5000/admin/user/pending/${id}`
+          `https://ewaste-dec20-dev-api.azurewebsites.net/admin/user/pending/${id}`
         );
-        console.log(userData.data);
+        // console.log(userData.data);
         setUser(userData.data);
       } catch (err) {
         console.log(err.response || err.message);
@@ -47,7 +47,6 @@ const Pending = () => {
           .map((activity, index) => (
             <div
               className="cards px-3 py-2 my-4 mx-4 justify-content-center"
-              style={{ width: "700px" }}
             >
               <div className="card-header bg-white">
                 {/* <h3 className="pendingHeading">Pending activity</h3> */}
@@ -94,14 +93,14 @@ const Pending = () => {
                       </div>
                       <div class="col">
                         <label for="id">Donation</label>
-                        <div class="">
+                       <div class="form-control">
                           {activity.donation ? (
                             <>
-                              {activity.cl ? "clothes" : ""}{" "}
-                              {activity.el ? "Electronics" : ""}{" "}
-                              {activity.to ? "toys" : ""}{" "}
-                              {activity.fo ? "food" : ""}{" "}
-                              {activity.st ? "stationary" : ""}
+                              <p>{activity.cl ? "Clothes " : ""} 
+                              {activity.el ? "Electronics " : ""}
+                              {activity.to ? "Toys " : ""}
+                              {activity.fo ? "Food " : ""}
+                              {activity.st ? "Stationary " : ""}</p>{" "}
                             </>
                           ) : (
                             "No"
