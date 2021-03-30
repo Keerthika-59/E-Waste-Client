@@ -68,9 +68,7 @@ const UserProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormErrors(validate(updated));
-    setIsSubmitting(true);
-    
- 
+    setIsSubmitting(true); 
   };
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmitting) {
