@@ -36,14 +36,13 @@ const RepresenativeRegister = () => {
 
   const onFileChange = (event) => {
     setFileInput(event.target.files[0]);
-      console.log(fileInput);
   };
-
-  
 
   const submitFile = async () => {
 
-    if (fileInput) {
+    console.log(fileInput.type);
+
+    if (fileInput.type === 'image/jpeg' || fileInput.type === 'image/jpg' || fileInput.type === 'image/png') {
       const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
 
       await uploadTask.on("state_changed", async () => {
@@ -56,7 +55,9 @@ const RepresenativeRegister = () => {
         setErrorUpload(false);
         setFileInput(null);
       });
-
+     }
+    else if(fileInput) {
+      Swal.fire('Please Upload a Image File Only!')
     }
 
     else {
@@ -64,7 +65,6 @@ const RepresenativeRegister = () => {
       setFileUpload(false);
     }    
   }
-
   return (
     <Formik
       initialValues={{
@@ -78,7 +78,7 @@ const RepresenativeRegister = () => {
         address: '',
         gender: ''
       }}
-
+      
       onSubmit={async (values, { setSubmitting, resetForm }) => {
 
         let data = {
@@ -94,6 +94,11 @@ const RepresenativeRegister = () => {
         // console.log(data);
 
         try {
+
+          if(!upload && !fileUpload) {
+            Swal.fire('Please Upload a File!')
+            return;
+          }
           await APIHelper.registerUsers(data);
 
           resetForm({});
@@ -112,12 +117,15 @@ const RepresenativeRegister = () => {
 
             return (<Redirect to = "/RepresentativeLogIn" push = {true}/>)
           }, 1000);
+
         } catch (err) {
           // alert(err.response.data.errorMessage);
           setURL("");
           setFileInput(null);
           setFileUpload(false);
           setUpload(false);
+          setErrorUpload(true);
+
           document.getElementById('file').value = '';
           Swal.fire('Registration failed!',
             'An account with same mail id might already be present',
@@ -269,6 +277,7 @@ const RepresenativeRegister = () => {
                           name="file"
                           id="file"
                           type="file"
+                          allowed=".jpg,.jpeg, .png"
                           onChange={onFileChange}
                         />
 
@@ -410,7 +419,7 @@ const RepresenativeRegister = () => {
                       </div>
                       <br />
 
-                      <div className="row mb-3 px-3"> <button type="submit" disabled={!fileUpload && !upload} className="btn btn-blue text-center">Register</button> </div>
+                      <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
                       <ToastContainer limit={1} />
                       <div className="row mb-4 px-3">
                         {" "}
