@@ -30,7 +30,7 @@ const RepCompletedActivities = () => {
         const id = await fetchId();
 
         const repData = await axios.get(`https://ewaste-dec20-dev-api.azurewebsites.net/representative/completed/${id}`);
-        console.log(repData.data.user_activities);
+        // console.log(repData.data.user_activities);
         
         setCompActivity(repData.data.user_activities);
       } catch (err) {

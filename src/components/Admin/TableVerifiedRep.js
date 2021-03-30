@@ -35,7 +35,7 @@ const TableVerifiedRep = () => {
 
     ];
 
-    const url1 = 'http://localhost:5000/admin/representatives/unverified'
+    // const url1 = 'http://localhost:5000/admin/representatives/unverified'
     const url2 = 'https://ewaste-dec20-dev-api.azurewebsites.net/admin/representatives/unverified'
 
 
