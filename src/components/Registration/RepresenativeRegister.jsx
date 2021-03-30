@@ -36,14 +36,13 @@ const RepresenativeRegister = () => {
 
   const onFileChange = (event) => {
     setFileInput(event.target.files[0]);
-      console.log(fileInput);
   };
-
-  
 
   const submitFile = async () => {
 
-    if (fileInput) {
+    console.log(fileInput.type);
+
+    if (fileInput.type === 'image/jpeg' || fileInput.type === 'image/jpg' || fileInput.type === 'image/png') {
       const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
 
       await uploadTask.on("state_changed", async () => {
@@ -56,7 +55,9 @@ const RepresenativeRegister = () => {
         setErrorUpload(false);
         setFileInput(null);
       });
-
+     }
+    else if(fileInput) {
+      Swal.fire('Please Upload a Image File Only!')
     }
 
     else {
@@ -64,7 +65,6 @@ const RepresenativeRegister = () => {
       setFileUpload(false);
     }    
   }
-
   return (
     <Formik
       initialValues={{
@@ -277,6 +277,7 @@ const RepresenativeRegister = () => {
                           name="file"
                           id="file"
                           type="file"
+                          allowed=".jpg,.jpeg, .png"
                           onChange={onFileChange}
                         />
 
