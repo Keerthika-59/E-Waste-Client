@@ -8,5 +8,6 @@ test('renders cards', () => {
     <Route>
         ReactDom.render(<Cards/>,div);
     </Route>
+
     ReactDOM.unmountComponentAtNode(div);
    });
