@@ -94,6 +94,11 @@ const RepresenativeRegister = () => {
         // console.log(data);
 
         try {
+
+          if(!upload && !fileUpload) {
+            Swal.fire('Please Upload a File!')
+            return;
+          }
           await APIHelper.registerUsers(data);
 
           resetForm({});
@@ -112,12 +117,15 @@ const RepresenativeRegister = () => {
 
             return (<Redirect to = "/RepresentativeLogIn" push = {true}/>)
           }, 1000);
+
         } catch (err) {
           // alert(err.response.data.errorMessage);
           setURL("");
           setFileInput(null);
           setFileUpload(false);
           setUpload(false);
+          setErrorUpload(true);
+
           document.getElementById('file').value = '';
           Swal.fire('Registration failed!',
             'An account with same mail id might already be present',
@@ -410,7 +418,7 @@ const RepresenativeRegister = () => {
                       </div>
                       <br />
 
-                      <div className="row mb-3 px-3"> <button type="submit" disabled={!fileUpload && !upload} className="btn btn-blue text-center">Register</button> </div>
+                      <div className="row mb-3 px-3"> <button type="submit" className="btn btn-blue text-center">Register</button> </div>
                       <ToastContainer limit={1} />
                       <div className="row mb-4 px-3">
                         {" "}

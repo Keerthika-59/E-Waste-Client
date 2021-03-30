@@ -7,7 +7,6 @@ import { Link, Redirect } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import "./style.css"
 
-
 import TableRepresentatives from './TableRepresentatives';
 import TableVerifiedRep from './TableVerifiedRep';
 import TableMessages from './TableMessages';
@@ -28,7 +27,7 @@ const SideBar = () => {
     // const showSidebar = () => setSidebar(!sidebar);
 
     return (
-        (Cookies.get('admin')) ? <div className="sidebar1">
+        (Auth.auth) ? <div className="sidebar1">
             <IconContext.Provider value={{ color: '#fff' }}>
                 {/* <div className='sidenav'>
                     <Link to='#' className='menu-bars'>
