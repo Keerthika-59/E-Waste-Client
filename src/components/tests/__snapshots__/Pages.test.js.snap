@@ -1,0 +1,1823 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should test AboutUs component 1`] = `
+<Fragment>
+  <Cards />
+</Fragment>
+`;
+
+exports[`should test Achievements component 1`] = `
+<div>
+  <section
+    class="pb-5"
+    id="team"
+  >
+    <div
+      class="container"
+    >
+      <h5
+        class="section-title h1"
+      >
+        Our Achievements
+      </h5>
+      <div>
+        <div
+          class="text-white  p-5 shadow-sm  rounded back"
+        >
+          <h3>
+            GOING FROM WASTE COLLECTION TO WASTE MANAGEMENT
+          </h3>
+          <p
+            class="display-6"
+          >
+            We’re so used to today’s sanitation standards, it can be easy to forget about how far we've come with waste collection. But it wasn’t that long ago that the handling of trash was inconsistent and resulted in unsightly piles lining city streets and sidewalks.
+          </p>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div
+        class="row"
+      >
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+          >
+            <div
+              class="mainflip flip-0"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card1.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      Born out of a desire to serve our community
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We wanted to serve their community by properly managing the waste. 
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      Born out of a desire to serve our community
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      They wanted to serve their community by properly managing the waste produced by a rapidly growing population consuming more and more products built for convenience. 
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+          >
+            <div
+              class="mainflip flip-0"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card2.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      A commitment to the environment
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      Waste Management was already professionally disposing of waste
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      A commitment to the environment
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      Americans started to embrace a more environmentally friendly mindset. Waste Management was already professionally and responsibly disposing of waste, and we expanded our commitment to the environment by beginning to address complex specialized waste.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+            ontouchstart="this.classList.toggle('hover');"
+          >
+            <div
+              class="mainflip"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card3.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      A passion for reusing the waste
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We were one of the first truly integrated waste managing companies
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      A passion for reuse
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We were one of the first truly integrated waste managing companies, not only collecting waste but responsibly managing the landfills it ends up in. And we were also one of the first to recognize the burgeoning recycling movement.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+            ontouchstart="this.classList.toggle('hover');"
+          >
+            <div
+              class="mainflip"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card5.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      Reliable waste collection
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      It is easy being green. When you get residential waste
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      Reliable waste collection
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      It is easy being green. Here’s a glimpse of what’s in store when you get residential waste and recycling pickup services from Waste Management.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+            ontouchstart="this.classList.toggle('hover');"
+          >
+            <div
+              class="mainflip"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card4.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      Fulfilling our promise every day
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      Today, we're changing waste collection, creating alternative fuels.
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      Fulfilling our promise every day
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      Today, we're changing waste collection, creating alternative fuels, and forging a more sustainable tomorrow for all of us. While this is our story, it’s not the end. We’re writing new chapters every day with our pursuit of solutions for planet-wide issues.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+            ontouchstart="this.classList.toggle('hover');"
+          >
+            <div
+              class="mainflip"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card6.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      Forward thinking from the beginning
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We’re so used to today’s sanitation standards for waste management
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      Forward thinking from the beginning
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We’re so used to today’s sanitation standards, it can be easy to forget about how far we've come with waste collection. But it wasn’t that long ago that the handling of trash was inconsistent and resulted in unsightly piles lining city streets and sidewalks.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`should test Gallery component 1`] = `
+<Fragment>
+  <div
+    class="container-fluid"
+  >
+    <div
+      class="px-lg-5"
+    >
+      <div
+        class="row py-5"
+      >
+        <div
+          class="col-lg-12 mx-auto"
+        >
+          <div
+            class="text-white p-5 shadow-sm rounded banner"
+          >
+            <h1
+              class="display-4"
+            >
+              Waste management photo gallery
+            </h1>
+            <p
+              class="lead"
+            >
+              Have a look at our gallery!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row"
+      >
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g1.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Waste generation
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g2.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Recycle
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g3.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Tree
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g4.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  E-waste
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g5.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Chart
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g6.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Recycling management
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g7.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Mandala
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g8.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Representatives
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g9.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Process
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g10.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Garbage collection
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g11.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Factory
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-4 col-md-6 mb-4"
+        >
+          <div
+            class="bg-white rounded shadow-sm"
+          >
+            <img
+              alt=""
+              class="img-fluid card-img-top"
+              src="/assets/images/g12.jpg"
+            />
+            <div
+              class="p-4"
+            >
+              <h5>
+                 
+                <a
+                  class="text-dark"
+                  href="#"
+                >
+                  Donation
+                </a>
+              </h5>
+              <p
+                class="small text-muted mb-0"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`should test Goals component 1`] = `
+<div>
+  <section
+    class="pb-5"
+    id="team"
+  >
+    <div
+      class="container"
+    >
+      <h5
+        class="section-title h1"
+      >
+        Our Goals
+      </h5>
+      <div
+        class="text-white  p-5 shadow-sm  rounded back"
+      >
+        <h3>
+          DRIVEN BY OUR COMMITMENTS, GUIDED BY OUR VALUES
+        </h3>
+        <p
+          class="display-6"
+        >
+          In the simplest terms, our values come down to this:
+        </p>
+        <p
+          className="font-weight-bold"
+        >
+          Do the Right Thing. The Right Way.
+        </p>
+        <p>
+          This idea sets the standard for our fundamental commitments and core values and guides our daily actions and decisions.
+        </p>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div
+        class="row"
+      >
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+          >
+            <div
+              class="mainflip flip-0"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card1.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      We’re Committed to Our People First
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      The proud, resilient members of the Waste Management family
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      We’re Committed to Our People First
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      The proud, caring and resilient members of the Waste Management family are the foundation of our success. We commit to taking care of each other, our customers, our communities and the environment. 
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+          >
+            <div
+              class="mainflip flip-0"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card2.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      We’re Committed to Success With Integrity
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      Our success depends on what we achieve
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      We’re Committed to Success With Integrity
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      Our success is based not only on the results we achieve, but how we achieve them. We commit to being accountable, honest, trustworthy, ethical and compliant in all we do.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+            ontouchstart="this.classList.toggle('hover');"
+          >
+            <div
+              class="mainflip"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card3.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      We Value Inclusion & Diversity
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We embrace and cultivate respect, trust, open communications.
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      We Value Inclusion & Diversity
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We embrace and cultivate respect, trust, open communications and diversity of thought and people.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+            ontouchstart="this.classList.toggle('hover');"
+          >
+            <div
+              class="mainflip"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card4.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      We Value Our Customers
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We place our customers at the center of what we do and aspire
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      We Value Our Customers
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We place our customers at the center of what we do and aspire to delight them every day.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+            ontouchstart="this.classList.toggle('hover');"
+          >
+            <div
+              class="mainflip"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card5.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      We Value Our Customers Safety
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We have zero tolerance for unsafe actions and conditions
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      We Value Our Customers Safety
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We have zero tolerance for unsafe actions and conditions and make safety a core value without compromise.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xs-12 col-sm-6 col-md-4"
+        >
+          <div
+            class="image-flip"
+            ontouchstart="this.classList.toggle('hover');"
+          >
+            <div
+              class="mainflip"
+            >
+              <div
+                class="frontside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center"
+                  >
+                    <p>
+                      <img
+                        alt="card image"
+                        class=" img-fluid"
+                        src="/images/Goals/card6.svg"
+                      />
+                    </p>
+                    <h4
+                      class="card-title"
+                    >
+                      We Value Our Environment
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We are responsible stewards of the environment
+                    </p>
+                    <p
+                      class="btn btn-primary btn-sm"
+                    >
+                      <i
+                        class="fa fa-plus"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="backside"
+              >
+                <div
+                  class="card"
+                >
+                  <div
+                    class="card-body text-center mt-4"
+                  >
+                    <h4
+                      class="card-title"
+                    >
+                      We Value Our Environment
+                    </h4>
+                    <p
+                      class="card-text"
+                    >
+                      We are responsible stewards of the environment and champions for sustainability.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`should test Home component 1`] = `<Fragment />`;
+
+exports[`should test Homepage component 1`] = `
+<div>
+  <section
+    className="d-flex flex-column justify-content-end align-items-center"
+    id="hero"
+  >
+    <div
+      className="container carousel carousel-fade"
+      data-bs-interval="5000"
+      data-bs-ride="carousel"
+      id="heroCarousel"
+    >
+      <div
+        className="carousel-item active"
+      >
+        <div
+          className="carousel-container"
+        >
+          <h2
+            className="animate__animated animate__fadeInDown"
+          >
+            Welcome to
+            <span>
+              Waste Management
+            </span>
+          </h2>
+          <p
+            className="animate__animated fanimate__adeInUp"
+          >
+             Waste management deals with all types of waste, including industrial, biological and household. We also help in donating of items and make sure it reaches who need it the most.
+          </p>
+          <Link
+            style={
+              Object {
+                "textDecoration": "none",
+              }
+            }
+            to="/Services"
+          >
+            <a
+              className="btn-get-started animate__animated animate__fadeInUp scrollto"
+            >
+              Read More
+            </a>
+          </Link>
+        </div>
+      </div>
+      <div
+        className="carousel-item"
+      >
+        <div
+          className="carousel-container"
+        >
+          <h2
+            className="animate__animated animate__fadeInDown"
+          >
+            Lorem Ipsum Dolor
+          </h2>
+          <p
+            className="animate__animated animate__fadeInUp"
+          >
+            Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.
+          </p>
+          <a
+            className="btn-get-started animate__animated animate__fadeInUp scrollto"
+            href="#about"
+          >
+            Read More
+          </a>
+        </div>
+      </div>
+      <div
+        className="carousel-item"
+      >
+        <div
+          className="carousel-container"
+        >
+          <h2
+            className="animate__animated animate__fadeInDown"
+          >
+            Sequi ea ut et est quaerat
+          </h2>
+          <p
+            className="animate__animated animate__fadeInUp"
+          >
+            Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.
+          </p>
+          <a
+            className="btn-get-started animate__animated animate__fadeInUp scrollto"
+            href="#about"
+          >
+            Read More
+          </a>
+        </div>
+      </div>
+      <a
+        className="carousel-control-prev"
+        data-bs-slide="prev"
+        href="#heroCarousel"
+        role="button"
+      >
+        <span
+          aria-hidden="false"
+          className="carousel-control-prev-icon bx bx-chevron-left"
+        />
+      </a>
+      <a
+        className="carousel-control-next"
+        data-bs-slide="next"
+        href="#heroCarousel"
+        role="button"
+      >
+        <span
+          aria-hidden="false"
+          className="carousel-control-next-icon bx bx-chevron-right"
+        />
+      </a>
+    </div>
+    <svg
+      className="hero-waves"
+      preserveAspectRatio="none"
+      viewBox="0 24 150 28 "
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+    >
+      <defs>
+        <path
+          d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+          id="wave-path"
+        />
+      </defs>
+      <g
+        className="wave1"
+      >
+        <use
+          fill="rgba(255,255,255, .1)"
+          x="50"
+          xlinkHref="#wave-path"
+          y="3"
+        />
+      </g>
+      <g
+        className="wave2"
+      >
+        <use
+          fill="rgba(255,255,255, .2)"
+          x="50"
+          xlinkHref="#wave-path"
+          y="0"
+        />
+      </g>
+      <g
+        className="wave3"
+      >
+        <use
+          fill="#fff"
+          x="50"
+          xlinkHref="#wave-path"
+          y="9"
+        />
+      </g>
+    </svg>
+  </section>
+  <Information />
+</div>
+`;
+
+exports[`should test LoginOptions component 1`] = `
+<Fragment>
+  <h3
+    style={
+      Object {
+        "marginBottom": "10%",
+        "marginLeft": "6%",
+        "marginTop": "10%",
+      }
+    }
+  >
+    Please choose a login option
+  </h3>
+  <Link
+    to="/UserLogIn"
+  >
+    <Button
+      active={false}
+      disabled={false}
+      style={
+        Object {
+          "marginLeft": "8%",
+          "marginTop": "10%",
+          "width": "300px",
+        }
+      }
+      variant="primary"
+    >
+      User Login
+    </Button>
+  </Link>
+  <br />
+  <Link
+    to="/RepresentativeLogIn"
+  >
+    <Button
+      active={false}
+      disabled={false}
+      style={
+        Object {
+          "marginLeft": "8%",
+          "marginTop": "10%",
+          "width": "300px",
+        }
+      }
+      variant="primary"
+    >
+      Representative Login
+    </Button>
+  </Link>
+</Fragment>
+`;
+
+exports[`should test Services component 1`] = `
+<Fragment>
+  <div
+    className="container-fluid mb-5"
+  >
+    <div
+      className="text-center mt-5 "
+    >
+      <div
+        class="col-lg-12 mx-auto"
+      >
+        <div
+          class="text-white p-2 shadow-sm rounded banner"
+        >
+          <h1
+            class="display-6"
+          >
+            Our Services
+          </h1>
+          <p
+            class="lead"
+          >
+            What we Offer!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-4"
+      >
+        <div
+          className="box"
+        >
+          <div
+            className="our-services backups"
+          >
+            <div
+              className="icon"
+            >
+               
+              <img
+                src="https://i.imgur.com/vdH9LKi.png"
+              />
+               
+            </div>
+            <h4>
+              E-Waste
+            </h4>
+            <p
+              className="text-justify text-space"
+            >
+              There is no proper system for waste disposal. Sometimes for more than a week waste will not be collected.
+            </p>
+              
+            <Button
+              active={false}
+              className="learn-btn"
+              disabled={false}
+              variant="link"
+            >
+              <Link
+                style={
+                  Object {
+                    "textDecoration": "none",
+                  }
+                }
+                to="/Ewaste"
+              >
+                <i
+                  className="fas fa-long-arrow-alt-right"
+                />
+                <span
+                  className="ml-2"
+                >
+                  Learn More...
+                </span>
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-md-4"
+      >
+        <div
+          className="box"
+        >
+          <div
+            className="our-services speedup"
+          >
+            <div
+              className="icon"
+            >
+               
+              <img
+                src="https://i.imgur.com/KMbnpFF.png"
+              />
+               
+            </div>
+            <h4>
+              Dispose
+            </h4>
+            <p
+              className="text-justify  text-space"
+            >
+              Some waste disposed be reused for some purpose. Unused waste will be separated and disposed.
+            </p>
+            <Button
+              active={false}
+              className="learn-btn"
+              disabled={false}
+              variant="link"
+            >
+              <Link
+                className="flex flex-row items-center mt-3 text-blue-600 hover:text-blue-800"
+                style={
+                  Object {
+                    "textDecoration": "none",
+                  }
+                }
+                to="/Disposing"
+              >
+                <i
+                  className="fas fa-long-arrow-alt-right"
+                />
+                <span
+                  className="ml-2"
+                >
+                  Learn More...
+                </span>
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-md-4"
+      >
+        <div
+          className="box"
+        >
+          <div
+            className="our-services database"
+          >
+            <div
+              className="icon"
+            >
+               
+              <img
+                src="https://i.imgur.com/VzjZw9M.png"
+              />
+               
+            </div>
+            <h4>
+              Donate
+            </h4>
+            <p
+              className="text-justify  text-space"
+            >
+              Unused good condition items such as old mobiles, electric goods, Clothes, Food can be donated.
+            </p>
+            <Button
+              active={false}
+              className="learn-btn"
+              disabled={false}
+              variant="link"
+            >
+              <Link
+                style={
+                  Object {
+                    "textDecoration": "none",
+                  }
+                }
+                to="/Donating"
+              >
+                <i
+                  className="fas fa-long-arrow-alt-right"
+                />
+                <span
+                  className="ml-2"
+                >
+                  Learn More...
+                </span>
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`should test SignUpOptions component 1`] = `
+<Fragment>
+  <h3
+    style={
+      Object {
+        "marginBottom": "10%",
+        "marginLeft": "6%",
+        "marginTop": "10%",
+      }
+    }
+  >
+    Please choose a Sign up option
+  </h3>
+  <Link
+    to="/UserLogIn"
+  >
+    <Button
+      active={false}
+      disabled={false}
+      style={
+        Object {
+          "marginLeft": "8%",
+          "marginTop": "10%",
+          "width": "300px",
+        }
+      }
+      variant="primary"
+    >
+      User Sign up
+    </Button>
+  </Link>
+  <br />
+  <Link
+    to="/RepresentativeLogIn"
+  >
+    <Button
+      active={false}
+      disabled={false}
+      style={
+        Object {
+          "marginLeft": "8%",
+          "marginTop": "10%",
+          "width": "300px",
+        }
+      }
+      variant="primary"
+    >
+      Representative Sign up
+    </Button>
+  </Link>
+</Fragment>
+`;

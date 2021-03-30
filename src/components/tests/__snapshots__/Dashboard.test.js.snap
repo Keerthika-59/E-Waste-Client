@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should test Activity component 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="holder"
+    >
+      <form
+        className="form-content"
+        onSubmit={[Function]}
+      >
+        <table
+          width="100%"
+        >
+          <thead>
+            <th
+              class="actHeading"
+            >
+              User activity
+            </th>
+          </thead>
+          <tr>
+            <td>
+              Biodegradable
+            </td>
+            <td>
+              <div
+                class="outerDivFull"
+              >
+                <div
+                  class="switchToggle"
+                >
+                  <input
+                    id="switch"
+                    onChange={[Function]}
+                    type="checkbox"
+                    value={false}
+                  />
+                  <label
+                    for="switch"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Non-Biodegradable
+            </td>
+            <td>
+              <div
+                class="outerDivFull"
+              >
+                <div
+                  class="switchToggle"
+                >
+                  <input
+                    id="switch1"
+                    onChange={[Function]}
+                    type="checkbox"
+                    value={false}
+                  />
+                  <label
+                    for="switch1"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="donation"
+            >
+              Donation
+            </td>
+            <td>
+              <div
+                class="outerDivFull"
+              >
+                <div
+                  class="switchToggle"
+                >
+                  <input
+                    id="switch2"
+                    onChange={[Function]}
+                    type="checkbox"
+                    value={false}
+                  />
+                  <label
+                    for="switch2"
+                  />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <br />
+          <tr>
+            <td
+              colspan="2"
+            >
+              <input
+                disabled={true}
+                onSubmit={[Function]}
+                type="submit"
+                value="Submit"
+              />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should test UserCompletedActivities component 1`] = `
+<Fragment>
+  <ForwardRef
+    bordered={true}
+    hover={true}
+    striped={true}
+  >
+    <thead>
+      <tr>
+        <th>
+          Activity Id
+        </th>
+        <th>
+          Bio Waste
+        </th>
+        <th>
+          Non Bio Waste
+        </th>
+        <th>
+          Donation
+        </th>
+        <th>
+          Representative Id
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <div>
+        Loading...
+      </div>
+    </tbody>
+  </ForwardRef>
+</Fragment>
+`;
+
+exports[`should test UserPending component 1`] = `
+<Fragment>
+  <h3
+    className="pendingHeading"
+  >
+    Pending activity
+  </h3>
+  <div>
+    Loading...
+  </div>
+</Fragment>
+`;
+
+exports[`should test repCompleted component 1`] = `
+<Fragment>
+  <div
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-10"
+      >
+        <div
+          class="card  px-3 py-4 my-4 mx-5 justify-content-center"
+        >
+          <div
+            class="card-body1"
+          >
+            <h6
+              class="card-title"
+            >
+              Timeline
+            </h6>
+            <div
+              id="content"
+            >
+              <ul
+                class="timeline"
+              >
+                <li
+                  class="event"
+                  data-date="22/03/2021"
+                >
+                  <h3>
+                    Activity ID
+                  </h3>
+                  <p>
+                    Representative name
+                  </p>
+                </li>
+                <li
+                  class="event"
+                  data-date="2:30 - 4:00pm"
+                >
+                  <h3>
+                    Activity ID
+                  </h3>
+                  <p>
+                    Representative name
+                  </p>
+                </li>
+                <li
+                  class="event"
+                  data-date="5:00 - 8:00pm"
+                >
+                  <h3>
+                    Activity ID
+                  </h3>
+                  <p>
+                    Representative name
+                  </p>
+                </li>
+                <li
+                  class="event"
+                  data-date="8:30 - 9:30pm"
+                >
+                  <h3>
+                    Activity ID
+                  </h3>
+                  <p>
+                    Representative name
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`should test repPending component 1`] = `
+<Fragment>
+  <h3
+    className="pendingHeading"
+  >
+    Pending activity
+  </h3>
+  <div>
+    Loading...
+  </div>
+</Fragment>
+`;

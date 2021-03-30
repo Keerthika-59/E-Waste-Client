@@ -1,0 +1,515 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should test Dispose component 1`] = `
+<div>
+  <section
+    class="pb-5"
+    id="team"
+  >
+    <div
+      class="container"
+    >
+      <h5
+        class="section-title h1"
+      >
+        Disposing the Waste
+      </h5>
+      <div
+        className="text-center"
+      >
+        <div
+          class="col-lg-12"
+        >
+          <div
+            class="text-white  p-5 shadow-sm  rounded back"
+          >
+            <p
+              class="lead"
+            >
+              Disposing of waste will don e properly only, when yu recycle it in a correct manner. We will help you out. Whether you’re at home or at work, we’ve got the tools to set you up for recycling success.
+            </p>
+          </div>
+        </div>
+      </div>
+      <Jumbotron
+        fluid={false}
+      >
+        <p
+          className="text-center font-italic heading"
+        >
+           Recycle Right....
+        </p>
+        <Media
+          as="li"
+          className="mt-5 Info text-justify"
+        >
+          <MediaBody
+            className="text-large ml-5 mr-5"
+          >
+            <ul>
+              <li>
+                We’re here to help you recycle right, answer common recycling questions and provide the information, tools and resources you need to make recycling both simple and convenient.
+              </li>
+              <li>
+                 Whether you’re at home or at work, we’ve got the tools to set you up for recycling success. Get started with just six easy steps and visit our Resources for toolkits, labels, posters and more.
+              </li>
+            </ul>
+          </MediaBody>
+          <Image
+            alt="Generic placeholder"
+            className="mr-3 img"
+            fluid={false}
+            rounded={false}
+            roundedCircle={true}
+            src="/assets/images/mediaDispose.png"
+            thumbnail={false}
+          />
+        </Media>
+      </Jumbotron>
+      <Carousel
+        controls={true}
+        defaultActiveIndex={0}
+        fade={false}
+        indicators={true}
+        interval={5000}
+        keyboard={true}
+        nextIcon={
+          <span
+            aria-hidden="true"
+            className="carousel-control-next-icon"
+          />
+        }
+        nextLabel="Next"
+        pause="hover"
+        prevIcon={
+          <span
+            aria-hidden="true"
+            className="carousel-control-prev-icon"
+          />
+        }
+        prevLabel="Previous"
+        slide={true}
+        touch={true}
+        wrap={true}
+      >
+        <CarouselItem
+          interval={1000}
+        >
+          <img
+            alt="Waste Management"
+            className="d-block w-100"
+            src="/images/DisposeCarousel/step1.jpg"
+          />
+        </CarouselItem>
+        <CarouselItem
+          interval={500}
+        >
+          <img
+            alt="Waste Management"
+            className="d-block w-100"
+            src="/images/DisposeCarousel/step2.jpg"
+          />
+        </CarouselItem>
+        <CarouselItem>
+          <img
+            alt="Waste Management"
+            className="d-block w-100"
+            src="/images/DisposeCarousel/step3.jpg"
+          />
+        </CarouselItem>
+        <CarouselItem>
+          <img
+            alt="Waste Management"
+            className="d-block w-100"
+            src="/images/DisposeCarousel/step4.jpg"
+          />
+        </CarouselItem>
+        <CarouselItem>
+          <img
+            alt="Waste Management"
+            className="d-block w-100"
+            src="/images/DisposeCarousel/step5.jpg"
+          />
+        </CarouselItem>
+        <CarouselItem>
+          <img
+            alt="Waste Management"
+            className="d-block w-100"
+            src="/images/DisposeCarousel/step6.jpg"
+          />
+        </CarouselItem>
+      </Carousel>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`should test Donate component 1`] = `
+<div>
+  <section
+    class="pb-5"
+    id="team"
+  >
+    <div
+      class="container"
+    >
+      <h5
+        class="section-title h1"
+      >
+        Donate to Needy
+      </h5>
+      <div
+        class="text-white p-5 shadow-sm  rounded back"
+      >
+        <p
+          class="lead"
+        >
+          Unused good condition items such as old mobile phone, old Clothes, Food can be donated to needy. Donating provides an immediate benefit since the receiver can make use of the donated item within the shortest possible time.
+        </p>
+      </div>
+    </div>
+  </section>
+  <Jumbotron
+    fluid={false}
+  >
+    <Media
+      as="li"
+      className="mt-5 Info"
+    >
+      <Image
+        alt="Generic placeholder"
+        className="mr-3 img"
+        fluid={false}
+        rounded={false}
+        roundedCircle={true}
+        src="/assets/images/mediaDonate.jpg"
+        thumbnail={false}
+      />
+      <MediaBody
+        className="text-large text-justify ml-5 mr-5"
+      >
+        <ul>
+          <li>
+            Unused good condition items such as old mobile phone, old Clothes, Food can be donated to needy. Donating provides an immediate benefit since the receiver can make use of the donated item within the shortest possible time. Leftover food originating from parties, weddings and restaurants will just go waste, unless it is donated in order to satiate the hunger of needy.
+          </li>
+          <li>
+            Dispose of leftover food in a responsible manner.
+          </li>
+          <li>
+            Donate any usable item to the needy.
+          </li>
+        </ul>
+      </MediaBody>
+    </Media>
+  </Jumbotron>
+</div>
+`;
+
+exports[`should test Ewaste component 1`] = `
+<div>
+  <section
+    class="pb-5"
+    id="team"
+  >
+    <div
+      class="container"
+    >
+      <h5
+        class="section-title h1"
+      >
+        Waste Management
+      </h5>
+      <div
+        class="text-white p-5 shadow-sm  rounded back"
+      >
+        <p
+          class="lead"
+        >
+          There is no proper system for waste disposal.  Sometimes for more than a week waste will not be collected. Waste management includes the activities and actions required  to manage waste from its inception to its final disposal.
+        </p>
+      </div>
+    </div>
+  </section>
+  <Jumbotron
+    fluid={false}
+  >
+    <Media
+      as="li"
+      className="mt-5 Info text-justify"
+    >
+      <Image
+        alt="Generic placeholder"
+        className="mr-3 img"
+        fluid={false}
+        rounded={false}
+        roundedCircle={true}
+        src="/assets/images/mediaWaste.jpg"
+        thumbnail={false}
+      />
+      <MediaBody
+        className="text-large ml-5 mr-5"
+      >
+        <ul>
+          <li>
+            There is no proper system for waste disposal.  Sometimes for more than a week waste will not be collected. Waste management includes the activities and actions required  to manage waste from its inception to its final disposal. This includes the collection, transport, disposal of waste, together with monitoring and regulation of the waste management process and waste- related technologies, economic mechanisms.
+          </li>
+          <li>
+            With Waste Management, recycling goes beyond just bottles, cans and paper. Some things we are used to throwing away can often be safely recycled too, from old TV remotes to batteries to compact fluorescent bulbs and more.
+          </li>
+          <li>
+            Due to safety concerns, not all items can be collected with your normal trash pickup and hazardous materials, if not properly disposed of, may have an adverse impact on the environment.
+          </li>
+        </ul>
+      </MediaBody>
+    </Media>
+  </Jumbotron>
+</div>
+`;
+
+exports[`should test Information component 1`] = `
+<Fragment>
+  <br />
+  <br />
+  <br />
+  <div
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-3 col-sm-6"
+      >
+        <div
+          class="counter"
+        >
+          <div
+            class="counter-icon"
+          >
+            <i
+              class="fa fa-globe"
+            />
+          </div>
+          <h3>
+            Happy clients
+          </h3>
+          <span
+            class="counter-value"
+          >
+            565
+          </span>
+        </div>
+      </div>
+      <div
+        class="col-md-3 col-sm-6"
+      >
+        <div
+          class="counter orange"
+        >
+          <div
+            class="counter-icon"
+          >
+            <i
+              class="fa fa-rocket"
+            />
+          </div>
+          <h3>
+            Volunteers
+          </h3>
+          <span
+            class="counter-value"
+          >
+            20
+          </span>
+        </div>
+      </div>
+      <div
+        class="col-md-3 col-sm-6"
+      >
+        <div
+          class="counter"
+        >
+          <div
+            class="counter-icon"
+          >
+            <i
+              class="fa fa-globe"
+            />
+          </div>
+          <h3>
+            Donation
+          </h3>
+          <span
+            class="counter-value"
+          >
+            65
+          </span>
+        </div>
+      </div>
+      <div
+        class="col-md-3 col-sm-6"
+      >
+        <div
+          class="counter orange"
+        >
+          <div
+            class="counter-icon"
+          >
+            <i
+              class="fa fa-rocket"
+            />
+          </div>
+          <h3>
+            Projects
+          </h3>
+          <span
+            class="counter-value"
+          >
+            87
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul
+    className="list-unstyled mt-5"
+  >
+    <Jumbotron
+      fluid={false}
+    >
+      <p
+        className="text-center font-italic heading"
+      >
+         
+        Waste Management
+         
+      </p>
+      <Media
+        as="li"
+        className="mt-5 Info text-justify"
+      >
+        <Image
+          alt="Generic placeholder"
+          className="mr-3 img"
+          fluid={false}
+          rounded={false}
+          roundedCircle={true}
+          src="/assets/images/mediaWaste.jpg"
+          thumbnail={false}
+        />
+        <MediaBody
+          className="text-large ml-5 mr-5"
+        >
+          There is no proper system for waste disposal.  Sometimes for more than a week waste will not be collected. Waste management includes the activities and actions required  to manage waste from its inception to its final disposal. This includes the collection, transport, disposal of waste, together with monitoring and regulation of the waste management process and waste- related technologies, economic mechanisms.
+          <Button
+            active={false}
+            disabled={false}
+            variant="link"
+          >
+            <Link
+              style={
+                Object {
+                  "textDecoration": "none",
+                }
+              }
+              to="/Ewaste"
+            >
+              Learn More...
+            </Link>
+          </Button>
+        </MediaBody>
+      </Media>
+    </Jumbotron>
+    <Jumbotron
+      fluid={false}
+    >
+      <p
+        className="text-center font-italic heading"
+      >
+         
+        Disposing the Waste
+      </p>
+      <Media
+        as="li"
+        className="mt-5 Info text-justify"
+      >
+        <MediaBody
+          className="text-large ml-5 mr-5"
+        >
+          Some waste disposed be reused for some purpose. Unused waste will be disposed. Waste processing, and recycling or deposition of the waste materials of human society.  Waste materials are either liquid or solid in form, and their components may be either hazardous or inert that effects on health and the environment. Waste is typically applied to solid waste, sewage, hazardous waste, and electronic waste.
+          <Button
+            active={false}
+            disabled={false}
+            variant="link"
+          >
+            <Link
+              style={
+                Object {
+                  "textDecoration": "none",
+                }
+              }
+              to="/Disposing"
+            >
+              Learn More...
+            </Link>
+          </Button>
+        </MediaBody>
+        <Image
+          alt="Generic placeholder"
+          className="mr-3 img"
+          fluid={false}
+          rounded={false}
+          roundedCircle={true}
+          src="/assets/images/mediaDispose.png"
+          thumbnail={false}
+        />
+      </Media>
+    </Jumbotron>
+    <Jumbotron
+      fluid={false}
+    >
+      <p
+        className="text-center font-italic heading"
+      >
+         
+        Donating Old Items
+      </p>
+      <Media
+        as="li"
+        className="mt-5 Info"
+      >
+        <Image
+          alt="Generic placeholder"
+          className="mr-3 img"
+          fluid={false}
+          rounded={false}
+          roundedCircle={true}
+          src="/assets/images/mediaDonate.jpg"
+          thumbnail={false}
+        />
+        <MediaBody
+          className="text-large text-justify ml-5 mr-5"
+        >
+          Unused good condition items such as old mobile phone, old Clothes, Food can be donated to needy. Donating provides an immediate benefit since the receiver can make use of the donated item within the shortest possible time. Leftover food originating from parties, weddings and restaurants will just go waste, unless it is donated in order to satiate the hunger of needy.
+          <Button
+            active={false}
+            disabled={false}
+            variant="link"
+          >
+            <Link
+              style={
+                Object {
+                  "textDecoration": "none",
+                }
+              }
+              to="/Donating"
+            >
+              Learn More...
+            </Link>
+          </Button>
+        </MediaBody>
+      </Media>
+    </Jumbotron>
+  </ul>
+</Fragment>
+`;
