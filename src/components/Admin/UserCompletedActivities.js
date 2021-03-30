@@ -26,7 +26,7 @@ const UserCompletedActivities = () => {
     const fetchUserData = async () => {
       try {
         const userData = await APIHelper.fetchUserData(id);
-        console.log(userData.activity);
+        // console.log(userData.activity);
         setCompActivity(userData.activity);
       } catch (err) {
         console.log(err.response || err);
@@ -50,8 +50,8 @@ const UserCompletedActivities = () => {
         <tbody>
           {compActivity
             .filter((activity) => activity.status === true)
-            .map((act) => (
-              <tr>
+            .map((act,i) => (
+              <tr key={i}>
                 <td>{act._id}</td>
                 <td>{act.bioWaste ? "Yes" : "No"}</td>
                 <td>{act.nonBioWaste ? "Yes" : "No"}</td>

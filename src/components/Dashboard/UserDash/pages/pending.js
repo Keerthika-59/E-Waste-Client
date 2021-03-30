@@ -29,7 +29,7 @@ const Pending = () => {
         const userData = await axios.get(
           `https://ewaste-dec20-dev-api.azurewebsites.net/admin/user/pending/${id}`
         );
-        console.log(userData.data);
+        // console.log(userData.data);
         setUser(userData.data);
       } catch (err) {
         console.log(err.response || err.message);

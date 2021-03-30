@@ -28,7 +28,7 @@ const UserCompletedActivities = () => {
       try {
         // const userData = await APIHelper.fetchUserData(id);
         const userData = await axios.get(`https://ewaste-dec20-dev-api.azurewebsites.net/admin/user/completed/${id}`)
-        console.log(userData.data);
+        // console.log(userData.data);
         setCompActivity(userData.data);
       } catch (err) {
         console.log(err.response || err);
@@ -52,8 +52,8 @@ const UserCompletedActivities = () => {
         <tbody>
           {compActivity.user_activities?(compActivity.user_activities
             // .filter((activity) => activity.status === true)
-            .map((act) => (
-              <tr>
+            .map((act,i) => (
+              <tr key={i}>
                 <td>{act._id}</td>
                 <td>{act.bioWaste ? "Yes" : "No"}</td>
                 <td>{act.nonBioWaste ? "Yes" : "No"}</td>

@@ -15,7 +15,7 @@ const Pending = () => {
 
     try {
       const token = Cookies.get("repr");
-      console.log(token);
+      // console.log(token);
 
       const response = await API.fetchRepId(token);
 
@@ -23,23 +23,23 @@ const Pending = () => {
 
       return ID;
 
-      console.log(response.data);
+      // console.log(response.data);
     } catch (e) {
       console.log(e);
     }
   };
 
-  useEffect(async () => {
+  useEffect(() => {
 
     const fetchRepData = async () => {
       try {
 
         const id = await fetchId();
-        console.log(id);
+        // console.log(id);
 
-        console.log('First')
+        // console.log('First')
         const repData = await axios.get(`https://ewaste-dec20-dev-api.azurewebsites.net/representative/pending/${id}`);
-        console.log(repData.data);
+        // console.log(repData.data);
         // console.log(repData.data);
 
         setRep(repData.data);
