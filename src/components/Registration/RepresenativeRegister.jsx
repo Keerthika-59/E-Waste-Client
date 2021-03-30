@@ -40,25 +40,27 @@ const RepresenativeRegister = () => {
 
   const submitFile = async () => {
 
-    console.log(fileInput.type);
+    // console.log(fileInput.type);
+    if(fileInput) {
 
-    if (fileInput.type === 'image/jpeg' || fileInput.type === 'image/jpg' || fileInput.type === 'image/png') {
-      const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
+      if (fileInput.type === 'image/jpeg' || fileInput.type === 'image/jpg' || fileInput.type === 'image/png') {
+        const uploadTask = storage.ref(`/images/${fileInput.name}`).put(fileInput);
 
-      await uploadTask.on("state_changed", async () => {
+        await uploadTask.on("state_changed", async () => {
 
-        const url = await storage.ref("images").child(fileInput.name).getDownloadURL();
-        setURL(url);
+          const url = await storage.ref("images").child(fileInput.name).getDownloadURL();
+          setURL(url);
 
-        setUpload(true);
-        setFileUpload(true);
-        setErrorUpload(false);
-        setFileInput(null);
-      });
-     }
-    else if(fileInput) {
-      Swal.fire('Please Upload a Image File Only!');
-      document.getElementById('file').value = '';
+          setUpload(true);
+          setFileUpload(true);
+          setErrorUpload(false);
+          setFileInput(null);
+        });
+      }
+      else {
+        Swal.fire('Please Upload a Image File Only!');
+        document.getElementById('file').value = '';
+      }
     }
 
     else {
