@@ -135,7 +135,7 @@ const TableRepresentatives = () => {
 
                                         Swal.fire({
                                             title: 'Are you sure?',
-                                            text: 'You will not be able to recover this User Details!',
+                                            text: 'You will not be able to recover this Representative Details!',
                                             icon: 'warning',
                                             showCancelButton: true,
                                             confirmButtonText: 'Yes, delete it!',
@@ -144,14 +144,14 @@ const TableRepresentatives = () => {
                                             if (result.value) {
                                                 Swal.fire(
                                                     'Deleted!',
-                                                    'The User details has been deleted.',
+                                                    'The Representative details has been deleted.',
                                                     // 'success'
                                                 )
                                                 axios.delete(`${url2}${rep._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
-                                                    'The User details is not deleted :)',
+                                                    'The Representative details is not deleted :)',
                                                     // 'error'
                                                 )
                                             }
