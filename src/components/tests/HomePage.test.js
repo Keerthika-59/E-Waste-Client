@@ -1,4 +1,5 @@
 import React from 'react';
+import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Data from '../HomePage/Information/Data';
@@ -14,6 +15,10 @@ import Information from '../HomePage/Information/Information'
     </Route>
     ReactDOM.unmountComponentAtNode(div);
    });
+   test('should test Dispose component', () => {
+    const wrapper = shallow(<Dispose />);
+    expect(wrapper).toMatchSnapshot();
+   });
 
    test('renders test Donate', () => {
     const div=document.createElement("div");
@@ -21,6 +26,10 @@ import Information from '../HomePage/Information/Information'
         ReactDom.render(<Donate/>,div);
     </Route>
     ReactDOM.unmountComponentAtNode(div);
+   });
+   test('should test Donate component', () => {
+    const wrapper = shallow(<Donate />);
+    expect(wrapper).toMatchSnapshot();
    });
 
    test('renders test Ewaste', () => {
@@ -30,6 +39,10 @@ import Information from '../HomePage/Information/Information'
     </Route>
     ReactDOM.unmountComponentAtNode(div);
    });
+   test('should test Ewaste component', () => {
+    const wrapper = shallow(<Ewaste />);
+    expect(wrapper).toMatchSnapshot();
+   });
 
    test('renders test Information', () => {
     const div=document.createElement("div");
@@ -38,4 +51,7 @@ import Information from '../HomePage/Information/Information'
     </Route>
     ReactDOM.unmountComponentAtNode(div);
    });
-   
+   test('should test Information component', () => {
+    const wrapper = shallow(<Information />);
+    expect(wrapper).toMatchSnapshot();
+   });
