@@ -57,7 +57,8 @@ const RepresenativeRegister = () => {
       });
      }
     else if(fileInput) {
-      Swal.fire('Please Upload a Image File Only!')
+      Swal.fire('Please Upload a Image File Only!');
+      document.getElementById('file').value = '';
     }
 
     else {
