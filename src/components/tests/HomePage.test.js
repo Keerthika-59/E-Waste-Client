@@ -7,14 +7,6 @@ import Donate from '../HomePage/Information/Donate.jsx'
 import Ewaste from '../HomePage/Information/Ewaste.jsx'
 import Information from '../HomePage/Information/Information'
 
-test('renders test Data', () => {
-    const div=document.createElement("div");
-    <Route>
-        ReactDom.render(<Data/>,div);
-    </Route>
-    ReactDOM.unmountComponentAtNode(div);
-   });
-
    test('renders test Dispose', () => {
     const div=document.createElement("div");
     <Route>
@@ -46,3 +38,4 @@ test('renders test Data', () => {
     </Route>
     ReactDOM.unmountComponentAtNode(div);
    });
+   

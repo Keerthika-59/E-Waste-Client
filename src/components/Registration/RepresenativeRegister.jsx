@@ -29,11 +29,16 @@ const RepresenativeRegister = () => {
 
   const [fileInput, setFileInput] = useState(null);
   const [url, setURL] = useState("");
-  const [upload, setUpload] = useState(false);
+  const [upload, setUpload] = useState(true);
+  const [errorUpload, setErrorUpload] = useState(false);
+  const [fileUpload, setFileUpload] = useState(false);
 
   const onFileChange = (event) => {
     setFileInput(event.target.files[0]);
+      console.log(fileInput);
   };
+
+  
 
   const submitFile = async () => {
 
@@ -45,7 +50,16 @@ const RepresenativeRegister = () => {
         const url = await storage.ref("images").child(fileInput.name).getDownloadURL();
         setURL(url);
         setUpload(true);
+        setFileUpload(true);
+        setErrorUpload(false);
+        
       });
+
+    }
+
+    else {
+      setErrorUpload(true);
+      setFileUpload(false);
     }    
   }
 
@@ -240,17 +254,20 @@ const RepresenativeRegister = () => {
                       <h6 className="mb-0 py-3 px-3 text-sm">Id Proof</h6>
 
                       <div className="col-6">
-                        <input
-                          required={true}
+                        <Input
+                          required
                           name="file"
                           id="file"
                           type="file"
                           onChange={onFileChange}
                         />
+
+                        {errorUpload && <h6 style = {{color : 'red'}}> Please Upload File  </h6> }
                       </div>
 
                       <div className="col-4">
-                        <Button onClick={submitFile} variant={upload ? "success" : "info"} > {!upload ? 'Upload' : 'Uploaded'}  </Button>
+
+                        <Button onClick={submitFile} variant={!fileUpload ? 'info' : 'success'} > Upload </Button>
                       </div>
                     </div>
                     <br />
