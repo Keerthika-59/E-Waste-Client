@@ -27,7 +27,7 @@ const Pending = () => {
       try {
         // const userData = await APIHelper.fetchUserData(id);
         const userData = await axios.get(
-          `http://localhost:5000/admin/user/pending/${id}`
+          `https://ewaste-dec20-dev-api.azurewebsites.net/admin/user/pending/${id}`
         );
         console.log(userData.data);
         setUser(userData.data);

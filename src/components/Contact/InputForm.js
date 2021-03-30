@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { Form, Button, FormLabel } from 'react-bootstrap';
 import './contactStyle.css';
-//  import toast, { Toaster } from 'react-hot-toast';
 import { ToastContainer, toast } from 'react-toastify';
 import { Redirect, useHistory } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,7 +8,6 @@ import Swal from 'sweetalert2'
 
 const API_URL = 'https://ewaste-dec20-dev-api.azurewebsites.net/contacts';
 
-// const notify = () => toast.success('Submitted successfully!', {position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 
 export const InputForm = () => {
 
@@ -47,7 +44,7 @@ export const InputForm = () => {
         }, 3000);
 
         // <Redirect to= "/ContactUs"/>
-        console.log(res.data)
+        
         Swal.fire('Submitted sucessfully!')
 
 
