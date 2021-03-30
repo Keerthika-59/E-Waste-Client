@@ -125,7 +125,8 @@ export const RepForm = (props) => {
                                         </div>
 
                                         <div className="row px-3 mb-4">
-                                            <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input" /> <label for="chk1" className="custom-control-label text-sm">Remember me</label> </div>
+                                          {/* <br/> */}
+                                            {/* <div className="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" className="custom-control-input" /> <label for="chk1" className="custom-control-label text-sm">Remember me</label> </div> */}
                                              {/* <a href="/" className="ml-auto mb-0 text-sm">Forgot Password?</a> */}
                                         </div>
 
