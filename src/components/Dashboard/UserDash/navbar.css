@@ -10,6 +10,7 @@
 .sidenav-menu {
 
   background-color: #004430;
+  height: 100vh;
   width: fit-content;
   display: flex;
   justify-content: center;

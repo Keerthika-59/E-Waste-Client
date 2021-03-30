@@ -18,10 +18,10 @@
 .sidenav-menuad {
   background-color: #004430;
   width: 270px;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
-  position: fixed;
+  /* position: fixed; */
   top: 100;
   left: -100%;
   transition: 850ms;
