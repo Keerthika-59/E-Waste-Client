@@ -10,6 +10,7 @@ import AuthApi from "../../authAPI";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2'
+import {Spinner } from 'react-bootstrap'
 
 const notify = () => toast.success('User logged in successfully!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
 const notify1 = () => toast.error('Email or password is incorrect!',{position: toast.POSITION.TOP_RIGHT}, {autoClose:5000});
@@ -24,6 +25,8 @@ export const UserForm = (props) => {
             props.history.push("/UserDash");
         }
     };
+
+    const [loading,setLoading]=useState(false);
 
     useEffect(() => {
         readCookies();
@@ -40,6 +43,7 @@ export const UserForm = (props) => {
             onSubmit={async (values, { resetForm, setSubmitting }) => {
                 try {
                     if (values.email && values.password) {
+                        setLoading(true);
                       const login = await APIHelper.loginUser({
                         email: values.email,
                         password: values.password,
@@ -51,8 +55,11 @@ export const UserForm = (props) => {
                       setTimeout(() => {
                         setSubmitting(false);
                       }, 1000);
+                      setLoading(false);
+
                     }
                   } catch (err) {
+                    setLoading(false);
                     Swal.fire('Login not approved!',
                     'Invalid login credentails',
                     'warning')
@@ -122,7 +129,12 @@ export const UserForm = (props) => {
                                         </div>
 
                                         <div className="row mb-3 px-3">
-                                            <button type="submit" className="btn btn-blue text-center"> Login </button>
+                                            <button type="submit" className="btn btn-blue text-center">
+                                            {loading && <Spinner animation="border" size="sm" variant="light" />} 
+                                                 Login 
+
+                                             </button>
+
                                             
                                             <ToastContainer limit={1}/>
                                         </div>
