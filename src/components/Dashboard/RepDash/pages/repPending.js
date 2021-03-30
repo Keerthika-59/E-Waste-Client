@@ -43,12 +43,13 @@ const Pending = () => {
         // console.log(repData.data);
 
         setRep(repData.data);
+
       } catch (err) {
         console.log(err.response);
       }
     };
     fetchRepData();
-  }, []);
+  }, [rep]);
 
   const completed = async (id) => {
 
@@ -61,7 +62,7 @@ const Pending = () => {
       Swal.fire('Completed!',
         'You marked the activity as completed',
         // 'warning'
-        )
+      )
 
     } catch (error) {
 
