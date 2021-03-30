@@ -135,7 +135,7 @@ const TableMessages = () => {
                                                     'The User details has been deleted.',
                                                     // 'success'
                                                 )
-                                                axios.delete(`http://localhost:5000/admin/delete/contact/${comment._id}`)
+                                                axios.delete(`https://ewaste-dec20-dev-api.azurewebsites.net/admin/delete/contact/${comment._id}`)
                                             } else if (result.dismiss === Swal.DismissReason.cancel) {
                                                 Swal.fire(
                                                     'Cancelled',
