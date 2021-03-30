@@ -25,7 +25,7 @@ const SideBar = () => {
     const [show, setShow] = useState(0);
 
     // const showSidebar = () => setSidebar(!sidebar);
-
+    
     return (
         (Auth.auth) ? <div className="sidebar1">
             <IconContext.Provider value={{ color: '#fff' }}>
