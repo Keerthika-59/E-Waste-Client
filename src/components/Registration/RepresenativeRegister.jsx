@@ -29,7 +29,8 @@ const RepresenativeRegister = () => {
 
   const [fileInput, setFileInput] = useState(null);
   const [url, setURL] = useState("");
-  const [upload, setUpload] = useState(true);
+  const [upload, setUpload] = useState(false);
+
   const [errorUpload, setErrorUpload] = useState(false);
   const [fileUpload, setFileUpload] = useState(false);
 
@@ -49,10 +50,11 @@ const RepresenativeRegister = () => {
 
         const url = await storage.ref("images").child(fileInput.name).getDownloadURL();
         setURL(url);
+
         setUpload(true);
         setFileUpload(true);
         setErrorUpload(false);
-        
+        setFileInput(null);
       });
 
     }
@@ -102,11 +104,19 @@ const RepresenativeRegister = () => {
             Swal.fire('Registration Succesfull!')
             setSubmitting(false);
             setUpload(false);
+            setURL("");
+
+            setFileUpload(false);
+            setErrorUpload(false);
+            setFileInput(null);
+
+            return (<Redirect to = "/RepresentativeLogIn" push = {true}/>)
           }, 1000);
         } catch (err) {
           // alert(err.response.data.errorMessage);
           setURL("");
           setFileInput(null);
+          setFileUpload(false);
           setUpload(false);
           document.getElementById('file').value = '';
           Swal.fire('Registration failed!',
@@ -267,7 +277,7 @@ const RepresenativeRegister = () => {
 
                       <div className="col-4">
 
-                        <Button onClick={submitFile} variant={!fileUpload ? 'info' : 'success'} > Upload </Button>
+                        <Button onClick={submitFile} variant={!fileUpload ? 'info' : 'success'} > { !fileUpload ?  "Upload" : "Uploaded"} </Button>
                       </div>
                     </div>
                     <br />
@@ -399,7 +409,8 @@ const RepresenativeRegister = () => {
                         ) : null}
                       </div>
                       <br />
-                      <div className="row mb-3 px-3"> <button type="submit" disabled={!upload} className="btn btn-blue text-center">Register</button> </div>
+
+                      <div className="row mb-3 px-3"> <button type="submit" disabled={!fileUpload && !upload} className="btn btn-blue text-center">Register</button> </div>
                       <ToastContainer limit={1} />
                       <div className="row mb-4 px-3">
                         {" "}
@@ -416,6 +427,7 @@ const RepresenativeRegister = () => {
           </div>
         </Form>
       )}
+
     </Formik>
   );
 };

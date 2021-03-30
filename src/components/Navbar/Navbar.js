@@ -77,10 +77,12 @@ function Navbar() {
 
   const handleLogoutRep = async (e) => {
     e.preventDefault();
+
     Auth.setAuth(false);
     Cookies.remove("repr");
+
     console.log("logged out");
-    <Redirect to="/RepresentativeLogIn" />;
+    return <Redirect to="/RepresentativeLogIn" push = {true} />;
   };
 
   const handleLogoutAdmin = async (e) => {

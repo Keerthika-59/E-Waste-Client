@@ -148,7 +148,7 @@ function Navbar() {
             </div>
           </div>
         </IconContext.Provider>
-        
+           
         {/* <Footer/> */}
       </div>
     ) : (<Redirect to='/UserLogIn' />)
