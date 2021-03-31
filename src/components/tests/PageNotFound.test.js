@@ -1,4 +1,5 @@
 import React from "react";
+import { shallow } from 'enzyme';
 import ReactDOM from "react-dom";
 import { Route } from "react-router-dom";
 import PageNotFound from "../404/PageNotFound";
@@ -12,3 +13,7 @@ test("renders page not found", () => {
     </Route>;
     ReactDOM.unmountComponentAtNode(div);
   });
+  test('should test PageNotFound component', () => {
+    const wrapper = shallow(<PageNotFound />);
+    expect(wrapper).toMatchSnapshot();
+   });

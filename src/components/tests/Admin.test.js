@@ -1,4 +1,5 @@
 import React from "react";
+import { shallow } from 'enzyme';
 import ReactDOM from "react-dom";
 import { Route } from "react-router-dom";
 import AdminCompletedActivities from "../Admin/AdminCompletedActivities";
@@ -20,6 +21,10 @@ test("renders all completed activities", () => {
   </Route>;
   ReactDOM.unmountComponentAtNode(div);
 });
+test('should test AdminCompletedActivities component', () => {
+  const wrapper = shallow(<AdminCompletedActivities />);
+  expect(wrapper).toMatchSnapshot();
+ });
 test("renders all pending activities", () => {
   const div = document.createElement("div");
   <Route>
@@ -29,6 +34,10 @@ test("renders all pending activities", () => {
   </Route>;
   ReactDOM.unmountComponentAtNode(div);
 });
+test('should test AdminPendingActivities component', () => {
+  const wrapper = shallow(<AdminPendingActivities />);
+  expect(wrapper).toMatchSnapshot();
+ });
 test("renders representative completed activities", () => {
   const div = document.createElement("div");
   <Route>
@@ -38,6 +47,10 @@ test("renders representative completed activities", () => {
   </Route>;
   ReactDOM.unmountComponentAtNode(div);
 });
+test('should test RepCompletedActivities component', () => {
+  const wrapper = shallow(<RepCompletedActivities />);
+  expect(wrapper).toMatchSnapshot();
+ });
 
 test("renders sidebar", () => {
   const div = document.createElement("div");
@@ -48,6 +61,10 @@ test("renders sidebar", () => {
   </Route>;
   ReactDOM.unmountComponentAtNode(div);
 });
+test('should test SideBar component', () => {
+  const wrapper = shallow(<SideBar />);
+  expect(wrapper).toMatchSnapshot();
+ });
 test("renders table messages", () => {
   const div = document.createElement("div");
   <Route>
@@ -57,6 +74,10 @@ test("renders table messages", () => {
   </Route>;
   ReactDOM.unmountComponentAtNode(div);
 });
+test('should test TableMessages component', () => {
+  const wrapper = shallow(<TableMessages />);
+  expect(wrapper).toMatchSnapshot();
+ });
 test("renders representatives", () => {
   const div = document.createElement("div");
   <Route>
@@ -66,6 +87,10 @@ test("renders representatives", () => {
   </Route>;
   ReactDOM.unmountComponentAtNode(div);
 });
+test('should test TableRepresentatives component', () => {
+  const wrapper = shallow(<TableRepresentatives />);
+  expect(wrapper).toMatchSnapshot();
+ });
 test("renders users", () => {
   const div = document.createElement("div");
   <Route>
@@ -75,6 +100,10 @@ test("renders users", () => {
   </Route>;
   ReactDOM.unmountComponentAtNode(div);
 });
+test('should test TableUsers component', () => {
+  const wrapper = shallow(<TableUsers />);
+  expect(wrapper).toMatchSnapshot();
+ });
 test("renders verified representatives", () => {
   const div = document.createElement("div");
   <Route>
@@ -84,6 +113,10 @@ test("renders verified representatives", () => {
   </Route>;
   ReactDOM.unmountComponentAtNode(div);
 });
+test('should test TableVerifiedRep component', () => {
+  const wrapper = shallow(<TableVerifiedRep />);
+  expect(wrapper).toMatchSnapshot();
+ });
 test("renders suser completed activities", () => {
   const div = document.createElement("div");
   <Route>
@@ -93,3 +126,7 @@ test("renders suser completed activities", () => {
   </Route>;
   ReactDOM.unmountComponentAtNode(div);
 });
+test('should test UserCompletedActivities component', () => {
+  const wrapper = shallow(<UserCompletedActivities />);
+  expect(wrapper).toMatchSnapshot();
+ });
